@@ -1,0 +1,9 @@
+@import 'vars';
+@import 'fonts';
+
+body {
+    font-family: $base-font-family;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
