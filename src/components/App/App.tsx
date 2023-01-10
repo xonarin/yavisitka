@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from '../../pages/HomePage/HomePage';
 import UI from '../../pages/UI/UI';
-import './App.css';
+import './App.scss';
 
 
 const App = () => {

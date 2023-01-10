@@ -1,0 +1,8 @@
+@import 'mixins';
+
+/* Дефолтные шрифты
+   =============================================== */
+
+@include font-face('IBM', '../../assets/fonts/IBM-Plex-Sans/IBMPlexSans-Regular', 400, normal, eot ttf woff woff2);
+@include font-face('IBM', '../../assets/fonts/IBM-Plex-Sans/IBMPlexSans-Medium', 500, normal, eot ttf woff woff2);
+@include font-face('IBM', '../../assets/fonts/IBM-Plex-Sans/IBMPlexSans-Bold', 700, normal, eot ttf woff woff2);

@@ -1,26 +1,17 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
     "allowJs": true,
-    "skipLibCheck": true,
+    // fix problems for "imports something from 'something'"
     "esModuleInterop": true,
+    // for "imports something from 'something'"
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "module": "commonjs",
+    //Controls how JSX constructs are emitted in JavaScript files.
+    "jsx": "react"
   },
   "include": [
-    "src"
+    "src",
   ]
 }
