@@ -1,11 +1,13 @@
 import React from "react";
+import Logo from '../../components/Logo/Logo';
 
-const UI = () => {
+const Demo = () => {
     return (
         <>
-            Сюда можно вставлять ваши готовые компоненты для демонстрации.
+            Сюда можно вставлять ваши готовые компоненты для демонстрации. <br />
+            <Logo />
         </>
     )
 }
 
-export default UI;
+export default Demo;
