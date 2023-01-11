@@ -4,14 +4,13 @@ import Header from "../../components/Header/Header";
 import Container from "../../components/Container/Container";
 import LinkEntry from "../../components/LinkEntry/LinkEntry";
 import Footer from "../../components/Footer/Footer";
-import styles from './HomePage.module.scss';
+import styles from './LoginPage.module.scss';
 
-const cnStyles = cn(styles, 'HomePage');
+const cnStyles = cn(styles, 'LoginPage');
 
 const Home = () => {
     return (
         <>
-            <Header />
             <main className={cnStyles()}>
                 <Container>
                     <div className={cnStyles('container')}>
@@ -20,7 +19,6 @@ const Home = () => {
                     </div>
                 </Container>
             </main>
-            <Footer />
         </>
     )
 }
