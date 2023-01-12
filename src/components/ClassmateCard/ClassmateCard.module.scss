@@ -1,0 +1,88 @@
+@import "../../assets/styles/vars.scss";
+
+.ClassmateCard {
+  min-width: 325px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 393px;
+  justify-content: space-between;
+  text-decoration: none;
+  box-sizing: border-box;
+
+  &-figure {
+    margin: 0;
+  }
+
+  &-matePhoto {
+    display: block;
+    width: 100%;
+    height: 325px;
+    object-fit: cover;
+  }
+
+  &-captionContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 11px;
+  }
+
+  &-captionPrimary {
+    font-size: $font-size-20;
+    line-height: $line-height-28;
+    color: $text-dark;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &-captionSecondary {
+    font-size: $font-size-16;
+    line-height: $line-height-24;
+    color: $text-light;
+    margin: 5px 0;
+    padding: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &-captionSecondary:last-of-type {
+    margin: 0;
+  }
+
+}
+
+.ClassmateCard:hover .ClassmateCard-matePhoto {
+  border: 2px solid $neon-pink;
+}
+
+.ClassmateCard:hover .ClassmateCard-captionPrimary {
+  color: $neon-pink;
+}
+
+@media screen and (max-width: 1024px) {
+  .ClassmateCard {
+    min-width: 342px;
+    min-height: 410px;
+
+    &-matePhoto {
+      height: 342px;
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .ClassmateCard {
+    min-width: 272px;
+    min-height: 340px;
+
+    &-matePhoto {
+      height: 272px;
+    }
+  }
+}
