@@ -2,6 +2,7 @@ import React from "react";
 import styles from './HomePage.module.scss';
 import {cn} from "../../utils/bem-css-module";
 import {Link} from "react-router-dom";
+import ClassmateCard from "../../components/ClassmateCard/ClassmateCard";
 
 const cnStyles = cn(styles, 'HomePage');
 
@@ -15,18 +16,14 @@ const HomePage = () => {
             </div>
             <div className={cnStyles('cardContainer')}>
                 {/* здесь будет отрисовываться массив карточек */}
-                <div>ffffffff</div>
-                <div>ffffffff</div>
-                <div>ffffffff</div>
-                <div>ffffffff</div>
-                <div>ffffffff</div>
-                <div>ffffffff</div>
-                <div>ffffffff</div>
-                <div>ffffffff</div>
-                <div>ffffffff</div>
-                <div>ffffffff</div>
-                <div>ffffffff</div>
-                <div>ffffffff</div>
+                <ClassmateCard/>
+                <ClassmateCard/>
+                <ClassmateCard/>
+                <ClassmateCard/>
+                <ClassmateCard/>
+                <ClassmateCard/>
+                <ClassmateCard/>
+                <ClassmateCard/>
             </div>
         </div>
     )
