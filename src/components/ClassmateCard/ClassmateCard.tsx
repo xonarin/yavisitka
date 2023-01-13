@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 const cnStyles = cn(styles, 'ClassmateCard');
 
 const ClassmateCard = () => {
-    const photo = require('../../utils/testPic.jpg');
+    const photo = require('../../images/testPic.jpg');
     return (
         <Link to={'/user'} className={cnStyles()}>
             <figure className={cnStyles('figure')}>
