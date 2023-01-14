@@ -10,85 +10,88 @@
 
 <body class="page">
   <main class="profile">
-        <form action="#" class="form" name="#">
-          <label class="add-photo" for="fullName">
-            <div class="add-photo__title">
-              Загрузите фото *
-            </div>
-            <div class="add-photo__subtitle">
-              (размер не менее 440х440 пикселей)
-            </div>
-          </label>
-          <div class="add-photo__input" >
-            <input type="file" class="photo" name="photo" id="photo" accept="image/*" multiple required />
-            <img class="avatar" src="" />
-          </div>
-          <label class="form-name" for="birthday">Дата рождения *</label>
-          <div class="form-input">
-            <input type="date" class="input-text date" name="#" id="birthday" required/>
-          </div>
-          <label class="form-name" for="place">Выберете город *</label>
-          <div class="form-input">
-            <select class="input-text select" required>
-              <option>Москва</option>
-              <option>Таганрог</option>
-            </select>
-          </div>
-          <label class="form-name" for="nickname">Ник в телеграм</label>
-          <div class="form-input">
-            <input type="text" class="input-text" name="#" placeholder="Если хотите от кого-то скрыться"
-              id="nickname" />
-          </div>
-          <label class="form-name" for="nickname">Ник на гитхабе</label>
-          <div class="form-input">
-            <input type="text" class="input-text" name="#" placeholder="Если хотите от кого-то скрыться"
-              id="nickname" />
-          </div>
-          <label class="form-name" for="place">Выберете шаблон</label>
-          <div class="form-input">
-            <select class="input-text select">
-              <option>серьезный</option>
-              <option>романтичный</option>
-              <option>дерзкий</option>
-            </select>
-          </div>
-          <label class="form-name" for="avatar">Девиз, цитата</label>
-          <div class="form-input">
-            <textarea type="textarea" placeholder="Не более 100 символов" class="input-text textarea" name="#" id="nickname"></textarea>
-          </div>
-          <label class="form-name" for="avatar">Увлечение, досуг, интересы</label>
-          <div class="form-input">
-            <div class="input-text">
-            <input type="file" class="photo-text" name="photo" id="photo" accept="image/*" multiple />
-            <span class="add">
-
-            </span>
-          </div>
-            <p class="span alert">Рекомедуемый размер фото 230х129</p>
-            <textarea type="textarea" placeholder="Не более 300 символов" class="input-text textarea" name="#" id="nickname"></textarea>
-          </div>
-          <label class="form-name" for="avatar">Семья, статус, домашние животные</label>
-          <div class="form-input">
-            <div class="input-text">
-            <input type="file" class="photo-text" name="photo" id="photo" accept="image/*" multiple />
+    <form action="#" class="form" name="#">
+      <label class="add-photo" for="avatar">
+        <div class="add-photo__title">
+          Загрузите фото *
+        </div>
+        <div class="add-photo__subtitle">
+          (размер не менее 440х440 пикселей)
+        </div>
+      </label>
+      <div class="add-photo__input">
+        <input type="file" class="photo" name="avatar" id="avatar" accept="image/*" multiple required />
+        <img class="avatar" src="" />
+      </div>
+      <label class="form-name" for="birthday">Дата рождения *</label>
+      <div class="form-input">
+        <input type="date" class="input-text date" name="#" id="birthday" required />
+      </div>
+      <label class="form-name" for="place">Выберете город *</label>
+      <div class="form-input">
+        <select class="input-text select" id="place" name="place" required>
+          <option>Москва</option>
+          <option>Таганрог</option>
+        </select>
+      </div>
+      <label class="form-name" for="telegram">Ник в телеграм</label>
+      <div class="form-input">
+        <input type="text" class="input-text" name="#" placeholder="Если хотите от кого-то скрыться" id="telegram" />
+      </div>
+      <label class="form-name" for="girhub">Ник на гитхабе</label>
+      <div class="form-input">
+        <input type="text" class="input-text" name="#" placeholder="Если хотите от кого-то скрыться" id="github" />
+      </div>
+      <label class="form-name" for="stile">Выберете шаблон</label>
+      <div class="form-input">
+        <select class="input-text select" id="stile" name="stile">
+          <option>серьезный</option>
+          <option>романтичный</option>
+          <option>дерзкий</option>
+        </select>
+      </div>
+      <label class="form-name" for="thesis">Девиз, цитата</label>
+      <div class="form-input">
+        <textarea type="textarea" placeholder="Не более 100 символов" class="input-text textarea" name="#"
+          id="thesis"></textarea>
+      </div>
+      <label class="form-name" for="hobbies">Увлечение, досуг, интересы</label>
+      <div class="form-input">
+        <div class="input-text">
+          <input type="file" class="photo-text" name="hobbies" id="hobbies" accept="image/*" multiple />
           <span class="add">
 
           </span>
-          </div>
-            <p class="span alert">Рекомедуемый размер фото 230х129</p>
-            <textarea type="textarea" placeholder="Не более 300 символов" class="input-text textarea" name="#" id="nickname"></textarea>
-          </div>
-          <label class="form-name" for="avatar">Из какой сферы пришел? Кем работаешь?</label>
-          <div class="form-input">
-            <textarea type="textarea" placeholder="Не более 300 символов" class="input-text textarea" name="#" id="nickname"></textarea>
-          </div>
-          <label class="form-name" for="avatar">Почему решил учиться на веб-разработчика?</label>
-          <div class="form-input">
-            <textarea type="textarea" placeholder="Не более 300 символов" class="input-text textarea" name="#" id="nickname"></textarea>
-          </div>
-          <p class="span">Поля, отмеченный звездочкой, обязательные для заполнения</p>
-          <input class="btn" type="submit" value="Сохранить изменения" />
-      </form>
+        </div>
+        <p class="span alert">Рекомедуемый размер фото 230х129</p>
+        <textarea type="textarea" placeholder="Не более 300 символов" class="input-text textarea" name="#"
+          id="hobbies"></textarea>
+      </div>
+      <label class="form-name" for="family">Семья, статус, домашние животные</label>
+      <div class="form-input">
+        <div class="input-text">
+          <input type="file" class="photo-text" name="family" id="family" accept="image/*" multiple />
+          <span class="add">
+
+          </span>
+        </div>
+        <p class="span alert">Рекомедуемый размер фото 230х129</p>
+        <textarea type="textarea" placeholder="Не более 300 символов" class="input-text textarea" name="#"
+          id="family"></textarea>
+      </div>
+      <label class="form-name" for="job">Из какой сферы пришел? Кем работаешь?</label>
+      <div class="form-input">
+        <textarea type="textarea" placeholder="Не более 300 символов" class="input-text textarea" name="#"
+          id="job"></textarea>
+      </div>
+      <label class="form-name" for="why">Почему решил учиться на веб-разработчика?</label>
+      <div class="form-input">
+        <textarea type="textarea" placeholder="Не более 300 символов" class="input-text textarea" name="#"
+          id="why"></textarea>
+      </div>
+      <p class="span">Поля, отмеченный звездочкой, обязательные для заполнения</p>
+      <input class="btn" type="submit" value="Сохранить изменения" />
+    </form>
   </main>
 </body>
 
