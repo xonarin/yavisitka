@@ -10,12 +10,13 @@ const cnStyles = cn(styles, 'HomePage');
 
 const HomePage = () => {
     const [cards, setCards] = useState({data: [], page: 1});
-    const [isLoading, setIsLoadindg] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const portion = 12;
     const totalPages = Math.ceil(100 / portion);
-
-
+console.log(isLoading);
+    //функция запроса карточек
     const getNewCards = () => {
+        setIsLoading(true);
         axios
             .get("https://jsonplaceholder.typicode.com/photos", {
                 params: {
@@ -24,8 +25,16 @@ const HomePage = () => {
                 },
             })
             .then(({data}) => {
-                setCards({data: [...cards.data, ...data], page: cards.page + 1});
-            });
+                //setCards({data: [...cards.data, ...data], page: cards.page + 1});
+                //setIsLoading(false);
+                // Optional code to simulate delay
+                setTimeout(() => {
+                    setCards({data: [...cards.data, ...data], page: cards.page + 1});
+                    setIsLoading(false);
+                }, 1000);
+
+            })
+
     };
 
     //загрузка самой первой порции данных
@@ -40,11 +49,10 @@ const HomePage = () => {
 
     function handleScroll() {
         if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-        setIsLoadindg(true);
+        setIsLoading(true);
     }
 
     useEffect(() => {
-        console.log(isLoading)
         if (!isLoading) return;
         fetchMoreCards();
     }, [isLoading]);
@@ -52,10 +60,14 @@ const HomePage = () => {
     function fetchMoreCards() {
         if (cards.page < totalPages) {
             getNewCards();
-            setIsLoadindg(false);
         }
-        setIsLoadindg(false);
+        setIsLoading(false);
     }
+
+    const cardsArray = cards.data.map((item) => {
+        // @ts-ignore
+        return <ClassmateCard key={item.id} info={item}/>;
+    })
 
     return (
         <main className={cnStyles()}>
@@ -64,13 +76,8 @@ const HomePage = () => {
                 {/* здесь будет компонент с выбором и сортировкой городов */}
                 <Link to={'/map'} className={cnStyles('mapLink')}>Посмотреть на карте</Link>
             </div>
-            <div className={cnStyles('cardContainer')}>
-                {cards.data.map((item) => {
-                    // @ts-ignore
-                    return <ClassmateCard key={item.id} info={item}/>;
-                })}
-            </div>
-            {isLoading && <LoadingSpinner/>}
+            <div className={cnStyles('cardContainer')}>{cardsArray}</div>
+            {!isLoading && <LoadingSpinner/>}
         </main>
     )
 }

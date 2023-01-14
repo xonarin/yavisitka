@@ -13,13 +13,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px;
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
-  background: white;
-  box-sizing: content-box;
-  transform: translateX(2px);
+  min-height: 200px;
+  flex-grow: 2;
+
+
 
   &-spinner {
     width: 29px;
