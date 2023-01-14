@@ -5,12 +5,13 @@ import {cn} from "../../utils/bem-css-module";
 import {Link} from "react-router-dom";
 import ClassmateCard from "../../components/ClassmateCard/ClassmateCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import DropdownMenu from "../../components/DropdownCitiesHomePage/DropdownCitiesHomePage";
 
 const cnStyles = cn(styles, 'HomePage');
 
 const HomePage = () => {
     const [cards, setCards] = useState({data: [], page: 1});
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const portion = 12;
     const totalPages = Math.ceil(100 / portion);
     const cardsArray = cards.data.map((item) => {
@@ -38,7 +39,7 @@ const HomePage = () => {
                 .then(({data}) => {
                     //setCards({data: [...cards.data, ...data], page: cards.page + 1});
                     //setIsLoading(false);
-                    // Optional code to simulate delay
+                     //Optional code to simulate delay
                     setTimeout(() => {
                         setCards({data: [...cards.data, ...data], page: cards.page + 1});
                         setIsLoading(false);
@@ -46,19 +47,16 @@ const HomePage = () => {
 
                 })
         }
-        setIsLoading(false);
     };
 
     function handleScroll() {
         if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
-        setIsLoading(true);
     }
 
     return (
         <main className={cnStyles()}>
             <div className={cnStyles('optionsContainer')}>
-                <div>Заглушка</div>
-                {/* здесь будет компонент с выбором и сортировкой городов */}
+                <DropdownMenu/>
                 <Link to={'/map'} className={cnStyles('mapLink')}>Посмотреть на карте</Link>
             </div>
             <div className={cnStyles('cardContainer')}>{cardsArray}</div>
