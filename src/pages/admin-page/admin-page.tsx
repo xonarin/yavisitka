@@ -1,44 +1,48 @@
+// @import "../../assets/styles/vars.scss";
+
 import React from "react";
 import styles from "./admin-page.module.scss";
 import { cn } from "../../utils/bem-css-module";
 import Container from "../../components/Container/Container";
-import {
-  NavLink,
-  Link,
-  Outlet,
-  redirect,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
-const cnStyles = cn(styles, "HomePage");
+const cnStyles = cn(styles, "AdminPage");
+
 let activeStyle = {
-  textDecoration: "underline",
-  color: "red",
-  fontWeight: "bold",
+  color: "black",
 };
+console.log(cnStyles() + "   1");
 
 export const AdminPage = () => {
   return (
     <Container>
-      <p> Тут будет AdminPage</p>
+      <main className={cnStyles()}>
+        <nav className={cnStyles("nav")}>
+          <ul
+            className={cnStyles("nav-list") + " " + cnStyles("nav-list-link")}
+          >
+            <li>
+              <NavLink
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                to="users"
+              >
+                СТУДЕНТЫ
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to=""
+                style={({ isActive }) => (isActive ? activeStyle : undefined)}
+                end
+              >
+                КОММЕНТАРИИ
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
 
-      <NavLink
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
-        to="users"
-      >
-        СТУДЕНТЫ
-      </NavLink>
-
-      <NavLink
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
-        to=""
-        end
-      >
-        КОММЕНТАРИИ
-      </NavLink>
-
-      <Outlet />
+        <Outlet />
+      </main>
     </Container>
   );
 };
