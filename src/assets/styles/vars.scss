@@ -2,7 +2,7 @@
 $base-font-family: IBM, Arial, sans-serif;
 
 /* Цвета */
-$text-dark: #000;
+$text-dark: #100C34;
 $text-light: #A3A3A3;
 $input-hover: #666;
 $placeholder: #83828F;
@@ -13,18 +13,22 @@ $link-gray: #F0F0F0;
 $hover-gray: #BFBFBF;
 
 /* Типография */
-$font-weight-500: 500; 
-$font-weight-600: 600; 
-$font-weight-700: 700; 
+$font-weight-400: 400;
+$font-weight-500: 500;
+$font-weight-600: 600;
+$font-weight-700: 700;
 
 $font-size-60: 60px;
 $font-size-40: 40px;
 $font-size-32: 32px;
 $font-size-24: 24px;
 $font-size-20: 20px;
+$font-size-16: 16px;
 $font-size-14: 14px;
 
+
 $line-height-60: 60px;
+$line-height-52: 52px;
 $line-height-40: 40px;
 $line-height-32: 32px;
 $line-height-28: 28px;

@@ -1,0 +1,24 @@
+@import '../../assets/styles/vars.scss';
+
+.ProfileChangePage {
+    padding-top: 200px;
+    height: calc(100vh - 379px);
+
+    &-container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &-title {
+        font-weight: $font-weight-700;
+        font-size: $font-size-40;
+        line-height: $line-height-52;
+        margin: 0 0 72px 0;
+    }
+}
+
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
