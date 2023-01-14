@@ -17,7 +17,7 @@ type TProps = {
 }
 
 const ClassmateCard: FC<TProps> = (props) => {
-    const photo = require('../../images/testPic.jpg');
+    //const photo = require('../../images/testPic.jpg');
     return (
         <Link to={'/user'} className={cnStyles()}>
             <figure className={cnStyles('figure')}>
