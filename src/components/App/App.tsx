@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import {Routes, Route, useSearchParams} from 'react-router-dom';
 import { getToken, updateToken } from '../../services/auth/auth';
@@ -13,6 +14,7 @@ import './App.module.scss';
 
 
 const App = () => {
+
     const [search, setSearch] = useSearchParams();
     const yandexCodeId = search.get('code');
     
@@ -37,6 +39,7 @@ const App = () => {
                     </Route>
                 </Route>
             </Routes>
+
         </>
     )
 }
