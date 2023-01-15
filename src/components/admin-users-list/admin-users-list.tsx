@@ -1,6 +1,6 @@
 import React from "react";
 
-export const UsersList = () => {
+export const AdminUsersList = () => {
     return (
         <p>Компонент Users List</p>
     )

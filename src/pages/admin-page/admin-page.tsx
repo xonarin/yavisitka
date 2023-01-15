@@ -11,7 +11,6 @@ const cnStyles = cn(styles, "AdminPage");
 let activeStyle = {
   color: "black",
 };
-console.log(cnStyles() + "   1");
 
 export const AdminPage = () => {
   return (

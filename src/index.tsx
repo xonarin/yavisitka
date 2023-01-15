@@ -1,5 +1,6 @@
 import React from 'react';
-import {HashRouter as Router} from "react-router-dom";
+// import {HashRouter as Router} from "react-router-dom";
+import {BrowserRouter as Router} from "react-router-dom";
 import ReactDOM from 'react-dom/client';
 import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
