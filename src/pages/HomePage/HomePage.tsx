@@ -1,22 +1,31 @@
 import React from "react";
+import styles from './HomePage.module.scss';
+import {cn} from "../../utils/bem-css-module";
+import {Link} from "react-router-dom";
+import ClassmateCard from "../../components/ClassmateCard/ClassmateCard";
+
+const cnStyles = cn(styles, 'HomePage');
 
 const HomePage = () => {
-    // const baseURL = "https://visitki.practicum-team.ru/api";
-    // const checkResponse = (res)  => {
-    //     if (!res.ok) {
-    //         return Promise.reject(`Ошибка: ${res.status}`);
-    //     }
-    //     return res.json();
-    // };
-    // const getInfo = async () => {
-    //     const res = await fetch(`${baseURL}/comments`);
-    //     return checkResponse(res);
-    // };
-    // getInfo();
     return (
-        <>
-            <div>Test</div>
-        </>
+        <div className={cnStyles()}>
+            <div className={cnStyles('optionsContainer')}>
+                <div>Заглушка</div>
+                {/* здесь будет компонент с выбором и сортировкой городов */}
+                <Link to={'/map'} className={cnStyles('mapLink')}>Посмотреть на карте</Link>
+            </div>
+            <div className={cnStyles('cardContainer')}>
+                {/* здесь будет отрисовываться массив карточек */}
+                <ClassmateCard/>
+                <ClassmateCard/>
+                <ClassmateCard/>
+                <ClassmateCard/>
+                <ClassmateCard/>
+                <ClassmateCard/>
+                <ClassmateCard/>
+                <ClassmateCard/>
+            </div>
+        </div>
     )
 }
 
