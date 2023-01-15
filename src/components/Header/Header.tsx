@@ -14,10 +14,11 @@ const Header = () => {
         <div className={cnStyles("wrap")}>
           <Logo />
           <nav>
-            <NavLink to="/">Главная | </NavLink>
-            <NavLink to="/login">Вход | </NavLink>
-            <NavLink to="/admin">Админ Главная | </NavLink>
-            <NavLink to="/admin/users">Админ Юзерс</NavLink>
+            <NavLink to="/">HOME | </NavLink>
+            <NavLink to="/detail">DETAIL | </NavLink>
+            <NavLink to="/profile">PROFILE |</NavLink>
+            <NavLink to="/admin">ADMIN | </NavLink>
+            {/* <NavLink to="/admin/users">Админ Юзерс</NavLink> */}
           </nav>
         </div>
       </Container>
