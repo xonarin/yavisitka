@@ -3,6 +3,8 @@ import {Routes, Route, useSearchParams} from 'react-router-dom';
 import { getToken, updateToken } from '../../services/auth/auth';
 import Layout from '../../components/Layout/Layout';
 import HomePage from "../../pages/HomePage/HomePage";
+import DetailPage from "../../pages/DetailPage/DetailPage";
+
 import LoginPage from "../../pages/LoginPage/LoginPage";
 import AuthRouter from '../../components/AuthProtectedRouter/AuthProtectedRouter';
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
