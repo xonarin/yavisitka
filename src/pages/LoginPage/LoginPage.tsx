@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { cn } from "../../utils/bem-css-module";
-import Header from "../../components/Header/Header";
 import Container from "../../components/Container/Container";
 import LinkEntry from "../../components/LinkEntry/LinkEntry";
-import Footer from "../../components/Footer/Footer";
 import styles from './LoginPage.module.scss';
 
 const cnStyles = cn(styles, 'LoginPage');
 
-const Home = () => {
+const LoginPage = () => {
+
     return (
         <>
             <main className={cnStyles()}>
@@ -23,4 +22,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default LoginPage;

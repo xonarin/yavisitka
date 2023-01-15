@@ -1,23 +1,40 @@
-import React from 'react';
-import {Routes, Route} from 'react-router-dom';
-import Login from '../../pages/LoginPage/LoginPage';
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
+import React, { useEffect } from 'react';
+import {Routes, Route, useSearchParams} from 'react-router-dom';
+import { getToken, updateToken } from '../../services/auth/auth';
+import Layout from '../../components/Layout/Layout';
 import HomePage from "../../pages/HomePage/HomePage";
-import UI from '../../pages/UI/UI';
+import LoginPage from "../../pages/LoginPage/LoginPage";
+import AuthRouter from '../../components/AuthProtectedRouter/AuthProtectedRouter';
+import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 import './App.module.scss';
 
 
+
 const App = () => {
+    const [search, setSearch] = useSearchParams();
+    const yandexCodeId = search.get('code');
+    
+    useEffect(() => {
+        localStorage.getItem("refreshToken") && updateToken();
+      }, [])
+
+    useEffect(() => {
+        yandexCodeId && getToken(yandexCodeId);
+      }, [search])
+
+
     return (
         <>
-            <Header/>
             <Routes>
-                <Route path='/login' element={<Login/>}/>
-                <Route path='/ui' element={<UI/>}/>
-                <Route path='/' element={<HomePage/>}/>
+                <Route element={<Layout />}>
+                    <Route element={<ProtectedRoute />}>
+                        <Route index element={<HomePage />} />
+                    </Route>
+                    <Route element={<AuthRouter />}>
+                        <Route path='/login' element={<LoginPage />} />
+                    </Route>
+                </Route>
             </Routes>
-            <Footer/>
         </>
     )
 }
