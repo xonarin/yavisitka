@@ -23,7 +23,7 @@ const usersGet = {
 }
 
 // url: https://visitki.practicum-team.ru/api/profiles
-const profilesGet = {
+export const profilesGet = {
     "total": 2,
     "items": [
         {

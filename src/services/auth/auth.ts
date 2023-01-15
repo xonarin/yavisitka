@@ -46,7 +46,6 @@ export const updateToken = async () => {
         localStorage.removeItem("refreshToken");
         setCookie('token', data.access_token, { secure: true, 'max-age': data.expires_in })
         localStorage.setItem("refreshToken", data.refresh_token);
-
     } catch (error) {
         console.log(`Ошибка: ${error}`);
     }
