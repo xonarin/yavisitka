@@ -25,7 +25,7 @@ const HomePage = () => {
     const [cards, setCards] = useState({data: [], page: 1});
     const [isLoading, setIsLoading] = useState(false);
     const portion = 12;
-    const totalPages = Math.ceil(13 / portion);
+    const totalPages = Math.ceil(50 / portion);
     const cardsArray = cards.data.map((item) => {
         // @ts-ignore
         return <ClassmateCard key={item.id} info={item}/>;
