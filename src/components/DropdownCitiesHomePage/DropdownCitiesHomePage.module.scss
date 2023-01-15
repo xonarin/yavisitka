@@ -1,1 +1,74 @@
 @import "../../assets/styles/vars.scss";
+
+
+.DropdownMenu {
+  display: inline-block;
+  width: 325px;
+  text-align: left;
+  position: relative;
+  font-family: $base-font-family;
+  font-size: $font-size-16;
+  color: $text-dark;
+
+  &-select {
+    background-color: transparent;
+    padding: 12px 16px;
+    border: 1px solid $text-dark;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &-select:hover {
+    color: $placeholder;
+    border: 1px solid $placeholder;
+  }
+
+  &-text {
+    padding: 0;
+    margin: 0;
+  }
+
+  &-arrow {
+    display: block;
+    width: 15px;
+    height: 7.5px;
+    object-fit: contain;
+  }
+
+  &-select-options {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    position: absolute;
+    width: 100%;
+    max-height: 245px;
+    z-index: 99;
+    overflow-y: auto;
+    scrollbar-color: $text-light white;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+
+  }
+
+  &-custom-select-option {
+    list-style-type: none;
+    padding: 12px 16px;
+    margin: 0;
+    background: white;
+    border: .5px solid $text-dark;
+    cursor: pointer;
+  }
+
+  &-custom-select-option:hover {
+    color: $placeholder;
+  }
+
+
+}
+
+.DropdownMenu:hover {
+  cursor: pointer;
+}

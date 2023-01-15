@@ -8,12 +8,24 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import DropdownMenu from "../../components/DropdownCitiesHomePage/DropdownCitiesHomePage";
 
 const cnStyles = cn(styles, 'HomePage');
+const cities = [
+    { id: 1, name: "Москва" },
+    { id: 2, name: "Санкт-Петербург" },
+    { id: 3, name: "Самара" },
+    { id: 4, name: "Казань" },
+    { id: 5, name: "Пермь" },
+    { id: 6, name: "Магнитогорск" },
+    { id: 7, name: "Тюмень" },
+    { id: 8, name: "Новосибирск" },
+    { id: 9, name: "Тула" },
+    { id: 10, name: "Рязань" }
+]
 
 const HomePage = () => {
     const [cards, setCards] = useState({data: [], page: 1});
     const [isLoading, setIsLoading] = useState(false);
     const portion = 12;
-    const totalPages = Math.ceil(100 / portion);
+    const totalPages = Math.ceil(13 / portion);
     const cardsArray = cards.data.map((item) => {
         // @ts-ignore
         return <ClassmateCard key={item.id} info={item}/>;
@@ -56,7 +68,7 @@ const HomePage = () => {
     return (
         <main className={cnStyles()}>
             <div className={cnStyles('optionsContainer')}>
-                <DropdownMenu/>
+                <DropdownMenu defaultText={'Все города'} optionsList={cities}/>
                 <Link to={'/map'} className={cnStyles('mapLink')}>Посмотреть на карте</Link>
             </div>
             <div className={cnStyles('cardContainer')}>{cardsArray}</div>
