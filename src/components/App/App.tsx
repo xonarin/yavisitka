@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import {Routes, Route, useSearchParams} from 'react-router-dom';
 import { getToken, updateToken } from '../../services/auth/auth';
@@ -42,5 +43,24 @@ const App = () => {
         </>
     )
 }
+
+
+//   return (
+//     <>
+//       <Header />
+//       <Routes>
+//         <Route path="/" element={<HomePage />} />
+//         <Route path="login" element={<Login />} />
+//         <Route path="ui" element={<UI />} />
+//         <Route path="admin" element={<AdminPage />}>
+//           <Route index element={<AdminCommentsBlock />} />
+//           <Route path="users" element={<AdminUsersBlock />} />
+//         </Route>
+//         <Route path="*" element={<Page404 />} />
+//       </Routes>
+//       <Footer />
+//     </>
+//   );
+// };
 
 export default App;
