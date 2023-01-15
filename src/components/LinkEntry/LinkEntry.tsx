@@ -7,9 +7,9 @@ const cnStyles = cn(styles, 'Link');
 
 const LinkEntry = () => {
     return (
-        <Link to={'/'} className={cnStyles()}>
+        <a href={'https://oauth.yandex.ru/authorize?response_type=code&client_id=5943887238384dbab2c210bf0dddd07d'} className={cnStyles()}>
             Войти с Яндекс ID
-        </Link>
+        </a>
     )
 }
 
