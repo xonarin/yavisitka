@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import {Routes, Route, useSearchParams} from 'react-router-dom';
 import { getToken, updateToken } from '../../services/auth/auth';
