@@ -1,19 +1,19 @@
-import React, { useEffect } from "react";
-import {Outlet, useNavigate, useLocation} from "react-router-dom";
+import React, { FC, useEffect } from "react";
+import {Outlet, Navigate, useLocation} from "react-router-dom";
 import { getCookie } from "../../utils/cookie";
 
-const ProtectedRoute = () => {
+interface ProtectedRouteProps {
+  children: React.ReactElement
+}
+
+const ProtectedRoute: FC<ProtectedRouteProps> = ({children}) => {
   const location = useLocation();
-  const navigate = useNavigate();
 
-
-  useEffect(() => {
     if (!getCookie('token')) {
-      navigate("/login", {state: location.pathname});
+      return <Navigate to="/login" state={{from: location}} />;
     }
-  }, [navigate, location]);
 
-  return <Outlet />;
+  return children;
 }
 
 export default ProtectedRoute;

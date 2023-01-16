@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Logo from "../../components/Logo/Logo";
 import { cn } from "../../utils/bem-css-module";
@@ -12,6 +13,7 @@ const Header = () => {
             <Container>
                 <div className={cnStyles('wrap')}>
                     <Logo />
+                    <Link to="/map">sdfsd</Link>
                 </div>
             </Container>
         </header>

@@ -29,14 +29,11 @@ const App = () => {
         <>
             <Routes>
                 <Route element={<Layout />}>
-                    <Route element={<ProtectedRoute />}>
-                        <Route index element={<HomePage />} />
-                        <Route path="map" element={<MapsPage />} />
-                    </Route>
+                    <Route index element={<ProtectedRoute children={<HomePage />} />} />
+                    <Route path="map" element={<ProtectedRoute children={<MapsPage />} />} />
                     <Route element={<AuthRouter />}>
                         <Route path='/login' element={<LoginPage />} />
                     </Route>
-                    <Route path='/ui' element={<Demo />} />
                 </Route>
             </Routes>
         </>
