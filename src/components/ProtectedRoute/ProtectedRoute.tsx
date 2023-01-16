@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, JSXElementConstructor, useEffect } from "react";
 import {Outlet, Navigate, useLocation} from "react-router-dom";
 import { getCookie } from "../../utils/cookie";
 

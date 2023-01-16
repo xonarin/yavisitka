@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import { cn } from "../../utils/bem-css-module";
 import Container from "../../components/Container/Container";
@@ -6,8 +7,8 @@ import styles from './LoginPage.module.scss';
 
 const cnStyles = cn(styles, 'LoginPage');
 
-const LoginPage = () => {
 
+const LoginPage = () => {
     return (
         <>
             <div className={cnStyles()}>
@@ -21,5 +22,6 @@ const LoginPage = () => {
         </>
     )
 }
+
 
 export default LoginPage;
