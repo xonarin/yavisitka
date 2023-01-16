@@ -22,7 +22,7 @@ const App = () => {
   useEffect(() => {
     localStorage.getItem("refreshToken") && updateToken();
     setTimeout(() => {
-      if (getCookie('token')) {
+      if (yandexCodeId && getCookie('token')) {
           navigate("/", {state: location.pathname});
         }
     }, 1000);
