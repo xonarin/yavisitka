@@ -11,14 +11,14 @@ const cnStyles = cn(styles, 'LoginPage');
 const LoginPage = () => {
     return (
         <>
-            <main className={cnStyles()}>
+            <div className={cnStyles()}>
                 <Container>
                     <div className={cnStyles('container')}>
                         <h1 className={cnStyles('title')}>C кем я учусь?</h1>
                         <LinkEntry />
                     </div>
                 </Container>
-            </main>
+            </div>
         </>
     )
 }

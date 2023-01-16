@@ -18,6 +18,7 @@ const Header = () => {
             <NavLink to="/detail">DETAIL | </NavLink>
             <NavLink to="/profile">PROFILE |</NavLink>
             <NavLink to="/admin">ADMIN | </NavLink>
+            <NavLink to="/map">MAPS | </NavLink>
             {/* <NavLink to="/admin/users">Админ Юзерс</NavLink> */}
           </nav>
         </div>
