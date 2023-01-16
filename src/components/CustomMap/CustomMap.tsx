@@ -1,37 +1,85 @@
-import React, { useRef, useEffect } from 'react';
-import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
+import React, { FC, useRef, useEffect } from 'react';
+import { useYMaps,  } from "@pbe/react-yandex-maps";
+import  Balloon  from '../../components/BalloonLayout/BalloonLayout';
+import { cn } from "../../utils/bem-css-module";
+import hint from '../../assets/images/hint.png';
+import styles from './CustomMap.module.scss';
 
-const CustomMap = () => {
-    const center = [55.76, 37.64];
-    const images = [...Array(26)].map((n, i) => {
-        const letter = String.fromCharCode(i + 97);
-        return `https://img.icons8.com/ios-filled/2x/marker-${letter}.png`;
+export interface CustomMapProps {
+    coord: TotalItems,
+    center: number[],
+    zoom: number
+}
+
+export interface TotalItems {
+    total: number;
+    items: Item[];
+}
+
+export interface Item {
+    _id:       string;
+    createdAt: number;
+    updatedAt: null;
+    email:     string;
+    cohort:    string;
+    profile:   Profile;
+}
+
+export interface Profile {
+    name:  string;
+    photo: string;
+    city:  City;
+}
+
+export interface City {
+    name:    string;
+    geocode: string[];
+}
+
+const cnStyles = cn(styles, 'Map');
+
+const CustomMap: FC<CustomMapProps> = ({ coord, center, zoom }) => {
+    const mapRef = useRef(null);
+    const ymaps = useYMaps(['Map']);
+
+    useEffect(() => {
+        if (!ymaps || !mapRef.current) return;
+
+        const profiles = coord.items.map((item) => {
+            return item.profile;
+        })
+
+      
+      const LayoutClass = ymaps.templateLayoutFactory.createClass(Balloon());
+      const map = new ymaps.Map(mapRef.current, {
+        center: center,
+        zoom: zoom,
       });
+
+      profiles.map((item) => new ymaps.Placemark(item.city.geocode, {
+        hintContent: 'Открой меня, если я закрыт',
+        balloonContentHeader: item.photo,
+        balloonContentBody: item.name,
+        balloonContentFooter: item.city.name,
+    }, {
+        hideIconOnBalloonOpen: false,
+        iconLayout: 'default#image',
+        iconImageHref: hint,
+        iconImageSize: [60, 68],
+        iconImageOffset: [-60, 0],
+        balloonLayout: LayoutClass,
+        balloonPanelMaxMapArea: 0
+      }))
+        .forEach(place => {
+            map.geoObjects.add(place)
+            place.balloon.open();
+        })
+
+    }, [ymaps]);
+
     return (
-        <YMaps query={{ load: "package.full" }}>
-            <Map
-            state={{
-                center,
-                zoom: 9,
-                controls: []
-            }}
-            width="100vw"
-            height="100vh"
-            >
-            {images.map((n) => (
-                <Placemark
-                key={n}
-                geometry={center.map((c) => c + (Math.random() - 0.5))}
-                options={{
-                    iconLayout: "default#image",
-                    iconImageSize: [50, 50],
-                    iconImageHref: "https://www.vladtime.ru/uploads/posts/2018-03/1522438548_evropeyskaya-koshka-dikiy-kot.jpg"
-                }}
-                />
-            ))}
-            </Map>
-      </YMaps>
-    )
+            <div ref={mapRef} className={cnStyles()} />
+        )
   };
 
   export default CustomMap
