@@ -1,19 +1,10 @@
-import React, { FC, JSXElementConstructor, useEffect } from "react";
-import {Outlet, Navigate, useLocation} from "react-router-dom";
+import React from "react";
+import {Outlet} from "react-router-dom";
 import { getCookie } from "../../utils/cookie";
+import AuthRouter from "../../components/AuthProtectedRouter/AuthProtectedRouter";
 
-interface ProtectedRouteProps {
-  children: React.ReactElement
-}
-
-const ProtectedRoute: FC<ProtectedRouteProps> = ({children}) => {
-  const location = useLocation();
-
-    if (!getCookie('token')) {
-      return <Navigate to="/login" state={{from: location}} />;
-    }
-
-  return children;
+const ProtectedRoute = () => {
+    return getCookie('token') ? <Outlet /> : <AuthRouter />
 }
 
 export default ProtectedRoute;

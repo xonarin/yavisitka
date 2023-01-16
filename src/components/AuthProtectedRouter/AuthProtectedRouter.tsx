@@ -1,22 +1,24 @@
-import React, { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { getCookie } from "../../utils/cookie";
+import React from "react";
+import Container from "../../components/Container/Container";
+import LinkEntry from "../../components/LinkEntry/LinkEntry";
+import { cn } from "../../utils/bem-css-module";
+import styles from './AuthProtectedRouter.module.scss';
+
+const cnStyles = cn(styles, 'Auth');
 
 const AuthRouter = () => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    /* TODO: Без сеттаймаут редирект происходит только на 2 раз, так как компонент не видит куку новую */
-
-      setTimeout(() => {
-        if (getCookie('token')) {
-            navigate("/", {state: location.pathname});
-          }
-      }, 1000);
-
-  }, [navigate]);
-
-  return <Outlet />;
+  return (
+    <>
+        <div className={cnStyles()}>
+            <Container>
+                <div className={cnStyles('container')}>
+                    <h1 className={cnStyles('title')}>C кем я учусь?</h1>
+                    <LinkEntry />
+                </div>
+            </Container>
+        </div>
+    </>
+)
 }
 
 export default AuthRouter;
