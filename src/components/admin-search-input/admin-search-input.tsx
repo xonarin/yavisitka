@@ -6,8 +6,9 @@ const cnStyles = cn(styles, "SearchInput");
 export const AdminSearchInput = () => {
   return (
     <div className={cnStyles()}>
-      <p>Фильтровать</p>
+      <p className={cnStyles("label")} >Фильтровать</p>
       <input
+        className={cnStyles("input")}
         type="text"
         name="first_name"
         placeholder="По имени или фамилии или почте или номеру когорты (введите любой из этих параметров)"
