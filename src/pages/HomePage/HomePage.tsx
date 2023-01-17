@@ -24,7 +24,7 @@ const cities = [
 const HomePage = () => {
     const [cards, setCards] = useState({data: [], page: 1});
     const [isLoading, setIsLoading] = useState(false);
-    const portion = 12;
+    const portion = 8;
     const totalPages = Math.ceil(50 / portion);
     const cardsArray = cards.data.map((item) => {
         // @ts-ignore

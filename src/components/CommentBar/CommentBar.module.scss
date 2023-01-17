@@ -1,0 +1,11 @@
+@import "../../assets/styles/vars.scss";
+
+.CommentBar {
+    min-height: 89px;
+    width: 321px;
+    border-radius: 4px;
+    border: 1px solid black;
+    position: absolute;
+    top: 45px;
+    right: 10px;
+}

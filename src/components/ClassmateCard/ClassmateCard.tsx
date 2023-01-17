@@ -2,6 +2,8 @@ import React, {FC} from "react";
 import styles from './ClassmateCard.module.scss';
 import {cn} from '../../utils/bem-css-module';
 import {Link} from "react-router-dom";
+import ChatButton from "../ChatButton/ChatButton";
+import CommentBar from "../CommentBar/CommentBar";
 
 
 const cnStyles = cn(styles, 'ClassmateCard');
@@ -28,7 +30,8 @@ const ClassmateCard: FC<TProps> = (props) => {
                     <p className={cnStyles('captionSecondary')}>{props.info.title}</p>
                 </figcaption>
             </figure>
-            {/*будут еще два компонента с абсолютным позиционированием (кнопка коммента и плашка с комментами)*/}
+            <ChatButton/>
+            <CommentBar/>
         </Link>
     )
 }
