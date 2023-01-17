@@ -81,3 +81,23 @@
 .DropdownMenu:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width: 1024px) {
+  .DropdownMenu {
+    width: 342px;
+
+    &-select-options {
+      width: 340px;
+    }
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .DropdownMenu {
+    width: 272px;
+
+    &-select-options {
+      width: 270px;
+    }
+  }
+}
