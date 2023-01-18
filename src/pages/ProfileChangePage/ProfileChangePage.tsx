@@ -14,8 +14,8 @@ const cnStyles = cn(styles, 'ProfileChangePage');
 
 export const ProfilePage = () => {
   return (
-    <main className={cnStyles("profile")}>
-      <Container>
+    <Container>
+    <section className={cnStyles("profile")}>
         <form action="#" className={cnStyles("form")} name="#">
           <label className={cnStyles("add-photo")} htmlFor="avatar">
             <div className={cnStyles("add-photo__title")}>
@@ -26,9 +26,14 @@ export const ProfilePage = () => {
             </div>
           </label>
           <div className={cnStyles("add-photo__input")}>
-            <input type="file" className={cnStyles("photo")} name="avatar" id="avatar" accept="image/*" multiple required />
-            <img className={cnStyles("avatar")} src="/assets/images/test.jpg" />
-          </div>
+            <input 
+            type="file" 
+            className={cnStyles("photo")} 
+            name="avatar" id="avatar" 
+            accept="image/*" 
+            required />
+            <img className={cnStyles("avatar")} src={require('../../utils/testPic.jpg')} />
+            </div>
           <label className={cnStyles("form-name")} htmlFor="birthday">Дата рождения *</label>
           <div className={cnStyles("form-input")}>
             <input type="date" className={cnStyles("date")} name="#" id="birthday" required />
@@ -42,11 +47,11 @@ export const ProfilePage = () => {
           </div>
           <label className={cnStyles("form-name")} htmlFor="telegram">Ник в телеграм</label>
           <div className={cnStyles("form-input")}>
-            <input type="text" className={cnStyles("input-text")} name="#" id="telegram" />
+            <input type="text" placeholder="@example" className={cnStyles("input-text")} name="#" id="telegram" />
           </div>
           <label className={cnStyles("form-name")} htmlFor="github">Ник на гитхабе</label>
           <div className={cnStyles("form-input")}>
-            <input type="text" className={cnStyles("input-text")} name="#" id="github" />
+            <input type="text" placeholder="@example" className={cnStyles("input-text")} name="#" id="github" />
           </div>
           <label className={cnStyles("form-name")} htmlFor="stile">Выберете шаблон</label>
           <div className={cnStyles("form-input")}>
@@ -98,7 +103,7 @@ export const ProfilePage = () => {
           <p className={cnStyles("span")}>Поля, отмеченный звездочкой, обязательные для заполнения</p>
           <input className={cnStyles("btn")} type="submit" value="Сохранить изменения" />
         </form>
-      </Container>
-    </main>
+    </section>
+    </Container>
   )
 }
