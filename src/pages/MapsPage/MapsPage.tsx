@@ -3,7 +3,6 @@ import CustomMap from '../../components/CustomMap/CustomMap';
 import { YMaps } from "@pbe/react-yandex-maps";
 import { profilesGet } from '../../utils/api-test-data';
 
-
 const MapsPage = () => {
     return (
         <YMaps query={{ load: "package.full" }}>

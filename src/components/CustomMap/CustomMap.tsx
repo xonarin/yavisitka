@@ -56,7 +56,8 @@ const CustomMap: FC<CustomMapProps> = ({ coord, center, zoom }) => {
         zoom: zoom,
       });
 
-      profiles.map((item) => new ymaps.Placemark(item.city.geocode, {
+      profiles.map((item) => { 
+        let place = new ymaps.Placemark(item.city.geocode, {
         hintContent: 'Открой меня, если я закрыт',
         balloonContentHeader: item.photo,
         balloonContentBody: item.name,
@@ -66,14 +67,14 @@ const CustomMap: FC<CustomMapProps> = ({ coord, center, zoom }) => {
         iconLayout: 'default#image',
         iconImageHref: hint,
         iconImageSize: [60, 68],
-        iconImageOffset: [-60, 0],
+        iconImageOffset: [-30, -63],
         balloonLayout: LayoutClass,
         balloonPanelMaxMapArea: 0
-      }))
-        .forEach(place => {
-            map.geoObjects.add(place)
-            place.balloon.open();
-        })
+      })
+        map.geoObjects.add(place)
+        place.balloon.open();
+        }
+      )
 
     }, [ymaps]);
 

@@ -1,5 +1,5 @@
 export const baseAuthUrl = "https://oauth.yandex.ru";
-export const baseApiUrl = "http://localhost:8080";
+export const baseApiUrl = "http://localhost:3000";
 export const clientIdSecret64 = 'NTk0Mzg4NzIzODM4NGRiYWIyYzIxMGJmMGRkZGQwN2Q6OGNlZjZiNTQ3ZDNiNDQ3NzhlNWJiYmEwYWNmMjljOTg=';
 
 export const checkResponse = (res:Response) => { 
