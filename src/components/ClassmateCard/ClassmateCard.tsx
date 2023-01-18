@@ -23,19 +23,22 @@ const ClassmateCard: FC<TProps> = (props) => {
 
     //const photo = require('../../images/testPic.jpg');
     return (
-        <Link to={'/user'} className={cnStyles()} onMouseEnter={() => setIsShown(true)}
-              onMouseLeave={() => setIsShown(false)}>
-            <figure className={cnStyles('figure')}>
-                <img className={cnStyles('matePhoto')} src={props.info.url} alt="#"/>
-                <figcaption className={cnStyles('captionContainer')}>
-                    <p className={cnStyles('captionPrimary')}>{props.info.id}</p>
-                    <p className={cnStyles('captionSecondary')}>Ивановоgggggggggggghgdkfjghbkdebniuedhbniuedbniuebniuen</p>
-                    <p className={cnStyles('captionSecondary')}>{props.info.title}</p>
-                </figcaption>
-            </figure>
+        <div className={cnStyles()} onMouseEnter={() => setIsShown(true)}
+             onMouseLeave={() => setIsShown(false)}>
+            <Link to={'/user'} className={cnStyles()}>
+                <figure className={cnStyles('figure')}>
+                    <img className={cnStyles('matePhoto')} src={props.info.url} alt="#"/>
+                    <figcaption className={cnStyles('captionContainer')}>
+                        <p className={cnStyles('captionPrimary')}>{props.info.id}</p>
+                        <p className={cnStyles('captionSecondary')}>Ивановоgggggggggggghgdkfjghbkdebniuedhbniuedbniuebniuen</p>
+                        <p className={cnStyles('captionSecondary')}>{props.info.title}</p>
+                    </figcaption>
+                </figure>
+            </Link>
             <ChatButton isShow={isShown} counter={'2'}/>
             <CommentBar/>
-        </Link>
+        </div>
+
     )
 }
 
