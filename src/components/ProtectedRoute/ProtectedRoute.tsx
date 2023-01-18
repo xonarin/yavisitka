@@ -1,19 +1,10 @@
-import React, { useEffect } from "react";
-import {Outlet, useNavigate, useLocation} from "react-router-dom";
+import React from "react";
+import {Outlet} from "react-router-dom";
 import { getCookie } from "../../utils/cookie";
+import AuthRouter from "../../components/AuthProtectedRouter/AuthProtectedRouter";
 
 const ProtectedRoute = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-
-  useEffect(() => {
-    if (!getCookie('token')) {
-      navigate("/login", {state: location.pathname});
-    }
-  }, [navigate, location]);
-
-  return <Outlet />;
+    return getCookie('token') ? <Outlet /> : <AuthRouter />
 }
 
 export default ProtectedRoute;
