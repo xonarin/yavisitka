@@ -12,4 +12,3 @@ const MapsPage = () => {
 }
 
 export default MapsPage;
-export default MapsPage;
