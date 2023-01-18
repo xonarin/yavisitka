@@ -1,6 +1,7 @@
 @import '../../assets/styles/vars.scss';
 
 .ProfileChangePage {
+    font-family: 'IBM Plex Sans';
     padding-top: 200px;
     height: calc(100vh - 379px);
 
@@ -16,210 +17,253 @@
         line-height: $line-height-52;
         margin: 0 0 72px 0;
     }
+
+    &-profile {
+        margin: auto;
+        padding: 0px;
+        width: 440px;
+        height: 1562px;
+        margin-top: 8px;
+        margin-bottom: 96px;
+    }
+
+    &-form {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    &-form-name {
+        margin: 16px 0 4px 0;
+    }
+
+    &-form-input {
+        width: 100%;
+    }
+
+    &-add-photo {
+        width: 248px;
+        height: 39px;
+        text-align: center;
+        margin: auto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21px;
+        margin-bottom: 11px;
+    }
+
+    &-add-photo__title {
+        color: #100C34;
+    }
+
+    &-add-photo__subtitle {
+        color: #83828F;
+        line-height: 18.75px;
+        font-size: 14px;
+    }
+
+    &-add-photo__input {
+        margin: auto;
+        text-align: center;
+        width: 150px;
+        height: 150px;
+        border: 1px solid black;
+        border-radius: 50%;
+        filter: grayscale(100%);
+        position: relative;
+    }
+
+    &-photo {
+        width: 150px;
+        height: 150px;
+        right: 0;
+        position: absolute;
+        border-radius: 50%;
+    }
+
+    &-avatar {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        border-radius: 50%;
+        right: 0%;
+        z-index: -1;
+    }
+
+    &-photo::file-selector-button {
+        visibility: hidden;
+        overflow: hidden;
+    }
+
+    &-photo::file-upload-button {
+        visibility: hidden;
+        overflow: hidden;
+    }
+
+    &-photo:hover {
+        background-image: url('../../assets/images/Union.svg');
+        background-repeat: no-repeat;
+        background-position: 50% 95%;
+        background-color: rgba(16, 12, 52, 0.5);
+        background-size: auto;
+        border-radius: 50%;
+        clip-path: inset(80% 0 0 0);
+        padding-left: -0.01px;
+        left: 0.5px;
+        bottom: -1px;
+        z-index: 999;
+        cursor: pointer;
+    }
+
+
+    &-span {
+        align-items: center;
+        text-align: start;
+        margin: 16px 0;
+        color: #100C34;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    &-btn {
+        background: linear-gradient(269.17deg, #3B23B7 30.28%, #C914E7 63.24%);
+        border-radius: 4px;
+        color: #FFFFFF;
+        border: 0ch;
+        height: 68px;
+        width: 100%;
+        padding: 0;
+    }
+
+    &-input-text {
+        width: 92%;
+        height: 24px;
+        border: 1px solid #100C34;
+        border-radius: 4px;
+        background-color: #FFFFFF;
+        outline: none;
+        position: relative;
+        overflow: hidden;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0;
+        padding: 12px 16px;
+        
+    }
+
+    &-input-text::placeholder {
+        font-family: 'IBM Plex Sans';
+        color: #83828F;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21px;
+        position: relative;
+    }
+
+    &-textarea::placeholder {
+        font-family: 'IBM Plex Sans';
+        color: #83828F;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21px;
+        position: relative;
+    }
+
+    &-input-text:hover {
+        border: 1px solid #666666;
+    }
+
+    &-input-text:focus {
+        border: 1px solid #666666;
+    }
+
+    &-date {
+        composes: ProfileChangePage-input-text;
+    }
+
+
+    &-textarea {
+        composes: ProfileChangePage-input-text;
+        height: 102px;
+        text-align: start;
+        resize: none;
+        padding: 16px 14px;
+        width: 93%;
+    }
+
+    &-select {
+        composes: ProfileChangePage-input-text;
+        width: 100%;
+        height: 48px;
+        border-radius: 4px;
+        background-color: #FFFFFF;
+    }
+
+    &-option {
+        font-family: 'IBM Plex Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 6px 0;
+    }
+
+    &-option:focus {
+        background: #FF00A8;
+    }
+
+    &-alert {
+        composes: ProfileChangePage-span;
+        margin-top: 4px;
+        margin-bottom: 10px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    &-input-text[type=date]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        display: none;
+    }
+
+    &-photo-text {
+        background: transparent;
+    }
+
+    &-photo-text[type=file] {
+        cursor: pointer;
+    }
+
+
+    &-add {
+        position: absolute;
+        background-image: url('../../assets/images/add-photo.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 16.24px;
+        height: 19.07px;
+        right: 15px;
+        top: 15px;
+    }
+
+
+    &-photo-text[type=file]::-webkit-file-upload-button {
+        position: absolute;
+        visibility: hidden;
+        overflow: hidden;
+    }
 }
+
 
 .App {
     font-family: sans-serif;
     text-align: center;
-}
-
-
-.page {
-    width: 1440px;
-}
-
-.profile {
-    margin: auto;
-    padding: 0px;
-    margin: 0;
-    width: 440px;
-    height: 1562px;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-}
-
-.form-name {
-    margin-bottom: 4px;
-}
-
-.form-input {
-    margin-bottom: 16px;
-    width: 100%;
-}
-
-.add-photo {
-    width: 248px;
-    height: 39px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 21px;
-    text-align: center;
-    margin: auto;
-}
-
-.add-photo__title {
-    color: #100C34;
-}
-
-.add-photo__subtitle {
-    color: #83828F;
-    line-height: 18.75px;
-    font-size: 10px;
-}
-
-.add-photo__input {
-    margin: auto;
-    text-align: center;
-    width: 150px;
-    height: 150px;
-    border: 1px solid black;
-    border-radius: 50%;
-    filter: grayscale(100%);
-    position: relative;
-}
-
-.photo {
-    width: 150px;
-    height: 150px;
-    right: 0;
-    position: absolute;
-    border-radius: 50%;
-}
-
-.avatar {
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    border-radius: 50%;
-    right: 0%;
-    z-index: -1
-}
-
-input::file-selector-button {
-    visibility: hidden;
-    overflow: hidden;
-}
-
-input::file-upload-button {
-    visibility: hidden;
-    overflow: hidden;
-}
-
-.photo:hover {
-    background-image: url('../../assets/images/Union.svg');
-    background-repeat: no-repeat;
-    background-position: 50% 95%;
-    background-color: rgba(16, 12, 52, 0.5);
-    background-size: auto;
-    border-radius: 50%;
-    clip-path: inset(80% 0 0 0);
-    padding-left: 0.01px;
-    left: 0.5px;
-    bottom: -1px;
-    z-index: 999;
-}
-
-
-.span {
-    align-items: center;
-    text-align: start;
-    margin: 0 0 16px 0;
-    font-size: 16px;
-    line-height: 24px;
-    color: #100C34;
-}
-
-.btn {
-    background: linear-gradient(269.17deg, #3B23B7 30.28%, #C914E7 63.24%);
-    border-radius: 4px;
-    color: #FFFFFF;
-    border: 0ch;
-    width: 440px;
-    height: 68px;
-    padding: 20px 132px;
-    gap: 8px;
-}
-
-.input-text {
-    width: 98.5%;
-    height: 48px;
-    border: 1px solid #100C34;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-    outline: none;
-    position: relative;
-    overflow: hidden;
-}
-
-.input-text::placeholder {
-    color: #83828F;
-}
-
-.input-text:hover {
-    border: 1px solid #666666;
-}
-
-.input-text:focus {
-    border: 1px solid #666666;
-}
-
-
-
-.select {
-    width: 100%;
-    border-radius: 4px;
-    background-color: #FFFFFF;
-
-}
-
-.textarea {
-    height: 118px;
-    text-align: start;
-    resize: none;
-}
-
-.alert {
-    margin-top: 4px;
-    margin-bottom: 10px;
-}
-
-input[type=date]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    display: none;
-}
-
-.photo-text {
-    width: 100%;
-    padding: 15px;
-    background: transparent;
-}
-
-.photo-text[type=file] {
-    cursor: pointer;
-}
-
-
-.add {
-    position: absolute;
-    background-image: url(../../assets/images/add-photo.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 16.24px;
-    height: 19.07px;
-    right: 15px;
-    top: 15px;
-}
-
-.date {
-    width: 99.6%;
-}
-
-.photo-text[type=file]::-webkit-file-upload-button {
-    position: absolute;
-    visibility: hidden;
-    overflow: hidden;
 }

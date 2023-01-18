@@ -5,7 +5,7 @@ import Logo from "../../components/Logo/Logo";
 import MiniProfile from "../../components/MiniProfile/MiniProfile";
 import { getCookie } from "../../utils/cookie";
 import { cn } from "../../utils/bem-css-module";
-import styles from "./Header.module.scss";
+import styles from './Header.module.scss';
 
 const cnStyles = cn(styles, "Header");
 
@@ -36,3 +36,4 @@ const Header = () => {
 };
 
 export default Header;
+
