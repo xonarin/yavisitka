@@ -88,15 +88,6 @@
         clip-path: inset(80% 0 0 0);
     }
 
-    &-avatar {
-        width: 150px;
-        height: 150px;
-        position: absolute;
-        border-radius: 50%;
-        right: 0%;
-        z-index: -1;
-    }
-
     &-photo::file-selector-button {
         visibility: hidden;
         overflow: hidden;
