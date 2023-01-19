@@ -38,7 +38,7 @@ const handleFileUpload = (e) => {
   let fileSize = file.size; // 3MB
 
   if (fileSize > 2 * 1000000) {
-    // fileSize > 5MB then show popup message
+    // fileSize > 2MB then show popup message
     alert(
       `Размер файла больше 2МБ.\nПожалуйста, выберите другой файл \n (временное решение)`
     );
