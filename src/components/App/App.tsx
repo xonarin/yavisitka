@@ -39,7 +39,7 @@ const App = () => {
         <Route element={<Layout />}>
           <Route element={<ProtectedRoute />}>
             <Route index element={<HomePage />} />
-            <Route path="detail" element={<DetailPage />} />
+            <Route path="detail/*" element={<DetailPage />} />
             <Route path="profile" element={<ProfilePage />} />
             <Route path="map" element={<MapsPage />} />
             <Route path="admin" element={<AdminPage />}>
