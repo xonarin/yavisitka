@@ -1,0 +1,43 @@
+@import '../../../assets/styles/vars.scss';
+
+.InputSuggest {
+    position: relative;
+
+    &-Input {
+        width: 100%;
+        max-width: 440px;
+        padding: 12px 30px 12px 16px;
+        border: 1px solid $text-dark;
+        border-radius: 4px;
+        font-size: $font-size-16;
+        line-height: $line-height-24;
+    
+        &:hover, &:focus {
+            border: 1px solid $input-hover;
+            outline: none;
+        }
+    }
+
+    &-List {
+        visibility: hidden;
+        position: absolute;
+        max-height: 192px;
+        border: 1px solid $text-dark;
+        border-radius: 0px 0px 4px 4px;
+        overflow-y: scroll;
+        margin: 0;
+
+        .InputSuggest:focus-visible &, 
+        .InputSuggest:focus &,
+        .InputSuggest:active &{
+            visibility: visible;
+        }
+
+        & li {
+            padding: 6px 6px 6px 16px;
+            font-size: $font-size-16;
+            line-height: $line-height-24;
+            list-style: none;
+        }
+    }
+}

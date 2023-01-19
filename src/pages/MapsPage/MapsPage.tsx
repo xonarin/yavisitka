@@ -10,7 +10,7 @@ const MapsPage = () => {
 
         <YMaps query={{ load: "package.full" }}>
                     <InputSuggestView />
-            <CustomMap coord={profilesGet} center={[55.76, 37.64]} zoom={7}/>
+            {/*<CustomMap coord={profilesGet} center={[55.76, 37.64]} zoom={7}/>*/}
         </YMaps>
     )
 }
