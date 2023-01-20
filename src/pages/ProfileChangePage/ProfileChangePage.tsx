@@ -38,7 +38,7 @@ const handleFileUpload = (e) => {
   let fileSize = file.size; // 3MB
 
   if (fileSize > 2 * 1000000) {
-    // fileSize > 5MB then show popup message
+    // fileSize > 2MB then show popup message
     alert(
       `Размер файла больше 2МБ.\nПожалуйста, выберите другой файл \n (временное решение)`
     );
@@ -64,7 +64,7 @@ export const ProfilePage = () => {
             type="file" 
             className={cnStyles("photo")} 
             name="avatar" id="avatar" 
-            accept=".jpg, .jpeg, .gif" 
+            accept=".jpg, .png" 
             onChange={handleFileUpload}
             required />
             </div>
@@ -96,7 +96,7 @@ export const ProfilePage = () => {
           <label className={cnStyles("form-name")} htmlFor="hobbies">Увлечение, досуг, интересы</label>
           <div className={cnStyles("form-input")}>
             <div className={cnStyles("input-text")}>
-              <input type="file" className={cnStyles("photo-text")} name="hobbies" id="hobbies" accept=".jpg, .jpeg, .gif" onChange={handleFileUpload} />
+              <input type="file" className={cnStyles("photo-text")} name="hobbies" id="hobbies" accept=".jpg, .png" onChange={handleFileUpload} />
               <span className={cnStyles("add")}>
 
               </span>
@@ -108,7 +108,7 @@ export const ProfilePage = () => {
           <label className={cnStyles("form-name")} htmlFor="family">Семья, статус, домашние животные</label>
           <div className={cnStyles("form-input")}>
             <div className={cnStyles("input-text")}>
-              <input type="file" className={cnStyles("photo-text")} name="family" id="family" accept=".jpg, .jpeg, .gif" onChange={handleFileUpload} />
+              <input type="file" className={cnStyles("photo-text")} name="family" id="family" accept=".jpg, .png" onChange={handleFileUpload} />
               <span className={cnStyles("add")}>
 
               </span>
