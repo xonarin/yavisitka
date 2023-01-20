@@ -12,6 +12,7 @@ import { AdminUsersBlock } from "../../components/admin-users-block/admin-users-
 import { Page404 } from "../../pages/404/404";
 import { ProfilePage } from "../../pages/ProfileChangePage/ProfileChangePage";
 import { getCookie } from "../../utils/cookie";
+import Demo from "../../pages/UI/UI";
 import './App.module.scss';
 
 const App = () => {
@@ -42,6 +43,7 @@ const App = () => {
             <Route path="detail" element={<DetailPage />} />
             <Route path="profile" element={<ProfilePage />} />
             <Route path="map" element={<MapsPage />} />
+            <Route path="demo" element={<Demo />} />
             <Route path="admin" element={<AdminPage />}>
               <Route index element={<AdminCommentsBlock />} />
               <Route path="users" element={<AdminUsersBlock />} />
