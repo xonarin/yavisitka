@@ -10,7 +10,7 @@ export const CommentCard = ({ data }) => {
 
   return (
     <ul className={cnStyles()}>
-      <li className={cnStyles("content")}>Когорта</li>
+      <li className={cnStyles("content")}>{data.cohort}</li>
       <li className={cnStyles("content")}>{data.date || "--/--/--"}</li>
       <li className={cnStyles("content")}>
         <Link to={`/detail/${data.from._id}`}>{data.from.name}</Link>
@@ -18,7 +18,7 @@ export const CommentCard = ({ data }) => {
       <li className={cnStyles("content")}>
         <Link to={`/detail/${data.to._id}`}>{data.to.name}</Link>
       </li>
-      <li className={cnStyles("content")}>{TARGETSMAP[data.target] || EMPTY_TARGET }</li>
+      <li className={cnStyles("content")}>{data.target}</li>
       <li className={cnStyles("content")}>{data.text} </li>
     </ul>
   );

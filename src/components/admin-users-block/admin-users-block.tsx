@@ -11,7 +11,7 @@ export const AdminUsersBlock = () => {
   return (
     <div className={cnStyles()}>
       <div>
-      <AdminSearchInput />
+      <AdminSearchInput setSearchStr = {null}/>
       <AdminUsersList />
 
       </div>

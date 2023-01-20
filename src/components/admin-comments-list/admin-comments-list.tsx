@@ -17,6 +17,7 @@ export const AdminCommentsList = ({ list }) => {
           <li className={cnStyles("column-title")}>Текст комментария</li>
         </ul>
       </div>
+      {Boolean(list.length) || <p className={cnStyles("error-text")}>Не удалось никого найти. Исправьте запрос или сбросьте фильтр</p>}
 
       {list.map((data) => (
         <CommentCard key={data._id} data={data} />
