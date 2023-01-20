@@ -8,9 +8,8 @@ const MapsPage = () => {
     return (
         
 
-        <YMaps query={{ load: "package.full" }}>
-                    <InputSuggestView />
-            {/*<CustomMap coord={profilesGet} center={[55.76, 37.64]} zoom={7}/>*/}
+        <YMaps query={{ load: "package.full", apikey: "6bbb9fad-fe92-4de7-aed3-2caa0584dade" }}>
+            <CustomMap coord={profilesGet} center={[55.76, 37.64]} zoom={7}/>
         </YMaps>
     )
 }
