@@ -21,7 +21,7 @@
     &-profile {
         margin: auto;
         padding: 0px;
-        width: 440px;
+        max-width: 440px;
         height: 1562px;
         margin-top: 8px;
         margin-bottom: 96px;
@@ -272,4 +272,29 @@
 .App {
     font-family: sans-serif;
     text-align: center;
+}
+
+.DropdownMenu {
+    max-width: 272px;
+&-select {
+    width: 100%;
+}
+}
+
+@media screen and (max-width: 440px) {
+    .ProfileChangePage {
+        &-form {
+            width: 272px;
+        }
+   
+        &-btn {
+        height: 60px;
+        margin: auto;
+    }
+    
+    &-input-text {
+        width: 240px;
+    }
+}
+   
 }
