@@ -1,6 +1,6 @@
 @import "../../assets/styles/vars.scss";
 
-.CommentsList {
+.UsersList {
   margin-top: 60px;
   border-bottom: 1px solid $placeholder;
   width: calc(100% - 24px);
@@ -11,8 +11,8 @@
     padding: 0;
     margin: 0;
     list-style-type: none;
-    gap: 0 24px;
-    grid-template-columns: 70px 100px 190px 190px 180px 442px;
+    gap: 0 32px;
+    grid-template-columns: 209px 271px 300px;
   }
 
   &-column-title {
@@ -25,10 +25,4 @@
     color: $placeholder;
     margin-bottom: 11px;
   }
-
-  &-error-text {
-    margin-top: 11px;
-    color: $error;
-  }
 }
-
