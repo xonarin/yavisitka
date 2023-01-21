@@ -61,6 +61,15 @@
         }
 
 
+        &--disabled {
+            color: $placeholder;
+            
+            &:hover {
+                color: $placeholder;
+                background-color: $white;
+            }
+        }
+
         &-names{
             display: none;
         }
