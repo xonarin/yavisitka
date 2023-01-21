@@ -12,6 +12,7 @@
   font-weight: $font-weight-400;
   font-size: $font-size-16;
   line-height: $line-height-24;
+  box-sizing: border-box;
 
   &-optionsContainer {
     display: flex;
@@ -44,7 +45,7 @@
 
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .HomePage {
     padding: 0 32px;
 
@@ -60,7 +61,7 @@
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .HomePage {
     padding: 0 24px;
 

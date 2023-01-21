@@ -74,7 +74,7 @@
   color: $neon-pink;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .ClassmateCard {
     min-width: 342px;
     min-height: 410px;
@@ -85,9 +85,9 @@
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .ClassmateCard {
-    min-width: 272px;
+    min-width: 268px;
     min-height: 340px;
 
     &-matePhoto {

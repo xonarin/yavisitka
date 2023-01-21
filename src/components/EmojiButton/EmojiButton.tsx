@@ -13,7 +13,7 @@ const EmojiButton: FC<TProps> = (props) => {
         <li className={cnStyles()}>
             <button className={cnStyles('button')}>
                 <p className={cnStyles('emoji')}>{props.emoji}</p>
-                <p className={cnStyles('counter')}>1</p>
+                <p className={cnStyles('counter')}>99+</p>
             </button>
         </li>
 

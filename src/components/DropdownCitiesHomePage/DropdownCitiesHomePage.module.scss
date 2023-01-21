@@ -83,7 +83,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .DropdownMenu {
     width: 342px;
 
@@ -93,7 +93,7 @@
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 320px) {
   .DropdownMenu {
     width: 272px;
 
