@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Routes, Route, useNavigate, useSearchParams } from "react-router-dom";
+import { Routes, Route, useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { getToken, updateToken } from "../../services/auth/auth";
 import HomePage from "../../pages/HomePage/HomePage";
 import Layout from "../../components/Layout/Layout";
@@ -14,11 +14,13 @@ import { ProfilePage } from "../../pages/ProfileChangePage/ProfileChangePage";
 import { getCookie } from "../../utils/cookie";
 import Demo from "../../pages/UI/UI";
 import './App.module.scss';
+import { checkResponse } from "../../utils/api";
 
 const App = () => {
   const [search, setSearch] = useSearchParams();
   const yandexCodeId = search.get("code");
   const navigate = useNavigate();
+  const location = useLocation()
 
   useEffect(() => {
     localStorage.getItem("refreshToken") && updateToken();
@@ -32,7 +34,6 @@ const App = () => {
   useEffect(() => {
     yandexCodeId && getToken(yandexCodeId);
   }, [search]);
-
 
     return (
         <>
