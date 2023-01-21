@@ -6,23 +6,17 @@ const cnStyles = cn(styles, "AutoTextArea");
 
 const AutoTextArea = (props: TextareaHTMLAttributes<HTMLTextAreaElement>) => {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
-    const [text, setText] = useState("");
     const [textAreaHeight, setTextAreaHeight] = useState("36px");
     const [parentHeight, setParentHeight] = useState("36px");
 
     useEffect(() => {
         setParentHeight(`${textAreaRef.current!.scrollHeight}px`);
         setTextAreaHeight(`${textAreaRef.current!.scrollHeight}px`);
-    }, [text]);
+    }, [textAreaHeight]);
 
     const onChangeHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setTextAreaHeight("auto");
         setParentHeight(`${textAreaRef.current!.scrollHeight}px`);
-        setText(event.target.value);
-
-        if (props.onChange) {
-            props.onChange(event);
-        }
+        setTextAreaHeight(`${textAreaRef.current!.scrollHeight}px`);
     };
 
     return (
