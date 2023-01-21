@@ -21,7 +21,7 @@
     &-profile {
         margin: auto;
         padding: 0px;
-        max-width: 440px;
+        width: 440px;
         height: 1562px;
         margin-top: 8px;
         margin-bottom: 96px;
@@ -88,6 +88,15 @@
         clip-path: inset(80% 0 0 0);
     }
 
+    &-avatar {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        border-radius: 50%;
+        right: 0%;
+        z-index: -1;
+    }
+
     &-photo::file-selector-button {
         visibility: hidden;
         overflow: hidden;
@@ -113,6 +122,11 @@
         cursor: pointer;
     }
 
+    &-input-date {
+        max-height: 264px;
+        display: flex;
+        flex-direction: column;
+    }
 
     &-span {
         align-items: center;
@@ -193,6 +207,7 @@
         resize: none;
         padding: 16px 14px;
         width: 93%;
+        overflow: auto;
     }
 
     &-select {

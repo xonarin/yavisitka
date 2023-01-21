@@ -1,30 +1,14 @@
 import React from "react";
 import { cn } from "../../utils/bem-css-module";
 import styles from './ProfileChangePage.module.scss';
-import Header from "../../components/Header/Header";
 import Container from "../../components/Container/Container";
-import Footer from "../../components/Footer/Footer";
-import DatePicker from "react-datepicker";
-import moment from "moment";
-import ReactDOM from "react-dom";
-import { any } from "prop-types";
-// import 'react-datepicker/dist/react-datepicker.css';
+import { YMaps } from "@pbe/react-yandex-maps";
+import InputSuggestView from "../../components/Input/InputSuggestView/InputSuggestView";
+import InputDate from "../../components/Input/InputDate/InputDate";
 import DropdownMenu from "../../components/DropdownCitiesHomePage/DropdownCitiesHomePage";
 
 // картинки максимум 2мб, jpeg, gif, адаптив
 
-const cities = [
-  { id: 1, name: "Москва" },
-  { id: 2, name: "Санкт-Петербург" },
-  { id: 3, name: "Самара" },
-  { id: 4, name: "Казань" },
-  { id: 5, name: "Пермь" },
-  { id: 6, name: "Магнитогорск" },
-  { id: 7, name: "Тюмень" },
-  { id: 8, name: "Новосибирск" },
-  { id: 9, name: "Тула" },
-  { id: 10, name: "Рязань" }
-]
 
 const style = [
   { id: 1, name: "Серьезный" },
@@ -69,13 +53,14 @@ export const ProfilePage = () => {
             required />
             </div>
           <label className={cnStyles("form-name")} htmlFor="birthday">Дата рождения *</label>
-          <div className={cnStyles("form-input")}>
-            <input type="date" className={cnStyles("date")} name="#" id="birthday" required />
+          <div className={cnStyles("input-date")}>
+          <InputDate />
           </div>
           <label className={cnStyles("form-name")} htmlFor="place">Выберете город *</label>
-          <div className={cnStyles("form-input")}>
-          <DropdownMenu defaultText={'Все города'} optionsList={cities}/>
-          </div>
+          <YMaps query={{ load: "package.full", apikey: "6bbb9fad-fe92-4de7-aed3-2caa0584dade" }}>
+            <InputSuggestView />
+            {/* <CustomMap coord={profilesGet} center={[55.76, 37.64]} zoom={7}/> */}
+        </YMaps>
           <label className={cnStyles("form-name")} htmlFor="telegram">Ник в телеграм</label>
           <div className={cnStyles("form-input")}>
             <input type="text" placeholder="@example" className={cnStyles("input-text")} name="#" id="telegram" />
@@ -91,7 +76,7 @@ export const ProfilePage = () => {
           <label className={cnStyles("form-name")} htmlFor="thesis">Девиз, цитата</label>
           <div className={cnStyles("form-input")}>
             <textarea placeholder="Не более 100 символов" className={cnStyles("textarea")} name="#"
-              id="thesis"></textarea>
+              id="thesis" maxLength={100}></textarea>
           </div>
           <label className={cnStyles("form-name")} htmlFor="hobbies">Увлечение, досуг, интересы</label>
           <div className={cnStyles("form-input")}>
@@ -103,7 +88,7 @@ export const ProfilePage = () => {
             </div>
             <p className={cnStyles("alert")}>Рекомедуемый размер фото 230х129</p>
             <textarea placeholder="Не более 300 символов" className={cnStyles("textarea")} name="#"
-              id="hobbies"></textarea>
+              id="hobbies" maxLength={300} ></textarea>
           </div>
           <label className={cnStyles("form-name")} htmlFor="family">Семья, статус, домашние животные</label>
           <div className={cnStyles("form-input")}>
@@ -115,17 +100,17 @@ export const ProfilePage = () => {
             </div>
             <p className={cnStyles("alert")}>Рекомедуемый размер фото 230х129</p>
             <textarea placeholder="Не более 300 символов" className={cnStyles("textarea")} name="#"
-              id="family"></textarea>
+              id="family" maxLength={300}></textarea>
           </div>
           <label className={cnStyles("form-name")} htmlFor="job">Из какой сферы пришел? Кем работаешь?</label>
           <div className={cnStyles("form-input")}>
             <textarea placeholder="Не более 300 символов" className={cnStyles("textarea")} name="#"
-              id="job"></textarea>
+              id="job" maxLength={300}></textarea>
           </div>
           <label className={cnStyles("form-name")} htmlFor="why">Почему решил учиться на веб-разработчика?</label>
           <div className={cnStyles("form-input")}>
             <textarea placeholder="Не более 300 символов" className={cnStyles("textarea")} name="#"
-              id="why"></textarea>
+              id="why" maxLength={300}></textarea>
           </div>
           <p className={cnStyles("span")}>Поля, отмеченный звездочкой, обязательные для заполнения</p>
           <input className={cnStyles("btn")} type="submit" value="Сохранить изменения" />

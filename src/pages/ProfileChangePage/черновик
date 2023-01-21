@@ -1,9 +1,0 @@
-
-
-
-            <select className={cnStyles("select")} id="stile" name="stile">
-              <option className={cnStyles('option')}>серьезный</option>
-              <option className={cnStyles('option')}>романтичный</option>
-              <option className={cnStyles('option')}>дерзкий</option>
-            </select>
-          </div>
