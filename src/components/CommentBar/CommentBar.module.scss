@@ -2,12 +2,12 @@
 
 .CommentBar {
   min-height: 89px;
-  width: 325px;
+  width: 321px;
   border-radius: 4px;
   border: 1px solid #CCCCCC;
   position: absolute;
   top: 45px;
-  right: -2px;
+  right: 2px;
   background-color: #FFFFFF;
   padding: 12px;
   box-sizing: border-box;
@@ -27,6 +27,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 36px;
   }
 
   &-commentInput {
@@ -36,11 +37,16 @@
     background-color: #F3F3F3;
     border: none;
     margin: 0;
-    min-height: 36px;
     font-size: $font-size-14;
     line-height: $line-height-20;
     color: $text-dark;
+    resize: none;
+    display: block;
+    border-radius: 4px;
+  }
 
+  &-commentInput:focus {
+    outline: $text-dark solid 1px;
   }
 
   &-commentInput::placeholder {
@@ -48,6 +54,18 @@
     font-family: $YT;
     font-style: normal;
     font-weight: 400;
+  }
+
+  &-emojiContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: left;
+    padding: 13px 0 0 0;
+    margin: 0;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
   }
 
 

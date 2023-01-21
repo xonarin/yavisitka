@@ -1,0 +1,41 @@
+@import "../../assets/styles/vars.scss";
+
+.EmojiButton {
+  display: block;
+  text-decoration: none;
+  padding: 0;
+  margin: 0 0 4px 0;
+  height: 24px;
+
+
+  &-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid $neon-pink;
+    border-radius: 20px;
+    height: 100%;
+
+
+  }
+
+  &-emoji {
+    padding: 0;
+    margin: 0 2px 0 0;
+  }
+
+  &-counter {
+    padding: 0;
+    margin: 0;
+    font-size: $font-size-12;
+    line-height: $line-height-12;
+    color: $neon-pink;
+    align-items: center;
+  }
+
+
+}

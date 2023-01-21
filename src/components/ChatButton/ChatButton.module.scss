@@ -6,6 +6,8 @@
   position: absolute;
   top: 19px;
   right: 19px;
+  cursor: pointer;
+  z-index: 10;
 
   &-button {
     display: block;
@@ -19,6 +21,7 @@
     display: block;
     width: 100%;
     object-fit: cover;
+    cursor: pointer;
   }
 
   &-commentCounter {
