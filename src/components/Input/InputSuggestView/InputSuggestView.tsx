@@ -21,7 +21,7 @@ const InputSuggestView = () => {
     }
 
     const suggestView = (info: string) => {
-        ymaps.suggest(info)
+        ymaps?.suggest(info)
             .then(function(items) {
                 const newArray= items.map(element => element.value);
                 setView(newArray);
@@ -30,7 +30,7 @@ const InputSuggestView = () => {
     }
 
     const geoView = (info: string) => {
-        ymaps.geocode(info, {results: 1})
+        ymaps?.geocode(info, {results: 1})
             .then( function (res) {
                 // Выбираем первый результат геокодирования.
                 const firstGeoObject = res.geoObjects.get(0)

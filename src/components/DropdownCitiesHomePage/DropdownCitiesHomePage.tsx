@@ -66,7 +66,6 @@ const DropdownMenu: FC<TProps> = (props) => {
                 onClick={handleListDisplay}
             >
                 <p className={cnStyles('text')}>{selectText}</p>
-                <img className={cnStyles('arrow')} src={showOptionList ? arrowUp : arrowDown} alt="arrow"/>
             </div>
             {showOptionList && (
                 <ul className={cnStyles("select-options")}>

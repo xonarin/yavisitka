@@ -2,6 +2,7 @@ import React, {FC, useState} from "react";
 import styles from "./ChatButton.module.scss";
 import {cn} from "../../utils/bem-css-module";
 import useWindowSize from "../../services/hooks/useWindowSize";
+import btnImage from '../../assets/images/chat-btn.svg';
 
 type TProps = {
     counter: string,
@@ -10,7 +11,6 @@ type TProps = {
 }
 
 const cnStyles = cn(styles, "ChatButton");
-const btnImage = require("../../images/сhat-btn.svg");
 
 const ChatButton: FC<TProps> = (props) => {
 
