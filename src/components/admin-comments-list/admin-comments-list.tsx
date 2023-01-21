@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./admin-comments-list.module.scss";
 import { cn } from "../../utils/bem-css-module";
 import { CommentCard } from "../../components/admin-comment-card/admin-comment-card";
+import { ScrollbarContainer } from "../../components/admin-scrollbar-container/admin-scrollbar-container";
 const cnStyles = cn(styles, "CommentsList");
 
 export const AdminCommentsList = ({ list }) => {
@@ -17,11 +18,17 @@ export const AdminCommentsList = ({ list }) => {
           <li className={cnStyles("column-title")}>Текст комментария</li>
         </ul>
       </div>
-      {Boolean(list.length) || <p className={cnStyles("error-text")}>Не удалось никого найти. Исправьте запрос или сбросьте фильтр</p>}
+      <ScrollbarContainer negativHeightAdjustment={326}>        
+        {Boolean(list.length) || (
+          <p className={cnStyles("error-text")}>
+            Не удалось никого найти. Исправьте запрос или сбросьте фильтр
+          </p>
+        )}
 
-      {list.map((data) => (
-        <CommentCard key={data._id} data={data} />
-      ))}
+        {list.map((data) => (
+          <CommentCard key={data._id} data={data} />
+        ))}
+      </ScrollbarContainer>
     </>
   );
 };

@@ -3,6 +3,7 @@
 .CommentsList {
   margin-top: 60px;
   border-bottom: 1px solid $placeholder;
+  width: calc(100% - 24px);
 
   &-table-header {
     display: grid;
@@ -28,6 +29,6 @@
   &-error-text {
     margin-top: 11px;
     color: $error;
-   
   }
 }
+

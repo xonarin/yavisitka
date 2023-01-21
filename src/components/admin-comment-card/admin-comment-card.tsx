@@ -9,7 +9,7 @@ export const CommentCard = ({ data }) => {
 
   function handleDelete() {
     console.log(`Удали комментарий id: ${data._id}`);
-    setIsDeletet(!isDeleted);
+    setIsDeletet(true);
   }
 
   return (
