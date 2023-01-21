@@ -33,11 +33,7 @@ export const AdminCommentsBlock = () => {
       comment.to.name,
       comment.target,
       comment.text,
-    ].reduce(
-      (isContain, val) =>
-        isContain || val.toLowerCase().includes(searchStr.toLowerCase()),
-      false
-    );
+    ].some((val) => val.toLowerCase().includes(searchStr.toLowerCase()));
   }
 
   return (

@@ -6,7 +6,7 @@ const cnStyles = cn(styles, "Scrollbar-container");
 
 export const ScrollbarContainer = ({ negativHeightAdjustment, children }) => {
     let calcStyle = {
-        height: `calc(100vh - ${negativHeightAdjustment}px)`,
+        maxHeight: `calc(100vh - ${negativHeightAdjustment}px)`,
       };
   return <div style = {calcStyle} className={cnStyles()}>{children}</div>;
 };
