@@ -1,6 +1,9 @@
 @import '../../assets/styles/vars.scss';
 
 .Balloon {
+    position: relative;
+    top: -58px;
+    left: 28px;
     display: flex;
     width: 155px;
     padding: 3px 6px 4px 6px;

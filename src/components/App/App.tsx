@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Routes, Route, useNavigate, useSearchParams } from "react-router-dom";
+import { Routes, Route, useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { getToken, updateToken } from "../../services/auth/auth";
 import HomePage from "../../pages/HomePage/HomePage";
 import Layout from "../../components/Layout/Layout";
@@ -14,11 +14,13 @@ import { Page404 } from "../../pages/404/404";
 import { ProfilePage } from "../../pages/ProfileChangePage/ProfileChangePage";
 import { getCookie } from "../../utils/cookie";
 import './App.module.scss';
+import { checkResponse } from "../../utils/api";
 
 const App = () => {
   const [search, setSearch] = useSearchParams();
   const yandexCodeId = search.get("code");
   const navigate = useNavigate();
+  const location = useLocation()
 
   useEffect(() => {
     localStorage.getItem("refreshToken") && updateToken();
@@ -33,17 +35,16 @@ const App = () => {
     yandexCodeId && getToken(yandexCodeId);
   }, [search]);
 
-
     return (
         <>
       <Routes>
         <Route element={<Layout />}>
           <Route element={<ProtectedRoute />}>
             <Route index element={<HomePage />} />
-            <Route path="detail" element={<DetailPage />} />
+            <Route path="detail/*" element={<DetailPage />} />
             <Route path="profile" element={<ProfilePage />} />
             <Route path="map" element={<MapsPage />} />
-            <Route path="ui" element={<Demo />}/>
+            <Route path="demo" element={<Demo />} />
             <Route path="admin" element={<AdminPage />}>
               <Route index element={<AdminCommentsBlock />} />
               <Route path="users" element={<AdminUsersBlock />} />

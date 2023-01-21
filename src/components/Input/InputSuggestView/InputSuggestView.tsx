@@ -21,7 +21,7 @@ const InputSuggestView = () => {
     }
 
     const suggestView = (info: string) => {
-        ymaps.suggest(info)
+        ymaps?.suggest(info)
             .then(function(items) {
                 const newArray= items.map(element => element.value);
                 setView(newArray);
@@ -30,7 +30,7 @@ const InputSuggestView = () => {
     }
 
     const geoView = (info: string) => {
-        ymaps.geocode(info, {results: 1})
+        ymaps?.geocode(info, {results: 1})
             .then( function (res) {
                 // Выбираем первый результат геокодирования.
                 const firstGeoObject = res.geoObjects.get(0)
@@ -49,7 +49,7 @@ const InputSuggestView = () => {
 
     return ymaps && (
         <div className={cnStyles()}>
-            <input className={cnStyles('Input')} type="text" id="suggest" onChange={() => clicks(event)} onClick={() => clicks(event)} value={sugval} autoComplete="off" required/>
+            <input className={cnStyles('Input')} type="text" id="suggest" onChange={() => clicks(event)} onClick={() => clicks(event)} value={sugval} autoComplete="off"/>
            {status && sugval && 
             <ul className={cnStyles('List')} style={{height: `calc(${viewLength}*36px)`}} id="podskazka">
                 {

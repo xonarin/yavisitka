@@ -9,11 +9,11 @@ import InputDate from "../../components/Input/InputDate/InputDate";
 const Demo = () => {
     return (
         <>
-        <InputDate />
         <YMaps query={{ load: "package.full", apikey: "6bbb9fad-fe92-4de7-aed3-2caa0584dade" }}>
             <InputSuggestView />
             {/* <CustomMap coord={profilesGet} center={[55.76, 37.64]} zoom={7}/> */}
         </YMaps>
+        <InputDate />
         
         </>
     )

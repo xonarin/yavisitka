@@ -79,7 +79,7 @@
         height: 150px;
         right: 0;
         position: absolute;
-        background-image: url('../../assets/images/Union.svg');
+        //background-image: url('../../assets/images/Union.svg');
         background-repeat: no-repeat;
         background-position: 50% 95%;
         background-color: rgba(16, 12, 52, 0.5);
@@ -108,7 +108,7 @@
     }
 
     &-photo:hover {
-        background-image: url('../../assets/images/Union.svg');
+        //background-image: url('../../assets/images/Union.svg');
         background-repeat: no-repeat;
         background-position: 50% 95%;
         background-color: rgba(16, 12, 52, 0.5);
@@ -257,7 +257,7 @@
 
     &-add {
         position: absolute;
-        background-image: url('../../assets/images/add-photo.svg');
+       // background-image: url('../../assets/images/add-photo.svg');
         background-size: contain;
         background-repeat: no-repeat;
         width: 16.24px;
@@ -304,4 +304,3 @@
 }
    
 }
-

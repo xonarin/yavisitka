@@ -1,6 +1,43 @@
 @import "../../assets/styles/vars.scss";
 
-
 .SearchInput {
-    border: 1px solid green;
+  //   border: 1px solid green;
+  &-label {
+    margin: 0;
+
+    font-style: normal;
+    font-weight: $font-weight-400;
+    font-size: $font-size-16;
+    line-height: $line-height-24;
+
+    color: $text-dark;
+  }
+
+  &-input {
+    box-sizing: border-box;
+    margin-top: 4px;
+    width: 1015px;
+    // max-width: 75%;
+    height: 48px;
+    border: 1px solid $text-dark;
+    border-radius: 4px;
+
+    font-style: normal;
+    font-weight: $font-weight-400;
+    font-size: $font-size-16;
+    line-height: $line-height-24;
+
+    &::placeholder {
+      color: $placeholder;
+    }
+
+    &:focus {
+      outline: 0;
+      border-color: $input-hover;
+      filter: drop-shadow(0px 0px 4px rgba(78, 59, 255, 0.25));
+    }
+    &:hover {
+      border-color: $input-hover;
+    }
+  }
 }
