@@ -7,8 +7,8 @@ const cnStyles = cn(styles, "AutoTextArea");
 const AutoTextArea = (props: TextareaHTMLAttributes<HTMLTextAreaElement>) => {
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const [text, setText] = useState("");
-    const [textAreaHeight, setTextAreaHeight] = useState("auto");
-    const [parentHeight, setParentHeight] = useState("auto");
+    const [textAreaHeight, setTextAreaHeight] = useState("36px");
+    const [parentHeight, setParentHeight] = useState("36px");
 
     useEffect(() => {
         setParentHeight(`${textAreaRef.current!.scrollHeight}px`);
