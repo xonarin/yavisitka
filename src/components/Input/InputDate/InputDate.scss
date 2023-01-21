@@ -6,10 +6,12 @@
     border-radius: 4px;
     padding: 8px 2px 0px 2px;
 
-    &__input-container {
+    &__wrap {
         position: relative;
         max-width: 440px;
+    }
 
+    &__input-container {
         input {
             position: relative;
             width: 100%;
@@ -26,6 +28,16 @@
                 background: url('../../../assets/images/calendar-focus.svg') calc(100% - 15px) 14px no-repeat no-repeat;
             }
         }
+    }
+
+    &__tab-loop {
+        position: absolute;
+        top: -4px;
+        right: 216px;
+    }
+
+    &-popper-custom {
+        transform: translate3d(0, 54px, 0)!important; //плохой тон, но этот стиль у компонента никак не перебить.
     }
 
 
