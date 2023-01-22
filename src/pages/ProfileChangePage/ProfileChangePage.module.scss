@@ -79,7 +79,13 @@
         height: 150px;
         right: 0;
         position: absolute;
+        //background-image: url('../../assets/images/Union.svg');
+        background-repeat: no-repeat;
+        background-position: 50% 95%;
+        background-color: rgba(16, 12, 52, 0.5);
+        background-size: auto;
         border-radius: 50%;
+        clip-path: inset(80% 0 0 0);
     }
 
     &-avatar {
@@ -102,7 +108,7 @@
     }
 
     &-photo:hover {
-        background-image: url('../../assets/images/Union.svg');
+        //background-image: url('../../assets/images/Union.svg');
         background-repeat: no-repeat;
         background-position: 50% 95%;
         background-color: rgba(16, 12, 52, 0.5);
@@ -116,6 +122,11 @@
         cursor: pointer;
     }
 
+    &-input-date {
+        max-height: 264px;
+        display: flex;
+        flex-direction: column;
+    }
 
     &-span {
         align-items: center;
@@ -196,6 +207,7 @@
         resize: none;
         padding: 16px 14px;
         width: 93%;
+        overflow: auto;
     }
 
     &-select {
@@ -245,7 +257,7 @@
 
     &-add {
         position: absolute;
-        background-image: url('../../assets/images/add-photo.svg');
+       // background-image: url('../../assets/images/add-photo.svg');
         background-size: contain;
         background-repeat: no-repeat;
         width: 16.24px;
@@ -266,4 +278,29 @@
 .App {
     font-family: sans-serif;
     text-align: center;
+}
+
+.DropdownMenu {
+    max-width: 272px;
+&-select {
+    width: 100%;
+}
+}
+
+@media screen and (max-width: 440px) {
+    .ProfileChangePage {
+        &-form {
+            width: 272px;
+        }
+   
+        &-btn {
+        height: 60px;
+        margin: auto;
+    }
+    
+    &-input-text {
+        width: 240px;
+    }
+}
+   
 }

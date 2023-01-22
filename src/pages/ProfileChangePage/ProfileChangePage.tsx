@@ -1,16 +1,34 @@
 import React from "react";
 import { cn } from "../../utils/bem-css-module";
 import styles from './ProfileChangePage.module.scss';
-import Header from "../../components/Header/Header";
 import Container from "../../components/Container/Container";
-import Footer from "../../components/Footer/Footer";
-// import DatePicker from "react-datepicker";
-// import moment from "moment";
-import ReactDOM from "react-dom";
-import { any } from "prop-types";
-// import 'react-datepicker/dist/react-datepicker.css'; 
+import { YMaps } from "@pbe/react-yandex-maps";
+import InputSuggestView from "../../components/Input/InputSuggestView/InputSuggestView";
+import InputDate from "../../components/Input/InputDate/InputDate";
+import DropdownMenu from "../../components/DropdownCitiesHomePage/DropdownCitiesHomePage";
+
+// картинки максимум 2мб, jpeg, gif, адаптив
+
+
+const style = [
+  { id: 1, name: "Серьезный" },
+  { id: 2, name: "Романтичный" },
+  { id: 3, name: "Дерзкий" },
+]
 
 const cnStyles = cn(styles, 'ProfileChangePage');
+const handleFileUpload = (e) => {
+  let file = e.target.files[0];
+  let fileSize = file.size; // 3MB
+
+  if (fileSize > 2 * 1000000) {
+    // fileSize > 2MB then show popup message
+    alert(
+      `Размер файла больше 2МБ.\nПожалуйста, выберите другой файл \n (временное решение)`
+    );
+    return;
+  }
+};
 
 export const ProfilePage = () => {
   return (
@@ -22,7 +40,7 @@ export const ProfilePage = () => {
               Загрузите фото *
             </div>
             <div className={cnStyles("add-photo__subtitle")}>
-              (размер не менее 440х440 пикселей)
+              (размер не менее 440х440)
             </div>
           </label>
           <div className={cnStyles("add-photo__input")}>
@@ -30,21 +48,19 @@ export const ProfilePage = () => {
             type="file" 
             className={cnStyles("photo")} 
             name="avatar" id="avatar" 
-            accept="image/*" 
+            accept=".jpg, .png" 
+            onChange={handleFileUpload}
             required />
-            <img className={cnStyles("avatar")} src={require('../../utils/testPic.jpg')} />
             </div>
           <label className={cnStyles("form-name")} htmlFor="birthday">Дата рождения *</label>
-          <div className={cnStyles("form-input")}>
-            <input type="date" className={cnStyles("date")} name="#" id="birthday" required />
+          <div className={cnStyles("input-date")}>
+          <InputDate />
           </div>
           <label className={cnStyles("form-name")} htmlFor="place">Выберете город *</label>
-          <div className={cnStyles("form-input")}>
-            <select className={cnStyles("select")} id="place" name="place" required>
-              <option className={cnStyles('option')}>Москва</option>
-              <option className={cnStyles('option')}>Таганрог</option>
-            </select>
-          </div>
+          <YMaps query={{ load: "package.full", apikey: "6bbb9fad-fe92-4de7-aed3-2caa0584dade" }}>
+            <InputSuggestView />
+            {/* <CustomMap coord={profilesGet} center={[55.76, 37.64]} zoom={7}/> */}
+        </YMaps>
           <label className={cnStyles("form-name")} htmlFor="telegram">Ник в телеграм</label>
           <div className={cnStyles("form-input")}>
             <input type="text" placeholder="@example" className={cnStyles("input-text")} name="#" id="telegram" />
@@ -55,50 +71,46 @@ export const ProfilePage = () => {
           </div>
           <label className={cnStyles("form-name")} htmlFor="stile">Выберете шаблон</label>
           <div className={cnStyles("form-input")}>
-            <select className={cnStyles("select")} id="stile" name="stile">
-              <option className={cnStyles('option')}>серьезный</option>
-              <option className={cnStyles('option')}>романтичный</option>
-              <option className={cnStyles('option')}>дерзкий</option>
-            </select>
+          <DropdownMenu defaultText={'Стили'} optionsList={style}/>
           </div>
           <label className={cnStyles("form-name")} htmlFor="thesis">Девиз, цитата</label>
           <div className={cnStyles("form-input")}>
             <textarea placeholder="Не более 100 символов" className={cnStyles("textarea")} name="#"
-              id="thesis"></textarea>
+              id="thesis" maxLength={100}></textarea>
           </div>
           <label className={cnStyles("form-name")} htmlFor="hobbies">Увлечение, досуг, интересы</label>
           <div className={cnStyles("form-input")}>
             <div className={cnStyles("input-text")}>
-              <input type="file" className={cnStyles("photo-text")} name="hobbies" id="hobbies" accept="image/*" multiple />
+              <input type="file" className={cnStyles("photo-text")} name="hobbies" id="hobbies" accept=".jpg, .png" onChange={handleFileUpload} />
               <span className={cnStyles("add")}>
 
               </span>
             </div>
             <p className={cnStyles("alert")}>Рекомедуемый размер фото 230х129</p>
             <textarea placeholder="Не более 300 символов" className={cnStyles("textarea")} name="#"
-              id="hobbies"></textarea>
+              id="hobbies" maxLength={300} ></textarea>
           </div>
           <label className={cnStyles("form-name")} htmlFor="family">Семья, статус, домашние животные</label>
           <div className={cnStyles("form-input")}>
             <div className={cnStyles("input-text")}>
-              <input type="file" className={cnStyles("photo-text")} name="family" id="family" accept="image/*" multiple />
+              <input type="file" className={cnStyles("photo-text")} name="family" id="family" accept=".jpg, .png" onChange={handleFileUpload} />
               <span className={cnStyles("add")}>
 
               </span>
             </div>
             <p className={cnStyles("alert")}>Рекомедуемый размер фото 230х129</p>
             <textarea placeholder="Не более 300 символов" className={cnStyles("textarea")} name="#"
-              id="family"></textarea>
+              id="family" maxLength={300}></textarea>
           </div>
           <label className={cnStyles("form-name")} htmlFor="job">Из какой сферы пришел? Кем работаешь?</label>
           <div className={cnStyles("form-input")}>
             <textarea placeholder="Не более 300 символов" className={cnStyles("textarea")} name="#"
-              id="job"></textarea>
+              id="job" maxLength={300}></textarea>
           </div>
           <label className={cnStyles("form-name")} htmlFor="why">Почему решил учиться на веб-разработчика?</label>
           <div className={cnStyles("form-input")}>
             <textarea placeholder="Не более 300 символов" className={cnStyles("textarea")} name="#"
-              id="why"></textarea>
+              id="why" maxLength={300}></textarea>
           </div>
           <p className={cnStyles("span")}>Поля, отмеченный звездочкой, обязательные для заполнения</p>
           <input className={cnStyles("btn")} type="submit" value="Сохранить изменения" />

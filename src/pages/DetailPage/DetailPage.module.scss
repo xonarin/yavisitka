@@ -237,7 +237,7 @@
         }
 
         &-container {
-            justify-content: start;
+            justify-content: center;
         }
 
         &-photoStudent {
@@ -258,6 +258,7 @@
         &-twoСolumns {
             row-gap: 15px;
             margin-bottom: 105px;
+            justify-content: center;
         }
 
         &-blockQuote {
