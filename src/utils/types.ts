@@ -1,6 +1,6 @@
 export type TCards = {
     total: number,
-    items: {
+    items: [] | {
         _id: string,
         createdAt: number,
         updatedAt: number | null,
@@ -26,12 +26,8 @@ export type TReactions = {
             name: string,
             email: string,
         },
-        target: string,
-        text: string,
-        to: {
-            _id: string,
-            name: string,
-            email: string,
-        },
+        target: string | null,
+        text?: string,
+        emotion?: string,
     }[]
 }

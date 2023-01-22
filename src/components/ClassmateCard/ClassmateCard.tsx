@@ -1,4 +1,4 @@
-import React, {useState, useEffect, FC} from "react";
+import React, {useState, useEffect, useRef, FC} from "react";
 import styles from './ClassmateCard.module.scss';
 import {cn} from '../../utils/bem-css-module';
 import {Link} from "react-router-dom";
@@ -6,6 +6,7 @@ import ChatButton from "../ChatButton/ChatButton";
 import CommentBar from "../CommentBar/CommentBar";
 import {TReactions} from "../../utils/types";
 import {getReactions} from "../../utils/api";
+import useOnClickOutside from "../../services/hooks/useOnClickOutside";
 
 const cnStyles = cn(styles, 'ClassmateCard');
 
@@ -34,6 +35,8 @@ const ClassmateCard: FC<TProps> = ({cardsData}) => {
     const {name, photo} = cardsData.profile;
     const {name: city} = cardsData.profile.city;
     const {_id: id} = cardsData;
+    let cardRef = useRef(null);
+    useOnClickOutside(cardRef, () => setIsOpened(false));
 
     function handleClick() {
         setIsOpened(!isOpened)
@@ -64,7 +67,7 @@ const ClassmateCard: FC<TProps> = ({cardsData}) => {
     }, [])
 
     return (
-        <div className={cnStyles()} onMouseEnter={() => setIsShown(true)}
+        <div ref={cardRef} className={cnStyles()} onMouseEnter={() => setIsShown(true)}
              onMouseLeave={() => setIsShown(false)}>
             <Link to={'/user'} className={cnStyles()}>
                 <figure className={cnStyles('figure')}>
@@ -78,8 +81,9 @@ const ClassmateCard: FC<TProps> = ({cardsData}) => {
                     </figcaption>
                 </figure>
             </Link>
-            <ChatButton isOpened={handleClick} isShow={isShown} counter={'2'}/>
-            {isOpened && <CommentBar/>}
+            <ChatButton isOpened={handleClick} isShow={isShown}
+                        counter={reactions.total <= 99 ? String(reactions.total) : '99+'}/>
+            {isOpened && <CommentBar comments={reactions.items}/>}
         </div>
 
     )
