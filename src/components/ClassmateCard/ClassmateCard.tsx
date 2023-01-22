@@ -77,7 +77,12 @@ const ClassmateCard: FC<TProps> = ({cardsData}) => {
                     <figcaption className={cnStyles('captionContainer')}>
                         <p className={cnStyles('captionPrimary')}>{name}</p>
                         <p className={cnStyles('captionSecondary')}>{city}</p>
-                        <p className={cnStyles('captionSecondary')}>{reactions.total}</p>
+                        <p className={cnStyles('captionSecondary')}>{
+                            reactions.total === 1
+                                ? `${reactions.total} сообщение`
+                                : reactions.total < 5 && reactions.total !== 0
+                                    ? `${reactions.total} сообщения`
+                                    : `${reactions.total} сообщений`}</p>
                     </figcaption>
                 </figure>
             </Link>
