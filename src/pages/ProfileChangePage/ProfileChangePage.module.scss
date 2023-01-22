@@ -22,7 +22,6 @@
         margin: auto;
         padding: 0px;
         width: 440px;
-        height: 1562px;
         margin-top: 8px;
         margin-bottom: 96px;
     }
@@ -63,65 +62,6 @@
         font-size: 14px;
     }
 
-    &-add-photo__input {
-        margin: auto;
-        text-align: center;
-        width: 150px;
-        height: 150px;
-        border: 1px solid black;
-        border-radius: 50%;
-        filter: grayscale(100%);
-        position: relative;
-    }
-
-    &-photo {
-        width: 150px;
-        height: 150px;
-        right: 0;
-        position: absolute;
-        //background-image: url('../../assets/images/Union.svg');
-        background-repeat: no-repeat;
-        background-position: 50% 95%;
-        background-color: rgba(16, 12, 52, 0.5);
-        background-size: auto;
-        border-radius: 50%;
-        clip-path: inset(80% 0 0 0);
-    }
-
-    &-avatar {
-        width: 150px;
-        height: 150px;
-        position: absolute;
-        border-radius: 50%;
-        right: 0%;
-        z-index: -1;
-    }
-
-    &-photo::file-selector-button {
-        visibility: hidden;
-        overflow: hidden;
-    }
-
-    &-photo::file-upload-button {
-        visibility: hidden;
-        overflow: hidden;
-    }
-
-    &-photo:hover {
-        //background-image: url('../../assets/images/Union.svg');
-        background-repeat: no-repeat;
-        background-position: 50% 95%;
-        background-color: rgba(16, 12, 52, 0.5);
-        background-size: auto;
-        border-radius: 50%;
-        clip-path: inset(80% 0 0 0);
-        padding-left: -0.01px;
-        left: 0.5px;
-        bottom: -1px;
-        z-index: 999;
-        cursor: pointer;
-    }
-
     &-input-date {
         max-height: 264px;
         display: flex;
@@ -147,89 +87,12 @@
         height: 68px;
         width: 100%;
         padding: 0;
-    }
-
-    &-input-text {
-        width: 92%;
-        height: 24px;
-        border: 1px solid #100C34;
-        border-radius: 4px;
-        background-color: #FFFFFF;
-        outline: none;
-        position: relative;
-        overflow: hidden;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        margin: 0;
-        padding: 12px 16px;
-        
-    }
-
-    &-input-text::placeholder {
-        font-family: 'IBM Plex Sans';
-        color: #83828F;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 21px;
-        position: relative;
-    }
-
-    &-textarea::placeholder {
-        font-family: 'IBM Plex Sans';
-        color: #83828F;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 21px;
-        position: relative;
-    }
-
-    &-input-text:hover {
-        border: 1px solid #666666;
-    }
-
-    &-input-text:focus {
-        border: 1px solid #666666;
-    }
-
-    &-date {
-        composes: ProfileChangePage-input-text;
+        cursor: pointer;
     }
 
 
-    &-textarea {
-        composes: ProfileChangePage-input-text;
-        height: 102px;
-        text-align: start;
-        resize: none;
-        padding: 16px 14px;
-        width: 93%;
-        overflow: auto;
-    }
 
-    &-select {
-        composes: ProfileChangePage-input-text;
-        width: 100%;
-        height: 48px;
-        border-radius: 4px;
-        background-color: #FFFFFF;
-    }
 
-    &-option {
-        font-family: 'IBM Plex Sans';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        margin: 6px 0;
-    }
-
-    &-option:focus {
-        background: #FF00A8;
-    }
 
     &-alert {
         composes: ProfileChangePage-span;
@@ -246,15 +109,6 @@
         display: none;
     }
 
-    &-photo-text {
-        background: transparent;
-    }
-
-    &-photo-text[type=file] {
-        cursor: pointer;
-    }
-
-
     &-add {
         position: absolute;
        // background-image: url('../../assets/images/add-photo.svg');
@@ -266,12 +120,6 @@
         top: 15px;
     }
 
-
-    &-photo-text[type=file]::-webkit-file-upload-button {
-        position: absolute;
-        visibility: hidden;
-        overflow: hidden;
-    }
 }
 
 
@@ -282,9 +130,10 @@
 
 .DropdownMenu {
     max-width: 272px;
-&-select {
-    width: 100%;
-}
+
+    &-select {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 440px) {
@@ -292,15 +141,14 @@
         &-form {
             width: 272px;
         }
-   
+
         &-btn {
-        height: 60px;
-        margin: auto;
+            height: 60px;
+            margin: auto;
+        }
+
+        &-input-text {
+            width: 240px;
+        }
     }
-    
-    &-input-text {
-        width: 240px;
-    }
-}
-   
 }
