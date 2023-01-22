@@ -6,7 +6,7 @@
   padding: 0 40px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: start;
   min-height: calc(100vh - 179px);
   text-rendering: optimizeLegibility;
   font-weight: $font-weight-400;
@@ -36,7 +36,7 @@
   &-cardContainer {
     display: grid;
     margin: 40px 0 0 0;
-    grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(325px, 325px));
     grid-template-rows: repeat(auto-fit, minmax(393px, 1fr));
     gap: 20px;
     grid-auto-flow: row;
