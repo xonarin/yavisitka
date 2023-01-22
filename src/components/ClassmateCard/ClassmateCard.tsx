@@ -81,7 +81,8 @@ const ClassmateCard: FC<TProps> = ({cardsData}) => {
                     </figcaption>
                 </figure>
             </Link>
-            <ChatButton isOpened={handleClick} isShow={isShown} counter={'2'}/>
+            <ChatButton isOpened={handleClick} isShow={isShown}
+                        counter={reactions.total <= 99 ? String(reactions.total) : '99+'}/>
             {isOpened && <CommentBar/>}
         </div>
 
