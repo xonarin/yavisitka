@@ -1,35 +1,40 @@
-import React, {useState, useEffect, useRef, FC} from "react";
+import React, {useState, useEffect, useRef, FC, MouseEvent, LegacyRef, MutableRefObject} from "react";
 import styles from './DropdownCitiesHomePage.module.scss';
 import {cn} from "../../utils/bem-css-module";
 
 const cnStyles = cn(styles, 'DropdownMenu');
-const arrowDown = require('../../images/homepage-arrow-down.svg');
-const arrowUp = require('../../images/homepage-arrow-up.svg');
 
 type TProps = {
-    defaultText: string,
-    optionsList: {
-        id: number,
-        name: string,
-    }[]
+    defaultText: string | null,
+    optionsList: string[],
+    handleCity: (city: string | null) => void
 }
 
-const DropdownMenu: FC<TProps> = (props) => {
-    const [menuState, setMenuState] = useState({selectText: '', showOptionList: false});
+type TState = {
+    selectText: string | null,
+    showOptionList: boolean
+}
+
+const DropdownMenu: FC<TProps> = ({defaultText, optionsList, handleCity}) => {
+    const [menuState, setMenuState] = useState<TState>({selectText: '', showOptionList: false});
     const {showOptionList, selectText} = menuState;
-    const optionsList = props.optionsList;
-    const ref = useRef();
+    const ref = useRef<HTMLDivElement>(null);
+    const citiesCollection = new Set(optionsList);
+    const filteredCities = Array.from(citiesCollection).sort((a, b) => {
+        return a < b ? -1 : a > b ? 1 : 0
+    });
+    filteredCities.unshift('Все города');
 
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
         setMenuState({
             ...menuState,
-            selectText: props.defaultText,
+            selectText: defaultText,
         });
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    function handleClickOutside(e) {
+    function handleClickOutside(e: Event) {
         // @ts-ignore
         if (ref.current && !ref.current.contains(e.target)) {
             setMenuState(prevState => {
@@ -50,13 +55,14 @@ const DropdownMenu: FC<TProps> = (props) => {
         })
     }
 
-    function handleOptionClick(e) {
+    function handleOptionClick(e: MouseEvent) {
         if (!(e.target instanceof HTMLElement)) return;
         setMenuState({
             ...menuState,
             selectText: (e.target as HTMLElement).textContent,
             showOptionList: false
         });
+        handleCity((e.target as HTMLElement).textContent)
     }
 
     return (
@@ -69,14 +75,14 @@ const DropdownMenu: FC<TProps> = (props) => {
             </div>
             {showOptionList && (
                 <ul className={cnStyles("select-options")}>
-                    {optionsList.map(option => {
+                    {filteredCities.map((option, index) => {
                         return (
                             <li
                                 className={cnStyles("custom-select-option")}
-                                key={option.id}
+                                key={index}
                                 onClick={handleOptionClick}
                             >
-                                {option.name}
+                                {option}
                             </li>
                         );
                     })}

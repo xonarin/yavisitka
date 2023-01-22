@@ -71,6 +71,7 @@ const InputDate = () => {
             </div>
             )}
             selected={startDate}
+            //@ts-ignore
             onChange={(date) => setStartDate(date)}
         />
     </div>
