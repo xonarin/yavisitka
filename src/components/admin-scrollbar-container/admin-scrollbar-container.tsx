@@ -1,4 +1,3 @@
-import React, { Children } from "react";
 import styles from "./admin-scrollbar-container.module.scss";
 import { cn } from "../../utils/bem-css-module";
 
