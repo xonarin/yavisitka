@@ -3,7 +3,7 @@ import styles from "./admin-comment-card.module.scss";
 import { cn } from "../../utils/bem-css-module";
 import { Link } from "react-router-dom";
 const cnStyles = cn(styles, "Card");
-
+//@ts-ignore
 export const CommentCard = ({ data }) => {
   const [isDeleted, setIsDeletet] = useState(false);
 

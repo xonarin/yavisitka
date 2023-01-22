@@ -5,6 +5,7 @@ import { CommentCard } from "../../components/admin-comment-card/admin-comment-c
 import { ScrollbarContainer } from "../../components/admin-scrollbar-container/admin-scrollbar-container";
 const cnStyles = cn(styles, "CommentsList");
 // console.log(cnStyles)
+//@ts-ignore
 export const AdminCommentsList = ({ list }) => {
   return (
     <>
@@ -24,8 +25,8 @@ export const AdminCommentsList = ({ list }) => {
             Не удалось никого найти. Исправьте запрос или сбросьте фильтр
           </p>
         )}
-
-        {list.map((data) => (
+          
+        {list.map((data:any) => (
           <CommentCard key={data._id} data={data} />
         ))}
       </ScrollbarContainer>

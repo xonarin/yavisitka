@@ -11,7 +11,7 @@ const cnStyles = cn(styles, "UsersBlock");
 export const AdminUsersBlock = () => {
   const [searchStr, setSearchStr] = useState("");
   const users = usersGet.items;
-
+  //@ts-ignore
   function filterUsers(user) {
     return [user.cohort, user.name, user.email].some((val) =>
       val.toLowerCase().includes(searchStr.toLowerCase())

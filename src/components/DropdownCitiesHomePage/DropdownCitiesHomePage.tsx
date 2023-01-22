@@ -28,6 +28,7 @@ const DropdownMenu: FC<TProps> = (props) => {
         });
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
+        //@ts-ignore
 
     function handleClickOutside(e) {
         // @ts-ignore
@@ -49,17 +50,23 @@ const DropdownMenu: FC<TProps> = (props) => {
             }
         })
     }
+        //@ts-ignore
 
     function handleOptionClick(e) {
+        
         if (!(e.target instanceof HTMLElement)) return;
         setMenuState({
+            
             ...menuState,
+        //@ts-ignore
+
             selectText: (e.target as HTMLElement).textContent,
             showOptionList: false
         });
     }
 
     return (
+        //@ts-ignore
         <div className={cnStyles()} ref={ref}>
             <div
                 className={showOptionList ? cnStyles('open') : cnStyles('select')}

@@ -20,13 +20,13 @@ export const AdminCommentsBlock = () => {
         cohort:
           users.filter((user) => user._id === comment.from._id)[0]?.cohort ||
           "Когорта",
-
+//@ts-ignore
         target: TARGETSMAP[comment.target] || EMPTY_TARGET,
       };
     });
   }, [comments, users]);
 
-  function filterComments(comment) {
+  function filterComments(comment:any) {
     return [
       comment.cohort,
       comment.from.name,
