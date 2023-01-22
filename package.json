@@ -48,5 +48,6 @@
     "react-datepicker": "^4.8.0",
     "react-router-dom": "^6.7.0",
     "sass": "^1.57.1"
-  }
+  },
+  "proxy": "https://visitki.practicum-team.ru/api"
 }
