@@ -83,7 +83,7 @@ const ClassmateCard: FC<TProps> = ({cardsData}) => {
             </Link>
             <ChatButton isOpened={handleClick} isShow={isShown}
                         counter={reactions.total <= 99 ? String(reactions.total) : '99+'}/>
-            {isOpened && <CommentBar/>}
+            {isOpened && <CommentBar comments={reactions.items}/>}
         </div>
 
     )

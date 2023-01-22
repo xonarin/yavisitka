@@ -35,6 +35,7 @@ const AutoTextArea = (props: TextareaHTMLAttributes<HTMLTextAreaElement>) => {
                     height: textAreaHeight,
                 }}
                 onChange={onChangeHandler}
+                maxLength={200}
             />
         </div>
     );
