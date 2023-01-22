@@ -1,6 +1,6 @@
 export type TCards = {
     total: number,
-    items: {
+    items: [] | {
         _id: string,
         createdAt: number,
         updatedAt: number | null,
