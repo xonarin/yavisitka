@@ -9,12 +9,12 @@
   font-family: $base-font-family;
   font-size: $font-size-16;
   color: $text-dark;
-  
+
   &:hover {
     cursor: pointer;
   }
 
-  
+
   &-select {
     background-color: transparent;
     padding: 12px 16px;
@@ -71,6 +71,18 @@
     border-bottom: 1px solid $text-dark;
     width: 323px;
   }
+
+  &-select-options::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background: white;
+  }
+
+  &-select-options::-webkit-scrollbar-thumb {
+    background: $text-light;
+    -webkit-border-radius: 20px;
+  }
+
 
   &-custom-select-option {
     list-style-type: none;
