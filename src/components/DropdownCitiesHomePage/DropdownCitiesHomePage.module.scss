@@ -3,7 +3,8 @@
 
 .DropdownMenu {
   display: inline-block;
-  width: 325px;
+  max-width: 100%;
+  min-width: 325px;
   text-align: left;
   position: relative;
   font-family: $base-font-family;
@@ -69,7 +70,7 @@
     border-right: 1px solid $text-dark;
     border-left: 1px solid $text-dark;
     border-bottom: 1px solid $text-dark;
-    width: 323px;
+    width: 99.5%;
   }
 
   &-select-options::-webkit-scrollbar {
@@ -90,22 +91,34 @@
     margin: 0;
     background: white;
     cursor: pointer;
+
   }
 
   &-custom-select-option:hover {
     background-color: $neon-pink;
     color: #FFFFFF
+
   }
 }
 
 
 @media screen and (max-width: 768px) {
   .DropdownMenu {
-    width: 342px;
+    width: 440px;
+    min-width: auto;
 
     &-select-options {
-      width: 340px;
+      width: 100%;
     }
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .DropdownMenu {
+  min-width: auto;
+  &-select-options {
+    width: 100%;
+  }
   }
 }
 
