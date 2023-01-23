@@ -5,7 +5,7 @@ import useWindowSize from "../../services/hooks/useWindowSize";
 import btnImage from '../../assets/images/chat-btn.svg';
 
 type TProps = {
-    counter: number,
+    counter: string,
     isShow: boolean
     isOpened: ()=>void
 }

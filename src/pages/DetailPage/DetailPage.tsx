@@ -60,22 +60,22 @@ const DetailPage = () => {
                                 </div>
                             </div>
                             {photo &&
-                                <DetailPhoto src={photo} alt={name} reactions={reactions} />
+                                <DetailPhoto src={photo} alt={name} reactions={String(reactions)} />
                             }
                             <Quote />
                         </div>
                         <div className={cnStyles('twoСolumns')}>
                             {infoUser?.hobby && 
-                                <DetailHobby title={"Увелечения"} text={infoUser.hobby.text} image={infoUser.hobby.image} reactions={infoUser.hobby.reactions} />
+                                <DetailHobby title={"Увелечения"} text={infoUser.hobby.text} image={infoUser.hobby.image} reactions={String(infoUser.hobby.reactions)} />
                             }
                             {infoUser?.status && 
-                                <DetailHobby title={"Семья"} text={infoUser.status.text} image={infoUser.status.image} reactions={infoUser.status.reactions} />
+                                <DetailHobby title={"Семья"} text={infoUser.status.text} image={infoUser.status.image} reactions={String(infoUser.status.reactions)} />
                             }
                             {infoUser?.job && 
-                                <DetailHobby title={"Сфера"} text={infoUser.job.text} image={infoUser.job.image} reactions={infoUser.job.reactions} />
+                                <DetailHobby title={"Сфера"} text={infoUser.job.text} image={infoUser.job.image} reactions={String(infoUser.job.reactions)} />
                             }
                             {infoUser?.edu && 
-                                <DetailHobby title={"Учеба"} text={infoUser.edu.text} image={infoUser.edu.image} reactions={infoUser.edu.reactions} />
+                                <DetailHobby title={"Учеба"} text={infoUser.edu.text} image={infoUser.edu.image} reactions={String(infoUser.edu.reactions)} />
                             }
                         </div>
                     </section>

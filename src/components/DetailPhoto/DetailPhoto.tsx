@@ -8,7 +8,7 @@ const cnStyles = cn(styles, 'DetailPhoto');
 interface DetailPhoto {
     src: string;
     alt?: string;
-    reactions: number;
+    reactions: string;
 }
 
 const DetailPhoto: FC<DetailPhoto> = ({ src, alt, reactions}) => {
@@ -22,8 +22,8 @@ const DetailPhoto: FC<DetailPhoto> = ({ src, alt, reactions}) => {
     return (
         <div className={cnStyles()}>
             <img className={cnStyles('Image')} src={src} alt={`Фотография студента ${alt}`} />
-            <ChatButton isOpened={handleClick} isShow={true} counter={reactions} />
-            {isOpened && <CommentBar/>}
+            <ChatButton isOpened={handleClick} isShow={true} counter={String(reactions)} />
+            {isOpened && <CommentBar comments={[]}/>}
         </div>
     )
 }

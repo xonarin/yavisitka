@@ -12,7 +12,6 @@ const InputSuggestView = () => {
     const [viewLength, setviewLength] = useState<number>();
     const [sugval, setSugVal] = useState<string>('');
     const [status, setStatus] = useState<boolean>(false);
-    const [geocodeMe, setGeoCodeMe] = useState([]);
 
     const clicks = (event: any) => {
         suggestView(event.target.value)
@@ -35,12 +34,11 @@ const InputSuggestView = () => {
                 // Выбираем первый результат геокодирования.
                 const firstGeoObject = res.geoObjects.get(0)
                 //@ts-ignore
-                setGeoCodeMe(firstGeoObject?.geometry?._coordinates) //@ts-ignore
                 console.log(`Координаты где? Всё на месте: ${firstGeoObject?.geometry?._coordinates}`)
         })
     }
 
-    const abra = (event: any) => {
+    const resultClick = (event: any) => {
         suggestView(event.target.innerText)
         geoView(event.target.innerText)
         setSugVal(event.target.innerText )
@@ -50,15 +48,14 @@ const InputSuggestView = () => {
     return ymaps && (
         <div className={cnStyles()}>
             <input className={cnStyles('Input')} type="text" id="suggest" onChange={(event) => clicks(event)} onClick={(event) => clicks(event)} value={sugval} autoComplete="off"/>
-           {status && sugval && 
-            <ul className={cnStyles('List')} style={{height: `calc(${viewLength}*36px)`}} id="podskazka">
-                {
-                    view?.map((element: string, key: number) => {
-                        return <li key={key} onClick={(event) => abra(event)} tabIndex={0}>{element}</li>
-                    })
-                }
-            </ul>
-            
+            {status && sugval && 
+                <ul className={cnStyles('List')} style={{height: `calc(${viewLength}*36px)`}} id="podskazka">
+                    {
+                        view?.map((element: string, key: number) => {
+                            return <li key={key} onClick={(event) => resultClick(event)} tabIndex={0}>{element}</li>
+                        })
+                    }
+                </ul>
             }
 
             

@@ -1,6 +1,6 @@
 export type TCards = {
     total: number,
-    items: {
+    items: [] | {
         _id: string,
         createdAt: number,
         updatedAt: number | null,
@@ -82,3 +82,51 @@ export interface IAccessToken {
     refresh_token: string;
     token_type: string;
 }
+
+export type TUser = {
+  _id: string;
+  createdAt: number;
+  updatedAt: number | null;
+  email: string;
+  cohort: string;
+  name: string;
+};
+
+export type TUsersDataSet = {
+  usersTotal: number;
+  users: TUser[];
+};
+
+export type TUsersResponseDataSet = {
+  total: number;
+  items: TUser[];
+};
+
+export type TComment = {
+  _id: string;
+  cohort?: string;
+  date?: string;
+  from: {
+    _id: string;
+    name: string;
+    email: string;
+  };
+  target: "hobby" | "edu" | "status" | "job" | null;
+  text: string;
+  to: {
+    _id: string;
+    name: string;
+    email: string;
+  };
+};
+
+export type TCommentsDataSet = {
+    commentsTotal: number;
+    comments: TComment[];
+  };
+
+
+export type TCommentsResponseDataSet = {
+    total: number;
+    items: TComment[];
+  };

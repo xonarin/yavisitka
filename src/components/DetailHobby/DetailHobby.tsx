@@ -10,7 +10,7 @@ interface DetailHobbyProps {
     title: string;
     text: string;
     image: string;
-    reactions: number;
+    reactions: string;
 }
 
 const DetailHobby: FC<DetailHobbyProps> = ({ title, text, image, reactions }) => {
@@ -26,8 +26,8 @@ const DetailHobby: FC<DetailHobbyProps> = ({ title, text, image, reactions }) =>
             onMouseEnter={() => setIsShown(true)}
             onMouseLeave={() => setIsShown(false)}
         >
-            <ChatButton isOpened={handleClick} isShow={isShown} counter={reactions} />
-            {isOpened && <CommentBar/>}
+            <ChatButton isOpened={handleClick} isShow={isShown} counter={String(reactions)} />
+            {isOpened && <CommentBar comments={[]}/>}
 
             <div className={cnStyles('Head')}>
                 <h3 className={cnStyles('Title')}>{title}</h3>
