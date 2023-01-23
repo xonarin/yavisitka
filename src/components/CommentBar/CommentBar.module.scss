@@ -32,7 +32,17 @@
     scroll-behavior: smooth;
     scrollbar-gutter: stable;
     overflow-x: hidden;
+  }
 
+  &-commentsContainer::-webkit-scrollbar {
+    height: 5px;
+    width: 5px;
+    background: white;
+  }
+
+  &-commentsContainer::-webkit-scrollbar-thumb {
+    background: $text-light;
+    -webkit-border-radius: 20px;
   }
 
   &-commentForm {

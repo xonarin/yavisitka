@@ -17,7 +17,7 @@ const style = [
 ]
 
 const cnStyles = cn(styles, 'ProfileChangePage');
-const handleFileUpload = (e) => {
+const handleFileUpload = (e:any) => {
   let file = e.target.files[0];
   let fileSize = file.size; // 3MB
 

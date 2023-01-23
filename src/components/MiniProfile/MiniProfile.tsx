@@ -14,8 +14,8 @@ const MiniProfile = () => {
     return  (
         <div className={cnStyles()}>
             <Link className={cnStyles('link')} to="/profile">
-                <img className={cnStyles('avatar')} src={user.profile.photo} alt={user.profile.name} />
-                <p className={cnStyles('name')}>{user.profile.name}</p>
+                <img className={cnStyles('avatar')} src={user?.profile.photo} alt={user?.profile.name} />
+                <p className={cnStyles('name')}>{user?.profile.name}</p>
             </Link>
         </div>
     )
