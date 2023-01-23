@@ -6,18 +6,21 @@ import { UserCard } from "../admin-user-card/admin-user-card";
 
 const cnStyles = cn(styles, "UsersList");
 //@ts-ignore
-export const AdminUsersList = ({ list }) => {
+export const AdminUsersList = ({ list, header = true }) => {
   return (
     <>
-      <div className={cnStyles()}>
-        <ul className={cnStyles("table-header")}>
-          <li className={cnStyles("column-title")}>Номер когорты</li>
-          <li className={cnStyles("column-title")}>E-mail</li>
-          <li className={cnStyles("column-title")}>Имя и фамилия студента</li>
-        </ul>
-      </div>
+      {header && (
+        <div className={cnStyles()}>
+          <ul className={cnStyles("table-header")}>
+            <li className={cnStyles("column-title")}>Номер когорты</li>
+            <li className={cnStyles("column-title")}>E-mail</li>
+            <li className={cnStyles("column-title")}>Имя и фамилия студента</li>
+          </ul>
+        </div>
+      )}
+
       <ScrollbarContainer negativHeightAdjustment={326}>
-        {list.map((userData:any) => (
+        {list.map((userData: any) => (
           <UserCard key={userData._id} data={userData} />
         ))}
       </ScrollbarContainer>
