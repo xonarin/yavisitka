@@ -20,7 +20,7 @@
         font-weight: $font-weight-500;
         font-size: $font-size-60;
         line-height: $line-height-60;
-        margin: 0 0 95px 0;
+        margin: 0 0 97px 0;
         text-overflow: ellipsis;
         overflow: hidden;
     }
@@ -38,6 +38,7 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        width: 100%;
         max-width: 443px;
         max-height: 440px;
     }
@@ -45,7 +46,7 @@
     &-socialNetwork {
         display: flex;
         gap: 20px;
-        margin: 24px 0 0 0;
+        margin: 17px 0 0 0;
     }
 
     &-socialNetwork {
@@ -53,7 +54,7 @@
         height: 32px;
     }
 
-    &-sity {
+    &-city {
         margin: 0;
         padding: 0;
         line-height: $line-height-24;
@@ -86,10 +87,10 @@
 
     &-twoСolumns {
         display: flex;
-        flex-direction: row;
+        flex-wrap: wrap;
         row-gap: 40px;
         column-gap: 70px;
-        flex-wrap: wrap;
+        padding-top: 72px;
         margin-bottom: 96px;
     }
 
@@ -105,15 +106,6 @@
         font-weight: $font-weight-700;
         font-size: $font-size-14;
         margin: 0;
-    }
-
-    &-thematicImage {
-        width: 210px;
-        height: 130px;
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center;
-        margin-bottom: 12px;
     }
 
     &-line {
@@ -144,7 +136,7 @@
         position: absolute;
         top: 23px;
         right: 16px;
-        background-image: url(../../images/comment.svg);
+        background-image: url(../../assets/images/comment.svg);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
@@ -157,7 +149,7 @@
         position: absolute;
         top: -3px;
         right: -5px;
-        background-image: url(../../images/commentNum.svg);
+        background-image: url(../../assets/images/commentNum.svg);
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
