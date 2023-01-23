@@ -45,6 +45,7 @@
     "@pbe/react-yandex-maps": "^1.2.2",
     "@types/lodash": "^4.14.191",
     "@types/react-datepicker": "^4.8.0",
+    "antd": "^5.1.6",
     "axios": "^1.2.3",
     "react-datepicker": "^4.8.0",
     "react-router-dom": "^6.7.0",

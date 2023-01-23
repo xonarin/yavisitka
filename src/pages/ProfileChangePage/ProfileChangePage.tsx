@@ -7,7 +7,7 @@ import InputSuggestView from "../../components/Input/InputSuggestView/InputSugge
 import InputDate from "../../components/Input/InputDate/InputDate";
 import { InputAvatar } from "../../components/Input/InputAvatar/InputAvatar";
 import { InputText } from "../../components/Input/InputText/InputText";
-import { InputTextarea } from '../../components/Input/InputTextarea/InputTextarea';
+import { InputTextareaAll, InputTextareaAbout } from '../../components/Input/InputTextarea/InputTextarea';
 import { InputPhoto } from "../../components/Input/InputPhoto/InputPhoto";
 import DropdownMenu from "../../components/DropdownCitiesHomePage/DropdownCitiesHomePage";
 
@@ -50,25 +50,27 @@ export const ProfilePage = () => {
           <label className={cnStyles("form-name")} htmlFor="github">Ник на гитхабе</label>
           <InputText />
           <label className={cnStyles("form-name")} htmlFor="stile">Выберете шаблон</label>
-          <DropdownMenu defaultText={"Стили"} optionsList={style} />
+          <DropdownMenu defaultText={"Стили"} optionsList={['Серьезный', 'Романтичный', 'Дерзкий']} handleCity={function (style: string | null): void {
+            throw new Error("Function not implemented.");
+          } }          />
           <label className={cnStyles("form-name")} htmlFor="thesis">Девиз, цитата</label>
-          <InputTextarea />
+          <InputTextareaAbout />
           <label className={cnStyles("form-name")} htmlFor="hobbies">Увлечение, досуг, интересы</label>
           <div className={cnStyles("form-input")}>
              <InputPhoto />
             <p className={cnStyles("alert")}>Рекомедуемый размер фото 230х129</p>
-            <InputTextarea />
+            <InputTextareaAll />
           </div>
           <label className={cnStyles("form-name")} htmlFor="family">Семья, статус, домашние животные</label>
           <div className={cnStyles("form-input")}>
             <InputPhoto />
             <p className={cnStyles("alert")}>Рекомедуемый размер фото 230х129</p>
-            <InputTextarea />
+            <InputTextareaAll />
           </div>
           <label className={cnStyles("form-name")} htmlFor="job">Из какой сферы пришел? Кем работаешь?</label>
-          <InputTextarea />
+          <InputTextareaAll />
           <label className={cnStyles("form-name")} htmlFor="why">Почему решил учиться на веб-разработчика?</label>
-          <InputTextarea />
+          <InputTextareaAll />
           <p className={cnStyles("span")}>Поля, отмеченный звездочкой, обязательные для заполнения</p>
           <input className={cnStyles("btn")} type="submit" value="Сохранить изменения" />
         </form>
