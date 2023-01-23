@@ -26,9 +26,10 @@ export const UserCard = ({ data }: any) => {
   return (
     <ul className={cnStyles()}>
       <li className={cnStyles("content")}>
-        {/* <Link to={`/cohort/${data.cohort}`}>{data.cohort}</Link> */}
         <input
-          style={data.cohort !== changedCohort ? changedStyle : {}}
+          style={data.cohort !== changedCohort || !data.name.length
+            ? changedStyle
+            : {}}
           className={cnStyles("input")}
           defaultValue={data.cohort}
           type="text"
@@ -36,11 +37,13 @@ export const UserCard = ({ data }: any) => {
           onChange={handleOnChange}
           placeholder="Когорта"
         />
+        {data.cohort !== changedCohort && <p className={cnStyles('saved-value')}>{data.cohort}</p>}
       </li>
       <li className={cnStyles("content")}>
-        {/* {data.email} */}
         <input
-        style={data.email !== changedEmail ? changedStyle : {}}
+          style={data.email !== changedEmail || !data.name.length
+            ? changedStyle
+            : {}}
           className={cnStyles("input")}
           defaultValue={data.email}
           type="text"
@@ -48,6 +51,7 @@ export const UserCard = ({ data }: any) => {
           onChange={handleOnChange}
           placeholder="Email"
         />
+        {data.email !== changedEmail && <p className={cnStyles('saved-value')}>{data.email}</p>}
       </li>
       <li className={cnStyles("content")}>
         <Link to={`/detail/${data._id}`}>{data.name}</Link>

@@ -46,7 +46,7 @@ export const AdminUsersBlock = () => {
         {!isLoading && <AdminUsersList list={users.filter(filterUsers)} />}
       </div>
 
-      <AdminAddingUsers />
+      <AdminAddingUsers setUsers={setUsers} currentUsers={users} />
     </div>
   );
 };
