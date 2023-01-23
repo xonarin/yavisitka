@@ -3,8 +3,8 @@ import styles from './DropdownCitiesHomePage.module.scss';
 import {cn} from "../../utils/bem-css-module";
 
 const cnStyles = cn(styles, 'DropdownMenu');
-const arrowDown = require('../../images/homepage-arrow-down.svg');
-const arrowUp = require('../../images/homepage-arrow-up.svg');
+const arrowDown = require('../../assets/images/homepage-arrow-down.svg');
+const arrowUp = require('../../assets/images/homepage-arrow-up.svg');
 
 type TProps = {
     defaultText: string,

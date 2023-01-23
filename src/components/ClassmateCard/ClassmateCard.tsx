@@ -78,7 +78,7 @@ const ClassmateCard: FC<TProps> = ({cardsData}) => {
                     </figcaption>
                 </figure>
             </Link>
-            <ChatButton isOpened={handleClick} isShow={isShown} counter={'2'}/>
+            <ChatButton isOpened={handleClick} isShow={isShown} counter={'2'} />
             {isOpened && <CommentBar/>}
         </div>
 

@@ -1,112 +1,88 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { cn } from "../../utils/bem-css-module";
 import Container from "../../components/Container/Container";
+import DetailPhoto from "../../components/DetailPhoto/DetailPhoto";
+import Quote from "../../components/Quote/Quote";
+import DetailHobby from "../../components/DetailHobby/DetailHobby";
+import DetailSocial from "../../components/DetailSocial/DetailSocial";
+import { getProfilesId } from "../../utils/api";
+import { IProfileId } from "../../utils/types";
 import styles from './DetailPage.module.scss';
 
-import photoStudent from '../../images/detail_big_foto.png'
-import telegram from '../../images/telegram.svg'
-import gitHub from '../../images/gitHub.svg'
-import line from '../../images/line.svg'
-import quote from '../../images/quote.svg'
-import hobby from '../../images/hobby.png'
-import family from '../../images/family.png'
+
 
 const cnStyles = cn(styles, 'DetailPage');
 
 const DetailPage = () => {
-    return (
+    const { id } = useParams();
+    const [isLoading, setIsLoading] = useState(false);
+    const [profile, setProfile] = useState<IProfileId>();
+    const name = profile?.profile.name;
+    const photo = profile?.profile.photo;
+    const reactions = profile?.reactions;
+    const city = profile?.profile.city.name;
+    const telegram = profile?.profile.telegram;
+    const github = profile?.profile.github;
+    const infoUser = profile?.info;
+
+
+    useEffect(() => {
+        setIsLoading(true)
+        getProfilesId(id)
+        .then((res) => {
+                setProfile(res)
+        })
+        .catch((err) => {
+            console.error(err)
+        })
+        .finally(() => {
+            setIsLoading(false)
+        })
+    }, [])
+
+    
+    return !isLoading ? (
         <>
-            <main className={cnStyles()}>
                 <Container>
-                    <section className={cnStyles('section')}>
+                    <section className={'section'}>
                         <div className={cnStyles('container')}>
                             <div className={cnStyles('blockUser')}>
-                                <h2 className={cnStyles('userName')}>Виктория Листвиновская</h2>
-                                <p className={cnStyles('sity')}>Калуга</p>
+                                <h2 className={cnStyles('userName')}>{name}</h2>
+                                <p className={cnStyles('city')}>{city}</p>
                                 <div className={cnStyles('socialNetwork')}>
-                                    <img className={cnStyles('icon')} src={telegram} alt="Иконка Telegram" />
-                                    <img className={cnStyles('icon')} src={gitHub} alt="Иконка GitHub" />
+                                    {telegram && 
+                                        <DetailSocial name={'telegram'} link={telegram} /> 
+                                    }
+                                    {github && 
+                                        <DetailSocial name={'github'} link={github} /> 
+                                    }
                                 </div>
                             </div>
-                            <div className={cnStyles('photoStudent')}>
-                                <img className={cnStyles()} src={photoStudent} alt="Фотография студента" />
-                                <div className={cnStyles('commentPhotoStudent')}>
-                                    <p className={cnStyles('commentNum')}>2</p>
-                                </div>
-                            </div>
-                            <div className={cnStyles('blockQuote')}>
-                                <img className={cnStyles('quoteIcon')} src={quote} alt="Цитата" />
-                                <blockquote className={cnStyles('quote')}>
-                                    Делай, что должно и будь, что будет.
-                                </blockquote>
-                                <div className={cnStyles('commentBlockQuote')}>
-                                    <p className={cnStyles('commentNum')}>2</p>
-                                </div>
-                            </div>
+                            {photo &&
+                                <DetailPhoto src={photo} alt={name} reactions={reactions} />
+                            }
+                            <Quote />
                         </div>
                         <div className={cnStyles('twoСolumns')}>
-                            <div className={cnStyles('thematicBlock')}>
-                                <img className={cnStyles('line')} src={line} alt="Линия" />
-                                <div className={cnStyles('thematicTitleBlock')}>
-                                    <h3 className={cnStyles('thematicTitle')}>Увлечения</h3>
-                                    <div className={cnStyles('comment')}>
-                                        <p className={cnStyles('commentNum')}>2</p>
-                                    </div>
-                                </div>
-                                <img className={cnStyles('thematicImage')} src={hobby} alt="Фотография увлечения студента" />
-                                <p className={cnStyles('description')}>
-                                    Увлекаюсь программированием, игрой на гитаре, вышиваю крестиком и играю в настолки.
-                                    Увлекаюсь программированием, игрой на гитаре, вышиваю крестиком и играю в настолки.
-                                    Увлекаюсь программированием, игрой на гитаре, вышиваю крестиком и играю в настолки.
-                                </p>
-                            </div>
-                            <div className={cnStyles('thematicBlock')}>
-                                <img className={cnStyles('line')} src={line} alt="Линия" />
-                                <div className={cnStyles('thematicTitleBlock')}>
-                                    <h3 className={cnStyles('thematicTitle')}>Семья</h3>
-                                    <div className={cnStyles('comment')}>
-                                        <p className={cnStyles('commentNum')}>2</p>
-                                    </div>
-                                </div>
-                                <img className={cnStyles('thematicImage')} src={family} alt="Фотография семьи студента" />
-                                <p className={cnStyles('description')}>
-                                    Замужем, двое детей, собака. Живу в городе Калуга, люблю этот маленький городок.
-                                    С собакой часто ходим на прогулки и наблюдаем за природой
-                                </p>
-                            </div>
-                            <div className={cnStyles('thematicBlock')}>
-                                <img className={cnStyles('line')} src={line} alt="Линия" />
-                                <div className={cnStyles('thematicTitleBlock')}>
-                                    <h3 className={cnStyles('thematicTitle')}>сфера</h3>
-                                    <div className={cnStyles('comment')}>
-                                        <p className={cnStyles('commentNum')}>2</p>
-                                    </div>
-                                </div>
-                                <p className={cnStyles('description')}>
-                                    Работаю в сфере гостиничного бизнеса, управляющим отелем. Люблю работать с людьми,
-                                    постоянно вижу новых людей, общаюсь с посетителями, управляю персоналом,
-                                    обучаю и принимаю на работу новых сотрудников.
-                                </p>
-                            </div>
-                            <div className={cnStyles('thematicBlock')}>
-                                <img className={cnStyles('line')} src={line} alt="Линия" />
-                                <div className={cnStyles('thematicTitleBlock')}>
-                                    <h3 className={cnStyles('thematicTitle')}>учеба</h3>
-                                    <div className={cnStyles('comment')}>
-                                        <p className={cnStyles('commentNum')}>2</p>
-                                    </div>
-                                </div>
-                                <p className={cnStyles('description')}>
-                                    Надоело работать в одной сфере, хочу сменить деятельность, нет шансов на рост, хочу быть айтишником.
-                                    В детстве любила информатику, компьютерные игры и разбираться с программами.
-                                    Вот вспомнила деские мечты и решила воплотить их в реальность. Надеюсь, что у меня все получится.
-                                </p>
-                            </div>
+                            {infoUser?.hobby && 
+                                <DetailHobby title={"Увелечения"} text={infoUser.hobby.text} image={infoUser.hobby.image} reactions={infoUser.hobby.reactions} />
+                            }
+                            {infoUser?.status && 
+                                <DetailHobby title={"Семья"} text={infoUser.status.text} image={infoUser.status.image} reactions={infoUser.status.reactions} />
+                            }
+                            {infoUser?.job && 
+                                <DetailHobby title={"Сфера"} text={infoUser.job.text} image={infoUser.job.image} reactions={infoUser.job.reactions} />
+                            }
+                            {infoUser?.edu && 
+                                <DetailHobby title={"Учеба"} text={infoUser.edu.text} image={infoUser.edu.image} reactions={infoUser.edu.reactions} />
+                            }
                         </div>
                     </section>
                 </Container>
-            </main>
         </>
+    ) : (
+       <div>Загрузка</div>
     )
 }
 

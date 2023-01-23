@@ -1,5 +1,6 @@
 import { baseAuthUrl, clientIdSecret64, checkResponse } from "../../utils/api";
 import { setCookie, deleteCookie } from "../../utils/cookie";
+import { IAccessToken } from "../../utils/types";
 
 export const getToken = async (code: string) => {
     try {
@@ -16,7 +17,8 @@ export const getToken = async (code: string) => {
             })
         })
 
-        const data = await checkResponse(res)
+        const data = await checkResponse<IAccessToken>(res)
+        console.log(data);
         setCookie('token', data.access_token, { secure: true, 'max-age': data.expires_in })
         localStorage.setItem("refreshToken", data.refresh_token);
 
@@ -26,7 +28,8 @@ export const getToken = async (code: string) => {
 };
 
 export const updateToken = async () => {
-    console.log('upd')
+    const localStore = localStorage.getItem("refreshToken")
+
     try {
         const res = await fetch(`${baseAuthUrl}/token`, {
             method: 'POST',
@@ -35,13 +38,13 @@ export const updateToken = async () => {
             },
             body: new URLSearchParams({
                 'grant_type': 'refresh_token',
-                'refresh_token': localStorage.getItem("refreshToken"),
+                'refresh_token': `${localStore}`,
                 'client_id': '5943887238384dbab2c210bf0dddd07d',
                 'client_secret': '8cef6b547d3b44778e5bbba0acf29c98'
             })
         })
 
-        const data = await checkResponse(res)
+        const data = await checkResponse<IAccessToken>(res)
         deleteCookie('token');
         localStorage.removeItem("refreshToken");
         setCookie('token', data.access_token, { secure: true, 'max-age': data.expires_in })
