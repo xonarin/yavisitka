@@ -6,9 +6,8 @@ import { deleteComment } from "../../utils/api";
 import { UniversalSpinner } from "../admin-universal-spinner/universal-spiner";
 
 const cnStyles = cn(styles, "Card");
-//@ts-ignore
-export const CommentCard = ({ data }) => {
-  const [isDeleted, setIsDeletet] = useState(false);
+export const CommentCard = ({ data }:any) => {
+  const [isDeleted, setIsDeleted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   function handleDelete() {
@@ -17,7 +16,7 @@ export const CommentCard = ({ data }) => {
       deleteComment(data._id)
         .then((res) => {
           console.log(`Удал комментарий id: ${data._id}`);
-          setIsDeletet(true);
+          setIsDeleted(true);
           setIsLoading(false);
         })
         .catch((err) => {
