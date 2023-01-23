@@ -5,7 +5,7 @@ import { CommentCard } from "../../components/admin-comment-card/admin-comment-c
 import { ScrollbarContainer } from "../../components/admin-scrollbar-container/admin-scrollbar-container";
 const cnStyles = cn(styles, "CommentsList");
 // console.log(cnStyles)
-export const AdminCommentsList = ({ list }) => {
+export const AdminCommentsList = ({ list }: any) => {
   return (
     <>
       <div className={cnStyles()}>
@@ -18,14 +18,14 @@ export const AdminCommentsList = ({ list }) => {
           <li className={cnStyles("column-title")}>Текст комментария</li>
         </ul>
       </div>
-      <ScrollbarContainer negativHeightAdjustment={326}>        
+      <ScrollbarContainer negativHeightAdjustment={326}>
         {Boolean(list.length) || (
           <p className={cnStyles("error-text")}>
             Не удалось никого найти. Исправьте запрос или сбросьте фильтр
           </p>
         )}
 
-        {list.map((data) => (
+        {list.map((data: any) => (
           <CommentCard key={data._id} data={data} />
         ))}
       </ScrollbarContainer>

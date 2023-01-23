@@ -49,12 +49,12 @@ const InputSuggestView = () => {
 
     return ymaps && (
         <div className={cnStyles()}>
-            <input className={cnStyles('Input')} type="text" id="suggest" onChange={() => clicks(event)} onClick={() => clicks(event)} value={sugval} autoComplete="off"/>
+            <input className={cnStyles('Input')} type="text" id="suggest" onChange={clicks} onClick={clicks} value={sugval} autoComplete="off"/>
            {status && sugval && 
             <ul className={cnStyles('List')} style={{height: `calc(${viewLength}*36px)`}} id="podskazka">
                 {
                     view?.map((element: string, key: number) => {
-                        return <li key={key} onClick={() => abra(event)} tabIndex={0}>{element}</li>
+                        return <li key={key} onClick={abra} tabIndex={0}>{element}</li>
                     })
                 }
             </ul>

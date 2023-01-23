@@ -5,7 +5,7 @@ import { ScrollbarContainer } from "../../components/admin-scrollbar-container/a
 
 const cnStyles = cn(styles, "UsersList");
 // console.log(cnStyles);
-
+//@ts-ignore
 export const AdminUsersList = ({list}) => {
   return (
     <>
