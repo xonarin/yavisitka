@@ -1,9 +1,10 @@
 @import '../../assets/styles/vars.scss';
 
 .ProfileChangePage {
-    font-family: 'IBM Plex Sans';
+    font-family: IBM Plex Sans;
     padding-top: 200px;
     height: calc(100vh - 379px);
+    margin: 0;
 
     &-container {
         display: flex;
@@ -19,9 +20,8 @@
     }
 
     &-profile {
-        margin: auto;
         padding: 0px;
-        width: 440px;
+        max-width: 440px;
         margin-top: 8px;
         margin-bottom: 96px;
     }
@@ -33,7 +33,7 @@
     }
 
     &-form-name {
-        margin: 16px 0 4px 0;
+        margin: 17px 0 4px 0;
     }
 
     &-form-input {

@@ -30,15 +30,6 @@
         overflow: auto;
     }
 
-    &-textarea::placeholder {
-        font-family: 'IBM Plex Sans';
-        color: #83828F;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 21px;
-        position: relative;
-    }
 
     &-textarea:hover {
         border: 1px solid #666666;
@@ -46,5 +37,14 @@
 
     &-textarea:focus {
         border: 1px solid #666666;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .InputTextarea {
+        &-textarea {
+width: 89%;
+height: 88px;
+        }
     }
 }

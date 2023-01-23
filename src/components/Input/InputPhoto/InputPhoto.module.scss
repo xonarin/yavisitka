@@ -33,3 +33,12 @@
     overflow: hidden;
 }
 }
+
+@media screen and (max-width: 440px) {
+    .InputPhoto {
+        &-photo-text {
+width: 88%;
+background: url('../../../assets/images/add-photo.svg') 93% 15px no-repeat
+        }
+    }
+}

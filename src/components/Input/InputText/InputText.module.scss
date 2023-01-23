@@ -38,3 +38,11 @@
         border: 1px solid #666666;
     }
 }
+
+@media screen and (max-width: 440px) {
+    .InputText {
+        &-input-text {
+width: 88%;
+        }
+    }
+}
