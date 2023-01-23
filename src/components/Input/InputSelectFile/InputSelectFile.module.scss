@@ -1,7 +1,7 @@
 @import "../../assets/styles/vars.scss";
 
 
-.DropdownMenu {
+.InputSelectFile {
   display: inline-block;
   max-width: 100%;
   min-width: 325px;
@@ -10,16 +10,18 @@
   font-family: $base-font-family;
   font-size: $font-size-16;
   color: $text-dark;
+  
+  
 
   &:hover {
     cursor: pointer;
   }
 
+  
 
   &-select {
     background-color: transparent;
     padding: 12px 16px;
-    height: 24px;
     border: 1px solid $text-dark;
     border-radius: 4px;
     display: flex;
@@ -31,7 +33,6 @@
   &-open {
     background-color: transparent;
     padding: 12px 16px;
-    height: 24px;
     border: 1px solid $text-dark;
     display: flex;
     justify-content: space-between;
@@ -97,6 +98,8 @@
   }
 
   &-custom-select-option:hover {
+    color: #FFFFFF;
+    background-color: #FF00A8;
     background-color: $neon-pink;
     color: #FFFFFF
 
@@ -105,7 +108,7 @@
 
 
 @media screen and (max-width: 768px) {
-  .DropdownMenu {
+  .InputSelectFile {
     width: 440px;
     min-width: auto;
 
@@ -116,7 +119,7 @@
 }
 
 @media screen and (max-width: 440px) {
-  .DropdownMenu {
+  .InputSelectFile {
   min-width: auto;
   &-select-options {
     width: 100%;
@@ -125,7 +128,7 @@
 }
 
 @media screen and (max-width: 320px) {
-  .DropdownMenu {
+  .InputSelectFile {
     width: 272px;
 
     &-select-options {
