@@ -1,10 +1,9 @@
-import React from "react";
 import styles from "./admin-comments-list.module.scss";
 import { cn } from "../../utils/bem-css-module";
 import { CommentCard } from "../../components/admin-comment-card/admin-comment-card";
 import { ScrollbarContainer } from "../../components/admin-scrollbar-container/admin-scrollbar-container";
 const cnStyles = cn(styles, "CommentsList");
-// console.log(cnStyles)
+
 export const AdminCommentsList = ({ list }: any) => {
   return (
     <>

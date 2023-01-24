@@ -1,7 +1,6 @@
-import React, {FC} from "react";
+import { FC } from "react";
 import styles from "./EmojiButton.module.scss";
 import {cn} from "../../utils/bem-css-module";
-import {isInaccessible} from "@testing-library/react";
 
 const cnStyles = cn(styles, "EmojiButton");
 

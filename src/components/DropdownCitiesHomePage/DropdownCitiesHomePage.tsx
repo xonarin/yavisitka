@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef, FC, MouseEvent, LegacyRef, MutableRefObject} from "react";
+import {useState, useEffect, useRef, FC } from "react";
 import styles from './DropdownCitiesHomePage.module.scss';
 import {cn} from "../../utils/bem-css-module";
 

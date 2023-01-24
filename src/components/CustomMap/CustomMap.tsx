@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect } from 'react';
+import { FC, useRef, useEffect } from 'react';
 import { useYMaps,  } from "@pbe/react-yandex-maps";
 import  Balloon  from '../../components/BalloonLayout/BalloonLayout';
 import { cn } from "../../utils/bem-css-module";

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import styles from "./universal-spiner.module.scss";
 import { cn } from "../../utils/bem-css-module";
 

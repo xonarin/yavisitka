@@ -1,6 +1,6 @@
-import React, {FC} from "react";
+import { FC } from "react";
 import styles from "./CommentBar.module.scss";
-import {cn} from "../../utils/bem-css-module";
+import { cn } from "../../utils/bem-css-module";
 import EmojiButton from "../EmojiButton/EmojiButton";
 import AutoTextArea from "../AutoTextArea/AutoTextArea";
 import Comment from "../Comment/Comment";

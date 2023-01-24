@@ -1,6 +1,6 @@
-import React, {FC, useState} from "react";
+import { FC } from "react";
 import styles from "./ChatButton.module.scss";
-import {cn} from "../../utils/bem-css-module";
+import { cn } from "../../utils/bem-css-module";
 import useWindowSize from "../../services/hooks/useWindowSize";
 import btnImage from '../../assets/images/chat-btn.svg';
 

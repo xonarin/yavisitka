@@ -1,4 +1,3 @@
-import React from "react";
 import { cn } from "../../utils/bem-css-module";
 import Container from "../../components/Container/Container";
 import styles from './Footer.module.scss';

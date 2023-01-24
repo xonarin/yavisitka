@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler, useState, useMemo } from "react";
+import { useState } from "react";
 import styles from "./admin-user-card.module.scss";
 import { cn } from "../../utils/bem-css-module";
 import { Link } from "react-router-dom";
@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const cnStyles = cn(styles, "Card");
 
 export const UserCard = ({ data }: any) => {
-  const [isLoading, setIsLoading] = useState(false);
   const [changedCohort, setChangedCohort] = useState(data.cohort);
   const [changedEmail, setChangedEmail] = useState(data.email);
   const changedStyle = {

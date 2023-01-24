@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import styles from "./admin-users-block.module.scss";
 import { cn } from "../../utils/bem-css-module";
 import { AdminSearchInput } from "../../components/admin-search-input/admin-search-input";

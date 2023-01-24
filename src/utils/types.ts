@@ -120,6 +120,39 @@ export type TComment = {
   };
 };
 
+export type TCommentArray = {
+  _id: string;
+  from: {
+    _id: string;
+    name: string;
+    email: string;
+  };
+  target: "hobby" | "edu" | "status" | "job" | null;
+  text: string;
+  to: {
+    _id: string;
+    name: string;
+    email: string;
+  };
+}
+
+
+// {
+//   "_id": "c824a2de0b675b0acb5a2923",
+//   "from": {
+//       "_id": "e638ad9bce6d7efd1b5b035b",
+//       "name": "Elvira Grady",
+//       "email": "Anita93@hotmail.com"
+//   },
+//   "target": "hobby",
+//   "text": "Laborum omnis harum modi omnis architecto ipsam adipisci dolore.",
+//   "to": {
+//       "_id": "abfccdaa23e0bd1c4448d2f3",
+//       "name": "Ricky Fadel",
+//       "email": "Chaim.Armstrong@gmail.com"
+//   }
+// }
+
 export type TCommentsDataSet = {
     commentsTotal: number;
     comments: TComment[];
