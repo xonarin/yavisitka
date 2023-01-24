@@ -30,7 +30,6 @@
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
-        max-width: 440px;
         max-height: 440px;
     }
 
@@ -96,7 +95,6 @@
 
     &-thematicBlock {
         position: relative;
-        max-width: 440px;
         text-overflow: ellipsis;
         overflow: hidden;
     }

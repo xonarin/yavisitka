@@ -17,20 +17,20 @@ const InputDate: FC<InputDateProps> = ({ onChangeDatePicker }) => {
     const [startDate, setStartDate] = useState(new Date());
     const years = range(1900, getYear(new Date()) + 1, 1);
 
-    const months = [
-        "Январь",
-        "Февраль",
-        "Март",
-        "Апрель",
-        "Май",
-        "Июнь",
-        "Июль",
-        "Август",
-        "Сентябрь",
-        "Октябрь",
-        "Ноябрь",
-        "Декабрь",
-    ];
+  const months = [
+    "Январь",
+    "Февраль",
+    "Март",
+    "Апрель",
+    "Май",
+    "Июнь",
+    "Июль",
+    "Август",
+    "Сентябрь",
+    "Октябрь",
+    "Ноябрь",
+    "Декабрь",
+  ];
   return (
     <div className="react-datepicker__wrap">
         <DatePicker
@@ -49,9 +49,7 @@ const InputDate: FC<InputDateProps> = ({ onChangeDatePicker }) => {
 
                 <select className="react-datepicker__custom-select"
                     value={getYear(date)}
-                    //@ts-ignore
-                    //Todo
-                    onChange={({ target: { value } }) => changeYear(value)}
+                    onChange={({ target: { value } }) => changeYear(Number(value))}
                     >
                         {years.map((option) => (
                             <option key={option} value={option}>
@@ -75,11 +73,13 @@ const InputDate: FC<InputDateProps> = ({ onChangeDatePicker }) => {
             </div>
             )}
             selected={startDate}
-            //@ts-ignore
-            onChange={(date) => {setStartDate(date); onChangeDatePicker(date)}}
+
+           //@ts-ignore
+            onChange={date => {setStartDate(date); onChangeDatePicker(date)}}
+
         />
     </div>
   );
-  };
+};
 
 export default InputDate;

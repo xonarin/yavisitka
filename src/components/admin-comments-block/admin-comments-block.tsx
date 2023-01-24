@@ -10,10 +10,7 @@ import {
   TARGETS_MAP,
 } from "../../utils/setup-constants";
 import { getComments, getUsers } from "../../utils/api";
-import {
-  TCommentsDataSet,
-  TUsersDataSet,
-} from "../../utils/types";
+import { TComment, TCommentsDataSet, TUsersDataSet } from "../../utils/types";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 const cnStyles = cn(styles, "CommentsBlock");
@@ -74,9 +71,7 @@ export const AdminCommentsBlock = () => {
       <AdminSearchInput setSearchStr={setSearchStr} />
       {isLoading && <LoadingSpinner />}
       {!isLoading && (
-        <AdminCommentsList
-          list={commentsUpd.filter(filterComments)}
-        />
+        <AdminCommentsList list={commentsUpd.filter(filterComments)} />
       )}
     </div>
   );

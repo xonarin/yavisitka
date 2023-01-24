@@ -1,15 +1,14 @@
 import React, { ChangeEvent, FC, MouseEventHandler, useEffect, useState } from "react";
 import { useYMaps,  } from "@pbe/react-yandex-maps";
 import { cn } from "../../../utils/bem-css-module";
-import styles from './InputSuggestView.module.scss';
+import styles from "./InputSuggestView.module.scss";
 import { useHref } from "react-router-dom";
 
-const cnStyles = cn(styles, 'InputSuggest');
+const cnStyles = cn(styles, "InputSuggest");
 
 interface InputSuggestViewProps {
     onChange: any;
 }
-
 
 const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange }) => {
     const ymaps = useYMaps(['Map']);
@@ -24,14 +23,13 @@ const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange }) => {
         setStatus(true)
     }
 
-    const suggestView = (info: string) => {
-        ymaps?.suggest(info)
-            .then(function(items) {
-                const newArray= items.map(element => element.value);
-                setView(newArray);
-                setviewLength(newArray.length);
-            })
-    }
+  const suggestView = (info: string) => {
+    ymaps?.suggest(info).then(function (items) {
+      const newArray = items.map((element) => element.value);
+      setView(newArray);
+      setviewLength(newArray.length);
+    });
+  };
 
     const geoView = (info: string) => {
         ymaps?.geocode(info, {results: 1})
@@ -68,6 +66,6 @@ const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange }) => {
             
         </div>
     )
-}
+};
 
 export default InputSuggestView;

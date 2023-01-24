@@ -3,8 +3,7 @@
 .InputText {
 
     &-input-text {
-        width: 92%;
-        height: 24px;
+        height: 48px;
         border: 1px solid #100C34;
         border-radius: 4px;
         background-color: #FFFFFF;
@@ -17,7 +16,7 @@
         line-height: 24px;
         margin: 0;
         padding: 12px 16px;
-
+        box-sizing: border-box;
     }
 
     &-input-text::placeholder {

@@ -21,7 +21,7 @@
     &-profile {
         margin: auto;
         padding: 0px;
-        width: 440px;
+        max-width: 440px;
         margin-top: 8px;
         margin-bottom: 96px;
     }
@@ -90,10 +90,6 @@
         cursor: pointer;
     }
 
-
-
-
-
     &-alert {
         composes: ProfileChangePage-span;
         margin-top: 4px;
@@ -111,7 +107,6 @@
 
     &-add {
         position: absolute;
-       // background-image: url('../../assets/images/add-photo.svg');
         background-size: contain;
         background-repeat: no-repeat;
         width: 16.24px;
@@ -138,17 +133,9 @@
 
 @media screen and (max-width: 440px) {
     .ProfileChangePage {
-        &-form {
-            width: 272px;
-        }
-
         &-btn {
             height: 60px;
             margin: auto;
-        }
-
-        &-input-text {
-            width: 240px;
         }
     }
 }
