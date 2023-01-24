@@ -111,7 +111,7 @@ export type TComment = {
     name: string;
     email: string;
   };
-  target: "hobby" | "edu" | "status" | "job" | null;
+  target: "hobby" | "edu" | "status" | "job" | null ;
   text: string;
   to: {
     _id: string;
@@ -119,6 +119,9 @@ export type TComment = {
     email: string;
   };
 };
+
+
+
 
 export type TCommentArray = {
   _id: string;
