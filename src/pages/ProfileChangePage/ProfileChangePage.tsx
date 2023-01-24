@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { cn } from "../../utils/bem-css-module";
 import styles from './ProfileChangePage.module.scss';
 import Container from "../../components/Container/Container";
@@ -11,9 +11,6 @@ import { InputTextarea } from '../../components/Input/InputTextarea/InputTextare
 import { InputPhoto } from "../../components/Input/InputPhoto/InputPhoto";
 import DropdownMenu from "../../components/DropdownCitiesHomePage/DropdownCitiesHomePage";
 
-// картинки максимум 2мб, jpeg, gif, адаптив
-
-
 const style = [
   { id: 1, name: "Серьезный" },
   { id: 2, name: "Романтичный" },
@@ -21,24 +18,27 @@ const style = [
 ]
 
 const cnStyles = cn(styles, 'ProfileChangePage');
-const handleFileUpload = (e:any) => {
-  let file = e.target.files[0];
-  let fileSize = file.size; // 3MB
-
-  if (fileSize > 2 * 1000000) {
-    // fileSize > 2MB then show popup message
-    alert(
-      `Размер файла больше 2МБ.\nПожалуйста, выберите другой файл \n (временное решение)`
-    );
-    return;
-  }
-};
 
 export const ProfilePage = () => {
+  const [form, setValue] = useState<any>();
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue({ ...form, [e.target.name]: e.target.value })
+  }
+
+  const onChangeDatePicker = (date: string) => {
+    setValue({ ...form, ['date']: date })
+  }
+
+  const handleSubmit = (e:FormEvent<HTMLFormElement>) =>{
+    e.preventDefault();
+    //Тут может быть запрос об отправке данных из form useState. Сюда сохраняются все данные с полей
+  }
+
   return (
     <Container>
     <section className={cnStyles("profile")}>
-        <form action="#" className={cnStyles("form")} name="#">
+        <form action="#" className={cnStyles("form")} onSubmit={handleSubmit}>
           <label className={cnStyles("add-photo")} htmlFor="avatar">
             <div className={cnStyles("add-photo__title")}>
               Загрузите фото *
@@ -47,41 +47,54 @@ export const ProfilePage = () => {
               (размер не менее 440х440)
             </div>
           </label>
-          <InputAvatar />
+          <InputAvatar onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} />
+
           <label className={cnStyles("form-name")} htmlFor="birthday">Дата рождения *</label>
           <div className={cnStyles("input-date")}>
-          <InputDate />
+            <InputDate onChangeDatePicker={onChangeDatePicker} />
           </div>
+
           <label className={cnStyles("form-name")} htmlFor="place">Выберете город *</label>
           <YMaps query={{ load: "package.full", apikey: "6bbb9fad-fe92-4de7-aed3-2caa0584dade" }}>
-            <InputSuggestView />
-            {/* <CustomMap coord={profilesGet} center={[55.76, 37.64]} zoom={7}/> */}
-        </YMaps>
+            <InputSuggestView onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} />
+          </YMaps>
+
           <label className={cnStyles("form-name")} htmlFor="telegram">Ник в телеграм</label>
-         <InputText />
+          <InputText name={"telegram"}  onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} />
+
           <label className={cnStyles("form-name")} htmlFor="github">Ник на гитхабе</label>
-          <InputText />
+          <InputText name={"github"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} />
+
           <label className={cnStyles("form-name")} htmlFor="stile">Выберете шаблон</label>
           {/* TODO */}
           {/* <DropdownMenu defaultText={"Стили"} optionsList={style} /> */}
+
           <label className={cnStyles("form-name")} htmlFor="thesis">Девиз, цитата</label>
-          <InputTextarea />
+          <InputTextarea name={"thesis-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
+
           <label className={cnStyles("form-name")} htmlFor="hobbies">Увлечение, досуг, интересы</label>
           <div className={cnStyles("form-input")}>
              <InputPhoto />
             <p className={cnStyles("alert")}>Рекомедуемый размер фото 230х129</p>
-            <InputTextarea />
+              <InputTextarea name={"hobby-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
           </div>
+
           <label className={cnStyles("form-name")} htmlFor="family">Семья, статус, домашние животные</label>
           <div className={cnStyles("form-input")}>
             <InputPhoto />
             <p className={cnStyles("alert")}>Рекомедуемый размер фото 230х129</p>
-            <InputTextarea />
+            <InputTextarea name={"family-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
           </div>
+
+
           <label className={cnStyles("form-name")} htmlFor="job">Из какой сферы пришел? Кем работаешь?</label>
-          <InputTextarea />
+          <InputTextarea name={"job-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
+
+
           <label className={cnStyles("form-name")} htmlFor="why">Почему решил учиться на веб-разработчика?</label>
-          <InputTextarea />
+          <InputTextarea name={"why-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
+
+
           <p className={cnStyles("span")}>Поля, отмеченный звездочкой, обязательные для заполнения</p>
           <input className={cnStyles("btn")} type="submit" value="Сохранить изменения" />
         </form>

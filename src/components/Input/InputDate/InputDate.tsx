@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import DatePicker, { registerLocale, setDefaultLocale } from  "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import getYear from "date-fns/getYear";
@@ -8,8 +8,11 @@ import range from "lodash/range";
 import ru from "date-fns/locale/ru";
 import '../InputDate/InputDate.scss';
 
+interface InputDateProps {
+    onChangeDatePicker: (date: string) => void;
+}
 
-const InputDate = () => {
+const InputDate: FC<InputDateProps> = ({ onChangeDatePicker }) => {
     registerLocale('ru', ru)
     const [startDate, setStartDate] = useState(new Date());
     const years = range(1900, getYear(new Date()) + 1, 1);
@@ -32,6 +35,7 @@ const InputDate = () => {
     <div className="react-datepicker__wrap">
         <DatePicker
             locale={ru}
+            name="date"
             maxDate={addDays(new Date(), 0)}
             dateFormat="d.M.yyyy"
             popperClassName="react-datepicker-popper-custom"
@@ -72,7 +76,7 @@ const InputDate = () => {
             )}
             selected={startDate}
             //@ts-ignore
-            onChange={(date) => setStartDate(date)}
+            onChange={(date) => {setStartDate(date); onChangeDatePicker(date)}}
         />
     </div>
   );

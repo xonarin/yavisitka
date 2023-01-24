@@ -1,4 +1,4 @@
-import React, { ChangeEvent, MouseEventHandler, useEffect, useState } from "react";
+import React, { ChangeEvent, FC, MouseEventHandler, useEffect, useState } from "react";
 import { useYMaps,  } from "@pbe/react-yandex-maps";
 import { cn } from "../../../utils/bem-css-module";
 import styles from './InputSuggestView.module.scss';
@@ -6,16 +6,21 @@ import { useHref } from "react-router-dom";
 
 const cnStyles = cn(styles, 'InputSuggest');
 
-const InputSuggestView = () => {
+interface InputSuggestViewProps {
+    onChange: any;
+}
+
+
+const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange }) => {
     const ymaps = useYMaps(['Map']);
     const [view, setView] = useState<string[]>();
     const [viewLength, setviewLength] = useState<number>();
     const [sugval, setSugVal] = useState<string>('');
     const [status, setStatus] = useState<boolean>(false);
 
-    const clicks = (event: any) => {
-        suggestView(event.target.value)
-        setSugVal(event.target.value)
+    const clicks = (e: any) => {
+        suggestView(e.target.value)
+        setSugVal(e.target.value)
         setStatus(true)
     }
 
@@ -31,28 +36,30 @@ const InputSuggestView = () => {
     const geoView = (info: string) => {
         ymaps?.geocode(info, {results: 1})
             .then( function (res) {
-                // Выбираем первый результат геокодирования.
                 const firstGeoObject = res.geoObjects.get(0)
                 //@ts-ignore
                 console.log(`Координаты где? Всё на месте: ${firstGeoObject?.geometry?._coordinates}`)
         })
     }
 
-    const resultClick = (event: any) => {
-        suggestView(event.target.innerText)
-        geoView(event.target.innerText)
-        setSugVal(event.target.innerText )
+    const resultClick = (e: any) => {
+        suggestView(e.target.innerText)
+        geoView(e.target.innerText)
+        setSugVal(e.target.innerText )
         setStatus(false)
     }
 
     return ymaps && (
         <div className={cnStyles()}>
-            <input className={cnStyles('Input')} type="text" id="suggest" onChange={(event) => clicks(event)} onClick={(event) => clicks(event)} value={sugval} autoComplete="off"/>
+            <input className={cnStyles('Input')} 
+                type="text" name="suggest" id="suggest" onChange={e => { clicks(e); onChange(e)} } 
+                onClick={e => {clicks(e); onChange(e)}} value={sugval} autoComplete="off"
+            />
             {status && sugval && 
                 <ul className={cnStyles('List')} style={{height: `calc(${viewLength}*36px)`}} id="podskazka">
                     {
                         view?.map((element: string, key: number) => {
-                            return <li key={key} onClick={(event) => resultClick(event)} tabIndex={0}>{element}</li>
+                            return <li key={key} onClick={e => resultClick(e)} tabIndex={0}>{element}</li>
                         })
                     }
                 </ul>

@@ -6,7 +6,6 @@ import Layout from "../../components/Layout/Layout";
 import MapsPage from "../../pages/MapsPage/MapsPage";
 import ProtectedRoute from '../../components/ProtectedRoute/ProtectedRoute';
 import DetailPage from "../../pages/DetailPage/DetailPage";
-import Demo from '../../pages/UI/UI'
 import { AdminPage } from "../../pages/admin-page/admin-page";
 import { AdminCommentsBlock } from "../../components/admin-comments-block/admin-comments-block";
 import { AdminUsersBlock } from "../../components/admin-users-block/admin-users-block";
@@ -46,7 +45,6 @@ const App = () => {
             <Route path="detail/:id" element={<DetailPage />} />
             <Route path="profile" element={<ProfilePage />} />
             <Route path="map" element={<MapsPage />} />
-            <Route path="demo" element={<Demo />} />
             <Route path="admin" element={<AdminPage />}>
               <Route index element={<AdminCommentsBlock />} />
               <Route path="users" element={<AdminUsersBlock />} />
