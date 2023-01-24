@@ -1,4 +1,3 @@
-import React, { useState, FC } from "react";
 import styles from "./admin-adding-users.module.scss";
 import { cn } from "../../utils/bem-css-module";
 import { TUser } from "../../utils/types";

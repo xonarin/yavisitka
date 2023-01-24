@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Routes, Route, useNavigate, useSearchParams, useLocation } from "react-router-dom";
 import { getToken, updateToken } from "../../services/auth/auth";
 import HomePage from "../../pages/HomePage/HomePage";
@@ -12,7 +12,7 @@ import { AdminCommentsBlock } from "../../components/admin-comments-block/admin-
 import { AdminUsersBlock } from "../../components/admin-users-block/admin-users-block";
 import { Page404 } from "../../pages/404/404";
 import { ProfilePage } from "../../pages/ProfileChangePage/ProfileChangePage";
-import { getCookie, setCookie } from "../../utils/cookie";
+import { getCookie } from "../../utils/cookie";
 import './App.module.scss';
 
 const App = () => {
@@ -23,6 +23,10 @@ const App = () => {
 
   useEffect(() => {
     localStorage.getItem("refreshToken") && updateToken();
+  });
+
+  useEffect(() => {
+    yandexCodeId && getToken(yandexCodeId);
     setTimeout(() => {
       if (yandexCodeId && getCookie('token') && !getCookie('status')) {
         navigate("/", {state: location.pathname});
@@ -31,10 +35,6 @@ const App = () => {
         navigate("/admin", {state: location.pathname});
       }
     }, 1000);
-  }, []);
-
-  useEffect(() => {
-    yandexCodeId && getToken(yandexCodeId);
   }, [search]);
 
     return (

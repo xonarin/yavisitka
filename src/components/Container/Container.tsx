@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import { cn } from "../../utils/bem-css-module";
 import styles from './Container.module.scss';
 

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef, FC} from "react";
+import {useState, useEffect, useRef, FC} from "react";
 import styles from './ClassmateCard.module.scss';
 import {cn} from '../../utils/bem-css-module';
 import {Link} from "react-router-dom";

@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { cn } from "../../utils/bem-css-module";
 import telegram from '../../assets/images/telegram.svg'
 import gitHub from '../../assets/images/gitHub.svg'

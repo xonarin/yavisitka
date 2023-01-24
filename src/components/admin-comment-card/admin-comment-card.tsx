@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./admin-comment-card.module.scss";
 import { cn } from "../../utils/bem-css-module";
 import { Link } from "react-router-dom";

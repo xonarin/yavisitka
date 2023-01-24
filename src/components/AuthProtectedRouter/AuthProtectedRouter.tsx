@@ -1,4 +1,3 @@
-import React from "react";
 import Container from "../../components/Container/Container";
 import LinkEntry from "../../components/LinkEntry/LinkEntry";
 import { cn } from "../../utils/bem-css-module";

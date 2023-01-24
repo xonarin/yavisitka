@@ -1,6 +1,6 @@
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { cn } from "../../utils/bem-css-module";
-import { TCommentsResponseDataSet, TReactions } from '../../utils/types';
+import { TCommentArray, TReactions } from '../../utils/types';
 import ChatButton from '../ChatButton/ChatButton';
 import CommentBar from '../CommentBar/CommentBar';
 import styles from './DetailHobby.module.scss';
@@ -11,7 +11,7 @@ interface DetailHobbyProps {
     title: string;
     text: string;
     image: string;
-    reactions: any;
+    reactions: TCommentArray[];
     template?: string | null | undefined;
 }
 

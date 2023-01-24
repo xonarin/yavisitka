@@ -20,7 +20,7 @@ const Header = () => {
   }
   
   const handleClickUser = () => {
-    deleteCookie('status');
+    setCookie('status', 'admin' , { secure: true, 'max-age': -1 });
     window.location.reload();
   }
 

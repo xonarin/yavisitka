@@ -1,4 +1,3 @@
-import React from "react";
 import styles from "./admin-users-list.module.scss";
 import { cn } from "../../utils/bem-css-module";
 import { ScrollbarContainer } from "../../components/admin-scrollbar-container/admin-scrollbar-container";

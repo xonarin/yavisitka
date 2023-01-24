@@ -34,7 +34,6 @@ const DetailPage = () => {
     const telegram = profile?.profile.telegram;
     const github = profile?.profile.github;
 
-
     useEffect(() => {
         setIsLoading(true)
         getProfilesId(id)
@@ -100,16 +99,16 @@ const DetailPage = () => {
                             <Quote text={quote} template={template} />
                         </div>
                         <div className={cnStyles('twoСolumns')}>
-                            {infoUser?.hobby &&
+                            {infoUser?.hobby && hobbyComments &&
                                 <DetailHobby title={"Увелечения"} text={infoUser.hobby.text} image={infoUser.hobby.image} reactions={hobbyComments} template={template} />
                             }
-                            {infoUser?.status && 
+                            {infoUser?.status && statusComments &&
                                 <DetailHobby title={"Семья"} text={infoUser.status.text} image={infoUser.status.image} reactions={statusComments} template={template} />
                             }
-                            {infoUser?.job && 
-                                <DetailHobby title={"Сфера"} text={infoUser.job.text} image={infoUser.job.image} reactions={jobComments} template={template} />
+                            {infoUser?.job && eduComments &&
+                                <DetailHobby title={"Сфера"} text={infoUser.job.text} image={infoUser.job.image} reactions={eduComments} template={template} />
                             }
-                            {infoUser?.edu && 
+                            {infoUser?.edu && eduComments &&
                                 <DetailHobby title={"Учеба"} text={infoUser.edu.text} image={infoUser.edu.image} reactions={eduComments} template={template} />
                             }
                         </div>
