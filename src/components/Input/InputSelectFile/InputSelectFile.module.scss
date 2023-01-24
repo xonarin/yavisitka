@@ -1,15 +1,15 @@
-@import "../../assets/styles/vars.scss";
+@import '../../../assets/styles/vars.scss';
 
 
 .InputSelectFile {
   display: inline-block;
   max-width: 100%;
-  min-width: 325px;
   text-align: left;
   position: relative;
   font-family: $base-font-family;
   font-size: $font-size-16;
   color: $text-dark;
+  
   
   
 
@@ -20,25 +20,25 @@
   
 
   &-select {
-    background-color: transparent;
+    height: 24px;
     padding: 12px 16px;
     border: 1px solid $text-dark;
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: url('../../assets/images/down-arrow.svg') calc(100% - 20px) 20px no-repeat no-repeat;
+    background: url('../../../assets/images/down-arrow.svg') calc(100% - 20px) 20px no-repeat no-repeat;
   }
 
   &-open {
-    background-color: transparent;
+    height: 24px;
     padding: 12px 16px;
     border: 1px solid $text-dark;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 4px 4px 0 0;
-    background: url('../../assets/images/up-arrow.svg') calc(100% - 20px) 20px no-repeat no-repeat;
+    background: url('../../../assets/images/up-arrow.svg') calc(100% - 20px) 20px no-repeat no-repeat;
   }
 
   &-select:hover {

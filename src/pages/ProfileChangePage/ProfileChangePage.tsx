@@ -9,8 +9,8 @@ import { InputAvatar } from "../../components/Input/InputAvatar/InputAvatar";
 import { InputText } from "../../components/Input/InputText/InputText";
 import { InputTextareaAll, InputTextareaAbout } from '../../components/Input/InputTextarea/InputTextarea';
 import { InputPhoto } from "../../components/Input/InputPhoto/InputPhoto";
-import DropdownMenu from "../../components/DropdownCitiesHomePage/DropdownCitiesHomePage";
 import InputSelectFile from "../../components/Input/InputSelectFile/InputSelectFile";
+import _ from "lodash";
 
 // картинки максимум 2мб, jpeg, gif, адаптив
 
@@ -51,10 +51,7 @@ export const ProfilePage = () => {
           <label className={cnStyles("form-name")} htmlFor="github">Ник на гитхабе</label>
           <InputText />
           <label className={cnStyles("form-name")} htmlFor="stile">Выберете шаблон</label>
-          <DropdownMenu defaultText={null} optionsList={['серьезный', "романтичный", "дерзкий"]} handleCity={function (city: string | null): void {
-            throw new Error("Function not implemented.");
-          } } />
-           {/* <InputSelectFile defaultText={""} optionsList={style} /> */}
+           <InputSelectFile defaultText={''} optionsList={style} /> 
           <label className={cnStyles("form-name")} htmlFor="thesis">Девиз, цитата</label>
           <InputTextareaAbout />
           <label className={cnStyles("form-name")} htmlFor="hobbies">Увлечение, досуг, интересы</label>

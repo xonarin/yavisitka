@@ -1,28 +1,21 @@
-import React, {useState, useEffect, useRef, FC, MouseEvent} from "react";
+import React, { useState, useEffect, useRef, FC } from "react";
 import styles from './InputSelectFile.module.scss';
-import {cn} from "../../../utils/bem-css-module";
+import { cn } from "../../../utils/bem-css-module";
 
 const cnStyles = cn(styles, 'InputSelectFile');
 
 type TProps = {
-    defaultText: string | null,
+    defaultText: any,
     optionsList: {
         id: number,
         name: string,
-    }[],
+    }[]
 }
-
-type TState = {
-    selectText: string | null,
-    showOptionList: boolean
-}
-
 const InputSelectFile: FC<TProps> = (props) => {
-    const [menuState, setMenuState] = useState<TState>({selectText: '', showOptionList: false});
-    const {showOptionList, selectText} = menuState;
-    const ref = useRef<HTMLDivElement>(null);
+    const [menuState, setMenuState] = useState({ selectText: '', showOptionList: false });
+    const { showOptionList, selectText } = menuState;
     const optionsList = props.optionsList;
-
+    const ref = useRef();
     useEffect(() => {
         document.addEventListener("mousedown", handleClickOutside);
         setMenuState({
@@ -31,19 +24,17 @@ const InputSelectFile: FC<TProps> = (props) => {
         });
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
-
-    function handleClickOutside(e: Event) {
+    function handleClickOutside(e: { target: any; }) {
         // @ts-ignore
         if (ref.current && !ref.current.contains(e.target)) {
             setMenuState(prevState => {
                 return {
                     ...prevState,
-                    showOptionList: false
+                    showOptionList: false,
                 }
             });
         }
     }
-
     function handleListDisplay() {
         setMenuState(prevState => {
             return {
@@ -52,8 +43,7 @@ const InputSelectFile: FC<TProps> = (props) => {
             }
         })
     }
-
-    function handleOptionClick(e: MouseEvent) {
+    function handleOptionClick(e: { target: any; }) {
         if (!(e.target instanceof HTMLElement)) return;
         setMenuState({
             ...menuState,
@@ -61,18 +51,18 @@ const InputSelectFile: FC<TProps> = (props) => {
             showOptionList: false
         });
     }
-
     return (
-        <div className={cnStyles()} ref={ref}>
+        <div className={cnStyles()}>
             <div
                 className={showOptionList ? cnStyles('open') : cnStyles('select')}
                 onClick={handleListDisplay}
+                
             >
                 <p className={cnStyles('text')}>{selectText}</p>
             </div>
             {showOptionList && (
                 <ul className={cnStyles("select-options")}>
-                    {optionsList.map( (option) => {
+                    {optionsList.map(option => {
                         return (
                             <li
                                 className={cnStyles("custom-select-option")}
@@ -88,5 +78,4 @@ const InputSelectFile: FC<TProps> = (props) => {
         </div>
     )
 }
-
 export default InputSelectFile;
