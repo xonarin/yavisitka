@@ -10,6 +10,7 @@
     "@types/node": "^16.18.11",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "jschardet": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -45,11 +46,13 @@
     "@pbe/react-yandex-maps": "^1.2.2",
     "@types/lodash": "^4.14.191",
     "@types/react-datepicker": "^4.8.0",
+    "@types/uuid": "^9.0.0",
     "axios": "^1.2.3",
-    "bem-css-modules": "^1.4.3",
     "react-datepicker": "^4.8.0",
     "react-router-dom": "^6.7.0",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "uuid": "^9.0.0",
+    "xlsx": "^0.18.5"
   },
   "proxy": "https://visitki.practicum-team.ru/api"
 }

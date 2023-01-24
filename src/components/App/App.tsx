@@ -26,9 +26,10 @@ const App = () => {
     setTimeout(() => {
       if (yandexCodeId && getCookie('token') && !getCookie('status')) {
         navigate("/", {state: location.pathname});
-      } else {
+      } 
+      if (yandexCodeId && getCookie('token') && getCookie('status')) {
         navigate("/admin", {state: location.pathname});
-        }
+      }
     }, 1000);
   }, []);
 

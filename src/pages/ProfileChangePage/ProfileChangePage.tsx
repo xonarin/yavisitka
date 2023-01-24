@@ -62,6 +62,7 @@ export const ProfilePage = () => {
           <label className={cnStyles("form-name")} htmlFor="github">Ник на гитхабе</label>
           <InputText />
           <label className={cnStyles("form-name")} htmlFor="stile">Выберете шаблон</label>
+          {/* TODO */}
           {/* <DropdownMenu defaultText={"Стили"} optionsList={style} /> */}
           <label className={cnStyles("form-name")} htmlFor="thesis">Девиз, цитата</label>
           <InputTextarea />
