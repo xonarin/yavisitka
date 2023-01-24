@@ -63,6 +63,10 @@ const HomePage = () => {
     return <Navigate to="/admin" />;
   }
 
+  if (!getCookie("status") && pathname.startsWith("/cohort/")) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <main className={cnStyles()}>
       <div className={cnStyles("optionsContainer")}>
