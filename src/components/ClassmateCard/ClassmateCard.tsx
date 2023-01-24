@@ -69,7 +69,7 @@ const ClassmateCard: FC<TProps> = ({cardsData}) => {
     return (
         <div ref={cardRef} className={cnStyles()} onMouseEnter={() => setIsShown(true)}
              onMouseLeave={() => setIsShown(false)}>
-            <Link to={`/detail/${id}`} className={cnStyles()}>
+            <Link to={`/detail/${id}`} className={cnStyles('link')}>
                 <figure className={cnStyles('figure')}>
                     <div className={cnStyles('wrapperBorder')}>
                         <img className={cnStyles('matePhoto')} src={photo} alt="Фотография студента"/>

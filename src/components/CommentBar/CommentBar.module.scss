@@ -2,7 +2,7 @@
 
 .CommentBar {
   min-height: 89px;
-  max-width: 321px;
+  width: calc(100% - 4px);
   border-radius: 4px;
   border: 1px solid #CCCCCC;
   position: absolute;
@@ -19,6 +19,7 @@
 
   &-commentsContainer {
     display: flex;
+    width: calc(100% - 4px);
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -68,15 +69,3 @@
 
 }
 
-@media screen and (max-width: 768px) {
-  .CommentBar {
-    max-width: 338px;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .CommentBar {
-    max-width: 268px;
-
-  }
-}
