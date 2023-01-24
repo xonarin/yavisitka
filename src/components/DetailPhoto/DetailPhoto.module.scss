@@ -3,8 +3,16 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    max-width: 440px;
-    max-height: 440px;
+    width: 440px;
+    height: 440px;
+
+    &-romantic {
+        clip-path: circle(50% at 50% 50%);
+    }
+
+    &-crazy {
+        clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
+    }
 
     &-Image {
         width: 100%;

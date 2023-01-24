@@ -175,7 +175,7 @@
     }
 }
 
-@media screen and (max-width: 1367px) {
+@media screen and (max-width: 1399px) {
     .DetailPage {
         &-section {
             row-gap: 16px;
@@ -184,7 +184,6 @@
         &-container {
             column-gap: 67px;
             row-gap: 30px;
-            justify-content: flex-end;
         }
 
         &-twoСolumns {
@@ -228,10 +227,6 @@
             row-gap: 20px;
         }
 
-        &-container {
-            justify-content: center;
-        }
-
         &-photoStudent {
             max-width: 272px;
             max-height: 272px;
@@ -248,7 +243,8 @@
         }
 
         &-twoСolumns {
-            row-gap: 15px;
+            row-gap: 32px;
+            padding-top: 32px;
             margin-bottom: 105px;
             justify-content: center;
         }

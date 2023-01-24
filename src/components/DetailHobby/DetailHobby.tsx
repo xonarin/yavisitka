@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import { cn } from "../../utils/bem-css-module";
+import { TCommentsResponseDataSet, TReactions } from '../../utils/types';
 import ChatButton from '../ChatButton/ChatButton';
 import CommentBar from '../CommentBar/CommentBar';
 import styles from './DetailHobby.module.scss';
@@ -10,10 +11,11 @@ interface DetailHobbyProps {
     title: string;
     text: string;
     image: string;
-    reactions: string;
+    reactions: any;
+    template?: string | null | undefined;
 }
 
-const DetailHobby: FC<DetailHobbyProps> = ({ title, text, image, reactions }) => {
+const DetailHobby: FC<DetailHobbyProps> = ({ title, text, image, reactions, template }) => {
     const [isShown, setIsShown] = useState<boolean>(false);
     const [isOpened, setIsOpened] = useState<boolean>(false);
 
@@ -22,16 +24,14 @@ const DetailHobby: FC<DetailHobbyProps> = ({ title, text, image, reactions }) =>
     }
 
     return (
-        <div className={cnStyles()} 
+        <div className={cnStyles() + ' ' + cnStyles(template)} 
             onMouseEnter={() => setIsShown(true)}
             onMouseLeave={() => setIsShown(false)}
         >
-            <ChatButton isOpened={handleClick} isShow={isShown} counter={String(reactions)} />
-            {isOpened && <CommentBar comments={[]}/>}
+            <ChatButton isOpened={handleClick} isShow={isShown} counter={reactions?.length <= 99 ? String(reactions?.length) : '99+'} />
+            {isOpened && <CommentBar comments={reactions} />}
 
-            <div className={cnStyles('Head')}>
-                <h3 className={cnStyles('Title')}>{title}</h3>
-            </div>
+            <h3 className={cnStyles('Title')}>{title}</h3>
 
             <img className={cnStyles('Image')} src={image} alt={title} />
             <p className={cnStyles('Description')}>{text}</p>

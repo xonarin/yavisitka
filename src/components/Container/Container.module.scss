@@ -5,7 +5,7 @@
 
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1399) {
     .Container {
         padding: 0 32px;
     }
@@ -13,7 +13,6 @@
 
 @media screen and (max-width: 767px) {
     .Container {
-        margin: auto;
-        padding: 0;
+        padding: 0 24px;
     }
 }
