@@ -12,9 +12,8 @@ import { AdminCommentsBlock } from "../../components/admin-comments-block/admin-
 import { AdminUsersBlock } from "../../components/admin-users-block/admin-users-block";
 import { Page404 } from "../../pages/404/404";
 import { ProfilePage } from "../../pages/ProfileChangePage/ProfileChangePage";
-import { getCookie } from "../../utils/cookie";
+import { getCookie, setCookie } from "../../utils/cookie";
 import './App.module.scss';
-import { checkResponse } from "../../utils/api";
 
 const App = () => {
   const [search, setSearch] = useSearchParams();
@@ -25,8 +24,10 @@ const App = () => {
   useEffect(() => {
     localStorage.getItem("refreshToken") && updateToken();
     setTimeout(() => {
-      if (yandexCodeId && getCookie('token')) {
-          navigate("/", {state: location.pathname});
+      if (yandexCodeId && getCookie('token') && !getCookie('status')) {
+        navigate("/", {state: location.pathname});
+      } else {
+        navigate("/admin", {state: location.pathname});
         }
     }, 1000);
   }, []);

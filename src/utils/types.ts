@@ -36,34 +36,34 @@ export type TReactions = {
     }[]
 }
 
-export interface IProfileId {
+export type TProfileId = {
     _id:       string;
     createdAt: number;
     updatedAt: null;
     email:     string;
     cohort:    string;
-    profile:   IProfileInfo;
-    info:      InfoProfile;
+    profile:   TProfileInfo;
+    info:      TnfoProfile;
     reactions: number;
 }
 
-export interface InfoProfile {
-    hobby:  IHobbyProfile;
-    status: IHobbyProfile;
-    job:    IHobbyProfile;
-    edu:    IHobbyProfile;
+export type TnfoProfile = {
+    hobby:  THobbyProfile;
+    status: THobbyProfile;
+    job:    THobbyProfile;
+    edu:    THobbyProfile;
 }
 
-export interface IHobbyProfile {
+export type THobbyProfile = {
     text:      string;
     image:     string;
     reactions: number;
 }
 
-export interface IProfileInfo {
+export type TProfileInfo = {
     name:     string;
     photo:    string;
-    city:     IProfileCity;
+    city:     TProfileCity;
     birthday: string;
     quote:    string;
     telegram: string;
@@ -71,12 +71,12 @@ export interface IProfileInfo {
     template: null;
 }
 
-export interface IProfileCity {
+export type TProfileCity = {
     name:    string;
     geocode: string[];
 }
 
-export interface IAccessToken {
+export type TAccessToken = {
     access_token: string;
     expires_in: number;
     refresh_token: string;

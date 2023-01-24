@@ -1,5 +1,5 @@
 import {
-    IProfileId,
+    TProfileId,
     TCards,
     TCommentsResponseDataSet,
     TReactions,
@@ -8,8 +8,6 @@ import {
 
 export const baseAuthUrl = "https://oauth.yandex.ru";
 export const baseApiUrl = "http://localhost:3000";
-export const clientIdSecret64 =
-  "NTk0Mzg4NzIzODM4NGRiYWIyYzIxMGJmMGRkZGQwN2Q6OGNlZjZiNTQ3ZDNiNDQ3NzhlNWJiYmEwYWNmMjljOTg=";
 
 export const checkResponse = <T>(res: Response): Promise<T> => {
   if (res.ok) {
@@ -44,7 +42,7 @@ export const getProfilesId = async (id: string | undefined) => {
             }
         })
 
-        return checkResponse<IProfileId>(res);
+        return checkResponse<TProfileId>(res);
     } catch (error) {
         console.log(`Ошибка: ${error}`);
     }

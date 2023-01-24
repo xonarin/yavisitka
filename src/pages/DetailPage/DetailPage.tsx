@@ -7,7 +7,7 @@ import Quote from "../../components/Quote/Quote";
 import DetailHobby from "../../components/DetailHobby/DetailHobby";
 import DetailSocial from "../../components/DetailSocial/DetailSocial";
 import { getComments, getProfilesId, getReactions } from "../../utils/api";
-import { IProfileId, TCommentsResponseDataSet, TReactions } from "../../utils/types";
+import { TProfileId, TCommentsResponseDataSet, TReactions } from "../../utils/types";
 import styles from './DetailPage.module.scss';
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
@@ -19,7 +19,7 @@ const DetailPage = () => {
     const { id } = useParams();
     const [isLoading, setIsLoading] = useState(false);
     const [reactions, setReactions] = useState<TReactions>({total: 0, items: []});
-    const [profile, setProfile] = useState<IProfileId>();
+    const [profile, setProfile] = useState<TProfileId>();
     const [comments, setComments] = useState<TCommentsResponseDataSet>();
     const hobbyComments = comments?.items.filter(item => item.target === 'hobby');
     const statusComments = comments?.items.filter(item => item.target === 'status');
