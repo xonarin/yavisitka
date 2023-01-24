@@ -8,16 +8,26 @@
         border-top: 3px solid $text-dark;
         overflow: hidden;
 
-        &-Head {
-            margin: 8px 0 15px 0;
+        &-romantic, &-crazy {
+           border: unset;
+
+           &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: url('../../assets/images/border-romantic.svg') 0 0 no-repeat;
+           }
         }
 
-        &-Title {
+        &__Title {
             font-size: $font-size-14;
             font-weight: $font-weight-700;
             line-height: $line-height-24;
             text-transform: uppercase;
-            margin: 0;
+            margin: 15px 0;
         }
 
         &-Description {

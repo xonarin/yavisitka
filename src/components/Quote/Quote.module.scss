@@ -14,9 +14,21 @@
         position: absolute;
         top: -53px;
         left: 0;
-        width: 48px;
-        height: 45px;
+        width: 50px;
+        height: 50px;
         background: url('../../assets/images/quote.svg') 0 0 no-repeat;
+    }
+
+    &-romantic {
+        &::before {
+            background: url('../../assets/images/quote-romantic.svg') 0 0 no-repeat;
+        }
+    }
+
+    &-crazy {
+        &::before {
+            background: url('../../assets/images/quote-crazy.svg') 0 0 no-repeat;
+        }
     }
 
     &-text {
@@ -26,5 +38,13 @@
         line-height: $line-height-32;
         text-overflow: ellipsis;
         overflow: hidden;
+
+        .Quote-romantic & {
+            color: $neon-pink;
+        }
+
+        .Quote-crazy & {
+            color: $neon-green;
+        }
     }
 }
