@@ -24,10 +24,13 @@ export const ProfilePage = () => {
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue({ ...form, [e.target.name]: e.target.value })
+    console.log(form)
   }
 
   const onChangeDatePicker = (date: string) => {
     setValue({ ...form, ['date']: date })
+    console.log(form)
+
   }
 
   const handleSubmit = (e:FormEvent<HTMLFormElement>) =>{

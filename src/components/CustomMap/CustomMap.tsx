@@ -4,36 +4,12 @@ import Balloon from "../../components/BalloonLayout/BalloonLayout";
 import { cn } from "../../utils/bem-css-module";
 import hint from "../../assets/images/hint.png";
 import styles from "./CustomMap.module.scss";
+import { TCards } from "../../utils/types";
 
 export interface CustomMapProps {
-  coord: TotalItems;
+  coord: TCards;
   center: number[];
   zoom: number;
-}
-
-export interface TotalItems {
-  total: number;
-  items: Item[];
-}
-
-export interface Item {
-  _id: string;
-  createdAt: number;
-  updatedAt: null;
-  email: string;
-  cohort: string;
-  profile: Profile;
-}
-
-export interface Profile {
-  name: string;
-  photo: string;
-  city: City;
-}
-
-export interface City {
-  name: string;
-  geocode: string[];
 }
 
 const cnStyles = cn(styles, "Map");
