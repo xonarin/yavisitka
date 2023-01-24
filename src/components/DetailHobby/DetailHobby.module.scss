@@ -1,49 +1,50 @@
 @import '../../assets/styles/vars.scss';
 
 .DetailHobby {
-        position: relative;
-        min-height: 342px;
-        max-width: 440px;
-        text-overflow: ellipsis;
-        border-top: 3px solid $text-dark;
-        overflow: hidden;
+  position: relative;
+  min-height: 342px;
+  max-width: 440px;
+  text-overflow: ellipsis;
+  border-top: 3px solid $text-dark;
+  overflow: hidden;
 
-        &-romantic, &-crazy {
-           border: unset;
+  &-romantic, &-crazy {
+    border: unset;
 
-           &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: url('../../assets/images/border-romantic.svg') 0 0 no-repeat;
-           }
-        }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: url('../../assets/images/border-romantic.svg') 0 0 no-repeat;
+    }
+  }
 
-        &__Title {
-            font-size: $font-size-14;
-            font-weight: $font-weight-700;
-            line-height: $line-height-24;
-            text-transform: uppercase;
-            margin: 15px 0;
-        }
+  &__Title {
+    font-size: $font-size-14;
+    font-weight: $font-weight-700;
+    line-height: $line-height-24;
+    text-transform: uppercase;
+    margin: 15px 0;
+  }
 
-        &-Description {
-            margin: 0;
-            min-height: 144px;
-            line-height: $line-height-24;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        }
+  &-Description {
+    margin: 0;
+    min-height: 144px;
+    line-height: $line-height-24;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 
-        &-Image {
-            width: 210px;
-            height: 130px;
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            margin-bottom: 12px;
-        }
+  &-Image {
+    width: 210px;
+    height: 130px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-bottom: 12px;
+    filter: grayscale(100%);
+  }
 }
