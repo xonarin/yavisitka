@@ -26,7 +26,7 @@ export const AdminCommentsList = ({ list }: any) => {
             </p>
           )}
 
-          {list.map((data:TComment) => (
+          {list.map((data: TComment) => (
             <CommentCard key={data._id} data={data} />
           ))}
         </>

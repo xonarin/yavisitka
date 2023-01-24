@@ -18,9 +18,7 @@ const InputSuggestView = () => {
   const [sugval, setSugVal] = useState<string>("");
   const [status, setStatus] = useState<boolean>(false);
 
-  const clicks = (
-    event: any
-  ) => {
+  const clicks = (event: any) => {
     suggestView(event.target.value);
     setSugVal(event.target.value);
     setStatus(true);
@@ -69,11 +67,7 @@ const InputSuggestView = () => {
           >
             {view?.map((element: string, key: number) => {
               return (
-                <li
-                  key={key}
-                  onClick={resultClick}
-                  tabIndex={0}
-                >
+                <li key={key} onClick={resultClick} tabIndex={0}>
                   {element}
                 </li>
               );

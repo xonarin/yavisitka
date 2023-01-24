@@ -1,35 +1,34 @@
-@import '../../assets/styles/vars.scss';
+@import "../../assets/styles/vars.scss";
 
 .Balloon {
-    position: relative;
-    top: -58px;
-    left: 28px;
-    display: flex;
-    width: 155px;
-    padding: 3px 6px 4px 6px;
-    background-color: $white;
-    border-radius: 6px;
+  position: relative;
+  top: -58px;
+  left: 28px;
+  display: flex;
+  width: 155px;
+  padding: 3px 6px 4px 6px;
+  background-color: $white;
+  border-radius: 6px;
 
-    &-avatar {
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
+  &-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+  }
+
+  &-info {
+    margin-left: 4px;
+
+    &-people,
+    &-city {
+      color: $text-dark;
+      font-weight: $font-weight-500;
+      line-height: $line-height-24;
+      margin: 0;
     }
 
-    &-info {
-        margin-left: 4px;
-
-        &-people, &-city {
-            color: $text-dark;
-            font-weight: $font-weight-500;
-            line-height: $line-height-24;
-            margin: 0;
-        }
-
-        &-city {
-            color: $text-light;
-        }
-        
+    &-city {
+      color: $text-light;
     }
-
+  }
 }
