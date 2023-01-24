@@ -16,8 +16,6 @@
   min-height: 200px;
   flex-grow: 2;
 
-
-
   &-spinner {
     width: 29px;
     height: 29px;
@@ -28,5 +26,4 @@
     border-radius: 50%;
     animation: spinner 1.5s linear infinite;
   }
-
 }

@@ -1,9 +1,9 @@
 import {
-    TProfileId,
-    TCards,
-    TCommentsResponseDataSet,
-    TReactions,
-    TUsersResponseDataSet,
+  TProfileId,
+  TCards,
+  TCommentsResponseDataSet,
+  TReactions,
+  TUsersResponseDataSet,
 } from "./types";
 
 export const baseAuthUrl = "https://oauth.yandex.ru";
@@ -34,19 +34,19 @@ export const getProfiles = async () => {
 };
 
 export const getProfilesId = async (id: string | undefined) => {
-    try {
-        const res = await fetch(`${baseApiUrl}/profiles/${id}`, {
-            method: 'GET',
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
+  try {
+    const res = await fetch(`${baseApiUrl}/profiles/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
 
-        return checkResponse<TProfileId>(res);
-    } catch (error) {
-        console.log(`Ошибка: ${error}`);
-    }
-}
+    return checkResponse<TProfileId>(res);
+  } catch (error) {
+    console.log(`Ошибка: ${error}`);
+  }
+};
 
 export const getReactions = async (id: string) => {
   try {

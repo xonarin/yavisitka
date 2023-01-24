@@ -1,10 +1,10 @@
-@import '../../../assets/styles/vars.scss';
+@import "../../../assets/styles/vars.scss";
 
 .InputPhoto {
-&-photo-text {
+  &-photo-text {
     width: 92%;
     height: 24px;
-    border: 1px solid #100C34;
+    border: 1px solid #100c34;
     border-radius: 4px;
     outline: none;
     position: relative;
@@ -15,21 +15,20 @@
     line-height: 24px;
     margin: 0;
     padding: 12px 16px;
-    background: url('../../../assets/images/add-photo.svg') 400px 15px no-repeat;
+    background: url("../../../assets/images/add-photo.svg") 400px 15px no-repeat;
+  }
 
-}
-
-&-photo-text[type=file] {
+  &-photo-text[type="file"] {
     cursor: pointer;
-}
+  }
 
-&-photo-text:hover {
+  &-photo-text:hover {
     border: 1px solid #666666;
-}
+  }
 
-&-photo-text[type=file]::-webkit-file-upload-button {
+  &-photo-text[type="file"]::-webkit-file-upload-button {
     position: absolute;
     visibility: hidden;
     overflow: hidden;
-}
+  }
 }

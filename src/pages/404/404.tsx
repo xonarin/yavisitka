@@ -1,7 +1,5 @@
-import React from "react"
+import React from "react";
 
-export const Page404 = () =>{
-return (
-    <p>Нет такой страницы</p>
-)
-}
+export const Page404 = () => {
+  return <p>Нет такой страницы</p>;
+};
