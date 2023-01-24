@@ -9,13 +9,11 @@ import { getCookie } from "../../utils/cookie";
 
 const cnStyles = cn(styles, "AdminPage");
 
-
-
 let activeStyle = {
   color: "black",
 };
 
-export const AdminPage = () => {  
+export const AdminPage = () => {
   if (!getCookie("status")) {
     return <Navigate to="/" />;
   }

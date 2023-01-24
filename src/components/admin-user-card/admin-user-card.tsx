@@ -13,7 +13,7 @@ export const UserCard = ({ data }: { data: TUser }) => {
     color: "rgb(56, 100, 245)",
   };
 
-  function handleOnChange(event:React.ChangeEvent<HTMLInputElement>) {
+  function handleOnChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { name, value } = event.target;
     if (name === "email") {
       setChangedEmail(value);

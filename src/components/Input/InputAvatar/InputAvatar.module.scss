@@ -1,16 +1,16 @@
-@import '../../../assets/styles/vars.scss';
+@import "../../../assets/styles/vars.scss";
 
 .InputAvatar {
-    &-add-photo__input {
-        margin: auto;
-        text-align: center;
-        width: 150px;
-        height: 150px;
-        border: 1px solid black;
-        border-radius: 50%;
-        filter: grayscale(100%);
-        position: relative;
-    }
+  &-add-photo__input {
+    margin: auto;
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    border-radius: 50%;
+    filter: grayscale(100%);
+    position: relative;
+  }
 
     &-photo {
         width: 150px;

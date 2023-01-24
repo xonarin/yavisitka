@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { cn } from "../../..//utils/bem-css-module";
-import styles from './InputTextarea.module.scss';
+import styles from "./InputTextarea.module.scss";
 
-const cnStyles = cn(styles, 'InputTextarea');
+const cnStyles = cn(styles, "InputTextarea");
 
 interface InputTextAreaProps {
     name: string;

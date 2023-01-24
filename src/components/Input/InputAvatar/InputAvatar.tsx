@@ -4,7 +4,7 @@ import styles from './InputAvatar.module.scss';
 import photo from '../../../assets/images/circle.svg';
 import e from "express";
 
-const cnStyles = cn(styles, 'InputAvatar');
+const cnStyles = cn(styles, "InputAvatar");
 
 interface InputAvatarProps {
     onChange: any;

@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { cn } from "../../..//utils/bem-css-module";
-import styles from './InputText.module.scss';
+import styles from "./InputText.module.scss";
 
-const cnStyles = cn(styles, 'InputText');
+const cnStyles = cn(styles, "InputText");
 
 interface InputTextProps {
     name: string;

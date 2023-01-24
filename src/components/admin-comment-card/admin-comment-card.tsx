@@ -7,9 +7,7 @@ import { UniversalSpinner } from "../admin-universal-spinner/universal-spiner";
 import { TComment } from "../../utils/types";
 
 const cnStyles = cn(styles, "Card");
-export const CommentCard = ({ data }:{
-  data: TComment
-}) => {
+export const CommentCard = ({ data }: { data: TComment }) => {
   const [isDeleted, setIsDeleted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 

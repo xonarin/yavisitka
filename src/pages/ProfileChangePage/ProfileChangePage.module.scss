@@ -1,4 +1,4 @@
-@import '../../assets/styles/vars.scss';
+@import "../../assets/styles/vars.scss";
 
 .ProfileChangePage {
     font-family: 'IBM Plex Sans';
@@ -117,18 +117,17 @@
 
 }
 
-
 .App {
-    font-family: sans-serif;
-    text-align: center;
+  font-family: sans-serif;
+  text-align: center;
 }
 
 .DropdownMenu {
-    max-width: 272px;
+  max-width: 272px;
 
-    &-select {
-        width: 100%;
-    }
+  &-select {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 440px) {
@@ -137,5 +136,14 @@
             height: 60px;
             margin: auto;
         }
+
+    &-btn {
+      height: 60px;
+      margin: auto;
     }
+
+    &-input-text {
+      width: 240px;
+    }
+  }
 }

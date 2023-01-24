@@ -1,4 +1,4 @@
-@import '../../assets/styles/vars.scss';
+@import "../../assets/styles/vars.scss";
 
 .Link {
     width: 100%;
@@ -13,8 +13,8 @@
     border-radius: 4px;
     text-decoration: none;
 
-    &:hover {
-        background: transparent;
-        background-color: $hover-gray;
-    }
+  &:hover {
+    background: transparent;
+    background-color: $hover-gray;
+  }
 }
