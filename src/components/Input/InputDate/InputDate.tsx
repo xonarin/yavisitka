@@ -1,12 +1,15 @@
-import React, { FC, useState } from "react";
-import DatePicker, { registerLocale, setDefaultLocale } from  "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { FC, useState } from "react";
+import { block } from 'bem-cn'; 
+import DatePicker, { registerLocale } from  "react-datepicker";
 import getYear from "date-fns/getYear";
 import getMonth from "date-fns/getMonth";
 import addDays from "date-fns/addDays";
 import range from "lodash/range";
 import ru from "date-fns/locale/ru";
-import '../InputDate/InputDate.scss';
+import "react-datepicker/dist/react-datepicker.css";
+import './InputDate.scss';
+
+const cnStyles = block("react-datepicker");
 
 interface InputDateProps {
     onChangeDatePicker: (date: string) => void;
@@ -32,22 +35,22 @@ const InputDate: FC<InputDateProps> = ({ onChangeDatePicker }) => {
     "Декабрь",
   ];
   return (
-    <div className="react-datepicker__wrap">
+    <div className={cnStyles("wrap")}>
         <DatePicker
             locale={ru}
             name="date"
             maxDate={addDays(new Date(), 0)}
             dateFormat="d.M.yyyy"
-            popperClassName="react-datepicker-popper-custom"
+            popperClassName="react-datepicker__popper-custom"
             renderCustomHeader={({
                 date,
                 changeYear,
                 changeMonth,
 
             }) => (
-            <div className="react-datepicker__wrap-select">
+            <div className={cnStyles("wrap-select")}>
 
-                <select className="react-datepicker__custom-select"
+                <select className={cnStyles("custom-select")}
                     value={getYear(date)}
                     onChange={({ target: { value } }) => changeYear(Number(value))}
                     >
@@ -58,7 +61,7 @@ const InputDate: FC<InputDateProps> = ({ onChangeDatePicker }) => {
                         ))}
                 </select>
 
-                <select className="react-datepicker__custom-select"
+                <select className={cnStyles("custom-select")}
                     value={months[getMonth(date)]}
                     onChange={({ target: { value } }) =>
                         changeMonth(months.indexOf(value))

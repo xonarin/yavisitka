@@ -1,10 +1,10 @@
 import { FC, useRef, useEffect } from "react";
+import { block } from 'bem-cn'; 
 import { useYMaps } from "@pbe/react-yandex-maps";
 import Balloon from "../../components/BalloonLayout/BalloonLayout";
-import { cn } from "../../utils/bem-css-module";
 import hint from "../../assets/images/hint.png";
-import styles from "./CustomMap.module.scss";
 import { TCards } from "../../utils/types";
+import "./CustomMap.scss";
 
 export interface CustomMapProps {
   coord: TCards;
@@ -12,7 +12,7 @@ export interface CustomMapProps {
   zoom: number;
 }
 
-const cnStyles = cn(styles, "Map");
+const cnStyles = block("Map");
 
 const CustomMap: FC<CustomMapProps> = ({ coord, center, zoom }) => {
   const mapRef = useRef(null);

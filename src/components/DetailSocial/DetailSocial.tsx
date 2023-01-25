@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn';
 import telegram from "../../assets/images/telegram.svg";
 import gitHub from "../../assets/images/gitHub.svg";
 import styles from "./DetailSocial.module.scss";
 
-const cnStyles = cn(styles, "Social");
+const cnStyles = block("Social");
 
 interface SocialProps {
   name: string;
@@ -18,8 +18,8 @@ const DetailSocial: FC<SocialProps> = ({ name, link }) => {
   const socialAlt = name === "telegram" ? "Телеграм" : "Github";
 
   return (
-    <a href={`${socialLink}/${link}`} className={cnStyles("Link")}>
-      <img className={cnStyles("Icon")} src={socialImage} alt={socialAlt} />
+    <a href={`${socialLink}/${link}`} className={cnStyles("link")}>
+      <img className={cnStyles("icon")} src={socialImage} alt={socialAlt} />
     </a>
   );
 };

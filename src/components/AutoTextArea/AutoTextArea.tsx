@@ -4,10 +4,10 @@ import React, {
   useRef,
   TextareaHTMLAttributes,
 } from "react";
-import styles from "./AutoTextArea.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
+import  "./AutoTextArea.scss";
 
-const cnStyles = cn(styles, "AutoTextArea");
+const cnStyles = block("AutoTextArea");
 
 const AutoTextArea = (props: TextareaHTMLAttributes<HTMLTextAreaElement>) => {
   const textAreaRef = useRef<HTMLTextAreaElement>(null);

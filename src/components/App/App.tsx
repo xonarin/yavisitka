@@ -18,7 +18,7 @@ import { AdminUsersBlock } from "../../components/admin-users-block/admin-users-
 import { Page404 } from "../../pages/404/404";
 import { ProfilePage } from "../../pages/ProfileChangePage/ProfileChangePage";
 import { getCookie } from "../../utils/cookie";
-import "./App.module.scss";
+import "./App.scss";
 
 const App = () => {
   const [search, setSearch] = useSearchParams();

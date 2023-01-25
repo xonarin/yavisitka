@@ -1,7 +1,9 @@
 import React from "react";
-import styles from "./admin-search-input.module.scss";
-import { cn } from "../../utils/bem-css-module";
-const cnStyles = cn(styles, "SearchInput");
+import { block } from 'bem-cn'; 
+import "./admin-search-input.scss";
+
+const cnStyles = block("SearchInput");
+
 export const AdminSearchInput = ({
   setSearchStr,
 }: {

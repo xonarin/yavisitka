@@ -1,9 +1,10 @@
-import styles from "./admin-adding-users.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
 import { TUser, TUsersDataSet } from "../../utils/types";
 import { v4 as uuidv4 } from "uuid";
+import "./admin-adding-users.scss";
 
-const cnStyles = cn(styles, "AddingUsers");
+const cnStyles = block("AddingUsers");
+
 type TAdminAddingUsers = {
   currentUsers: TUser[];
   setUsers: React.Dispatch<React.SetStateAction<TUsersDataSet>>;

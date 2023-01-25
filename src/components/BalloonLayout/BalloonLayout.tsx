@@ -1,7 +1,7 @@
-import { cn } from "../../utils/bem-css-module";
-import styles from "./BalloonLayout.module.scss";
+import { block } from 'bem-cn'; 
+import "./BalloonLayout.scss";
 
-const cnStyles = cn(styles, "Balloon");
+const cnStyles = block("Balloons");
 
 const Balloon = () => {
   return `

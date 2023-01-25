@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { cn } from "../../utils/bem-css-module";
-import styles from "./Logo.module.scss";
+import { block } from 'bem-cn';
+import "./Logo.scss";
 import logo from "./logo.svg";
 
-const cnStyles = cn(styles, "Logo");
+const cnStyles = block("Logo");
 
 const Logo = () => {
   return (

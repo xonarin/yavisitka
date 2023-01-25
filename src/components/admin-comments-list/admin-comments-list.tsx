@@ -1,9 +1,9 @@
-import styles from "./admin-comments-list.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import "./admin-comments-list.scss";
+import { block } from 'bem-cn'; 
 import { CommentCard } from "../../components/admin-comment-card/admin-comment-card";
 import { ScrollbarContainer } from "../../components/admin-scrollbar-container/admin-scrollbar-container";
 import { TComment } from "../../utils/types";
-const cnStyles = cn(styles, "CommentsList");
+const cnStyles = block("CommentsList");
 
 export const AdminCommentsList = ({ list }: any) => {
   return (

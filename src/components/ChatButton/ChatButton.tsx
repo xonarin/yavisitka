@@ -1,8 +1,8 @@
 import { FC } from "react";
-import styles from "./ChatButton.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
 import useWindowSize from "../../services/hooks/useWindowSize";
 import btnImage from "../../assets/images/chat-btn.svg";
+import "./ChatButton.scss";
 
 type TProps = {
   counter: string;
@@ -10,7 +10,7 @@ type TProps = {
   isOpened: () => void;
 };
 
-const cnStyles = cn(styles, "ChatButton");
+const cnStyles = block("ChatButton");
 
 const ChatButton: FC<TProps> = (props) => {
   const smallCounter = {

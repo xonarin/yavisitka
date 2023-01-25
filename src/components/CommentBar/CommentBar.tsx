@@ -1,11 +1,11 @@
 import { FC } from "react";
-import styles from "./CommentBar.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
 import EmojiButton from "../EmojiButton/EmojiButton";
 import AutoTextArea from "../AutoTextArea/AutoTextArea";
 import Comment from "../Comment/Comment";
+import "./CommentBar.scss";
 
-const cnStyles = cn(styles, "CommentBar");
+const cnStyles = block("CommentBar");
 const emojis = ["👍", "👎", "👋", "🙂", "😞", "🤣", "😬", "😱", "😍", "🖤"];
 
 type TProps = {

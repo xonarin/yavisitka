@@ -1,10 +1,10 @@
-import styles from "./admin-users-list.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
 import { ScrollbarContainer } from "../../components/admin-scrollbar-container/admin-scrollbar-container";
 import { UserCard } from "../admin-user-card/admin-user-card";
 import { TUser } from "../../utils/types";
+import  "./admin-users-list.scss";
 
-const cnStyles = cn(styles, "UsersList");
+const cnStyles = block("UsersList");
 
 type TAdminUsersList = {
   list: TUser[];

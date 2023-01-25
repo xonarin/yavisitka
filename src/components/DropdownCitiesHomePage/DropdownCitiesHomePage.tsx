@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef, FC } from "react";
-import styles from "./DropdownCitiesHomePage.module.scss";
-import { cn } from "../../utils/bem-css-module";
-import { Node } from "typescript";
+import { block } from 'bem-cn'; 
+import "./DropdownCitiesHomePage.scss";
 
-const cnStyles = cn(styles, "DropdownMenu");
+const cnStyles = block("DropdownMenu");
 
 type TProps = {
   defaultText: string | null;

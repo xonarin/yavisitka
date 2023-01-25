@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef, FC } from "react";
-import styles from "./ClassmateCard.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
 import { Link } from "react-router-dom";
 import ChatButton from "../ChatButton/ChatButton";
 import CommentBar from "../CommentBar/CommentBar";
 import { TReactions } from "../../utils/types";
 import { getReactions } from "../../utils/api";
 import useOnClickOutside from "../../services/hooks/useOnClickOutside";
+import "./ClassmateCard.scss";
 
-const cnStyles = cn(styles, "ClassmateCard");
+const cnStyles = block("ClassmateCard");
 
 type TProps = {
   cardsData: {

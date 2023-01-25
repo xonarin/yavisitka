@@ -1,11 +1,11 @@
 import React from "react";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn';
 import { Outlet } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import styles from "./Layout.module.scss";
+import "./Layout.scss";
 
-const cnStyles = cn(styles, "Layout");
+const cnStyles = block("Layout");
 
 const Layout = () => {
   return (

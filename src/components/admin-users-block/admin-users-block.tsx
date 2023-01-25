@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import styles from "./admin-users-block.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
 import { AdminSearchInput } from "../../components/admin-search-input/admin-search-input";
 import { AdminUsersList } from "../../components/admin-users-list/admin-users-list";
 import { AdminAddingUsers } from "../../components/admin-adding-users/admin-adding-users";
 import { getUsers } from "../../utils/api";
 import { TUser, TUsersDataSet } from "../../utils/types";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import "./admin-users-block.scss";
 
-const cnStyles = cn(styles, "UsersBlock");
+const cnStyles = block("UsersBlock");
 
 export const AdminUsersBlock = () => {
   const [isLoading, setIsLoading] = useState(true);

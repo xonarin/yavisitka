@@ -1,10 +1,9 @@
-import React, { ChangeEvent, FC, MouseEventHandler, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { useYMaps,  } from "@pbe/react-yandex-maps";
-import { cn } from "../../../utils/bem-css-module";
-import styles from "./InputSuggestView.module.scss";
-import { useHref } from "react-router-dom";
+import { block } from 'bem-cn'; 
+import "./InputSuggestView.scss";
 
-const cnStyles = cn(styles, "InputSuggest");
+const cnStyles = block("InputSuggest");
 
 interface InputSuggestViewProps {
     onChange: any;

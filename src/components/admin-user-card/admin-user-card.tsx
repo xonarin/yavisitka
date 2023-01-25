@@ -1,10 +1,10 @@
 import { useState } from "react";
-import styles from "./admin-user-card.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
 import { Link } from "react-router-dom";
 import { TUser } from "../../utils/types";
+import "./admin-user-card.scss";
 
-const cnStyles = cn(styles, "Card");
+const cnStyles = block("Card");
 
 export const UserCard = ({ data }: { data: TUser }) => {
   const [changedCohort, setChangedCohort] = useState(data.cohort);

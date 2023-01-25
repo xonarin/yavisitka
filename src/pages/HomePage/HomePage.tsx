@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./HomePage.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn';
 import { Link, Navigate, useLocation } from "react-router-dom";
 import ClassmateCard from "../../components/ClassmateCard/ClassmateCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
@@ -8,8 +7,9 @@ import DropdownMenu from "../../components/DropdownCitiesHomePage/DropdownCities
 import { getProfiles } from "../../utils/api";
 import { TCards } from "../../utils/types";
 import { getCookie } from "../../utils/cookie";
+import "./HomePage.scss";
 
-const cnStyles = cn(styles, "HomePage");
+const cnStyles = block("HomePage");
 
 const HomePage = () => {
   const { pathname } = useLocation();
