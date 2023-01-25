@@ -1,9 +1,9 @@
 import Container from "../../components/Container/Container";
 import LinkEntry from "../../components/LinkEntry/LinkEntry";
-import { cn } from "../../utils/bem-css-module";
-import styles from "./AuthProtectedRouter.module.scss";
+import { block } from 'bem-cn'; 
+import "./AuthProtectedRouter.scss";
 
-const cnStyles = cn(styles, "Auth");
+const cnStyles = block("Auth");
 
 const AuthRouter = () => {
   return (

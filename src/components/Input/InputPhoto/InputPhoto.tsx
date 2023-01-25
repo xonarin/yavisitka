@@ -1,9 +1,9 @@
 import React from "react";
-import { cn } from "../../..//utils/bem-css-module";
-import styles from "./InputPhoto.module.scss";
+import { block } from 'bem-cn'; 
 import { handleFileUpload } from "../../../utils/validate-photo";
+import "./InputPhoto.scss";
 
-const cnStyles = cn(styles, "InputPhoto");
+const cnStyles = block("InputPhoto");
 
 export const InputPhoto = () => {
   return (

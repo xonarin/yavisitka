@@ -1,8 +1,8 @@
 import { FC } from "react";
-import styles from "./EmojiButton.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
+import "./EmojiButton.scss";
 
-const cnStyles = cn(styles, "EmojiButton");
+const cnStyles = block("EmojiButton");
 
 type TProps = {
   emoji: string;

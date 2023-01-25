@@ -1,10 +1,8 @@
 import React, { FC, useRef } from "react";
-import { cn } from "../../..//utils/bem-css-module";
-import styles from './InputAvatar.module.scss';
-import photo from '../../../assets/images/circle.svg';
-import e from "express";
+import { block } from 'bem-cn'; 
+import './InputAvatar.scss';
 
-const cnStyles = cn(styles, "InputAvatar");
+const cnStyles = block("InputAvatar");
 
 interface InputAvatarProps {
     onChange: any;
@@ -35,7 +33,7 @@ export const InputAvatar: FC<InputAvatarProps> = ({ onChange }) => {
 
     return ( 
         <>
-            <div className={cnStyles("add-photo__input")}  ref={imageRef}>
+            <div className={cnStyles("container")} ref={imageRef}>
                 <input 
                     type="file" 
                     className={cnStyles("photo")} 

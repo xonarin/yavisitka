@@ -1,13 +1,11 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import Container from "../../components/Container/Container";
 import Logo from "../../components/Logo/Logo";
 import MiniProfile from "../../components/MiniProfile/MiniProfile";
 import { getCookie, setCookie, deleteCookie } from "../../utils/cookie";
-import { cn } from "../../utils/bem-css-module";
-import styles from "./Header.module.scss";
+import { block } from 'bem-cn';
+import "./Header.scss";
 
-const cnStyles = cn(styles, "Header");
+const cnStyles = block("Header");
 
 const Header = () => {
   const status = getCookie("status") ? "admin" : "user";
@@ -26,16 +24,8 @@ const Header = () => {
   return (
     <header className={cnStyles()}>
       <Container>
-        <div className={cnStyles("wrap")}>
+        <div className={cnStyles("container")}>
           <Logo />
-          {/* <nav>
-            <NavLink to="/">HOME | </NavLink>
-            <NavLink to="/detail">DETAIL | </NavLink>
-            <NavLink to="/profile">PROFILE |</NavLink>
-            <NavLink to="/admin">ADMIN | </NavLink>
-            <NavLink to="/map">MAPS | </NavLink>
-            <NavLink to="/demo">DEMO | </NavLink>
-          </nav> */}
           Ваш статус: ({status}):
           <button type="button" onClick={handleClickUser}>
             Студент

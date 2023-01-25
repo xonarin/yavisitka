@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./LoadingSpinner.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
+import "./LoadingSpinner.scss";
 
-const cnStyles = cn(styles, "LoadingSpinner");
+const cnStyles = block("LoadingSpinner");
 
 export default function LoadingSpinner() {
   return (

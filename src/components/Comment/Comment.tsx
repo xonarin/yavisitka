@@ -1,7 +1,7 @@
-import styles from "./Comment.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
+import "./Comment.scss";
 
-const cnStyles = cn(styles, "Comment");
+const cnStyles = block("Comment");
 
 const Comment = (props: { comment: string }) => {
   return (

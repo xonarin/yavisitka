@@ -1,10 +1,11 @@
 import React, { FC, useState } from "react";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn';
 import ChatButton from "../ChatButton/ChatButton";
-import styles from "./DetailPhoto.module.scss";
+import "./DetailPhoto.scss";
 import CommentBar from "../CommentBar/CommentBar";
 import { TReactions } from "../../utils/types";
-const cnStyles = cn(styles, "DetailPhoto");
+
+const cnStyles = block("DetailPhoto");
 
 interface DetailPhoto {
   src: string;
@@ -21,9 +22,9 @@ const DetailPhoto: FC<DetailPhoto> = ({ src, alt, reactions, template }) => {
   }
 
   return (
-    <div className={cnStyles() + " " + cnStyles(template)}>
+    <div className={cnStyles() + " " + template && cnStyles({ type: template})}>
       <img
-        className={cnStyles("Image")}
+        className={cnStyles("image")}
         src={src}
         alt={`Фотография студента ${alt}`}
       />

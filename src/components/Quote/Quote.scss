@@ -1,0 +1,50 @@
+@import "../../assets/styles/vars.scss";
+
+.Quote {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  max-width: 255px;
+  max-height: 117px;
+  margin: 53px 0 0 14px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -53px;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    background: url("../../assets/images/quote.svg") 0 0 no-repeat;
+  }
+
+  &_type_romantic {
+    &::before {
+      background: url("../../assets/images/quote-romantic.svg") 0 0 no-repeat;
+    }
+  }
+
+  &_type_crazy {
+    &::before {
+      background: url("../../assets/images/quote-crazy.svg") 0 0 no-repeat;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    padding: 0;
+    font-size: $font-size-24;
+    line-height: $line-height-32;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    .Quote_type_romantic & {
+      color: $neon-pink;
+    }
+
+    .Quote_type_crazy & {
+      color: $neon-green;
+    }
+  }
+}

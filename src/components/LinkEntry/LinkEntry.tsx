@@ -1,7 +1,7 @@
-import { cn } from "../../utils/bem-css-module";
-import styles from "./LinkEntry.module.scss";
+import { block } from 'bem-cn';
+import "./LinkEntry.scss";
 
-const cnStyles = cn(styles, "Link");
+const cnStyles = block("Link");
 
 const LinkEntry = () => {
   return (

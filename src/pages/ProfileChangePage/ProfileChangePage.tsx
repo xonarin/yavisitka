@@ -1,6 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
-import { cn } from "../../utils/bem-css-module";
-import styles from "./ProfileChangePage.module.scss";
+import { block } from 'bem-cn';
 import Container from "../../components/Container/Container";
 import { YMaps } from "@pbe/react-yandex-maps";
 import InputSuggestView from "../../components/Input/InputSuggestView/InputSuggestView";
@@ -10,6 +9,7 @@ import { InputText } from "../../components/Input/InputText/InputText";
 import { InputTextarea } from "../../components/Input/InputTextarea/InputTextarea";
 import { InputPhoto } from "../../components/Input/InputPhoto/InputPhoto";
 import DropdownMenu from "../../components/DropdownCitiesHomePage/DropdownCitiesHomePage";
+import "./ProfileChangePage.scss";
 
 const style = [
   { id: 1, name: "Серьезный" },
@@ -17,7 +17,7 @@ const style = [
   { id: 3, name: "Дерзкий" },
 ];
 
-const cnStyles = cn(styles, 'ProfileChangePage');
+const cnStyles = block('ProfileChangePage');
 
 export const ProfilePage = () => {
   const [form, setValue] = useState<any>();
@@ -43,8 +43,8 @@ export const ProfilePage = () => {
     <section className={cnStyles("profile")}>
         <form action="#" className={cnStyles("form")} onSubmit={handleSubmit}>
           <label className={cnStyles("add-photo")} htmlFor="avatar">
-            <div className={cnStyles("add-photo__title")}>Загрузите фото *</div>
-            <div className={cnStyles("add-photo__subtitle")}>
+            <div className={cnStyles("add-photo-title")}>Загрузите фото *</div>
+            <div className={cnStyles("add-photo-subtitle")}>
               (размер не менее 440х440)
             </div>
           </label>

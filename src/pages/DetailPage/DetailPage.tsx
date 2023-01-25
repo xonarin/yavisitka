@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn';
 import Container from "../../components/Container/Container";
 import DetailPhoto from "../../components/DetailPhoto/DetailPhoto";
 import Quote from "../../components/Quote/Quote";
@@ -12,10 +12,10 @@ import {
   TCommentsResponseDataSet,
   TReactions,
 } from "../../utils/types";
-import styles from "./DetailPage.module.scss";
+import "./DetailPage.scss";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
-const cnStyles = cn(styles, "DetailPage");
+const cnStyles = block("DetailPage");
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -128,12 +128,12 @@ const DetailPage = () => {
                 template={template}
               />
             )}
-            {infoUser?.job && eduComments && (
+            {infoUser?.job && jobComments && (
               <DetailHobby
                 title={"Сфера"}
                 text={infoUser.job.text}
                 image={infoUser.job.image}
-                reactions={eduComments}
+                reactions={jobComments}
                 template={template}
               />
             )}

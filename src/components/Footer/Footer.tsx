@@ -1,8 +1,8 @@
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
 import Container from "../../components/Container/Container";
-import styles from "./Footer.module.scss";
+import "./Footer.scss";
 
-const cnStyles = cn(styles, "Footer");
+const cnStyles = block("Footer");
 
 const Footer = () => {
   return (
