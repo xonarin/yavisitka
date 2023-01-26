@@ -1,43 +1,44 @@
-@import "../../assets/styles/vars.scss";
+@import '../../../assets/styles/vars.scss';
 
-.DropdownMenu {
+
+.InputSelectFile {
   display: inline-block;
   max-width: 100%;
-  min-width: 325px;
   text-align: left;
   position: relative;
   font-family: $base-font-family;
   font-size: $font-size-16;
   color: $text-dark;
+  
+  
+  
 
   &:hover {
     cursor: pointer;
   }
 
+  
+
   &__select {
-    background-color: transparent;
-    padding: 12px 16px;
     height: 24px;
+    padding: 12px 16px;
     border: 1px solid $text-dark;
     border-radius: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: url("../../assets/images/down-arrow.svg") calc(100% - 20px) 20px
-      no-repeat no-repeat;
+    background: url('../../../assets/images/down-arrow.svg') calc(100% - 20px) 20px no-repeat no-repeat;
   }
 
   &__open {
-    background-color: transparent;
-    padding: 12px 16px;
     height: 24px;
+    padding: 12px 16px;
     border: 1px solid $text-dark;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-radius: 4px 4px 0 0;
-    background: url("../../assets/images/up-arrow.svg") calc(100% - 20px) 20px
-      no-repeat no-repeat;
+    background: url('../../../assets/images/up-arrow.svg') calc(100% - 20px) 20px no-repeat no-repeat;
   }
 
   &__select:hover {
@@ -86,22 +87,28 @@
     -webkit-border-radius: 20px;
   }
 
+
   &__custom-select-option {
     list-style-type: none;
     padding: 12px 16px;
     margin: 0;
     background: white;
     cursor: pointer;
+
   }
 
   &__custom-select-option:hover {
+    color: #FFFFFF;
+    background-color: #FF00A8;
     background-color: $neon-pink;
-    color: #ffffff;
+    color: #FFFFFF
+
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .DropdownMenu {
+
+@media screen and (max-width: 768px) {
+  .InputSelectFile {
     width: 440px;
     min-width: auto;
 
@@ -112,16 +119,16 @@
 }
 
 @media screen and (max-width: 440px) {
-  .DropdownMenu {
-    min-width: auto;
-    &__select-options {
-      width: 100%;
-    }
+  .InputSelectFile {
+  min-width: auto;
+  &__select-options {
+    width: 100%;
+  }
   }
 }
 
 @media screen and (max-width: 320px) {
-  .DropdownMenu {
+  .InputSelectFile {
     width: 272px;
 
     &__select-options {
