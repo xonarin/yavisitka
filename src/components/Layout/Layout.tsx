@@ -1,24 +1,22 @@
 import React from "react";
-import {cn} from "../../utils/bem-css-module";
+import { block } from 'bem-cn';
 import { Outlet } from "react-router-dom";
-import Header from '../../components/Header/Header';
-import Footer from '../../components/Footer/Footer';
-import styles from './Layout.module.scss';
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import "./Layout.scss";
 
-const cnStyles = cn(styles, 'Layout');
-
+const cnStyles = block("Layout");
 
 const Layout = () => {
-    return (
-        <>
-            <Header />
-                <main className={cnStyles()}>
-                    <Outlet />
-                </main>
-            <Footer />
-        </>
-
-    )
-}
+  return (
+    <>
+      <Header />
+      <main className={cnStyles()}>
+        <Outlet />
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 export default Layout;

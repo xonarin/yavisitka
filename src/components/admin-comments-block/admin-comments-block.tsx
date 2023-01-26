@@ -1,6 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
-import styles from "./admin-comments-block.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { useEffect, useMemo, useState } from "react";
+import { block } from 'bem-cn'; 
 import { AdminSearchInput } from "../../components/admin-search-input/admin-search-input";
 import { AdminCommentsList } from "../../components/admin-comments-list/admin-comments-list";
 import {
@@ -10,13 +9,11 @@ import {
   TARGETS_MAP,
 } from "../../utils/setup-constants";
 import { getComments, getUsers } from "../../utils/api";
-import {
-  TCommentsDataSet,
-  TUsersDataSet,
-} from "../../utils/types";
+import { TCommentsDataSet, TUsersDataSet } from "../../utils/types";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import "./admin-comments-block.scss";
 
-const cnStyles = cn(styles, "CommentsBlock");
+const cnStyles = block("CommentsBlock");
 
 export const AdminCommentsBlock = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -74,9 +71,7 @@ export const AdminCommentsBlock = () => {
       <AdminSearchInput setSearchStr={setSearchStr} />
       {isLoading && <LoadingSpinner />}
       {!isLoading && (
-        <AdminCommentsList
-          list={commentsUpd.filter(filterComments)}
-        />
+        <AdminCommentsList list={commentsUpd.filter(filterComments)} />
       )}
     </div>
   );

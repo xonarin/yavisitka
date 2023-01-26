@@ -1,18 +1,19 @@
-// @import "../../assets/styles/vars.scss";
-
-import React from "react";
-import styles from "./admin-page.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
 import Container from "../../components/Container/Container";
-import { NavLink, Outlet } from "react-router-dom";
+import { Navigate, NavLink, Outlet, useLocation } from "react-router-dom";
+import { getCookie } from "../../utils/cookie";
+import "./admin-page.scss";
 
-const cnStyles = cn(styles, "AdminPage");
+const cnStyles = block("AdminPage");
 
 let activeStyle = {
   color: "black",
 };
 
 export const AdminPage = () => {
+  if (!getCookie("status")) {
+    return <Navigate to="/" />;
+  }
   return (
     <Container>
       <main className={cnStyles()}>

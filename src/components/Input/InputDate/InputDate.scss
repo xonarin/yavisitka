@@ -36,7 +36,7 @@
         right: 216px;
     }
 
-    &-popper-custom {
+    &__popper-custom {
         transform: translate3d(0, 54px, 0)!important; //плохой тон, но этот стиль у компонента никак не перебить.
     }
 
@@ -123,4 +123,3 @@
     }
 
 }
-

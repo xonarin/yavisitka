@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import { FC } from "react";
+import { block } from 'bem-cn'; 
 import styles from "./universal-spiner.module.scss";
-import { cn } from "../../utils/bem-css-module";
 
-const cnStyles = cn(styles, "LoadingSpinner");
+const cnStyles = block("LoadingSpinner");
 
 export const UniversalSpinner: FC<{ size: number; minH: number }> = ({
   size,

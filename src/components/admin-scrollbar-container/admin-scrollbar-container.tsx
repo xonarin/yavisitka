@@ -1,11 +1,23 @@
-import styles from "./admin-scrollbar-container.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { block } from 'bem-cn'; 
+import { ReactElement } from "react";
+import "./admin-scrollbar-container.scss";
 
-const cnStyles = cn(styles, "Scrollbar-container");
-//@ts-ignore
-export const ScrollbarContainer = ({ negativHeightAdjustment, children }) => {
-    let calcStyle = {
-        maxHeight: `calc(100vh - ${negativHeightAdjustment}px)`,
-      };
-  return <div style = {calcStyle} className={cnStyles()}>{children}</div>;
+type TScrollbarContainer = {
+  negativHeightAdjustment: number;
+  children: ReactElement;
+};
+
+const cnStyles = block("Scrollbar-container");
+export const ScrollbarContainer = ({
+  negativHeightAdjustment,
+  children,
+}: TScrollbarContainer) => {
+  let calcStyle = {
+    maxHeight: `calc(100vh - ${negativHeightAdjustment}px)`,
+  };
+  return (
+    <div style={calcStyle} className={cnStyles()}>
+      {children}
+    </div>
+  );
 };

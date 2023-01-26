@@ -1,19 +1,22 @@
-import React from "react";
-import { cn } from "../../utils/bem-css-module";
-import styles from './Quote.module.scss';
+import React, { FC } from "react";
+import { block } from 'bem-cn';
+import "./Quote.scss";
 
+const cnStyles = block("Quote");
 
-const cnStyles = cn(styles, 'Quote');
-
-const Quote = () => {
-    return (
-        <div className={cnStyles()}>
-            {/* <img className={cnStyles('quoteIcon')} src={quote} alt="Цитата" /> */}
-            <blockquote className={cnStyles('text')}>
-                Делай, что должно и будь, что будет.
-            </blockquote>
-        </div>
-    )
+interface QuoteProps {
+  text?: string;
+  template: string | null | undefined;
 }
+
+const Quote: FC<QuoteProps> = ({ text, template }) => {
+  return (
+    <div className={cnStyles() + " "  + template && cnStyles({ type: template})}>
+      <blockquote className={cnStyles("text")}>
+        Делай, что должно и будь, что будет.
+      </blockquote>
+    </div>
+  );
+};
 
 export default Quote;

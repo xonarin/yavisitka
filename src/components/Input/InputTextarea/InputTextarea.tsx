@@ -1,11 +1,17 @@
-import React from "react";
-import { cn } from "../../..//utils/bem-css-module";
-import styles from './InputTextarea.module.scss';
+import { FC } from "react";
+import { block } from 'bem-cn'; 
+import "./InputTextarea.scss";
 
-const cnStyles = cn(styles, 'InputTextarea');
+const cnStyles = block("InputTextarea");
 
-export const InputTextarea = (text1: any) => {
+interface InputTextAreaProps {
+    name: string;
+    placeholder: string;
+    onChange: any;
+}
+
+export const InputTextarea: FC<InputTextAreaProps> = ({ name, placeholder, onChange }) => {
     return (
-<textarea placeholder={text1} className={cnStyles("textarea")} maxLength={300}></textarea>
+        <textarea className={cnStyles("textarea")} placeholder={placeholder} name={name} maxLength={300} onChange={(e) => onChange(e)}></textarea>
     )
 }

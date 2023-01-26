@@ -1,0 +1,35 @@
+@import "../../../assets/styles/vars.scss";
+
+.InputPhoto {
+    &__photo-text {
+        width: 100%;
+        height: 48px;
+        border: 1px solid #100C34;
+        border-radius: 4px;
+        outline: none;
+        position: relative;
+        overflow: hidden;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0;
+        padding: 12px 16px;
+        background: url('../../../assets/images/add-photo.svg') 400px 15px no-repeat;
+        box-sizing: border-box;
+    }
+
+    &__photo-text[type=file] {
+        cursor: pointer;
+    }
+
+    &__photo-text:hover {
+        border: 1px solid #666666;
+    }
+
+    &__photo-text[type=file]::-webkit-file-upload-button {
+        position: absolute;
+        visibility: hidden;
+        overflow: hidden;
+    }
+}

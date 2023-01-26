@@ -1,14 +1,21 @@
-import React, { useState, FC } from "react";
-import styles from "./admin-adding-users.module.scss";
-import { cn } from "../../utils/bem-css-module";
-import { TUser } from "../../utils/types";
+import { block } from 'bem-cn'; 
+import { TUser, TUsersDataSet } from "../../utils/types";
 import { v4 as uuidv4 } from "uuid";
+import "./admin-adding-users.scss";
 
-const cnStyles = cn(styles, "AddingUsers");
+const cnStyles = block("AddingUsers");
 
-export const AdminAddingUsers = ({ setUsers, currentUsers }: any) => {
-  const handleOnChange = async (evt: any) => {
-    const file = evt.target.files[0];
+type TAdminAddingUsers = {
+  currentUsers: TUser[];
+  setUsers: React.Dispatch<React.SetStateAction<TUsersDataSet>>;
+};
+
+export const AdminAddingUsers = ({
+  setUsers,
+  currentUsers,
+}: TAdminAddingUsers) => {
+  const handleOnChange = async (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const file = evt.target.files ? evt.target.files[0] : undefined;
     const reader = new FileReader();
     const resArr: TUser[] = [];
 
@@ -21,61 +28,64 @@ export const AdminAddingUsers = ({ setUsers, currentUsers }: any) => {
       name: "",
     };
 
-    if (file.name.endsWith(".csv")) {
-      reader.readAsText(file, "WINDOWS-1251");
+    if (file) {
+      if (file.name.endsWith(".csv")) {
+        reader.readAsText(file, "WINDOWS-1251");
 
-      reader.onload = function () {
-        const preArr = String(reader.result)
-          .replace(/ /gm, "~")
-          .replace(/\s/gm, ";")
-          .replace(/;;/g, ";")
-          .replace(/;/g, " ")
-          .trim()
-          .split(" ");
+        reader.onload = function () {
+          const preArr = String(reader.result)
+            .replace(/ /gm, "~")
+            .replace(/\s/gm, ";")
+            .replace(/;;/g, ";")
+            .replace(/;/g, " ")
+            .trim()
+            .split(" ");
 
-        for (let i = 0; i < preArr.length; i += 2) {
+          for (let i = 0; i < preArr.length; i += 2) {
+            resArr.push({
+              ...defaultData,
+              email: preArr[i + 1],
+              cohort: preArr[i],
+              _id: uuidv4(),
+            });
+          }
+          const fullData = currentUsers.concat(resArr);
+          setUsers({
+            usersTotal: 0,
+            users: fullData,
+          });
+        };
+
+        reader.onerror = function () {
+          console.log(reader.error);
+        };
+      }
+
+      if (file.name.endsWith(".xlsx")) {
+        let XLSX = require("xlsx");
+        let data = await file.arrayBuffer();
+        const workbook = XLSX.readFile(data);
+        const sheet = workbook.Sheets[workbook.Workbook.Sheets[0].name];
+        const maxRow = +sheet["!ref"].match(/\d+$/)[0];
+
+        for (let i = 1; i <= maxRow; i++) {
           resArr.push({
             ...defaultData,
-            email: preArr[i + 1],
-            cohort: preArr[i],
+            email: sheet[`B${i}`].v,
+            cohort: sheet[`A${i}`].v,
             _id: uuidv4(),
           });
         }
+
         const fullData = currentUsers.concat(resArr);
         setUsers({
           usersTotal: 0,
           users: fullData,
         });
-      };
-
-      reader.onerror = function () {
-        console.log(reader.error);
-      };
-    }
-
-    if (file.name.endsWith(".xlsx")) {
-      let XLSX = require("xlsx");
-      let data = await file.arrayBuffer();
-      const workbook = XLSX.readFile(data);
-      const sheet = workbook.Sheets[workbook.Workbook.Sheets[0].name];
-      const maxRow = +sheet["!ref"].match(/\d+$/)[0];
-
-      for (let i = 1; i <= maxRow; i++) {
-        resArr.push({
-          ...defaultData,
-          email: sheet[`B${i}`].v,
-          cohort: sheet[`A${i}`].v,
-          _id: uuidv4(),
-        });
       }
-
-      const fullData = currentUsers.concat(resArr);
-      setUsers({
-        usersTotal: 0,
-        users: fullData,
-      });
     }
   };
+
   return (
     <div className={cnStyles()}>
       <p className={cnStyles("title")}>Добавить студентов</p>

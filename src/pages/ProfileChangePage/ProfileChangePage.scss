@@ -1,0 +1,149 @@
+@import "../../assets/styles/vars.scss";
+
+.ProfileChangePage {
+    font-family: 'IBM Plex Sans';
+    padding-top: 200px;
+    height: calc(100vh - 379px);
+
+    &__container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__title {
+        font-weight: $font-weight-700;
+        font-size: $font-size-40;
+        line-height: $line-height-52;
+        margin: 0 0 72px 0;
+    }
+
+    &__profile {
+        margin: auto;
+        padding: 0px;
+        max-width: 440px;
+        margin-top: 8px;
+        margin-bottom: 96px;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+    }
+
+    &__form-name {
+        margin: 16px 0 4px 0;
+    }
+
+    &__form-input {
+        width: 100%;
+    }
+
+    &__add-photo {
+        width: 248px;
+        height: 39px;
+        text-align: center;
+        margin: auto;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 21px;
+        margin-bottom: 11px;
+
+        &-title {
+            color: #100C34;
+        }
+
+        &-subtitle {
+            color: #83828F;
+            line-height: 18.75px;
+            font-size: 14px;
+        }
+    }
+
+    &__input-date {
+        max-height: 264px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__span {
+        align-items: center;
+        text-align: start;
+        margin: 16px 0;
+        color: #100C34;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    &__btn {
+        background: linear-gradient(269.17deg, #3B23B7 30.28%, #C914E7 63.24%);
+        border-radius: 4px;
+        color: #FFFFFF;
+        border: 0ch;
+        height: 68px;
+        width: 100%;
+        padding: 0;
+        cursor: pointer;
+    }
+
+    &__alert {
+        composes: ProfileChangePage-span;
+        margin-top: 4px;
+        margin-bottom: 10px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    &__input-text[type=date]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        display: none;
+    }
+
+    &__add {
+        position: absolute;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 16.24px;
+        height: 19.07px;
+        right: 15px;
+        top: 15px;
+    }
+
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.DropdownMenu {
+  max-width: 272px;
+
+  &__select {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 440px) {
+    .ProfileChangePage {
+        &__btn {
+            height: 60px;
+            margin: auto;
+        }
+
+    &__btn {
+      height: 60px;
+      margin: auto;
+    }
+
+    &__input-text {
+      width: 240px;
+    }
+  }
+}

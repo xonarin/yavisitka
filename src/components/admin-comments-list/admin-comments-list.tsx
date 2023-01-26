@@ -1,10 +1,10 @@
-import React from "react";
-import styles from "./admin-comments-list.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import "./admin-comments-list.scss";
+import { block } from 'bem-cn'; 
 import { CommentCard } from "../../components/admin-comment-card/admin-comment-card";
 import { ScrollbarContainer } from "../../components/admin-scrollbar-container/admin-scrollbar-container";
-const cnStyles = cn(styles, "CommentsList");
-// console.log(cnStyles)
+import { TComment } from "../../utils/types";
+const cnStyles = block("CommentsList");
+
 export const AdminCommentsList = ({ list }: any) => {
   return (
     <>
@@ -19,15 +19,17 @@ export const AdminCommentsList = ({ list }: any) => {
         </ul>
       </div>
       <ScrollbarContainer negativHeightAdjustment={326}>
-        {Boolean(list.length) || (
-          <p className={cnStyles("error-text")}>
-            Не удалось никого найти. Исправьте запрос или сбросьте фильтр
-          </p>
-        )}
+        <>
+          {Boolean(list.length) || (
+            <p className={cnStyles("error-text")}>
+              Не удалось никого найти. Исправьте запрос или сбросьте фильтр
+            </p>
+          )}
 
-        {list.map((data: any) => (
-          <CommentCard key={data._id} data={data} />
-        ))}
+          {list.map((data: TComment) => (
+            <CommentCard key={data._id} data={data} />
+          ))}
+        </>
       </ScrollbarContainer>
     </>
   );

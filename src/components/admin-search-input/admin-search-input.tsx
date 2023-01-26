@@ -1,13 +1,16 @@
 import React from "react";
-import styles from "./admin-search-input.module.scss";
-import { cn } from "../../utils/bem-css-module";
-const cnStyles = cn(styles, "SearchInput");
-//@ts-ignore
-export const AdminSearchInput = ({ setSearchStr }) => {
-  //@ts-ignore
-  function handleOnChange(evt) {
-    // console.log(evt.target.value);
-    setSearchStr(evt.target.value)
+import { block } from 'bem-cn'; 
+import "./admin-search-input.scss";
+
+const cnStyles = block("SearchInput");
+
+export const AdminSearchInput = ({
+  setSearchStr,
+}: {
+  setSearchStr: React.Dispatch<React.SetStateAction<string>>;
+}) => {
+  function handleOnChange(evt: React.ChangeEvent<HTMLInputElement>) {
+    setSearchStr(evt.target.value);
   }
   return (
     <div className={cnStyles()}>

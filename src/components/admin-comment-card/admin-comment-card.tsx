@@ -1,12 +1,15 @@
-import React, { useState } from "react";
-import styles from "./admin-comment-card.module.scss";
-import { cn } from "../../utils/bem-css-module";
+import { useState } from "react";
+import { block } from 'bem-cn'; 
 import { Link } from "react-router-dom";
 import { deleteComment } from "../../utils/api";
 import { UniversalSpinner } from "../admin-universal-spinner/universal-spiner";
+import { TComment } from "../../utils/types";
+import "./admin-comment-card.scss";
 
-const cnStyles = cn(styles, "Card");
-export const CommentCard = ({ data }:any) => {
+const cnStyles = block("CardComment");
+
+
+export const CommentCard = ({ data }: { data: TComment }) => {
   const [isDeleted, setIsDeleted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
