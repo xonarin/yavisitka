@@ -1,8 +1,8 @@
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import { ScrollbarContainer } from "../../components/admin-scrollbar-container/admin-scrollbar-container";
 import { UserCard } from "../admin-user-card/admin-user-card";
 import { TUser } from "../../utils/types";
-import  "./admin-users-list.scss";
+import "./admin-users-list.scss";
 
 const cnStyles = block("UsersList");
 
@@ -12,7 +12,7 @@ type TAdminUsersList = {
 
 export const AdminUsersList = ({ list }: TAdminUsersList) => {
   return (
-    <div className={cnStyles('mobile-container')}>
+    <div className={cnStyles("mobile-container")}>
       <div className={cnStyles()}>
         <ul className={cnStyles("table-header")}>
           <li className={cnStyles("column-title")}>Номер когорты</li>
@@ -22,11 +22,9 @@ export const AdminUsersList = ({ list }: TAdminUsersList) => {
       </div>
 
       <ScrollbarContainer negativHeightAdjustment={326}>
-        <>
-          {list.map((userData) => (
-            <UserCard key={userData._id} data={userData} />
-          ))}
-        </>
+        {list.map((userData) => (
+          <UserCard key={userData._id} data={userData} />
+        ))}
       </ScrollbarContainer>
     </div>
   );

@@ -6,7 +6,7 @@ const cnStyles = block("InputText");
 
 interface InputTextProps {
     name: string;
-    onChange: any;
+    onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 export const InputText: FC<InputTextProps> = ({ name, onChange }) => {

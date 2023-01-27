@@ -113,7 +113,7 @@ export type TComment = {
     name: string;
     email: string;
   };
-  target: "hobby" | "edu" | "status" | "job" | null;
+  target: string | null;
   text: string;
   to: {
     _id: string;
@@ -122,21 +122,7 @@ export type TComment = {
   };
 };
 
-export type TCommentArray = {
-  _id: string;
-  from: {
-    _id: string;
-    name: string;
-    email: string;
-  };
-  target: "hobby" | "edu" | "status" | "job" | null;
-  text: string;
-  to: {
-    _id: string;
-    name: string;
-    email: string;
-  };
-};
+export type TCommentArray = TComment[];
 
 
 export type TCommentsDataSet = {

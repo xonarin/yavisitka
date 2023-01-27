@@ -43,24 +43,22 @@ const App = () => {
   }, [search]);
 
   return (
-    <>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route element={<ProtectedRoute />}>
-            <Route index element={<HomePage />} />
-            <Route path="detail/:id" element={<DetailPage />} />
-            <Route path="cohort/:id" element={<HomePage />} />
-            <Route path="profile" element={<ProfilePage />} />
-            <Route path="map" element={<MapsPage />} />
-            <Route path="admin" element={<AdminPage />}>
-              <Route index element={<AdminCommentsBlock />} />
-              <Route path="users" element={<AdminUsersBlock />} />
-            </Route>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route element={<ProtectedRoute />}>
+          <Route index element={<HomePage />} />
+          <Route path="detail/:id" element={<DetailPage />} />
+          <Route path="cohort/:id" element={<HomePage />} />
+          <Route path="profile" element={<ProfilePage />} />
+          <Route path="map" element={<MapsPage />} />
+          <Route path="admin" element={<AdminPage />}>
+            <Route index element={<AdminCommentsBlock />} />
+            <Route path="users" element={<AdminUsersBlock />} />
           </Route>
         </Route>
-        <Route path="*" element={<Page404 />} />
-      </Routes>
-    </>
+      </Route>
+      <Route path="*" element={<Page404 />} />
+    </Routes>
   );
 };
 

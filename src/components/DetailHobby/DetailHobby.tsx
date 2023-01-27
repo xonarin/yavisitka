@@ -11,7 +11,7 @@ interface DetailHobbyProps {
   title: string;
   text: string;
   image: string;
-  reactions: TCommentArray[];
+  reactions: TCommentArray;
   template?: string | null | undefined;
 }
 

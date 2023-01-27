@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, FC } from "react";
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import { Link } from "react-router-dom";
 import ChatButton from "../ChatButton/ChatButton";
 import CommentBar from "../CommentBar/CommentBar";
@@ -39,6 +39,7 @@ const ClassmateCard: FC<TProps> = ({ cardsData }) => {
   const { name: city } = cardsData.profile.city;
   const { _id: id } = cardsData;
   let cardRef = useRef(null);
+  
   useOnClickOutside(cardRef, () => setIsOpened(false));
 
   function handleClick() {
