@@ -8,7 +8,7 @@ import { InputAvatar } from "../../components/Input/InputAvatar/InputAvatar";
 import { InputText } from "../../components/Input/InputText/InputText";
 import { InputTextarea } from "../../components/Input/InputTextarea/InputTextarea";
 import { InputPhoto } from "../../components/Input/InputPhoto/InputPhoto";
-import DropdownMenu from "../../components/DropdownCitiesHomePage/DropdownCitiesHomePage";
+import InputSelectFile from "../../components/Input/InputSelectFile/InputSelectFile";
 import "./ProfileChangePage.scss";
 
 const style = [
@@ -30,7 +30,11 @@ export const ProfilePage = () => {
   const onChangeDatePicker = (date: string) => {
     setValue({ ...form, ['date']: date })
     console.log(form)
+  }
 
+  const handleClickOptionSelect = (value: string | null) => {
+    setValue({ ...form, ['styles']: value })
+    console.log(form)
   }
 
   const handleSubmit = (e:FormEvent<HTMLFormElement>) =>{
@@ -67,8 +71,8 @@ export const ProfilePage = () => {
           <InputText name={"github"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} />
 
           <label className={cnStyles("form-name")} htmlFor="stile">Выберете шаблон</label>
-          {/* TODO */}
-          {/* <DropdownMenu defaultText={"Стили"} optionsList={style} /> */}
+
+          <InputSelectFile defaultText={''} optionsList={style} name={"style"} handleClickOptionSelect={handleClickOptionSelect} />
 
           <label className={cnStyles("form-name")} htmlFor="thesis">Девиз, цитата</label>
           <InputTextarea name={"thesis-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
@@ -87,14 +91,11 @@ export const ProfilePage = () => {
             <InputTextarea name={"family-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
           </div>
 
-
           <label className={cnStyles("form-name")} htmlFor="job">Из какой сферы пришел? Кем работаешь?</label>
           <InputTextarea name={"job-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
 
-
           <label className={cnStyles("form-name")} htmlFor="why">Почему решил учиться на веб-разработчика?</label>
           <InputTextarea name={"why-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
-
 
           <p className={cnStyles("span")}>Поля, отмеченный звездочкой, обязательные для заполнения</p>
           <input className={cnStyles("btn")} type="submit" value="Сохранить изменения" />

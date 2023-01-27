@@ -1,9 +1,10 @@
 @import "../../assets/styles/vars.scss";
 
 .ProfileChangePage {
-    font-family: 'IBM Plex Sans';
+    font-family: IBM Plex Sans;
     padding-top: 200px;
     height: calc(100vh - 379px);
+    margin: 0;
 
     &__container {
         display: flex;
