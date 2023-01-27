@@ -6,11 +6,12 @@ const cnStyles = block("InputText");
 
 interface InputTextProps {
     name: string;
+    value: string;
     onChange: React.ChangeEventHandler<HTMLInputElement>;
 }
 
-export const InputText: FC<InputTextProps> = ({ name, onChange }) => {
+export const InputText: FC<InputTextProps> = ({ name, value, onChange }) => {
     return (
-        <input type="text" placeholder="@example" className={cnStyles("input-text")} name={name} id={name} onChange={(e) => onChange(e)} />
+        <input type="text" value={value} placeholder="@example" className={cnStyles("input-text")} name={name} id={name} onChange={(e) => onChange(e)} />
     )
 }
