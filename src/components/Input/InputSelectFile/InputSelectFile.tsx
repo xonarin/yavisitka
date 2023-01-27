@@ -5,7 +5,7 @@ import './InputSelectFile.scss';
 const cnStyles = block('InputSelectFile');
 
 type TProps = {
-    defaultText: any,
+    defaultText: string,
     optionsList: {
         id: number,
         name: string,

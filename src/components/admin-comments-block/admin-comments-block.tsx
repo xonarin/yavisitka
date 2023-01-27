@@ -9,7 +9,7 @@ import {
   TARGETS_MAP,
 } from "../../utils/setup-constants";
 import { getComments, getUsers } from "../../utils/api";
-import { TCommentsDataSet, TUsersDataSet } from "../../utils/types";
+import { TComment, TCommentsDataSet, TUsersDataSet } from "../../utils/types";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import "./admin-comments-block.scss";
 
@@ -60,7 +60,7 @@ export const AdminCommentsBlock = () => {
     });
   }, [comments, users]);
 
-  function filterComments(comment: any) {
+  function filterComments(comment: TComment) {
     return [
       comment.cohort,
       comment.from.name,
@@ -72,7 +72,7 @@ export const AdminCommentsBlock = () => {
 
   return (
     <div className={cnStyles()}>
-      <AdminSearchInput setSearchStr={setSearchStr} inputValue = {searchStr} />
+      <AdminSearchInput setSearchStr={setSearchStr} inputValue={searchStr} />
       {isLoading && <LoadingSpinner />}
       {!isLoading && (
         <AdminCommentsList list={commentsUpd.filter(filterComments)} />

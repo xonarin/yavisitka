@@ -34,8 +34,7 @@ const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange }) => {
         ymaps?.geocode(info, {results: 1})
             .then( function (res) {
                 const firstGeoObject = res.geoObjects.get(0)
-                //@ts-ignore
-                console.log(`Координаты где? Всё на месте: ${firstGeoObject?.geometry?._coordinates}`)
+                // console.log(`Координаты где? Всё на месте: ${firstGeoObject?.geometry?._coordinates}`)
         })
     }
 
