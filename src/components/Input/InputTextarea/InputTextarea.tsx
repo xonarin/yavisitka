@@ -8,10 +8,11 @@ interface InputTextAreaProps {
     name: string;
     placeholder: string;
     onChange: any;
+    maxLength: number,
 }
 
-export const InputTextarea: FC<InputTextAreaProps> = ({ name, placeholder, onChange }) => {
+export const InputTextarea: FC<InputTextAreaProps> = ({ name, placeholder, onChange, maxLength }) => {
     return (
-        <textarea className={cnStyles("textarea")} placeholder={placeholder} name={name} maxLength={300} onChange={(e) => onChange(e)}></textarea>
+        <textarea className={cnStyles("textarea")} placeholder={placeholder} name={name} maxLength={maxLength} onChange={(e) => onChange(e)}></textarea>
     )
 }
