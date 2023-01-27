@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import { Link } from "react-router-dom";
 import { deleteComment } from "../../utils/api";
 import { UniversalSpinner } from "../admin-universal-spinner/universal-spiner";
@@ -7,7 +7,6 @@ import { TComment } from "../../utils/types";
 import "./admin-comment-card.scss";
 
 const cnStyles = block("CardComment");
-
 
 export const CommentCard = ({ data }: { data: TComment }) => {
   const [isDeleted, setIsDeleted] = useState(false);
@@ -18,12 +17,13 @@ export const CommentCard = ({ data }: { data: TComment }) => {
       setIsLoading(true);
       deleteComment(data._id)
         .then((res) => {
-          console.log(`Удал комментарий id: ${data._id}`);
           setIsDeleted(true);
-          setIsLoading(false);
         })
         .catch((err) => {
           console.error(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
         });
     }
   }

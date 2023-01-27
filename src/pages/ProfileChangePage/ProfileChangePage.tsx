@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
-import { block } from 'bem-cn';
+import { block } from "bem-cn";
 import Container from "../../components/Container/Container";
 import { YMaps } from "@pbe/react-yandex-maps";
 import InputSuggestView from "../../components/Input/InputSuggestView/InputSuggestView";
@@ -17,34 +17,36 @@ const style = [
   { id: 3, name: "Дерзкий" },
 ];
 
-const cnStyles = block('ProfileChangePage');
+const cnStyles = block("ProfileChangePage");
 
 export const ProfilePage = () => {
-  const [form, setValue] = useState<any>();
+  const [form, setValue] = useState({});
 
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue({ ...form, [e.target.name]: e.target.value })
-    console.log(form)
-  }
+  const onChange = (
+    e: ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLInputElement>
+  ) => {
+    setValue({ ...form, [e.target.name]: e.target.value });
+    console.log(form);
+  };
 
   const onChangeDatePicker = (date: string) => {
-    setValue({ ...form, ['date']: date })
-    console.log(form)
-  }
+    setValue({ ...form, ["date"]: date });
+    console.log(form);
+  };
 
   const handleClickOptionSelect = (value: string | null) => {
-    setValue({ ...form, ['styles']: value })
-    console.log(form)
-  }
+    setValue({ ...form, ["styles"]: value });
+    console.log(form);
+  };
 
-  const handleSubmit = (e:FormEvent<HTMLFormElement>) =>{
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     //Тут может быть запрос об отправке данных из form useState. Сюда сохраняются все данные с полей
-  }
+  };
 
   return (
     <Container>
-    <section className={cnStyles("profile")}>
+      <section className={cnStyles("profile")}>
         <form action="#" className={cnStyles("form")} onSubmit={handleSubmit}>
           <label className={cnStyles("add-photo")} htmlFor="avatar">
             <div className={cnStyles("add-photo-title")}>Загрузите фото *</div>
@@ -52,53 +54,118 @@ export const ProfilePage = () => {
               (размер не менее 440х440)
             </div>
           </label>
-          <InputAvatar onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} />
+          <InputAvatar onChange={onChange} />
 
-          <label className={cnStyles("form-name")} htmlFor="birthday">Дата рождения *</label>
+          <label className={cnStyles("form-name")} htmlFor="birthday">
+            Дата рождения *
+          </label>
           <div className={cnStyles("input-date")}>
             <InputDate onChangeDatePicker={onChangeDatePicker} />
           </div>
 
-          <label className={cnStyles("form-name")} htmlFor="place">Выберете город *</label>
-          <YMaps query={{ load: "package.full", apikey: "6bbb9fad-fe92-4de7-aed3-2caa0584dade" }}>
-            <InputSuggestView onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} />
+          <label className={cnStyles("form-name")} htmlFor="place">
+            Выберете город *
+          </label>
+          <YMaps
+            query={{
+              load: "package.full",
+              apikey: "6bbb9fad-fe92-4de7-aed3-2caa0584dade",
+            }}
+          >
+            <InputSuggestView onChange={onChange} />
           </YMaps>
 
-          <label className={cnStyles("form-name")} htmlFor="telegram">Ник в телеграм</label>
-          <InputText name={"telegram"}  onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} />
+          <label className={cnStyles("form-name")} htmlFor="telegram">
+            Ник в телеграм
+          </label>
+          <InputText name={"telegram"} onChange={onChange} />
 
-          <label className={cnStyles("form-name")} htmlFor="github">Ник на гитхабе</label>
-          <InputText name={"github"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} />
+          <label className={cnStyles("form-name")} htmlFor="github">
+            Ник на гитхабе
+          </label>
+          <InputText name={"github"} onChange={onChange} />
 
-          <label className={cnStyles("form-name")} htmlFor="stile">Выберете шаблон</label>
+          <label className={cnStyles("form-name")} htmlFor="stile">
+            Выберете шаблон
+          </label>
 
-          <InputSelectFile defaultText={''} optionsList={style} name={"style"} handleClickOptionSelect={handleClickOptionSelect} />
+          <InputSelectFile
+            defaultText={""}
+            optionsList={style}
+            name={"style"}
+            handleClickOptionSelect={handleClickOptionSelect}
+          />
 
-          <label className={cnStyles("form-name")} htmlFor="thesis">Девиз, цитата</label>
-          <InputTextarea name={"thesis-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
+          <label className={cnStyles("form-name")} htmlFor="thesis">
+            Девиз, цитата
+          </label>
+          <InputTextarea
+            name={"thesis-info"}
+            onChange={onChange}
+            placeholder={"Не более 100 символов"}
+            maxLength={100}
+          />
 
-          <label className={cnStyles("form-name")} htmlFor="hobbies">Увлечение, досуг, интересы</label>
-          <div className={cnStyles("form-input")}>
-             <InputPhoto />
-            <p className={cnStyles("alert")}>Рекомедуемый размер фото 230х129</p>
-              <InputTextarea name={"hobby-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
-          </div>
-
-          <label className={cnStyles("form-name")} htmlFor="family">Семья, статус, домашние животные</label>
+          <label className={cnStyles("form-name")} htmlFor="hobbies">
+            Увлечение, досуг, интересы
+          </label>
           <div className={cnStyles("form-input")}>
             <InputPhoto />
-            <p className={cnStyles("alert")}>Рекомедуемый размер фото 230х129</p>
-            <InputTextarea name={"family-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
+            <p className={cnStyles("alert")}>
+              Рекомедуемый размер фото 230х129
+            </p>
+            <InputTextarea
+              name={"hobby-info"}
+              onChange={onChange}
+              placeholder={"Не более 300 символов"}
+              maxLength={300}
+            />
           </div>
 
-          <label className={cnStyles("form-name")} htmlFor="job">Из какой сферы пришел? Кем работаешь?</label>
-          <InputTextarea name={"job-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
+          <label className={cnStyles("form-name")} htmlFor="family">
+            Семья, статус, домашние животные
+          </label>
+          <div className={cnStyles("form-input")}>
+            <InputPhoto />
+            <p className={cnStyles("alert")}>
+              Рекомедуемый размер фото 230х129
+            </p>
+            <InputTextarea
+              name={"family-info"}
+              onChange={onChange}
+              placeholder={"Не более 300 символов"}
+              maxLength={300}
+            />
+          </div>
 
-          <label className={cnStyles("form-name")} htmlFor="why">Почему решил учиться на веб-разработчика?</label>
-          <InputTextarea name={"why-info"} onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)} placeholder={"Не более 300 символов"} />
+          <label className={cnStyles("form-name")} htmlFor="job">
+            Из какой сферы пришел? Кем работаешь?
+          </label>
+          <InputTextarea
+            name={"job-info"}
+            onChange={onChange}
+            placeholder={"Не более 300 символов"}
+            maxLength={300}
+          />
 
-          <p className={cnStyles("span")}>Поля, отмеченный звездочкой, обязательные для заполнения</p>
-          <input className={cnStyles("btn")} type="submit" value="Сохранить изменения" />
+          <label className={cnStyles("form-name")} htmlFor="why">
+            Почему решил учиться на веб-разработчика?
+          </label>
+          <InputTextarea
+            name={"why-info"}
+            onChange={onChange}
+            placeholder={"Не более 300 символов"}
+            maxLength={300}
+          />
+
+          <p className={cnStyles("span")}>
+            Поля, отмеченный звездочкой, обязательные для заполнения
+          </p>
+          <input
+            className={cnStyles("btn")}
+            type="submit"
+            value="Сохранить изменения"
+          />
         </form>
       </section>
     </Container>

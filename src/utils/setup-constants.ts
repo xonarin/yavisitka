@@ -1,10 +1,11 @@
 export const EMPTY_TARGET = "из визитки";
 
-export const TARGETS_MAP = {
+export const TARGETS_MAP:{[key: string]: string} = {
   hobby: "из блока Увлечения",
   edu: "из блока Учеба",
   status: "из блока Семья",
   job: "из блока Сфера",
+  quote: "из блока Цитата",
 };
 
 export const DEFAULT_COMMENTS_DATASET = {

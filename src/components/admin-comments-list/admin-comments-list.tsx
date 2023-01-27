@@ -1,11 +1,15 @@
 import "./admin-comments-list.scss";
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import { CommentCard } from "../../components/admin-comment-card/admin-comment-card";
 import { ScrollbarContainer } from "../../components/admin-scrollbar-container/admin-scrollbar-container";
-import { TComment } from "../../utils/types";
+import { TComment, TCommentArray } from "../../utils/types";
 const cnStyles = block("CommentsList");
 
-export const AdminCommentsList = ({ list }: any) => {
+type TAdminCommentsList = {
+  list: TCommentArray;
+};
+
+export const AdminCommentsList = ({ list }: TAdminCommentsList) => {
   return (
     <div className={cnStyles("mobile-container")}>
       <div className={cnStyles()}>

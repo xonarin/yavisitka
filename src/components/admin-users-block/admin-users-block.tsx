@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import { AdminSearchInput } from "../../components/admin-search-input/admin-search-input";
 import { AdminUsersList } from "../../components/admin-users-list/admin-users-list";
 import { AdminAddingUsers } from "../../components/admin-adding-users/admin-adding-users";
@@ -24,11 +24,13 @@ export const AdminUsersBlock = () => {
       .then((res) => {
         if (res) {
           setUsers({ usersTotal: res.total, users: res.items });
-          setIsLoading(false);
         }
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
@@ -40,8 +42,8 @@ export const AdminUsersBlock = () => {
 
   return (
     <div className={cnStyles()}>
-      <div className={cnStyles('container-search')}>
-        <AdminSearchInput setSearchStr={setSearchStr} />
+      <div>
+        <AdminSearchInput setSearchStr={setSearchStr} inputValue = {searchStr} />
         {isLoading && <LoadingSpinner />}
         {!isLoading && <AdminUsersList list={users.filter(filterUsers)} />}
       </div>
