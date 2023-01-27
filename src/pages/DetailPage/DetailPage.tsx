@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { block } from 'bem-cn';
+import { block } from "bem-cn";
 import Container from "../../components/Container/Container";
 import DetailPhoto from "../../components/DetailPhoto/DetailPhoto";
 import Quote from "../../components/Quote/Quote";
@@ -89,69 +89,67 @@ const DetailPage = () => {
   }
 
   return (
-    <>
-      <Container>
-        <section className={"section"}>
-          <div className={cnStyles("container")}>
-            <div className={cnStyles("blockUser")}>
-              <h2 className={cnStyles("userName")}>{name}</h2>
-              <p className={cnStyles("city")}>{city}</p>
-              <div className={cnStyles("socialNetwork")}>
-                {telegram && <DetailSocial name={"telegram"} link={telegram} />}
-                {github && <DetailSocial name={"github"} link={github} />}
-              </div>
+    <Container>
+      <section className={"section"}>
+        <div className={cnStyles("container")}>
+          <div className={cnStyles("blockUser")}>
+            <h2 className={cnStyles("userName")}>{name}</h2>
+            <p className={cnStyles("city")}>{city}</p>
+            <div className={cnStyles("socialNetwork")}>
+              {telegram && <DetailSocial name={"telegram"} link={telegram} />}
+              {github && <DetailSocial name={"github"} link={github} />}
             </div>
-            {photo && (
-              <DetailPhoto
-                src={photo}
-                alt={name}
-                reactions={reactions}
-                template={template}
-              />
-            )}
-            <Quote text={quote} template={template} />
           </div>
-          <div className={cnStyles("twoСolumns")}>
-            {infoUser?.hobby && hobbyComments && (
-              <DetailHobby
-                title={"Увелечения"}
-                text={infoUser.hobby.text}
-                image={infoUser.hobby.image}
-                reactions={hobbyComments}
-                template={template}
-              />
-            )}
-            {infoUser?.status && statusComments && (
-              <DetailHobby
-                title={"Семья"}
-                text={infoUser.status.text}
-                image={infoUser.status.image}
-                reactions={statusComments}
-                template={template}
-              />
-            )}
-            {infoUser?.job && jobComments && (
-              <DetailHobby
-                title={"Сфера"}
-                text={infoUser.job.text}
-                image={infoUser.job.image}
-                reactions={jobComments}
-                template={template}
-              />
-            )}
-            {infoUser?.edu && eduComments && (
-              <DetailHobby
-                title={"Учеба"}
-                text={infoUser.edu.text}
-                image={infoUser.edu.image}
-                reactions={eduComments}
-                template={template}
-              />
-            )}
-          </div>
-        </section>
-      </Container>
-    </>
+          {photo && (
+            <DetailPhoto
+              src={photo}
+              alt={name}
+              reactions={reactions}
+              template={template}
+            />
+          )}
+          <Quote text={quote} template={template} />
+        </div>
+        <div className={cnStyles("twoСolumns")}>
+          {infoUser?.hobby && hobbyComments && (
+            <DetailHobby
+              title={"Увелечения"}
+              text={infoUser.hobby.text}
+              image={infoUser.hobby.image}
+              reactions={hobbyComments}
+              template={template}
+            />
+          )}
+          {infoUser?.status && statusComments && (
+            <DetailHobby
+              title={"Семья"}
+              text={infoUser.status.text}
+              image={infoUser.status.image}
+              reactions={statusComments}
+              template={template}
+            />
+          )}
+          {infoUser?.job && jobComments && (
+            <DetailHobby
+              title={"Сфера"}
+              text={infoUser.job.text}
+              image={infoUser.job.image}
+              reactions={jobComments}
+              template={template}
+            />
+          )}
+          {infoUser?.edu && eduComments && (
+            <DetailHobby
+              title={"Учеба"}
+              text={infoUser.edu.text}
+              image={infoUser.edu.image}
+              reactions={eduComments}
+              template={template}
+            />
+          )}
+        </div>
+      </section>
+    </Container>
   );
 };
 

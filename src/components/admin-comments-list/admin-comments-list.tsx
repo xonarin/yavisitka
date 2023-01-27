@@ -23,17 +23,15 @@ export const AdminCommentsList = ({ list }: TAdminCommentsList) => {
         </ul>
       </div>
       <ScrollbarContainer negativHeightAdjustment={326}>
-        <>
-          {Boolean(list.length) || (
-            <p className={cnStyles("error-text")}>
-              Не удалось никого найти. Исправьте запрос или сбросьте фильтр
-            </p>
-          )}
+        {Boolean(list.length) || (
+          <p className={cnStyles("error-text")}>
+            Не удалось никого найти. Исправьте запрос или сбросьте фильтр
+          </p>
+        )}
 
-          {list.map((data: TComment) => (
-            <CommentCard key={data._id} data={data} />
-          ))}
-        </>
+        {list.map((data: TComment) => (
+          <CommentCard key={data._id} data={data} />
+        ))}
       </ScrollbarContainer>
     </div>
   );

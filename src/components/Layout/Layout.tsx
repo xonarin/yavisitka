@@ -1,5 +1,5 @@
 import React from "react";
-import { block } from 'bem-cn';
+import { block } from "bem-cn";
 import { Outlet } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
