@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { block } from "bem-cn";
-import { AdminSearchInput } from "../../components/admin-search-input/admin-search-input";
-import { AdminCommentsList } from "../../components/admin-comments-list/admin-comments-list";
+import { AdminSearchInput } from "../AdminSearchInput/AdminSearchInput";
+import { AdminCommentsList } from "../AdminCommentsList/AdminCommentsList";
 import {
   DEFAULT_COMMENTS_DATASET,
   DEFAULT_USERS_DATASET,
@@ -11,7 +11,7 @@ import {
 import { getComments, getUsers } from "../../utils/api";
 import { TComment, TCommentsDataSet, TUsersDataSet } from "../../utils/types";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-import "./admin-comments-block.scss";
+import "./AdminCommentsBlock.scss";
 
 const cnStyles = block("CommentsBlock");
 

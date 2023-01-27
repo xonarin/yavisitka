@@ -9,9 +9,13 @@
     display: flex;
     flex-direction: column;
 
-    &__container-search {
+    &__mobile-container {
       order: 2;
-      margin-top: 20px;
+    }
+
+    & .AddingUsers {
+      order: 1;
+      margin-bottom: 20px;
     }
   }
 }

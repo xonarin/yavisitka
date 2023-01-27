@@ -2,9 +2,9 @@ import { useState } from "react";
 import { block } from "bem-cn";
 import { Link } from "react-router-dom";
 import { deleteComment } from "../../utils/api";
-import { UniversalSpinner } from "../admin-universal-spinner/universal-spiner";
+import { UniversalSpinner } from "../AdminUniversalSpinner/UniversalSpiner";
 import { TComment } from "../../utils/types";
-import "./admin-comment-card.scss";
+import "./AdminCommentCard.scss";
 
 const cnStyles = block("CardComment");
 

@@ -1,8 +1,9 @@
-import "./admin-comments-list.scss";
 import { block } from "bem-cn";
-import { CommentCard } from "../../components/admin-comment-card/admin-comment-card";
-import { ScrollbarContainer } from "../../components/admin-scrollbar-container/admin-scrollbar-container";
+import { CommentCard } from "../AdminCommentCard/AdminCommentCard";
+import { ScrollbarContainer } from "../AdminScrollbarContainer/AdminScrollbarContainer";
 import { TComment, TCommentArray } from "../../utils/types";
+import "./AdminCommentsList.scss";
+
 const cnStyles = block("CommentsList");
 
 type TAdminCommentsList = {
