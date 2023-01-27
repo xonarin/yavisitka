@@ -12,7 +12,7 @@ type TAdminUsersList = {
 
 export const AdminUsersList = ({ list }: TAdminUsersList) => {
   return (
-    <>
+    <div className={cnStyles('mobile-container')}>
       <div className={cnStyles()}>
         <ul className={cnStyles("table-header")}>
           <li className={cnStyles("column-title")}>Номер когорты</li>
@@ -28,6 +28,6 @@ export const AdminUsersList = ({ list }: TAdminUsersList) => {
           ))}
         </>
       </ScrollbarContainer>
-    </>
+    </div>
   );
 };

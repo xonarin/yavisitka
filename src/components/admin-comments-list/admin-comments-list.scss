@@ -30,4 +30,22 @@
     margin-top: 11px;
     color: $error;
   }
+
+  @media (max-width: 1300px) {
+
+    & {
+      border: unset;
+      margin-top: 0;
+
+      &__column-title {
+        border-bottom: 1px solid #83828f;
+        padding-bottom: 10px;
+      }
+
+      &__mobile-container {
+        overflow-x: scroll;
+        margin-top: 60px;
+      }
+    }
+  }
 }
