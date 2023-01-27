@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, FC, ChangeEvent } from "react";
+import { useState, useEffect, useRef, FC  } from "react";
 import { block } from 'bem-cn';
 import './InputSelectFile.scss';
 

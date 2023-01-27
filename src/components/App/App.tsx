@@ -43,7 +43,6 @@ const App = () => {
   }, [search]);
 
   return (
-    <>
       <Routes>
         <Route element={<Layout />}>
           <Route element={<ProtectedRoute />}>
@@ -60,7 +59,6 @@ const App = () => {
         </Route>
         <Route path="*" element={<Page404 />} />
       </Routes>
-    </>
   );
 };
 

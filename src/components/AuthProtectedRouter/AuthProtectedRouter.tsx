@@ -7,7 +7,6 @@ const cnStyles = block("Auth");
 
 const AuthRouter = () => {
   return (
-    <>
       <div className={cnStyles()}>
         <Container>
           <div className={cnStyles("container")}>
@@ -16,7 +15,6 @@ const AuthRouter = () => {
           </div>
         </Container>
       </div>
-    </>
   );
 };
 
