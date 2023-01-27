@@ -1,6 +1,6 @@
 import React from "react";
 import { block } from "bem-cn";
-import "./admin-search-input.scss";
+import "./AdminSearchInput.scss";
 
 const cnStyles = block("SearchInput");
 
