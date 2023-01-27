@@ -6,6 +6,10 @@
   width: 440px;
   height: 440px;
 
+  &__container {
+    position: relative;
+  }
+
   &_type_romantic {
       clip-path: circle(50% at 50% 50%);
   }

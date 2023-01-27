@@ -40,7 +40,7 @@ export const AdminUsersBlock = () => {
 
   return (
     <div className={cnStyles()}>
-      <div>
+      <div className={cnStyles('container-search')}>
         <AdminSearchInput setSearchStr={setSearchStr} />
         {isLoading && <LoadingSpinner />}
         {!isLoading && <AdminUsersList list={users.filter(filterUsers)} />}

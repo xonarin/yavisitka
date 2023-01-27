@@ -7,7 +7,7 @@ const cnStyles = block("CommentsList");
 
 export const AdminCommentsList = ({ list }: any) => {
   return (
-    <>
+    <div className={cnStyles("mobile-container")}>
       <div className={cnStyles()}>
         <ul className={cnStyles("table-header")}>
           <li className={cnStyles("column-title")}>Когорта</li>
@@ -31,6 +31,6 @@ export const AdminCommentsList = ({ list }: any) => {
           ))}
         </>
       </ScrollbarContainer>
-    </>
+    </div>
   );
 };
