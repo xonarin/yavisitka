@@ -33,21 +33,19 @@ export const InputAvatar: FC<InputAvatarProps> = ({ onChange }) => {
   };
 
   return (
-    <>
-      <div className={cnStyles("container")} ref={imageRef}>
-        <input
-          type="file"
-          className={cnStyles("photo")}
-          name="avatar"
-          id="avatar"
-          accept=".jpg, .png"
-          onChange={(e) => {
-            onChange(e);
-            abra(e);
-          }}
-          required
-        />
-      </div>
-    </>
+    <div className={cnStyles("container")} ref={imageRef}>
+      <input
+        type="file"
+        className={cnStyles("photo")}
+        name="avatar"
+        id="avatar"
+        accept=".jpg, .png"
+        onChange={(e) => {
+          onChange(e);
+          abra(e);
+        }}
+        required
+      />
+    </div>
   );
 };

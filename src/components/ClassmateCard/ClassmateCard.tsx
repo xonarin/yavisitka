@@ -46,7 +46,7 @@ const ClassmateCard: FC<TProps> = ({ cardsData }) => {
   }
 
   useEffect(() => {
-    const keyHandler = (evt: { key: string }) => {
+    const keyHandler = (evt: KeyboardEvent) => {
       if (evt.key === "Escape") {
         setIsOpened(false);
       }
