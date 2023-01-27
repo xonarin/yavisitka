@@ -39,29 +39,12 @@ const ClassmateCard: FC<TProps> = ({ cardsData }) => {
   const { name: city } = cardsData.profile.city;
   const { _id: id } = cardsData;
   let cardRef = useRef(null);
-  function closeModal() {
-    setIsOpened(false);
-  }
-
-  useOnClickOutside(cardRef, closeModal);
+  
+  useOnClickOutside(cardRef, () => setIsOpened(false));
 
   function handleClick() {
     setIsOpened(!isOpened);
   }
-
-  useEffect(() => {
-    const keyHandler = (evt: KeyboardEvent) => {
-      if (evt.key === "Escape") {
-        closeModal();
-      }
-    };
-    if (isOpened) {
-      document.addEventListener("keydown", keyHandler);
-      return () => {
-        document.removeEventListener("keydown", keyHandler);
-      };
-    }
-  }, [isOpened]);
 
   useEffect(() => {
     getReactions(id)
