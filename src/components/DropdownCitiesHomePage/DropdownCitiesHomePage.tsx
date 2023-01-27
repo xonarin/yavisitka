@@ -71,7 +71,7 @@ const DropdownMenu: FC<TProps> = ({ defaultText, optionsList, handleCity }) => {
   return (
     <div className={cnStyles()} ref={ref}>
       <div
-        className={showOptionList ? cnStyles("open") : cnStyles("select")}
+        className={showOptionList ? cnStyles("open") : cnStyles("selectHome")}
         onClick={handleListDisplay}
       >
         <p className={cnStyles("text")}>{selectText}</p>

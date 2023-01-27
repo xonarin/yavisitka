@@ -46,20 +46,6 @@ const ClassmateCard: FC<TProps> = ({ cardsData }) => {
   }
 
   useEffect(() => {
-    const keyHandler = (evt: { key: string }) => {
-      if (evt.key === "Escape") {
-        setIsOpened(false);
-      }
-    };
-    if (isOpened) {
-      document.addEventListener("keydown", keyHandler);
-      return () => {
-        document.removeEventListener("keydown", keyHandler);
-      };
-    }
-  }, [isOpened]);
-
-  useEffect(() => {
     getReactions(id)
       .then((res) => {
         if (res) {
