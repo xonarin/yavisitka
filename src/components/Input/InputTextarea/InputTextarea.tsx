@@ -7,6 +7,7 @@ const cnStyles = block("InputTextarea");
 interface InputTextAreaProps {
   name: string;
   placeholder: string;
+  value:string;
   onChange: ChangeEventHandler<HTMLTextAreaElement>;
   maxLength: number;
 }
@@ -14,6 +15,7 @@ interface InputTextAreaProps {
 export const InputTextarea: FC<InputTextAreaProps> = ({
   name,
   placeholder,
+  value,
   onChange,
   maxLength,
 }) => {
@@ -22,6 +24,7 @@ export const InputTextarea: FC<InputTextAreaProps> = ({
       className={cnStyles("textarea")}
       placeholder={placeholder}
       name={name}
+      value={value}
       maxLength={maxLength}
       onChange={onChange}
     ></textarea>

@@ -20,7 +20,7 @@ const style = [
 const cnStyles = block("ProfileChangePage");
 
 export const ProfilePage = () => {
-  const [form, setValue] = useState({});
+  const [form, setValue] = useState<{ [key: string]: string | null }>({});
 
   const onChange = (
     e: ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLInputElement>
@@ -35,7 +35,7 @@ export const ProfilePage = () => {
   };
 
   const handleClickOptionSelect = (value: string | null) => {
-    setValue({ ...form, ["styles"]: value });
+    setValue({ ...form, styles: value });
     console.log(form);
   };
 
@@ -78,12 +78,12 @@ export const ProfilePage = () => {
           <label className={cnStyles("form-name")} htmlFor="telegram">
             Ник в телеграм
           </label>
-          <InputText name={"telegram"} onChange={onChange} />
+          <InputText name={"telegram"} value={form["telegram"] || ""} onChange={onChange} />
 
           <label className={cnStyles("form-name")} htmlFor="github">
             Ник на гитхабе
           </label>
-          <InputText name={"github"} onChange={onChange} />
+          <InputText name={"github"} value={form["github"] || ""} onChange={onChange} />
 
           <label className={cnStyles("form-name")} htmlFor="stile">
             Выберете шаблон
@@ -101,6 +101,7 @@ export const ProfilePage = () => {
           </label>
           <InputTextarea
             name={"thesis-info"}
+            value={form["thesis-info"] || ""}
             onChange={onChange}
             placeholder={"Не более 100 символов"}
             maxLength={100}
@@ -116,6 +117,7 @@ export const ProfilePage = () => {
             </p>
             <InputTextarea
               name={"hobby-info"}
+              value={form["hobby-info"] || ""}
               onChange={onChange}
               placeholder={"Не более 300 символов"}
               maxLength={300}
@@ -132,6 +134,7 @@ export const ProfilePage = () => {
             </p>
             <InputTextarea
               name={"family-info"}
+              value={form["family-info"] || ""}
               onChange={onChange}
               placeholder={"Не более 300 символов"}
               maxLength={300}
@@ -143,6 +146,7 @@ export const ProfilePage = () => {
           </label>
           <InputTextarea
             name={"job-info"}
+            value={form["job-info"] || ""}
             onChange={onChange}
             placeholder={"Не более 300 символов"}
             maxLength={300}
@@ -153,6 +157,7 @@ export const ProfilePage = () => {
           </label>
           <InputTextarea
             name={"why-info"}
+            value={form["why-info"] || ""}
             onChange={onChange}
             placeholder={"Не более 300 символов"}
             maxLength={300}
