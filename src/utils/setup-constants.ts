@@ -5,6 +5,7 @@ export const TARGETS_MAP = {
   edu: "из блока Учеба",
   status: "из блока Семья",
   job: "из блока Сфера",
+  quote: "из блока Цитата",
 };
 
 export const DEFAULT_COMMENTS_DATASET = {

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import { AdminSearchInput } from "../../components/admin-search-input/admin-search-input";
 import { AdminCommentsList } from "../../components/admin-comments-list/admin-comments-list";
 import {
@@ -28,16 +28,20 @@ export const AdminCommentsBlock = () => {
   useEffect(() => {
     setIsLoading(true);
     Promise.all([getComments(), getUsers()])
-      .then((res) => {
-        if (res[0] && res[1]) {
-          setComments({ commentsTotal: res[0].total, comments: res[0].items });
-          setUsers({ usersTotal: res[1].total, users: res[1].items });
-
-          setIsLoading(false);
+      .then(([comments, users]) => {
+        if (comments && users) {
+          setComments({
+            commentsTotal: comments.total,
+            comments: comments.items,
+          });
+          setUsers({ usersTotal: users.total, users: users.items });
         }
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, []);
 
@@ -68,7 +72,7 @@ export const AdminCommentsBlock = () => {
 
   return (
     <div className={cnStyles()}>
-      <AdminSearchInput setSearchStr={setSearchStr} />
+      <AdminSearchInput setSearchStr={setSearchStr} inputValue = {searchStr} />
       {isLoading && <LoadingSpinner />}
       {!isLoading && (
         <AdminCommentsList list={commentsUpd.filter(filterComments)} />
