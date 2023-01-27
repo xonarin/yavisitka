@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { block } from "bem-cn";
-import { AdminSearchInput } from "../../components/admin-search-input/admin-search-input";
-import { AdminUsersList } from "../../components/admin-users-list/admin-users-list";
-import { AdminAddingUsers } from "../../components/admin-adding-users/admin-adding-users";
+import { AdminSearchInput } from "../AdminSearchInput/AdminSearchInput";
+import { AdminUsersList } from "../AdminUsersList/AdminUsersList";
+import { AdminAddingUsers } from "../AdminAddingUsers/AdminAddingUsers";
 import { getUsers } from "../../utils/api";
 import { TUser, TUsersDataSet } from "../../utils/types";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-import "./admin-users-block.scss";
+import "./AdminUsersBlock.scss";
 
 const cnStyles = block("UsersBlock");
 
@@ -42,7 +42,7 @@ export const AdminUsersBlock = () => {
 
   return (
     <div className={cnStyles()}>
-      <div>
+      <div className={cnStyles('mobile-container')}>
         <AdminSearchInput setSearchStr={setSearchStr} inputValue = {searchStr} />
         {isLoading && <LoadingSpinner />}
         {!isLoading && <AdminUsersList list={users.filter(filterUsers)} />}

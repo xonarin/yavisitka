@@ -1,7 +1,7 @@
 import { block } from 'bem-cn'; 
 import { TUser, TUsersDataSet } from "../../utils/types";
 import { v4 as uuidv4 } from "uuid";
-import "./admin-adding-users.scss";
+import "./AdminAddingUsers.scss";
 
 const cnStyles = block("AddingUsers");
 

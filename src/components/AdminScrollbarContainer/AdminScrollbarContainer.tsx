@@ -1,6 +1,6 @@
 import { block } from 'bem-cn'; 
-import { ReactElement, ReactNode } from "react";
-import "./admin-scrollbar-container.scss";
+import { ReactNode } from "react";
+import "./AdminScrollbarContainer.scss";
 
 type TScrollbarContainer = {
   negativHeightAdjustment: number;
