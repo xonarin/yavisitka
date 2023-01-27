@@ -33,7 +33,7 @@ export const UserCard = ({ data }: { data: TUser }) => {
               : {}
           }
           className={cnStyles("input")}
-          defaultValue={data.cohort}
+          value={changedCohort}
           type="text"
           name="cohort"
           onChange={handleOnChange}
@@ -49,7 +49,7 @@ export const UserCard = ({ data }: { data: TUser }) => {
             data.email !== changedEmail || !data.name.length ? changedStyle : {}
           }
           className={cnStyles("input")}
-          defaultValue={data.email}
+          value={changedEmail}
           type="text"
           name="email"
           onChange={handleOnChange}
