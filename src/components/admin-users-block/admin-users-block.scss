@@ -4,4 +4,14 @@
   display: grid;
   grid-template-columns: 203fr 65fr;
   gap: 0px 40px;
+
+  @media (max-width: 1100px) {
+    display: flex;
+    flex-direction: column;
+
+    &__container-search {
+      order: 2;
+      margin-top: 20px;
+    }
+  }
 }

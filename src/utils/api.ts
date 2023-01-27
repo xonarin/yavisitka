@@ -19,7 +19,6 @@ export const checkResponse = <T>(res: Response): Promise<T> => {
 };
 
 export const getProfiles = async () => {
-  try {
     const res = await fetch(`${baseApiUrl}/profiles`, {
       method: "GET",
       headers: {
@@ -28,13 +27,9 @@ export const getProfiles = async () => {
     });
 
     return checkResponse<TCards>(res);
-  } catch (error) {
-    console.log(`Ошибка: ${error}`);
-  }
 };
 
 export const getProfilesId = async (id: string | undefined) => {
-  try {
     const res = await fetch(`${baseApiUrl}/profiles/${id}`, {
       method: "GET",
       headers: {
@@ -43,13 +38,9 @@ export const getProfilesId = async (id: string | undefined) => {
     });
 
     return checkResponse<TProfileId>(res);
-  } catch (error) {
-    console.log(`Ошибка: ${error}`);
-  }
 };
 
 export const getReactions = async (id: string) => {
-  try {
     const res = await fetch(`${baseApiUrl}/profiles/${id}/reactions`, {
       method: "GET",
       headers: {
@@ -58,13 +49,9 @@ export const getReactions = async (id: string) => {
     });
 
     return checkResponse<TReactions>(res);
-  } catch (error) {
-    console.log(`Ошибка: ${error}`);
-  }
 };
 
 export const getUsers = async () => {
-  try {
     const res = await fetch(`${baseApiUrl}/users`, {
       method: "GET",
       headers: {
@@ -73,13 +60,9 @@ export const getUsers = async () => {
     });
 
     return checkResponse<TUsersResponseDataSet>(res);
-  } catch (error) {
-    console.log(`Ошибка: ${error}`);
-  }
 };
 
 export const getComments = async () => {
-  try {
     const res = await fetch(`${baseApiUrl}/comments`, {
       method: "GET",
       headers: {
@@ -88,9 +71,6 @@ export const getComments = async () => {
     });
 
     return checkResponse<TCommentsResponseDataSet>(res);
-  } catch (error) {
-    console.log(`Ошибка: ${error}`);
-  }
 };
 
 export const deleteComment = (_id: string) => {

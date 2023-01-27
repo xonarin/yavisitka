@@ -22,12 +22,14 @@ const DetailPhoto: FC<DetailPhoto> = ({ src, alt, reactions, template }) => {
   }
 
   return (
-    <div className={cnStyles() + " " + template && cnStyles({ type: template})}>
-      <img
-        className={cnStyles("image")}
-        src={src}
-        alt={`Фотография студента ${alt}`}
-      />
+    <div className={cnStyles("container")}>
+      <div className={cnStyles() + " " + template && cnStyles({ type: template})}>
+        <img
+          className={cnStyles("image")}
+          src={src}
+          alt={`Фотография студента ${alt}`}
+        />
+      </div>
       <ChatButton
         isOpened={handleClick}
         isShow={true}
@@ -35,6 +37,7 @@ const DetailPhoto: FC<DetailPhoto> = ({ src, alt, reactions, template }) => {
       />
       {isOpened && <CommentBar comments={reactions.items} />}
     </div>
+
   );
 };
 
