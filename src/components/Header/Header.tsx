@@ -2,7 +2,7 @@ import Container from "../../components/Container/Container";
 import Logo from "../../components/Logo/Logo";
 import MiniProfile from "../../components/MiniProfile/MiniProfile";
 import { getCookie, setCookie, deleteCookie } from "../../utils/cookie";
-import { block } from 'bem-cn';
+import { block } from "bem-cn";
 import "./Header.scss";
 
 const cnStyles = block("Header");

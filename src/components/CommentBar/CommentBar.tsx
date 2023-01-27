@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import EmojiButton from "../EmojiButton/EmojiButton";
 import AutoTextArea from "../AutoTextArea/AutoTextArea";
 import Comment from "../Comment/Comment";

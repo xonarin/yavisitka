@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import "./UniversalSpiner.scss";
 
 const cnStyles = block("LoadingSpinner");

@@ -1,4 +1,4 @@
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import Container from "../../components/Container/Container";
 import { Navigate, NavLink, Outlet, useLocation } from "react-router-dom";
 import { getCookie } from "../../utils/cookie";

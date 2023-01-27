@@ -39,7 +39,7 @@ const ClassmateCard: FC<TProps> = ({ cardsData }) => {
   const { name: city } = cardsData.profile.city;
   const { _id: id } = cardsData;
   let cardRef = useRef(null);
-  
+
   useOnClickOutside(cardRef, () => setIsOpened(false));
 
   function handleClick() {

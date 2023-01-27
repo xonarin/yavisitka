@@ -12,13 +12,13 @@ const MapsPage = () => {
   useEffect(() => {
     getProfiles()
       .then((res) => {
-        if(res) {
-          setProfiles(res)
+        if (res) {
+          setProfiles(res);
         }
       })
       .catch((err) => {
         console.error(err);
-      })
+      });
   }, []);
 
   return (
@@ -28,9 +28,9 @@ const MapsPage = () => {
         apikey: "6bbb9fad-fe92-4de7-aed3-2caa0584dade",
       }}
     >
-      {profiles &&
+      {profiles && (
         <CustomMap coord={profiles} center={[55.76, 37.64]} zoom={7} />
-      }
+      )}
     </YMaps>
   );
 };

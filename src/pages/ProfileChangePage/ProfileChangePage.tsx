@@ -78,12 +78,20 @@ export const ProfilePage = () => {
           <label className={cnStyles("form-name")} htmlFor="telegram">
             Ник в телеграм
           </label>
-          <InputText name={"telegram"} value={form["telegram"] || ""} onChange={onChange} />
+          <InputText
+            name={"telegram"}
+            value={form["telegram"] || ""}
+            onChange={onChange}
+          />
 
           <label className={cnStyles("form-name")} htmlFor="github">
             Ник на гитхабе
           </label>
-          <InputText name={"github"} value={form["github"] || ""} onChange={onChange} />
+          <InputText
+            name={"github"}
+            value={form["github"] || ""}
+            onChange={onChange}
+          />
 
           <label className={cnStyles("form-name")} htmlFor="stile">
             Выберете шаблон

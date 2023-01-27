@@ -1,11 +1,11 @@
 import { FC, useState } from "react";
-import { block } from 'bem-cn';
+import { block } from "bem-cn";
 import { TCommentArray } from "../../utils/types";
 import ChatButton from "../ChatButton/ChatButton";
 import CommentBar from "../CommentBar/CommentBar";
 import "./DetailHobby.scss";
 
-const cnStyles = block('DetailHobby');
+const cnStyles = block("DetailHobby");
 
 interface DetailHobbyProps {
   title: string;
@@ -31,7 +31,7 @@ const DetailHobby: FC<DetailHobbyProps> = ({
 
   return (
     <div
-      className={cnStyles() + " " + template && cnStyles({ type: template})}
+      className={cnStyles() + " " + template && cnStyles({ type: template })}
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
     >
@@ -42,7 +42,7 @@ const DetailHobby: FC<DetailHobbyProps> = ({
       />
       {isOpened && <CommentBar comments={reactions} />}
 
-      <h3 className={cnStyles('title')}>{title}</h3>
+      <h3 className={cnStyles("title")}>{title}</h3>
 
       <img className={cnStyles("image")} src={image} alt={title} />
       <p className={cnStyles("Description")}>{text}</p>

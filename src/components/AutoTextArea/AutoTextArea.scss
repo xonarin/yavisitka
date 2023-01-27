@@ -14,11 +14,11 @@
   display: block;
   border-radius: 4px;
   overflow: hidden;
-  
+
   &:focus {
     outline: $text-dark solid 1px;
   }
-  
+
   &::placeholder {
     color: $text-light;
     font-family: $YT;
@@ -26,4 +26,3 @@
     font-weight: 400;
   }
 }
-

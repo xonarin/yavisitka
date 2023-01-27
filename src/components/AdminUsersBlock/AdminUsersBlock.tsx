@@ -42,8 +42,8 @@ export const AdminUsersBlock = () => {
 
   return (
     <div className={cnStyles()}>
-      <div className={cnStyles('mobile-container')}>
-        <AdminSearchInput setSearchStr={setSearchStr} inputValue = {searchStr} />
+      <div className={cnStyles("mobile-container")}>
+        <AdminSearchInput setSearchStr={setSearchStr} inputValue={searchStr} />
         {isLoading && <LoadingSpinner />}
         {!isLoading && <AdminUsersList list={users.filter(filterUsers)} />}
       </div>

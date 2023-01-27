@@ -4,8 +4,8 @@ import React, {
   useRef,
   TextareaHTMLAttributes,
 } from "react";
-import { block } from 'bem-cn'; 
-import  "./AutoTextArea.scss";
+import { block } from "bem-cn";
+import "./AutoTextArea.scss";
 
 const cnStyles = block("AutoTextArea");
 

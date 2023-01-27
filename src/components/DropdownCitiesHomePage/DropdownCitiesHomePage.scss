@@ -23,7 +23,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: url("../../assets/images/down-arrow.svg") calc(100% - 20px) 20px no-repeat no-repeat;
+    background: url("../../assets/images/down-arrow.svg") calc(100% - 20px) 20px
+      no-repeat no-repeat;
   }
 
   &__open {
@@ -35,7 +36,8 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 4px 4px 0 0;
-    background: url("../../assets/images/up-arrow.svg") calc(100% - 20px) 20px no-repeat no-repeat;
+    background: url("../../assets/images/up-arrow.svg") calc(100% - 20px) 20px
+      no-repeat no-repeat;
   }
 
   &__select:hover {

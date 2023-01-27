@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { block } from 'bem-cn';
+import { block } from "bem-cn";
 import "./MiniProfile.scss";
 import { profilesGet } from "../../utils/api-test-data";
 

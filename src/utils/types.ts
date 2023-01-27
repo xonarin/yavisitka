@@ -124,7 +124,6 @@ export type TComment = {
 
 export type TCommentArray = TComment[];
 
-
 export type TCommentsDataSet = {
   commentsTotal: number;
   comments: TComment[];
@@ -136,14 +135,14 @@ export type TCommentsResponseDataSet = {
 };
 
 export type TEmojis = {
-  like: string,
-  dislike: string,
-  hi: string,
-  smile: string,
-  sad: string,
-  rofl: string,
-  strange: string,
-  fear: string,
-  love: string,
-  heart: string,
+  like: string;
+  dislike: string;
+  hi: string;
+  smile: string;
+  sad: string;
+  rofl: string;
+  strange: string;
+  fear: string;
+  love: string;
+  heart: string;
 };

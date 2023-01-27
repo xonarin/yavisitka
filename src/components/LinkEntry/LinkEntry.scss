@@ -1,18 +1,18 @@
 @import "../../assets/styles/vars.scss";
 
 .Link {
-    width: 100%;
-    max-width: 430px;
-    display: flex;
-    justify-content: center;
-    color: $link-gray;
-    font-weight: $font-weight-500;
-    font-size: $font-size-20;
-    line-height: $line-height-28;
-    padding: 20px 0;
-    background: linear-gradient(269.17deg, #3B23B7 30.28%, #C914E7 63.24%);
-    border-radius: 4px;
-    text-decoration: none;
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  justify-content: center;
+  color: $link-gray;
+  font-weight: $font-weight-500;
+  font-size: $font-size-20;
+  line-height: $line-height-28;
+  padding: 20px 0;
+  background: linear-gradient(269.17deg, #3b23b7 30.28%, #c914e7 63.24%);
+  border-radius: 4px;
+  text-decoration: none;
 
   &:hover {
     background: transparent;

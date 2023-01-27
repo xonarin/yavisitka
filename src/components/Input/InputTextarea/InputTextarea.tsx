@@ -7,7 +7,7 @@ const cnStyles = block("InputTextarea");
 interface InputTextAreaProps {
   name: string;
   placeholder: string;
-  value:string;
+  value: string;
   onChange: ChangeEventHandler<HTMLTextAreaElement>;
   maxLength: number;
 }

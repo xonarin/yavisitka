@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { block } from 'bem-cn';
+import { block } from "bem-cn";
 import { Link, Navigate, useLocation } from "react-router-dom";
 import ClassmateCard from "../../components/ClassmateCard/ClassmateCard";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";

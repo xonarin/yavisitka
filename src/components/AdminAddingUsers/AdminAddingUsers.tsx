@@ -1,4 +1,4 @@
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import { TUser, TUsersDataSet } from "../../utils/types";
 import { v4 as uuidv4 } from "uuid";
 import "./AdminAddingUsers.scss";

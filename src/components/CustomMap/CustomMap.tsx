@@ -1,5 +1,5 @@
 import { FC, useRef, useEffect } from "react";
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import { useYMaps } from "@pbe/react-yandex-maps";
 import Balloon from "../../components/BalloonLayout/BalloonLayout";
 import hint from "../../assets/images/hint.png";

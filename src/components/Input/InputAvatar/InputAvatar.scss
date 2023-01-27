@@ -1,7 +1,6 @@
 @import "../../../assets/styles/vars.scss";
 
 .InputAvatar {
-    
   &__container {
     margin: auto;
     text-align: center;
@@ -13,36 +12,35 @@
     position: relative;
   }
 
-    &__photo {
-        width: 150px;
-        height: 150px;
-        background-image: url('../../../assets/images/union.svg');
-        background-repeat: no-repeat;
-        background-position: 50% 95%;
-        background-color: rgba(16, 12, 52, 0.1);
-        border-radius: 50%;
-        clip-path: inset(80% 0 0 0);
-       
-        &::file-selector-button {
-            visibility: hidden;
-            overflow: hidden;
-        }
-    
-        &::file-upload-button {
-            visibility: hidden;
-            overflow: hidden;
-        }
-    
-        &:hover {
-            background-image: url('../../../assets/images/union.svg');
-            background-repeat: no-repeat;
-            background-color: rgba(16, 12, 52, 0.3);
-            border-radius: 50%;
-            z-index: 999;
-            cursor: pointer;
-            transition: 0.2s ease;
-            box-sizing: border-box;
-        }
+  &__photo {
+    width: 150px;
+    height: 150px;
+    background-image: url("../../../assets/images/union.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 95%;
+    background-color: rgba(16, 12, 52, 0.1);
+    border-radius: 50%;
+    clip-path: inset(80% 0 0 0);
+
+    &::file-selector-button {
+      visibility: hidden;
+      overflow: hidden;
     }
 
+    &::file-upload-button {
+      visibility: hidden;
+      overflow: hidden;
+    }
+
+    &:hover {
+      background-image: url("../../../assets/images/union.svg");
+      background-repeat: no-repeat;
+      background-color: rgba(16, 12, 52, 0.3);
+      border-radius: 50%;
+      z-index: 999;
+      cursor: pointer;
+      transition: 0.2s ease;
+      box-sizing: border-box;
+    }
+  }
 }

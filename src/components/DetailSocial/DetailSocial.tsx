@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { block } from 'bem-cn';
+import { block } from "bem-cn";
 import telegram from "../../assets/images/telegram.svg";
 import gitHub from "../../assets/images/gitHub.svg";
 import styles from "./DetailSocial.module.scss";

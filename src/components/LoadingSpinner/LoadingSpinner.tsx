@@ -1,5 +1,5 @@
 import React from "react";
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import "./LoadingSpinner.scss";
 
 const cnStyles = block("LoadingSpinner");

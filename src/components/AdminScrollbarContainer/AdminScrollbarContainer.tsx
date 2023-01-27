@@ -1,4 +1,4 @@
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import { ReactNode } from "react";
 import "./AdminScrollbarContainer.scss";
 

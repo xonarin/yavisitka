@@ -13,7 +13,6 @@ export const AdminSearchInput = ({
   setSearchStr,
   inputValue,
 }: TAdminSearchInput) => {
-
   function handleOnChange(evt: React.ChangeEvent<HTMLInputElement>) {
     setSearchStr(evt.target.value);
   }

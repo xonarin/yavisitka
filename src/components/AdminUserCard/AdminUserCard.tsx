@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import { Link } from "react-router-dom";
 import { TUser } from "../../utils/types";
 import "./AdminUserCard.scss";

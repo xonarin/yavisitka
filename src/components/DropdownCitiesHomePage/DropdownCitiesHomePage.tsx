@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, FC } from "react";
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import "./DropdownCitiesHomePage.scss";
 
 const cnStyles = block("DropdownMenu");

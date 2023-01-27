@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { block } from 'bem-cn';
+import { block } from "bem-cn";
 import ChatButton from "../ChatButton/ChatButton";
 import "./DetailPhoto.scss";
 import CommentBar from "../CommentBar/CommentBar";
@@ -23,7 +23,9 @@ const DetailPhoto: FC<DetailPhoto> = ({ src, alt, reactions, template }) => {
 
   return (
     <div className={cnStyles("container")}>
-      <div className={cnStyles() + " " + template && cnStyles({ type: template})}>
+      <div
+        className={cnStyles() + " " + template && cnStyles({ type: template })}
+      >
         <img
           className={cnStyles("image")}
           src={src}
@@ -37,7 +39,6 @@ const DetailPhoto: FC<DetailPhoto> = ({ src, alt, reactions, template }) => {
       />
       {isOpened && <CommentBar comments={reactions.items} />}
     </div>
-
   );
 };
 

@@ -1,4 +1,4 @@
-import { block } from 'bem-cn';
+import { block } from "bem-cn";
 import "./LinkEntry.scss";
 
 const cnStyles = block("Link");

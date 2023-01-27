@@ -1,4 +1,4 @@
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import "./BalloonLayout.scss";
 
 const cnStyles = block("Balloons");

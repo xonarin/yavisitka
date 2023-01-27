@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { block } from 'bem-cn'; 
+import { block } from "bem-cn";
 import "./Container.scss";
 
 const cnStyles = block("Container");
