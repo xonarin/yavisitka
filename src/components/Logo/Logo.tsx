@@ -1,13 +1,17 @@
 import React from "react";
-import styles from './Logo.module.scss';
-import logo from './logo.png';
+import { Link } from "react-router-dom";
+import { block } from "bem-cn";
+import "./Logo.scss";
+import logo from "./logo.svg";
+
+const cnStyles = block("Logo");
 
 const Logo = () => {
-    return (
-        <>
-            <img className={styles.logo} src={logo} alt="Визитки" />
-        </>
-    )
-}
+  return (
+    <Link to="/">
+      <img className={cnStyles()} src={logo} alt="Визитки" />
+    </Link>
+  );
+};
 
 export default Logo;

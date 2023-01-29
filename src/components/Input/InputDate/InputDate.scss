@@ -1,0 +1,129 @@
+@import "../../../assets/styles/vars.scss";
+
+.react-datepicker {
+  font-family: $base-font-family;
+  border: 1px solid $text-dark;
+  border-radius: 4px;
+  padding: 8px 2px 0px 2px;
+
+  &__wrap {
+    position: relative;
+    max-width: 440px;
+  }
+
+  &__input-container {
+    input {
+      position: relative;
+      width: 100%;
+      padding: 12px 30px 12px 16px;
+      border: 1px solid #100c34;
+      border-radius: 4px;
+      font-size: 16px;
+      line-height: 24px;
+      box-sizing: border-box;
+      background: url("../../../assets/images/calendar.svg") calc(100% - 15px)
+        14px no-repeat no-repeat;
+      outline: none;
+
+      &:focus {
+        background: url("../../../assets/images/calendar-focus.svg")
+          calc(100% - 15px) 14px no-repeat no-repeat;
+      }
+    }
+  }
+
+  &__tab-loop {
+    position: absolute;
+    top: -4px;
+    right: 216px;
+  }
+
+  &__popper-custom {
+    transform: translate3d(
+      0,
+      54px,
+      0
+    ) !important; //плохой тон, но этот стиль у компонента никак не перебить.
+  }
+
+  &__header {
+    background-color: $white;
+    border: unset;
+    padding: 0;
+  }
+
+  &__day {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    color: $text-dark;
+    font-size: $font-size-12;
+    line-height: $line-height-16;
+    margin: 4px;
+
+    &:hover {
+      background-color: $neon-pink;
+      color: $white;
+    }
+
+    &--weekend {
+      color: $neon-pink;
+    }
+
+    &--keyboard-selected,
+    &--selected,
+    &--selected:hover {
+      background-color: $neon-pink;
+      color: $white;
+    }
+
+    &--disabled {
+      color: $placeholder;
+
+      &:hover {
+        color: $placeholder;
+        background-color: $white;
+      }
+    }
+
+    &-names {
+      display: none;
+    }
+  }
+
+  &__month {
+    margin: 0;
+    margin-top: 4px;
+  }
+
+  &__triangle {
+    display: none;
+  }
+
+  &__day-names {
+    margin: 0;
+  }
+
+  &__wrap-select {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  &__custom-select {
+    font-family: $base-font-family;
+    padding: 2px 22px 2px 6px;
+    border: unset;
+    border-radius: 4px;
+    cursor: pointer;
+    appearance: none;
+    background: url("../../../assets/images/select-date-arrow.svg")
+      calc(100% - 4px) 3px no-repeat $select-gray;
+
+    &:focus {
+      outline: 1px solid $neon-pink;
+    }
+  }
+}

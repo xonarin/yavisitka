@@ -1,0 +1,21 @@
+@import "../../assets/styles/vars.scss";
+
+.UsersBlock {
+  display: grid;
+  grid-template-columns: 203fr 65fr;
+  gap: 0px 40px;
+
+  @media (max-width: 1100px) {
+    display: flex;
+    flex-direction: column;
+
+    &__mobile-container {
+      order: 2;
+    }
+
+    & .AddingUsers {
+      order: 1;
+      margin-bottom: 20px;
+    }
+  }
+}

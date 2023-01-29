@@ -1,0 +1,33 @@
+@import "../../../assets/styles/vars.scss";
+
+.InputTextarea {
+  &__textarea::placeholder {
+    font-family: "IBM Plex Sans";
+    color: #83828f;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+    position: relative;
+  }
+
+  &__textarea {
+    width: 100%;
+    border: 1px solid #100c34;
+    border-radius: 4px;
+    background-color: #ffffff;
+    outline: none;
+    position: relative;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+    height: 118px;
+    text-align: start;
+    resize: none;
+    padding: 16px 14px;
+    overflow: auto;
+    box-sizing: border-box;
+  }
+}
