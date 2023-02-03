@@ -12,8 +12,8 @@ export const getToken = async (code: string) => {
       body: new URLSearchParams({
         grant_type: "authorization_code",
         code: `${code}`,
-        client_id: "5943887238384dbab2c210bf0dddd07d",
-        client_secret: "8cef6b547d3b44778e5bbba0acf29c98",
+        client_id: "eaead7d5cf4b41308d1d50dbc6d2de7c",
+        client_secret: "9d31ae310b7f408d8b55c35f156eaf5b",
       }),
     });
 
@@ -23,7 +23,38 @@ export const getToken = async (code: string) => {
       secure: true,
       "max-age": data.expires_in,
     });
+
     localStorage.setItem("refreshToken", data.refresh_token);
+
+    getRealUser({ ...data });
+  } catch (error) {
+    console.log(`Ошибка: ${error}`);
+  }
+};
+
+export const getRealUser = async ({ access_token, expires_in }: any) => {
+  try {
+    const res = await fetch(
+      `https://login.yandex.ru/info?oauth_token=${access_token}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await checkResponse<any>(res);
+    
+    console.log(typeof data);
+    setCookie("realUser", JSON.stringify({
+      ...data,
+      avatarUrl: `https://avatars.yandex.net/get-yapic/${data.default_avatar_id
+    }/islands-200`,
+    }), {
+      "max-age": expires_in,
+    });
+
+
   } catch (error) {
     console.log(`Ошибка: ${error}`);
   }
@@ -41,8 +72,8 @@ export const updateToken = async () => {
       body: new URLSearchParams({
         grant_type: "refresh_token",
         refresh_token: `${localStore}`,
-        client_id: "5943887238384dbab2c210bf0dddd07d",
-        client_secret: "8cef6b547d3b44778e5bbba0acf29c98",
+        client_id: "eaead7d5cf4b41308d1d50dbc6d2de7c",
+        client_secret: "9d31ae310b7f408d8b55c35f156eaf5b",
       }),
     });
 

@@ -1,15 +1,28 @@
 import Container from "../../components/Container/Container";
 import Logo from "../../components/Logo/Logo";
 import MiniProfile from "../../components/MiniProfile/MiniProfile";
-import { getCookie, setCookie, deleteCookie } from "../../utils/cookie";
+import {
+  getCookie,
+  setCookie,
+  deleteCookie,
+  clearCookies,
+  clearLocalStorage,
+} from "../../utils/cookie";
 import { block } from "bem-cn";
 import "./Header.scss";
+import { useEffect } from "react";
 
 const cnStyles = block("Header");
 
 const Header = () => {
   const status = getCookie("status") ? "admin" : "user";
   const auth = getCookie("token");
+  // const userCookie = getCookie("realUser");
+  // const realUser = userCookie ? JSON.parse(userCookie) : "";
+
+  // useEffect(() => {
+  //   console.log(realUser);
+  // });
 
   const handleClickAdmin = () => {
     setCookie("status", "admin", { secure: true, "max-age": 360000 });
@@ -18,6 +31,14 @@ const Header = () => {
 
   const handleClickUser = () => {
     setCookie("status", "admin", { secure: true, "max-age": -1 });
+    window.location.reload();
+  };
+
+  const handleClickExit = () => {
+    clearCookies();
+    clearLocalStorage();
+    sessionStorage.clear();
+    // localStorage.removeItem("refreshToken");
     window.location.reload();
   };
 
@@ -32,6 +53,9 @@ const Header = () => {
           </button>
           <button type="button" onClick={handleClickAdmin}>
             Админ
+          </button>
+          <button type="button" onClick={handleClickExit}>
+            Выйти
           </button>
           {auth && <MiniProfile />}
         </div>

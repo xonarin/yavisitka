@@ -34,10 +34,11 @@ const App = () => {
     yandexCodeId && getToken(yandexCodeId);
     setTimeout(() => {
       if (yandexCodeId && getCookie("token") && !getCookie("status")) {
-        navigate("/", { state: location.pathname });
+        navigate("/", {});
+        
       }
       if (yandexCodeId && getCookie("token") && getCookie("status")) {
-        navigate("/admin", { state: location.pathname });
+        navigate("/admin", {});
       }
     }, 1000);
   }, [search]);
