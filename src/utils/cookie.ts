@@ -5,7 +5,10 @@
 */
 
 export function setCookie(name: string, value: string, props: any) {
-  props = props || {};
+  props = {
+    path: "/",
+    ...props,
+  };
   let exp = props.expires;
 
   if (typeof exp == "number" && exp) {
@@ -47,4 +50,19 @@ export function getCookie(name: string) {
 ///Удаление куки
 export function deleteCookie(name: string) {
   document.cookie = `token=${encodeURIComponent(name)}; max-age=${String(-1)}`;
+}
+
+export function clearCookies() {
+  let cookies = document.cookie.split(";");
+  for (let i = 0; i < cookies.length; i++) {
+    let cookie = cookies[i];
+    let eqPos = cookie.indexOf("=");
+    let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    document.cookie = name + "=; path=/; max-age=-1;";
+    document.cookie = name + "=; max-age=-1;";
+  }
+}
+
+export function clearLocalStorage() {
+  localStorage.clear();
 }
