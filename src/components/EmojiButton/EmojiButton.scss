@@ -15,10 +15,14 @@
     padding: 4px;
     background-color: transparent;
     cursor: pointer;
-    border: 1px solid $neon-pink;
-    border-radius: 20px;
+    border: none;
     height: 100%;
   }
+  &__buttonCont {
+    border: 1px solid $neon-pink;
+    border-radius: 20px;
+  }
+  
 
   &__emoji {
     padding: 0;
