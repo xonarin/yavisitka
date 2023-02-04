@@ -81,3 +81,13 @@ export const deleteComment = (_id: string) => {
     },
   });
 };
+
+export const updateProfile = (id: string) => {
+  return fetch(`${baseApiUrl}/profiles/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    
+  });
+}

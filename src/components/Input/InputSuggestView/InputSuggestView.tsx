@@ -7,13 +7,14 @@ const cnStyles = block("InputSuggest");
 
 interface InputSuggestViewProps {
   onChange: any;
+  initialValue: string;
 }
 
-const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange }) => {
+const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange, initialValue }) => {
   const ymaps = useYMaps(["Map"]);
   const [view, setView] = useState<string[]>();
   const [viewLength, setviewLength] = useState<number>();
-  const [sugval, setSugVal] = useState<string>("");
+  const [sugval, setSugVal] = useState<string>(initialValue);
   const [status, setStatus] = useState<boolean>(false);
 
   const clicks = (e: any) => {
