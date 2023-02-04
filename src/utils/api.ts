@@ -1,9 +1,13 @@
+import { getCookie } from "./cookie";
 import {
   TProfileId,
   TCards,
   TCommentsResponseDataSet,
   TReactions,
   TUsersResponseDataSet,
+  TRawUser,
+  TUser,
+  TPutUserResponse,
 } from "./types";
 
 export const baseAuthUrl = "https://oauth.yandex.ru";
@@ -81,3 +85,32 @@ export const deleteComment = (_id: string) => {
     },
   });
 };
+
+export const putUser = async (id: string, {cohort, email}: TRawUser) => {
+  const res = await fetch(`/users/${id}`, {
+    method: 'PUT',
+    headers: {
+      Authorisation: `${getCookie('token')}`
+    },
+    body: JSON.stringify({
+      cohort, 
+      email 
+    })
+  })
+
+  return checkResponse<TPutUserResponse>(res)
+}
+
+export const postUser = async (user: TRawUser) => {
+  const res = await fetch('/users', {
+    method: 'POST',
+    headers: {
+      Authorisation: `${getCookie('token')}`
+    },
+    body: JSON.stringify({
+      user: user
+    })
+  })
+
+  return checkResponse<TUser>(res)
+}

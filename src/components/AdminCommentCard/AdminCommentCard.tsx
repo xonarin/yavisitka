@@ -1,32 +1,15 @@
 import { useState } from "react";
 import { block } from "bem-cn";
 import { Link } from "react-router-dom";
-import { deleteComment } from "../../utils/api";
-import { UniversalSpinner } from "../AdminUniversalSpinner/UniversalSpiner";
 import { TComment } from "../../utils/types";
 import "./AdminCommentCard.scss";
+import AdminDeleteDtn from "../AdminDeleteBtn/AdminDeleteDtn";
 
 const cnStyles = block("CardComment");
 
 export const CommentCard = ({ data }: { data: TComment }) => {
   const [isDeleted, setIsDeleted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  function handleDelete() {
-    if (!isDeleted) {
-      setIsLoading(true);
-      deleteComment(data._id)
-        .then((res) => {
-          setIsDeleted(true);
-        })
-        .catch((err) => {
-          console.error(err);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    }
-  }
 
   return (
     <ul className={cnStyles()}>
@@ -72,18 +55,14 @@ export const CommentCard = ({ data }: { data: TComment }) => {
       >
         {data.text}{" "}
       </li>
-      <li>
-        <div className={cnStyles("button-container")}>
-          {isLoading && <UniversalSpinner size={15} minH={24} />}
-          {!isDeleted && !isLoading && (
-            <button
-              className={cnStyles("delete-button")}
-              onClick={handleDelete}
-              type="button"
-              aria-label="Удалить комментарий"
-            ></button>
-          )}
-        </div>
+      <li className={cnStyles("content")}>
+        <AdminDeleteDtn 
+          data={data} 
+          isDeleted={isDeleted} 
+          isLoading={isLoading} 
+          setIsDeleted={setIsDeleted} 
+          setIsLoading={setIsLoading} 
+        />
       </li>
     </ul>
   );

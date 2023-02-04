@@ -3,12 +3,16 @@ import { block } from "bem-cn";
 import { Link } from "react-router-dom";
 import { TUser } from "../../utils/types";
 import "./AdminUserCard.scss";
+import AdminDeleteDtn from "../AdminDeleteBtn/AdminDeleteDtn";
 
 const cnStyles = block("Card");
 
 export const UserCard = ({ data }: { data: TUser }) => {
   const [changedCohort, setChangedCohort] = useState(data.cohort);
   const [changedEmail, setChangedEmail] = useState(data.email);
+  const [isDeleted, setIsDeleted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const changedStyle = {
     color: "rgb(56, 100, 245)",
   };
@@ -62,6 +66,19 @@ export const UserCard = ({ data }: { data: TUser }) => {
       <li className={cnStyles("content")}>
         <Link to={`/detail/${data._id}`}>{data.name}</Link>
       </li>
+      {
+        data.cohort === changedCohort && data.name.length ?
+        <li className={cnStyles("content")}>
+          <AdminDeleteDtn 
+            data={data} 
+            isDeleted={isDeleted} 
+            isLoading={isLoading} 
+            setIsDeleted={setIsDeleted} 
+            setIsLoading={setIsLoading} 
+          />
+        </li>
+        : null
+      }
     </ul>
   );
 };

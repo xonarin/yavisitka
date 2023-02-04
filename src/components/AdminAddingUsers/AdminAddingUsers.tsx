@@ -2,6 +2,9 @@ import { block } from "bem-cn";
 import { TUser, TUsersDataSet } from "../../utils/types";
 import { v4 as uuidv4 } from "uuid";
 import "./AdminAddingUsers.scss";
+import AdminCheckAdding from "../AdminCheckAdding/AdminCheckAdding";
+import { useState } from "react";
+import { getUsers, postUser, putUser } from "../../utils/api";
 
 const cnStyles = block("AddingUsers");
 
@@ -14,6 +17,9 @@ export const AdminAddingUsers = ({
   setUsers,
   currentUsers,
 }: TAdminAddingUsers) => {
+  const [ addedUsers, setAddedUsers ] = useState<TUser[]>([]);
+  const [ visibility, setVisibility ] = useState(false);
+
   const handleOnChange = async (evt: React.ChangeEvent<HTMLInputElement>) => {
     const file = evt.target.files ? evt.target.files[0] : undefined;
     const reader = new FileReader();
@@ -49,7 +55,10 @@ export const AdminAddingUsers = ({
               _id: uuidv4(),
             });
           }
-          const fullData = currentUsers.concat(resArr);
+
+          setAddedUsers(resArr);
+          const fullData = resArr.concat(currentUsers);
+
           setUsers({
             usersTotal: 0,
             users: fullData,
@@ -71,20 +80,64 @@ export const AdminAddingUsers = ({
         for (let i = 1; i <= maxRow; i++) {
           resArr.push({
             ...defaultData,
-            email: sheet[`B${i}`].v,
-            cohort: sheet[`A${i}`].v,
+            email: sheet[`A${i}`].v,
+            cohort: sheet[`B${i}`].v,
             _id: uuidv4(),
           });
         }
 
-        const fullData = currentUsers.concat(resArr);
+        setAddedUsers(resArr);
+        const fullData = resArr.concat(currentUsers);
         setUsers({
           usersTotal: 0,
           users: fullData,
         });
       }
+      setVisibility(true);
     }
   };
+
+  const handleSave = () => {
+    const prevUsers = currentUsers.splice(addedUsers.length);
+    addedUsers.forEach(el => {
+      const updatedUser = prevUsers.find(u => u.email === el.email && el.cohort !== u.cohort);
+      const newUser = prevUsers.find(u => u.email !== el.email) && !updatedUser;
+
+      if(updatedUser) {
+        console.log(updatedUser, el)
+        putUser(updatedUser._id, { email: updatedUser.email, cohort: el.cohort })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+      else if (newUser) {
+        console.log(el)
+        postUser({ email: el.email, cohort: el.cohort })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    });
+
+    getUsers()
+      .then(res => {
+        setUsers({usersTotal: res.total, users: res.items});
+        setAddedUsers([]);
+        setVisibility(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  const handleDelete = () => {
+    setAddedUsers([]);
+    setUsers({
+      usersTotal: 0,
+      users: currentUsers.splice(addedUsers.length),
+    });
+    setVisibility(false);
+  }
 
   return (
     <div className={cnStyles()}>
@@ -109,6 +162,10 @@ export const AdminAddingUsers = ({
           onChange={handleOnChange}
         />
       </label>
+      {
+        visibility &&
+        <AdminCheckAdding handleDelete={handleDelete} handleSave={handleSave} />
+      }
     </div>
   );
 };

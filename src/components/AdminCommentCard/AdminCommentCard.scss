@@ -9,7 +9,7 @@
   margin: 0;
   list-style-type: none;
   gap: 0 24px;
-  grid-template-columns: 70px 100px 190px 190px 180px 442px 24px;
+  grid-template-columns: 70px 100px 190px 190px 180px 442px 20px;
 
   &__content {
     width: 100%;
@@ -31,30 +31,6 @@
 
   &__content-deleted {
     text-decoration: line-through;
-  }
-
-  &__delete-button {
-    box-sizing: border-box;
-    width: 24px;
-    height: 24px;
-    background-color: transparent;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    border-radius: 50%;
-    border: none;
-    background-image: url("../../assets/images/cross-circled.svg");
-    &:hover {
-      filter: drop-shadow(0px 0px 2px rgba(233, 13, 65, 0.6));
-      cursor: pointer;
-    }
-  }
-
-  &__button-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
   }
 
   @media (max-width: 1300px) {

@@ -3,7 +3,7 @@
 .UsersList {
   margin-top: 60px;
   border-bottom: 1px solid $placeholder;
-  width: calc(100% - 24px);
+  width: calc(100% - 28px);
 
   &__table-header {
     display: grid;
@@ -11,8 +11,8 @@
     padding: 0;
     margin: 0;
     list-style-type: none;
-    gap: 0 32px;
-    grid-template-columns: 209px 271px 300px;
+    gap: 0 40px;
+    grid-template-columns: 200px 263px minmax(191px, 1fr);
   }
 
   &__column-title {
