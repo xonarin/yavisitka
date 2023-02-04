@@ -9,6 +9,7 @@ import { block } from "bem-cn";
 import "./TestSettings.scss";
 import Container from "../../components/Container/Container";
 import { SettingUsersBlock } from "../../components/SettingsUsersBlock/SettingsUsersBlock";
+import { Link } from "react-router-dom";
 
 const cnStyles = block("TestSettings");
 
@@ -53,9 +54,12 @@ export function TestSettings() {
         </div>
       </div>
 
-      <button type="button" onClick={handleClickExit}>
-        Выйти из профиля
+      <button  className={cnStyles("clear-button")} type="button" onClick={handleClickExit}>
+        Выйти из профиля (очистить куки и локал сторадж)
       </button>
+
+      <Link className={cnStyles("link")} to="/">На главную</Link>
+
     </Container>
   );
 }

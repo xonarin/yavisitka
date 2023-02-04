@@ -81,7 +81,6 @@ export function SettingUsersBlock() {
           <ScrollbarContainer
             negativHeightAdjustment={500}
           >
-            <p>тут будут карточки пользователей</p>
             <SettingsUserCard setEmail={setFakeEmail} email={realUser.default_email} />
             {users.map(user=><SettingsUserCard setEmail={setFakeEmail} key={user._id} email={user.email} ></SettingsUserCard>)}
             

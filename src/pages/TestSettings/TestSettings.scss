@@ -29,4 +29,20 @@
     font-size: 18px;
     margin-left: 24px;
   }
+
+  &__clear-button {
+    background: rgb(255, 96, 96);
+    width: 100%;
+    height: 29px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+
+  &__link {
+    font-size: 30px;
+  }
 }
