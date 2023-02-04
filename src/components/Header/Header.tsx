@@ -47,14 +47,14 @@ const Header = () => {
       <Container>
         <div className={cnStyles("container")}>
           <Logo />
-          Ваш статус: ({status}):
-          <button type="button" onClick={handleClickUser}>
+          Ваш статус: {status}
+          <button type="button" className={cnStyles("button")} onClick={handleClickUser}>
             Студент
           </button>
-          <button type="button" onClick={handleClickAdmin}>
+          <button type="button" className={cnStyles("button")} onClick={handleClickAdmin}>
             Админ
           </button>
-          <button type="button" onClick={handleClickExit}>
+          <button type="button" className={cnStyles("button")} onClick={handleClickExit}>
             Выйти
           </button>
           {auth && <MiniProfile />}
