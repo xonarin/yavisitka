@@ -30,6 +30,10 @@
     }
   }
 
+  &__content-deleted {
+    text-decoration: line-through;
+  }
+
   &__saved-value {
     font-style: normal;
     color: $text-light;
@@ -64,6 +68,12 @@
 
     &:hover {
       border-color: $input-hover;
+    }
+
+    &:disabled {
+      background-color: inherit;
+      border: 0;
+      color: $text-dark;
     }
   }
 

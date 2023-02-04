@@ -5,7 +5,7 @@
   grid-template-columns: 1fr minmax(min-content, 285px);
   gap: 0px 40px;
 
-  @media (max-width: 1100px) {
+  @media (max-width: 1200px) {
     display: flex;
     flex-direction: column;
 

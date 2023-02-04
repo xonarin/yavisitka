@@ -3,13 +3,30 @@ import { block } from "bem-cn";
 import { Link } from "react-router-dom";
 import { TComment } from "../../utils/types";
 import "./AdminCommentCard.scss";
-import AdminDeleteDtn from "../AdminDeleteBtn/AdminDeleteDtn";
+import AdminDeleteBtn from "../AdminDeleteBtn/AdminDeleteBtn";
+import { deleteComment } from "../../utils/api";
 
 const cnStyles = block("CardComment");
 
 export const CommentCard = ({ data }: { data: TComment }) => {
   const [isDeleted, setIsDeleted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  function handleDelete() {
+    if (!isDeleted) {
+      setIsLoading(true);
+      deleteComment(data._id)
+        .then(() => {
+          setIsDeleted(true);
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }
+  }
 
   return (
     <ul className={cnStyles()}>
@@ -56,12 +73,10 @@ export const CommentCard = ({ data }: { data: TComment }) => {
         {data.text}{" "}
       </li>
       <li className={cnStyles("content")}>
-        <AdminDeleteDtn 
-          data={data} 
+        <AdminDeleteBtn 
+          handleDelete={handleDelete}
           isDeleted={isDeleted} 
-          isLoading={isLoading} 
-          setIsDeleted={setIsDeleted} 
-          setIsLoading={setIsLoading} 
+          isLoading={isLoading}
         />
       </li>
     </ul>

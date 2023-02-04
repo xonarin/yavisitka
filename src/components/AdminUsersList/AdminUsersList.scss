@@ -1,13 +1,28 @@
 @import "../../assets/styles/vars.scss";
 
 .UsersList {
-  margin-top: 60px;
-  border-bottom: 1px solid $placeholder;
-  width: calc(100% - 28px);
+  &__mobile-container {
+    overflow-x: scroll;
+    margin-top: 60px;
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $white;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $placeholder;
+      border-radius: 7px;
+    }
+  }
 
   &__table-header {
+    border-bottom: 1px solid $placeholder;
+    width: calc(100% - 20px);
     display: grid;
-    width: 100%;
     padding: 0;
     margin: 0;
     list-style-type: none;
@@ -27,32 +42,13 @@
   }
 
   @media (max-width: 1300px) {
-    & {
-      border: unset;
-      margin-top: 0;
+    &__table-header {
+      border-bottom: none;
+    }
 
-      &__column-title {
-        border-bottom: 1px solid #83828f;
-        padding-bottom: 10px;
-      }
-
-      &__mobile-container {
-        overflow-x: scroll;
-        margin-top: 60px;
-        &::-webkit-scrollbar {
-          width: 4px;
-          height: 4px;
-        }
-
-        &::-webkit-scrollbar-track {
-          background-color: $white;
-        }
-
-        &::-webkit-scrollbar-thumb {
-          background-color: $placeholder;
-          border-radius: 7px;
-        }
-      }
+    &__column-title {
+      border-bottom: 1px solid #83828f;
+      padding-bottom: 10px;
     }
   }
 }

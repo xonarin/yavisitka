@@ -104,14 +104,12 @@ export const AdminAddingUsers = ({
       const newUser = prevUsers.find(u => u.email !== el.email) && !updatedUser;
 
       if(updatedUser) {
-        console.log(updatedUser, el)
-        putUser(updatedUser._id, { email: updatedUser.email, cohort: el.cohort })
+        putUser(el._id, { email: updatedUser.email, cohort: el.cohort })
           .catch((err) => {
             console.log(err);
           });
       }
       else if (newUser) {
-        console.log(el)
         postUser({ email: el.email, cohort: el.cohort })
           .catch((err) => {
             console.log(err);
