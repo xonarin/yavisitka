@@ -6,6 +6,7 @@ import { getUsers } from "../../utils/api";
 import { TUsersDataSet } from "../../utils/types";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { ScrollbarContainer } from "../AdminScrollbarContainer/AdminScrollbarContainer";
+import { SettingsUserCard } from "../SettingsUserCard/SettingsUserCard";
 
 const cnStyles = block("SettingUsersBlock");
 
@@ -57,6 +58,9 @@ export function SettingUsersBlock() {
   }, [users, fakeEmail]);
 
   //   console.log(realUser);
+
+ 
+
   return (
     <div className={cnStyles()}>
       {isLoading && <LoadingSpinner />}
@@ -78,6 +82,8 @@ export function SettingUsersBlock() {
             negativHeightAdjustment={500}
           >
             <p>тут будут карточки пользователей</p>
+            <SettingsUserCard setEmail={setFakeEmail} email={realUser.default_email} />
+            {users.map(user=><SettingsUserCard setEmail={setFakeEmail} key={user._id} email={user.email} ></SettingsUserCard>)}
             
           </ScrollbarContainer>
         </>
