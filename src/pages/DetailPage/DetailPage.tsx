@@ -26,14 +26,14 @@ const DetailPage = () => {
   });
   const [profile, setProfile] = useState<TProfileId>();
   const [comments, setComments] = useState<TCommentsResponseDataSet>();
-  const hobbyComments = comments?.items.filter(
+  const hobbyComments = reactions?.items.filter(
     (item) => item.target === "hobby"
   );
-  const statusComments = comments?.items.filter(
+  const statusComments = reactions?.items.filter(
     (item) => item.target === "status"
   );
-  const eduComments = comments?.items.filter((item) => item.target === "edu");
-  const jobComments = comments?.items.filter((item) => item.target === "job");
+  const eduComments = reactions?.items.filter((item) => item.target === "edu");
+  const jobComments = reactions?.items.filter((item) => item.target === "job");
   const infoUser = profile?.info;
   const name = profile?.profile.name;
   const photo = profile?.profile.photo;
