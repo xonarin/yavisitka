@@ -3,25 +3,26 @@ import { Link } from "react-router-dom";
 import { block } from "bem-cn";
 import "./MiniProfile.scss";
 import { profilesGet } from "../../utils/api-test-data";
-import { getCookie } from "../../utils/cookie";
+import { getAuthUser, getCookie } from "../../utils/cookie";
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
 import useOnClickOutside from "../../services/hooks/useOnClickOutside";
 import adminAvatar from "../../assets/images/admin-avatar.svg";
+import { getProfiles } from "../../utils/api";
 // import { setAuthUser } from "../../services/auth/auth";
 
 const cnStyles = block("MiniProfile");
 
 const MiniProfile = () => {
-  const userId = "abfccdaa23e0bd1c4448d2f3"; //ХардID юзера который якобы авторизовался
-  let user = profilesGet.items.find((item) => item._id === userId);
-  const userCookie = getCookie("realUser");
-  const realUser = userCookie ? JSON.parse(userCookie) : "";
+
+  const [{ _id, name, cohort, photo, email, role }, setUserData] = useState(
+    getAuthUser()
+  );
 
   const [showMenu, setShowMenu] = useState({ display: "none" });
   const [isAdmin, setAdmin] = useState<boolean>(false);
 
   useEffect(() => {
-    if (getCookie("status")) {
+    if (getAuthUser().role === "curator") {
       setAdmin(true);
     } else {
       setAdmin(false);
@@ -57,8 +58,9 @@ const MiniProfile = () => {
           <HeaderMenu
             style={showMenu}
             onClick={handleClick}
-            user={user}
-            realUser={realUser}
+            name={name}
+            photo={photo}
+            id={_id}
             isAdmin={isAdmin}
           />
         </>
@@ -67,16 +69,17 @@ const MiniProfile = () => {
           <Link className={cnStyles("link")} to="/profile">
             <img
               className={cnStyles("avatar")}
-              src={realUser.avatarUrl}
-              alt={realUser.real_name}
+              src={photo }
+              alt={name}
             />
-            <p className={cnStyles("name")}>{realUser.real_name}</p>
+            <p className={cnStyles("name")}>{name}</p>
           </Link>
           <HeaderMenu
             style={showMenu}
             onClick={handleClick}
-            user={user}
-            realUser={realUser}
+            name={name}
+            photo={photo}
+            id={_id}
             isAdmin={isAdmin}
           />
         </>
