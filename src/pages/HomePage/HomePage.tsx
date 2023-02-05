@@ -88,7 +88,10 @@ const HomePage = () => {
           optionsList={cities}
           handleCity={handleCity}
         />
-        <Link to={"/map"} className={cnStyles("mapLink")}>
+        <Link
+          to={!filteredCards.length ? "/" : "/map"}
+          className={cnStyles("mapLink")}
+        >
           Посмотреть на карте
         </Link>
       </div>
