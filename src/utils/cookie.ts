@@ -4,6 +4,9 @@
     setCookie('user', 'John', {secure: true, 'max-age': 3600});
 */
 
+import { json } from "body-parser";
+import { TAuthUserData } from "./types";
+
 export function setCookie(name: string, value: string, props: any) {
   props = {
     path: "/",
@@ -65,4 +68,16 @@ export function clearCookies() {
 
 export function clearLocalStorage() {
   localStorage.clear();
+}
+
+export function setAuthUser(authUserData: TAuthUserData) {
+  const dataStr = JSON.stringify(authUserData);
+  setCookie("authUser", dataStr, {
+    "max-age": 604800000,
+  });
+}
+
+export function getAuthUser(){
+  const authUserCookie = getCookie("authUser");
+  return JSON.parse(authUserCookie ? authUserCookie : "");
 }

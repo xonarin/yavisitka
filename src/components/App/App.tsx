@@ -42,7 +42,7 @@ const App = () => {
         navigate("/admin", {});
       }
     }, 1000);
-  }, [search]);
+  }, []);
 
   return (
     <Routes>
