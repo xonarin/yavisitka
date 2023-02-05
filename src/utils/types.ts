@@ -94,6 +94,11 @@ export type TUser = {
   name: string;
 };
 
+export type TRawUser = {
+  email: string;
+  cohort: string;
+}
+
 export type TUsersDataSet = {
   usersTotal: number;
   users: TUser[];
@@ -146,3 +151,11 @@ export type TEmojis = {
   love: string;
   heart: string;
 };
+
+export type TPutUserResponse = {
+  _id: string;
+  createdAt: number;
+  updatedAt: number | null;
+  email: string;
+  cohort: string;
+}
