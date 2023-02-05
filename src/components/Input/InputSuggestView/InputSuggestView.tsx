@@ -6,11 +6,12 @@ import "./InputSuggestView.scss";
 const cnStyles = block("InputSuggest");
 
 interface InputSuggestViewProps {
-  onChange: any;
+  // onChange: any;
+  onClick: (value: any) => void;
   initialValue: string;
 }
 
-const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange, initialValue }) => {
+const InputSuggestView: FC<InputSuggestViewProps> = ({ onClick, initialValue }) => {
   const ymaps = useYMaps(["Map"]);
   const [view, setView] = useState<string[]>();
   const [viewLength, setviewLength] = useState<number>();
@@ -43,6 +44,8 @@ const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange, initialValue })
     geoView(e.target.innerText);
     setSugVal(e.target.innerText);
     setStatus(false);
+    console.log(e.target.innerText);
+    onClick(e.target.innerText);
   };
 
   return (
@@ -51,15 +54,14 @@ const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange, initialValue })
         <input
           className={cnStyles("Input")}
           type="text"
-          name="suggest"
-          id="suggest"
+          name="city"
+          id="city"
+          placeholder={initialValue}
           onChange={(e) => {
             clicks(e);
-            onChange(e);
           }}
           onClick={(e) => {
             clicks(e);
-            onChange(e);
           }}
           value={sugval}
           autoComplete="off"

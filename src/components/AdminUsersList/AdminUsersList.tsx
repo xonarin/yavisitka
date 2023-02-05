@@ -13,13 +13,11 @@ type TAdminUsersList = {
 export const AdminUsersList = ({ list }: TAdminUsersList) => {
   return (
     <div className={cnStyles("mobile-container")}>
-      <div className={cnStyles()}>
-        <ul className={cnStyles("table-header")}>
-          <li className={cnStyles("column-title")}>Номер когорты</li>
-          <li className={cnStyles("column-title")}>E-mail</li>
-          <li className={cnStyles("column-title")}>Имя и фамилия студента</li>
-        </ul>
-      </div>
+      <ul className={cnStyles("table-header")}>
+        <li className={cnStyles("column-title")}>Номер когорты</li>
+        <li className={cnStyles("column-title")}>E-mail</li>
+        <li className={cnStyles("column-title")}>Имя и фамилия студента</li>
+      </ul>
 
       <ScrollbarContainer negativHeightAdjustment={326}>
         {list.map((userData) => (

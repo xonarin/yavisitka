@@ -1,0 +1,48 @@
+@import "../../assets/styles/vars.scss";
+
+.CheckAdding {
+  &__container {
+    margin-top: 40px; 
+  }
+  &__par {
+    font-size: $font-size-16;
+    line-height: $line-height-24;
+    margin: 0 0 20px 0;
+    color: $text-dark;
+  }
+  &__btn-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__btn {
+    background-color: inherit;
+    padding: 12px 20px;
+    width: 140px;
+    height: 44px;
+    left: 0px;
+    top: 92px;
+    border-radius: 4px;
+    font-weight: $font-weight-500;
+    font-size: $font-size-16;
+    line-height: $line-height-20;
+    cursor: pointer;
+    &_color_red {
+      border: 1px solid $error;
+      color: $error;
+    }
+    &_color_blue {
+      border: 1px solid #3B23B7;
+      color: #3B23B7;
+      margin-left: 5px;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    &__btn-container {
+      justify-content: baseline;
+    }
+    &__btn {
+      width: 100%;
+    }
+  }
+}
