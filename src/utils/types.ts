@@ -73,7 +73,7 @@ export type TProfileInfo = {
   quote: string;
   telegram: string;
   github: string;
-  template: null;
+  template: null | string;
 };
 
 export type TProfileCity = {

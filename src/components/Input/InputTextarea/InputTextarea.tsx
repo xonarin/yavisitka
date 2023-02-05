@@ -24,7 +24,7 @@ export const InputTextarea: FC<InputTextAreaProps> = ({
       className={cnStyles("textarea")}
       placeholder={placeholder}
       name={name}
-      value={value}
+      defaultValue={value}
       maxLength={maxLength}
       onChange={onChange}
     ></textarea>

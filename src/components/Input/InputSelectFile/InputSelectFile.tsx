@@ -11,13 +11,15 @@ type TProps = {
     name: string;
   }[];
   name: string;
-  handleClickOptionSelect: (value: string | null) => void;
+  handleClickOptionSelect: (value: any) => void;
+  initialValue?: number;
 };
 const InputSelectFile: FC<TProps> = ({
   defaultText,
   optionsList,
   name,
   handleClickOptionSelect,
+  initialValue
 }) => {
   const [menuState, setMenuState] = useState({
     selectText: "",
