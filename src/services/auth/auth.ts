@@ -23,7 +23,6 @@ export const getToken = async (code: string) => {
     });
 
     const data = await checkResponse<TAccessToken>(res);
-    // console.log(data);
     setCookie("token", data.access_token, {
       secure: true,
       "max-age": data.expires_in,

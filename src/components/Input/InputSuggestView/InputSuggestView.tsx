@@ -6,7 +6,6 @@ import "./InputSuggestView.scss";
 const cnStyles = block("InputSuggest");
 
 interface InputSuggestViewProps {
-  // onChange: any;
   onClick: (value: any) => void;
   initialValue: string;
 }
@@ -38,7 +37,6 @@ const InputSuggestView: FC<InputSuggestViewProps> = ({
   const geoView = (info: string) => {
     ymaps?.geocode(info, { results: 1 }).then(function (res) {
       const firstGeoObject = res.geoObjects.get(0);
-      // console.log(`Координаты где? Всё на месте: ${firstGeoObject?.geometry?._coordinates}`)
     });
   };
 

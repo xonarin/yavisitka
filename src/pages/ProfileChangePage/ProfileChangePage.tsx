@@ -68,7 +68,6 @@ export const ProfilePage = () => {
     reactions: 0,
   });
 
-  // const id = '2cb3baaa7528a9bb5e2c20d9';
   const [{ _id, name, cohort, photo, email, role }, setUserData] = useState(
     getAuthUser()
   );
@@ -267,7 +266,6 @@ export const ProfilePage = () => {
             </p>
             <InputTextarea
               name={"status"}
-              // value={form["family-info"] || ""}
               value={String(profile?.info.status.text)}
               onChange={onChangeInfo}
               placeholder={"Не более 300 символов"}

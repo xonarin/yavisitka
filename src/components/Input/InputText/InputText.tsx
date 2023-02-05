@@ -8,7 +8,6 @@ interface InputTextProps {
   name: string;
   value: string;
   onChange: React.ChangeEventHandler<HTMLInputElement>;
-  // defaultValue: string;
 }
 
 export const InputText: FC<InputTextProps> = ({ name, value, onChange }) => {

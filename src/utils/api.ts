@@ -118,15 +118,6 @@ export const postComment = async (
   return checkResponse<TCommentsResponseDataSet>(res);
 };
 
-// export const deleteCommentEmotion = (id: string) => {
-//   return fetch(`/comments/${id}`, {
-//     method: 'DELETE',
-//     headers: {
-//       Authorisation: `Bearer ${getCookie('accessToken')}`
-//     }
-//   }).then(res => res.ok ? res : 'Ошибка')
-// }
-
 export const putUser = async (id: string, { cohort, email }: TRawUser) => {
   const res = await fetch(`/users/${id}`, {
     method: "PUT",
