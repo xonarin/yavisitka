@@ -86,6 +86,30 @@ export const deleteComment = (_id: string) => {
   });
 };
 
+export const postComment = async(com: {target: string | null, text?: string, emotion?: string}, id: string) => {
+  const res = await fetch(`/profiles/${id}/reactions`, {
+    method: 'POST',
+    headers: {
+      Authorisation: `Bearer ${getCookie('accessToken')}`
+    },
+    body: JSON.stringify({
+      emotion: com.emotion,
+      target: com.target,
+      text: com.text,
+    })
+  });
+  return checkResponse<TCommentsResponseDataSet>(res);
+}
+
+// export const deleteCommentEmotion = (id: string) => {
+//   return fetch(`/comments/${id}`, { 
+//     method: 'DELETE',
+//     headers: {
+//       Authorisation: `Bearer ${getCookie('accessToken')}`
+//     }
+//   }).then(res => res.ok ? res : 'Ошибка')
+// }
+
 export const putUser = async (id: string, {cohort, email}: TRawUser) => {
   const res = await fetch(`/users/${id}`, {
     method: 'PUT',
