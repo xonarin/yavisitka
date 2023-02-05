@@ -17,6 +17,8 @@
     margin-right: 4px;
     border-radius: 50%;
     filter: grayscale(100%);
+    object-fit: cover;
+    object-position: center;
   }
 
   &__name {

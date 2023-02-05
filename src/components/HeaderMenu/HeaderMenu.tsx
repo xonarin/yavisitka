@@ -1,6 +1,5 @@
 import { FC, useState, useEffect, ChangeEvent, forwardRef } from 'react';
 import { Link } from 'react-router-dom';
-import { profilesGet } from '../../utils/api-test-data';
 import { block } from "bem-cn";
 import "./HeaderMenu.scss";
 import { clearCookies, clearLocalStorage } from '../../utils/cookie';
@@ -10,27 +9,9 @@ import adminAvatar from "../../assets/images/admin-avatar.svg"
 const cnStyles = block("HeaderMenu");
 
 type THeaderMenu = {
-  realUser: {
-    id: string
-    real_name: string;
-    avatarUrl: string
-  } | undefined,
-  user: {
-    _id: string;
-    createdAt: number;
-    updatedAt: number | null;
-    email: string;
-    cohort: string;
-    profile: {
-      name: string;
-      photo: string;
-      city: {
-        name: string;
-        geocode: string[];
-      };
-    };
-  }
-  | undefined,
+  name: string;
+  photo: string;
+  id: string;
   style: {
     display:string
   },
@@ -38,7 +19,7 @@ type THeaderMenu = {
   isAdmin: boolean;
 }
 
-const HeaderMenu: FC<THeaderMenu> = ({ user, realUser, style, onClick, isAdmin }) => {
+const HeaderMenu: FC<THeaderMenu> = ({ name, photo, id, style, onClick, isAdmin }) => {
 
   useEffect(() => {
     const closeEsc = (e: KeyboardEvent) => {
@@ -62,11 +43,11 @@ const HeaderMenu: FC<THeaderMenu> = ({ user, realUser, style, onClick, isAdmin }
 
   return (
     <div className={cnStyles("navContainer")} style={style}>
-      {!isAdmin ? (realUser 
+      {!isAdmin 
       ? (<>
-          <Link to={{pathname: `/detail/${realUser?.id}`}} className={cnStyles("userContainer")} onClick={onClick}>
-            <img className={cnStyles("userIcon")} src={realUser?.avatarUrl} alt={realUser?.real_name}></img>
-            <p className={cnStyles("userName")}>{realUser?.real_name}</p>
+          <Link to={{pathname: `/detail/${id}`}} className={cnStyles("userContainer")} onClick={onClick}>
+            <img className={cnStyles("userIcon")} src={photo} alt={name}></img>
+            <p className={cnStyles("userName")}>{name}</p>
           </Link>
           <Link to='/profile' className={cnStyles("link")} onClick={onClick}>
             Профиль
@@ -76,26 +57,14 @@ const HeaderMenu: FC<THeaderMenu> = ({ user, realUser, style, onClick, isAdmin }
           </button>
         </>)
       : (<>
-          <Link to={{pathname: `/detail/${user?._id}`}} className={cnStyles("userContainer")} onClick={onClick}>
-            <img className={cnStyles("userIcon")} src={user?.profile.photo} alt={user?.profile.name}></img>
-            <p className={cnStyles("userName")}>{user?.profile.name}</p>
-          </Link>
-          <Link to='/profile' className={cnStyles("link")} onClick={onClick}>
-            Профиль
-          </Link>
-          <button type="button" className={cnStyles("button")} onClick={handleClickExit}>
-            Выйти
-          </button>
-        </>)) : 
-        (<>
-          <Link to="/admin" className={cnStyles("userContainer")} onClick={onClick}>
-            <img className={cnStyles("userIcon")} src={adminAvatar} alt="админка"></img>
-            <p className={cnStyles("userName")}>админка</p>
-          </Link>
-          <button type="button" className={cnStyles("button")} onClick={handleClickExit}>
-            Выйти
-          </button>
-        </>)}
+        <Link to="/admin" className={cnStyles("userContainer")} onClick={onClick}>
+          <img className={cnStyles("userIcon")} src={adminAvatar} alt="админка"></img>
+          <p className={cnStyles("userName")}>админка</p>
+        </Link>
+        <button type="button" className={cnStyles("button")} onClick={handleClickExit}>
+          Выйти
+        </button>
+      </>)}
     </div>
   )
 }
