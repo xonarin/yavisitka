@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { block } from "bem-cn";
 import "./SettingsUsersBlock.scss";
-import { getCookie } from "../../utils/cookie";
-import { getUsers } from "../../utils/api";
-import { TUsersDataSet } from "../../utils/types";
+import { getAuthUser, getCookie, setAuthUser } from "../../utils/cookie";
+import { getProfiles, getUsers } from "../../utils/api";
+import { TCards, TProfile, TUsersDataSet } from "../../utils/types";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { ScrollbarContainer } from "../AdminScrollbarContainer/AdminScrollbarContainer";
 import { SettingsUserCard } from "../SettingsUserCard/SettingsUserCard";
 
 const cnStyles = block("SettingUsersBlock");
+
+type TProfiles = {
+  profilesTotal: number;
+  profiles: TProfile[];
+};
 
 export function SettingUsersBlock() {
   const userCookie = getCookie("realUser");
@@ -16,24 +21,23 @@ export function SettingUsersBlock() {
   const [realUser, setRealUser] = useState(
     userCookie ? JSON.parse(userCookie) : ""
   );
-  const [name, setName] = useState("undefined");
-  const [cohort, setCohort] = useState("undefined");
-
-  const [fakeEmail, setFakeEmail] = useState(
-    getCookie("fakeEmail") || realUser.default_email
+  const [{ _id, name, cohort, photo, email, role }, setUserData] = useState(
+    getAuthUser()
   );
 
-  const [{ usersTotal, users }, setUsers] = useState<TUsersDataSet>({
-    usersTotal: 0,
-    users: [],
+  const [fakeEmail, setFakeEmail] = useState(getAuthUser().email);
+
+  const [{ profilesTotal, profiles }, setProfiles] = useState<TProfiles>({
+    profilesTotal: 0,
+    profiles: [],
   });
 
   useEffect(() => {
     setIsLoading(true);
-    getUsers()
+    getProfiles()
       .then((res) => {
         if (res) {
-          setUsers({ usersTotal: res.total, users: res.items });
+          setProfiles({ profilesTotal: res.total, profiles: res.items });
         }
       })
       .catch((err) => {
@@ -41,25 +45,35 @@ export function SettingUsersBlock() {
       })
       .finally(() => {
         setIsLoading(false);
-        // setTimeout(()=>{console.log(users)},500);
       });
   }, []);
 
   useEffect(() => {
-    const baseData = users.find((user) => user.email === fakeEmail);
-    // console.log(baseData);
+    const baseData = profiles.find((profile) => profile.email === fakeEmail);
     if (baseData) {
-      setName(baseData.name);
-      setCohort(baseData.cohort);
+      const newDataSet = {
+        _id: baseData._id,
+        name: baseData.profile.name,
+        cohort: baseData.cohort,
+        email: baseData.email,
+        photo: baseData.profile.photo,
+        role: getCookie("status") ? "curator" : "student",
+      };
+      setUserData(newDataSet);
+      setAuthUser(newDataSet);
     } else {
-      setName("нет данных (в базе VISITKI)");
-      setCohort("нет данных (в базе VISITKI)");
+      const newDataSet = {
+        _id: "",
+        name: realUser.real_name,
+        cohort: "",
+        email: realUser.default_email,
+        photo: realUser.avatarUrl,
+        role: getCookie("status") ? "curator" : "student",
+      };
+      setUserData(newDataSet);
+      setAuthUser(newDataSet);
     }
-  }, [users, fakeEmail]);
-
-  //   console.log(realUser);
-
- 
+  }, [profiles, fakeEmail]);
 
   return (
     <div className={cnStyles()}>
@@ -67,8 +81,12 @@ export function SettingUsersBlock() {
 
       {!isLoading && (
         <>
-          <p>Выбраный пользователь: </p>
+          <p>Авторизованый пользователь: </p>
           <div className={cnStyles("info-block")}>
+            <p>_id:</p>
+            <span className={cnStyles("info-span")}>{`${
+              _id || "нет данных (в базе VISITKI)"
+            } `}</span>
             <p>Имя:</p>
             <span className={cnStyles("info-span")}>{`${name}`}</span>
 
@@ -76,14 +94,29 @@ export function SettingUsersBlock() {
             <span className={cnStyles("info-span")}>{`${fakeEmail}`}</span>
 
             <p>Когорта: </p>
-            <span className={cnStyles("info-span")}>{`${cohort}`}</span>
+            <span className={cnStyles("info-span")}>{`${
+              cohort || "нет данных (в базе VISITKI)"
+            }`}</span>
+
+            <p>Фото: </p>
+            <span className={cnStyles("info-span")}>{`${photo}`}</span>
+
+            <p>Роль: </p>
+            <span className={cnStyles("info-span")}>{`${role}`}</span>
           </div>
-          <ScrollbarContainer
-            negativHeightAdjustment={500}
-          >
-            <SettingsUserCard setEmail={setFakeEmail} email={realUser.default_email} />
-            {users.map(user=><SettingsUserCard setEmail={setFakeEmail} key={user._id} email={user.email} ></SettingsUserCard>)}
-            
+
+          <ScrollbarContainer negativHeightAdjustment={500}>
+            <SettingsUserCard
+              setEmail={setFakeEmail}
+              email={realUser.default_email}
+            />
+            {profiles.map((profile) => (
+              <SettingsUserCard
+                setEmail={setFakeEmail}
+                key={profile._id}
+                email={profile.email}
+              ></SettingsUserCard>
+            ))}
           </ScrollbarContainer>
         </>
       )}

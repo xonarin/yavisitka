@@ -1,3 +1,6 @@
+import { type } from "os";
+import { string } from "yargs";
+
 export type TCards = {
   total: number;
   items:
@@ -97,7 +100,7 @@ export type TUser = {
 export type TRawUser = {
   email: string;
   cohort: string;
-}
+};
 
 export type TUsersDataSet = {
   usersTotal: number;
@@ -158,4 +161,34 @@ export type TPutUserResponse = {
   updatedAt: number | null;
   email: string;
   cohort: string;
-}
+};
+
+export type TProfile = {
+  _id: string;
+  createdAt: number;
+  updatedAt: number | null;
+  email: string;
+  cohort: string;
+  profile: {
+    name: string;
+    photo: string;
+    city: {
+      name: string;
+      geocode: string[];
+    };
+  };
+};
+
+export type TProfilesResponseDataSet = {
+  total: number;
+  items: TProfile[];
+};
+
+export type TAuthUserData = {
+  _id: string;
+  name: string;
+  cohort: string;
+  email: string;
+  photo: string;
+  role: string;
+};

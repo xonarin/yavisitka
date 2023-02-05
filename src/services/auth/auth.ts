@@ -1,5 +1,10 @@
-import { baseAuthUrl, checkResponse } from "../../utils/api";
-import { setCookie, deleteCookie, getCookie } from "../../utils/cookie";
+import { baseAuthUrl, checkResponse, getProfiles } from "../../utils/api";
+import {
+  setCookie,
+  deleteCookie,
+  getCookie,
+  setAuthUser,
+} from "../../utils/cookie";
 import { TAccessToken } from "../../utils/types";
 
 export const getToken = async (code: string) => {
@@ -55,7 +60,7 @@ export const getRealUser = async ({ access_token, expires_in }: any) => {
       }
     );
 
-    setAuthUser();
+    createAuthUser();
   } catch (error) {
     console.log(`Ошибка: ${error}`);
   }
@@ -91,14 +96,41 @@ export const updateToken = async () => {
   }
 };
 
-export const setAuthUser = () => {
-  console.log("Начали создавать авторизованого пользователя");
+export const createAuthUser = () => {
   const realUserCookie = getCookie("realUser");
-  const fakeEmail = getCookie("fakeEmail");
   const realUserData = realUserCookie ? JSON.parse(realUserCookie) : "";
-  console.log(realUserData);
+  getProfiles()
+    .then((res) => {
+      if (res) {
+        const profiles = res.items;
+        const baseData = profiles.find(
+          (profile) => profile.email === realUserData.default_email
+        );
+        if (baseData) {
+          const newDataSet = {
+            _id: baseData._id,
+            name: baseData.profile.name,
+            cohort: baseData.cohort,
+            email: baseData.email,
+            photo: baseData.profile.photo,
+            role: getCookie("status") ? "curator" : "student",
+          };
 
-  const authEmail =
-    fakeEmail && fakeEmail.length > 3 ? fakeEmail : realUserData.default_email;
-    console.log(authEmail);
+          setAuthUser(newDataSet);
+        } else {
+          const newDataSet = {
+            _id: "",
+            name: realUserData.real_name,
+            cohort: "",
+            email: realUserData.default_email,
+            photo: realUserData.avatarUrl,
+            role: getCookie("status") ? "curator" : "student",
+          };
+          setAuthUser(newDataSet);
+        }
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+    });
 };

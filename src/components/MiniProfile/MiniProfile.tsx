@@ -7,7 +7,7 @@ import { getCookie } from "../../utils/cookie";
 import HeaderMenu from "../HeaderMenu/HeaderMenu";
 import useOnClickOutside from "../../services/hooks/useOnClickOutside";
 import adminAvatar from "../../assets/images/admin-avatar.svg";
-import { setAuthUser } from "../../services/auth/auth";
+// import { setAuthUser } from "../../services/auth/auth";
 
 const cnStyles = block("MiniProfile");
 
@@ -26,8 +26,6 @@ const MiniProfile = () => {
     } else {
       setAdmin(false);
     }
-    setAuthUser();
-    console.log(getCookie("fakeEmail"))
   }, []);
 
   const handleMouseOver = (event: MouseEvent<HTMLElement>) => {

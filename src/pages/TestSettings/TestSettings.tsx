@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 const cnStyles = block("TestSettings");
 
 export function TestSettings() {
-  const status = getCookie("status") ? "Админ" : "Студент";
+  const status = getCookie("status") ? "Куратор" : "Студент";
 
   const handleClickAdmin = () => {
     setCookie("status", "admin", { secure: true, "max-age": 360000 });
@@ -42,14 +42,14 @@ export function TestSettings() {
 
         <div className={cnStyles("status-block")}>
           <p>
-            Выбран статус:
+            Выбрана роль:
             <span className={cnStyles("info-span")}>{`${status}`}</span>
           </p>
           <button type="button" onClick={handleClickUser}>
             Студент
           </button>
           <button type="button" onClick={handleClickAdmin}>
-            Админ
+            Куратор
           </button>
         </div>
       </div>
