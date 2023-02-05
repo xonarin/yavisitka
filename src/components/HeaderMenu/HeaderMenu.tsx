@@ -45,7 +45,7 @@ const HeaderMenu: FC<THeaderMenu> = ({ name, photo, id, style, onClick, isAdmin 
     <div className={cnStyles("navContainer")} style={style}>
       {!isAdmin 
       ? (<>
-          <Link to={{pathname: `/detail/${id}`}} className={cnStyles("userContainer")} onClick={onClick}>
+          <Link to={id ? `/detail/${id}` : "/"} className={cnStyles("userContainer")} onClick={onClick}>
             <img className={cnStyles("userIcon")} src={photo} alt={name}></img>
             <p className={cnStyles("userName")}>{name}</p>
           </Link>
@@ -59,7 +59,7 @@ const HeaderMenu: FC<THeaderMenu> = ({ name, photo, id, style, onClick, isAdmin 
       : (<>
         <Link to="/admin" className={cnStyles("userContainer")} onClick={onClick}>
           <img className={cnStyles("userIcon")} src={adminAvatar} alt="админка"></img>
-          <p className={cnStyles("userName")}>админка</p>
+          <p className={cnStyles("userName")}>{name}</p>
         </Link>
         <button type="button" className={cnStyles("button")} onClick={handleClickExit}>
           Выйти
