@@ -42,6 +42,11 @@
     grid-auto-flow: row;
     grid-auto-rows: minmax(393px, 1fr);
   }
+
+  &__error-text {
+    margin-top: 11px;
+    color: $error;
+  }
 }
 
 @media screen and (max-width: 1024px) {

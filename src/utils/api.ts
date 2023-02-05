@@ -86,6 +86,20 @@ export const deleteComment = (_id: string) => {
   });
 };
 
+export const updateProfile = async (profile: TProfileId) => {
+  console.log(profile);
+  const res = await fetch(`${baseApiUrl}/profiles/${profile._id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getCookie('accessToken')}`
+    },
+    body: JSON.stringify({})
+  });
+
+  return checkResponse(res);
+}
+
 export const postComment = async(com: {target: string | null, text?: string, emotion?: string}, id: string) => {
   const res = await fetch(`/profiles/${id}/reactions`, {
     method: 'POST',
