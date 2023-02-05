@@ -20,6 +20,11 @@ export const AdminUsersList = ({ list }: TAdminUsersList) => {
       </ul>
 
       <ScrollbarContainer negativHeightAdjustment={326}>
+      {Boolean(list.length) || (
+          <p className={cnStyles("error-text")}>
+            Не удалось никого найти. Исправьте запрос или сбросьте фильтр
+          </p>
+        )}
         {list.map((userData) => (
           <UserCard key={userData._id} data={userData} />
         ))}

@@ -41,6 +41,11 @@
     margin-bottom: 11px;
   }
 
+  &__error-text {
+    margin-top: 11px;
+    color: $error;
+  }
+
   @media (max-width: 1300px) {
     &__table-header {
       border-bottom: none;
