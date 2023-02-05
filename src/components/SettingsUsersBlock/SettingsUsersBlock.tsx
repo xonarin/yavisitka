@@ -41,13 +41,13 @@ export function SettingUsersBlock() {
       })
       .finally(() => {
         setIsLoading(false);
-        setTimeout(()=>{console.log(users)},500);
+        // setTimeout(()=>{console.log(users)},500);
       });
   }, []);
 
   useEffect(() => {
     const baseData = users.find((user) => user.email === fakeEmail);
-    console.log(baseData);
+    // console.log(baseData);
     if (baseData) {
       setName(baseData.name);
       setCohort(baseData.cohort);

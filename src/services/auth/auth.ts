@@ -1,5 +1,5 @@
 import { baseAuthUrl, checkResponse } from "../../utils/api";
-import { setCookie, deleteCookie } from "../../utils/cookie";
+import { setCookie, deleteCookie, getCookie } from "../../utils/cookie";
 import { TAccessToken } from "../../utils/types";
 
 export const getToken = async (code: string) => {
@@ -18,7 +18,7 @@ export const getToken = async (code: string) => {
     });
 
     const data = await checkResponse<TAccessToken>(res);
-    console.log(data);
+    // console.log(data);
     setCookie("token", data.access_token, {
       secure: true,
       "max-age": data.expires_in,
@@ -44,17 +44,18 @@ export const getRealUser = async ({ access_token, expires_in }: any) => {
       }
     );
     const data = await checkResponse<any>(res);
-    
-    console.log(typeof data);
-    setCookie("realUser", JSON.stringify({
-      ...data,
-      avatarUrl: `https://avatars.yandex.net/get-yapic/${data.default_avatar_id
-    }/islands-200`,
-    }), {
-      "max-age": expires_in,
-    });
+    setCookie(
+      "realUser",
+      JSON.stringify({
+        ...data,
+        avatarUrl: `https://avatars.yandex.net/get-yapic/${data.default_avatar_id}/islands-200`,
+      }),
+      {
+        "max-age": expires_in,
+      }
+    );
 
-
+    setAuthUser();
   } catch (error) {
     console.log(`Ошибка: ${error}`);
   }
@@ -88,4 +89,16 @@ export const updateToken = async () => {
   } catch (error) {
     console.log(`Ошибка: ${error}`);
   }
+};
+
+export const setAuthUser = () => {
+  console.log("Начали создавать авторизованого пользователя");
+  const realUserCookie = getCookie("realUser");
+  const fakeEmail = getCookie("fakeEmail");
+  const realUserData = realUserCookie ? JSON.parse(realUserCookie) : "";
+  console.log(realUserData);
+
+  const authEmail =
+    fakeEmail && fakeEmail.length > 3 ? fakeEmail : realUserData.default_email;
+    console.log(authEmail);
 };
