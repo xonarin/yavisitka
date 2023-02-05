@@ -13,6 +13,7 @@ import "./ProfileChangePage.scss";
 import { TProfileId } from "../../utils/types";
 import { getProfilesId, updateProfile } from "../../utils/api";
 import { getAuthUser } from "../../utils/cookie";
+import { Navigate } from "react-router-dom";
 
 const style = [
   { id: 1, name: "Серьезный" },
@@ -23,6 +24,11 @@ const style = [
 const cnStyles = block("ProfileChangePage");
 
 export const ProfilePage = () => {
+
+
+
+
+
   const [profile, setProfile] = useState<TProfileId>({
     _id: '',
     createdAt: 0,
@@ -71,6 +77,8 @@ export const ProfilePage = () => {
   const [{ _id, name, cohort, photo, email, role }, setUserData] = useState(
     getAuthUser()
   );
+
+  
 
   useEffect(() => {
     getProfilesId(_id)
@@ -154,6 +162,10 @@ export const ProfilePage = () => {
         console.log("Профиль обновлен");
       })
   };
+
+  if (!_id) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <Container>

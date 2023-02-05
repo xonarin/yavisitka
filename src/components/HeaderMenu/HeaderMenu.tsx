@@ -49,9 +49,10 @@ const HeaderMenu: FC<THeaderMenu> = ({ name, photo, id, style, onClick, isAdmin 
             <img className={cnStyles("userIcon")} src={photo} alt={name}></img>
             <p className={cnStyles("userName")}>{name}</p>
           </Link>
-          <Link to='/profile' className={cnStyles("link")} onClick={onClick}>
+          {id && <Link to='/profile' className={cnStyles("link")} onClick={onClick}>
             Профиль
-          </Link>
+          </Link>}
+          
           <button type="button" className={cnStyles("button")} onClick={handleClickExit}>
             Выйти
           </button>
