@@ -20,7 +20,7 @@ export const AdminUsersList = ({ list }: TAdminUsersList) => {
       </ul>
 
       <ScrollbarContainer negativHeightAdjustment={326}>
-      {Boolean(list.length) || (
+        {Boolean(list.length) || (
           <p className={cnStyles("error-text")}>
             Не удалось никого найти. Исправьте запрос или сбросьте фильтр
           </p>

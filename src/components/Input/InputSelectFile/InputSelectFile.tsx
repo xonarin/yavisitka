@@ -19,7 +19,7 @@ const InputSelectFile: FC<TProps> = ({
   optionsList,
   name,
   handleClickOptionSelect,
-  initialValue
+  initialValue,
 }) => {
   const [menuState, setMenuState] = useState({
     selectText: "",

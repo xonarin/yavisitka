@@ -24,49 +24,44 @@ const style = [
 const cnStyles = block("ProfileChangePage");
 
 export const ProfilePage = () => {
-
-
-
-
-
   const [profile, setProfile] = useState<TProfileId>({
-    _id: '',
+    _id: "",
     createdAt: 0,
     updatedAt: null,
-    email: '',
-    cohort: '',
+    email: "",
+    cohort: "",
     profile: {
-      name: '',
-      photo: '',
+      name: "",
+      photo: "",
       city: {
-        name: '',
-        geocode: []
+        name: "",
+        geocode: [],
       },
-      birthday: '',
-      quote: '',
-      telegram: '',
-      github: '',
+      birthday: "",
+      quote: "",
+      telegram: "",
+      github: "",
       template: null,
     },
     info: {
       hobby: {
-        text: '',
-        image: '',
+        text: "",
+        image: "",
         reactions: 0,
       },
       status: {
-        text: '',
-        image: '',
+        text: "",
+        image: "",
         reactions: 0,
       },
       job: {
-        text: '',
-        image: '',
+        text: "",
+        image: "",
         reactions: 0,
       },
       edu: {
-        text: '',
-        image: '',
+        text: "",
+        image: "",
         reactions: 0,
       },
     },
@@ -78,8 +73,6 @@ export const ProfilePage = () => {
     getAuthUser()
   );
 
-  
-
   useEffect(() => {
     getProfilesId(_id)
       .then((res) => {
@@ -89,7 +82,7 @@ export const ProfilePage = () => {
       })
       .catch((err) => {
         console.error(err);
-      })
+      });
   }, []);
 
   const onChangeAvatar = (photo: any) => {
@@ -97,38 +90,42 @@ export const ProfilePage = () => {
       ...profile,
       profile: {
         ...profile.profile,
-        photo: photo.target.value
-      }
+        photo: photo.target.value,
+      },
     });
-  }
+  };
 
-  const onChangeProfile = (e: ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLInputElement>) => {
+  const onChangeProfile = (
+    e: ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLInputElement>
+  ) => {
     setProfile({
       ...profile,
       profile: {
         ...profile.profile,
-        [e.target.name]: e.target.value
-      }
+        [e.target.name]: e.target.value,
+      },
     });
-  }
+  };
 
-  const onChangeInfo = (e: ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLInputElement>) => {
+  const onChangeInfo = (
+    e: ChangeEvent<HTMLTextAreaElement> | ChangeEvent<HTMLInputElement>
+  ) => {
     setProfile({
       ...profile,
       info: {
         ...profile.info,
-        [e.target.name]: e.target.value
-      }
+        [e.target.name]: e.target.value,
+      },
     });
-  }
+  };
 
   const onChangeDatePicker = (date: string) => {
     setProfile({
       ...profile,
       profile: {
         ...profile.profile,
-        birthday: date
-      }
+        birthday: date,
+      },
     });
   };
 
@@ -140,8 +137,8 @@ export const ProfilePage = () => {
         city: {
           ...profile.profile.city,
           name: value,
-        }
-      }
+        },
+      },
     });
   };
 
@@ -150,17 +147,16 @@ export const ProfilePage = () => {
       ...profile,
       profile: {
         ...profile.profile,
-        template: value
-      }
+        template: value,
+      },
     });
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    updateProfile(profile)
-      .then((res) => {
-        console.log("Профиль обновлен");
-      })
+    updateProfile(profile).then((res) => {
+      console.log("Профиль обновлен");
+    });
   };
 
   if (!_id) {
@@ -195,7 +191,12 @@ export const ProfilePage = () => {
               apikey: "6bbb9fad-fe92-4de7-aed3-2caa0584dade",
             }}
           >
-            <InputSuggestView onClick={handleClickOptionSelect} initialValue={profile?.profile.city.name && String(profile?.profile.city.name)} />
+            <InputSuggestView
+              onClick={handleClickOptionSelect}
+              initialValue={
+                profile?.profile.city.name && String(profile?.profile.city.name)
+              }
+            />
           </YMaps>
 
           <label className={cnStyles("form-name")} htmlFor="telegram">

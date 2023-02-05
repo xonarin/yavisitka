@@ -7,7 +7,6 @@ import "./Footer.scss";
 const cnStyles = block("Footer");
 
 const Footer = () => {
-  
   const auth = getCookie("token");
   return (
     <footer className={cnStyles()}>

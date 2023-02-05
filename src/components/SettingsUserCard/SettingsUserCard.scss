@@ -1,17 +1,16 @@
-.SettingsUserCard{
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid grey;
-    border-radius: 3px;
-    margin: 10px 0px;
-    min-height: 29px;
-    background-color: rgb(226, 226, 226);
-    &:hover {
-        cursor: pointer;
-        border: 1px solid black;
-        background-color: rgb(211, 211, 211);
-
-    }
+.SettingsUserCard {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin: 10px 0px;
+  min-height: 29px;
+  background-color: rgb(226, 226, 226);
+  &:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    background-color: rgb(211, 211, 211);
+  }
 }

@@ -31,16 +31,16 @@ export const UserCard = ({ data }: { data: TUser }) => {
   function handleDelete() {
     if (!isDeleted) {
       setIsLoading(true);
-      putUser(data._id, {cohort: 'deleted', email: data.email})
-      .then(() => {
-        setIsDeleted(true);
-      })
-      .catch((err) => {
-        console.error(err);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+      putUser(data._id, { cohort: "deleted", email: data.email })
+        .then(() => {
+          setIsDeleted(true);
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   }
 
@@ -54,14 +54,14 @@ export const UserCard = ({ data }: { data: TUser }) => {
               : {}
           }
           className={`${cnStyles("input")} ${
-          isDeleted ? cnStyles("content-deleted") : ""
-        }`}
+            isDeleted ? cnStyles("content-deleted") : ""
+          }`}
           value={changedCohort}
           type="text"
           name="cohort"
           onChange={handleOnChange}
           placeholder="Когорта"
-          disabled={!data.name.length || isDeleted }
+          disabled={!data.name.length || isDeleted}
         />
         {data.cohort !== changedCohort && (
           <p className={cnStyles("saved-value")}>{data.cohort}</p>
@@ -73,8 +73,8 @@ export const UserCard = ({ data }: { data: TUser }) => {
             data.email !== changedEmail || !data.name.length ? changedStyle : {}
           }
           className={`${cnStyles("input")} ${
-          isDeleted ? cnStyles("content-deleted") : ""
-        }`}
+            isDeleted ? cnStyles("content-deleted") : ""
+          }`}
           value={changedEmail}
           type="text"
           name="email"
@@ -86,22 +86,22 @@ export const UserCard = ({ data }: { data: TUser }) => {
           <p className={cnStyles("saved-value")}>{data.email}</p>
         )}
       </li>
-      <li className={`${cnStyles("content")} ${
+      <li
+        className={`${cnStyles("content")} ${
           isDeleted ? cnStyles("content-deleted") : ""
-        }`}>
+        }`}
+      >
         <Link to={`/detail/${data._id}`}>{data.name}</Link>
       </li>
-      {
-        data.name.length ?
+      {data.name.length ? (
         <li className={cnStyles("content")}>
-          <AdminDeleteBtn 
+          <AdminDeleteBtn
             handleDelete={handleDelete}
-            isDeleted={isDeleted} 
+            isDeleted={isDeleted}
             isLoading={isLoading}
           />
         </li>
-        : null
-      }
+      ) : null}
     </ul>
   );
 };

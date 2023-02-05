@@ -17,8 +17,8 @@ export const AdminAddingUsers = ({
   setUsers,
   currentUsers,
 }: TAdminAddingUsers) => {
-  const [ addedUsers, setAddedUsers ] = useState<TUser[]>([]);
-  const [ visibility, setVisibility ] = useState(false);
+  const [addedUsers, setAddedUsers] = useState<TUser[]>([]);
+  const [visibility, setVisibility] = useState(false);
 
   const handleOnChange = async (evt: React.ChangeEvent<HTMLInputElement>) => {
     const file = evt.target.files ? evt.target.files[0] : undefined;
@@ -99,34 +99,36 @@ export const AdminAddingUsers = ({
 
   const handleSave = () => {
     const prevUsers = currentUsers.splice(addedUsers.length);
-    addedUsers.forEach(el => {
-      const updatedUser = prevUsers.find(u => u.email === el.email && el.cohort !== u.cohort);
-      const newUser = prevUsers.find(u => u.email !== el.email) && !updatedUser;
+    addedUsers.forEach((el) => {
+      const updatedUser = prevUsers.find(
+        (u) => u.email === el.email && el.cohort !== u.cohort
+      );
+      const newUser =
+        prevUsers.find((u) => u.email !== el.email) && !updatedUser;
 
-      if(updatedUser) {
-        putUser(el._id, { email: updatedUser.email, cohort: el.cohort })
-          .catch((err) => {
+      if (updatedUser) {
+        putUser(el._id, { email: updatedUser.email, cohort: el.cohort }).catch(
+          (err) => {
             console.log(err);
-          });
-      }
-      else if (newUser) {
-        postUser({ email: el.email, cohort: el.cohort })
-          .catch((err) => {
-            console.log(err);
-          });
+          }
+        );
+      } else if (newUser) {
+        postUser({ email: el.email, cohort: el.cohort }).catch((err) => {
+          console.log(err);
+        });
       }
     });
 
     getUsers()
-      .then(res => {
-        setUsers({usersTotal: res.total, users: res.items});
+      .then((res) => {
+        setUsers({ usersTotal: res.total, users: res.items });
         setAddedUsers([]);
         setVisibility(false);
       })
       .catch((err) => {
         console.log(err);
       });
-  }
+  };
 
   const handleDelete = () => {
     setAddedUsers([]);
@@ -135,7 +137,7 @@ export const AdminAddingUsers = ({
       users: currentUsers.splice(addedUsers.length),
     });
     setVisibility(false);
-  }
+  };
 
   return (
     <div className={cnStyles()}>
@@ -160,10 +162,9 @@ export const AdminAddingUsers = ({
           onChange={handleOnChange}
         />
       </label>
-      {
-        visibility &&
+      {visibility && (
         <AdminCheckAdding handleDelete={handleDelete} handleSave={handleSave} />
-      }
+      )}
     </div>
   );
 };

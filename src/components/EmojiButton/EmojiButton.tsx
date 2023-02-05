@@ -35,35 +35,39 @@ const emojis = {
 };
 
 const EmojiButton: FC<TProps> = ({ emoji, comments }) => {
-  const [counter, setCounter] = useState<number>(0)
+  const [counter, setCounter] = useState<number>(0);
 
   useEffect(() => {
-    setCounter(comments.reduce((acc, comment) => {
-      // @ts-ignore
-      if (comment.emotion && emojis[comment.emotion] === emoji) {
-        acc++;
+    setCounter(
+      comments.reduce((acc, comment) => {
+        // @ts-ignore
+        if (comment.emotion && emojis[comment.emotion] === emoji) {
+          acc++;
+        }
+        return acc;
+      }, 0)
+    );
+  }, []);
+
+  const onClick = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      const target = e.currentTarget;
+      if (!target.classList.contains(`${cnStyles("buttonCont")}`)) {
+        setCounter(counter + 1);
+        target.classList.add(`${cnStyles("buttonCont")}`);
+      } else {
+        setCounter(counter - 1);
+        target.classList.remove(`${cnStyles("buttonCont")}`);
       }
-      return acc;
-    }, 0));
-  }, [])
-
-  const onClick = useCallback((e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    const target = e.currentTarget;
-    if (!target.classList.contains(`${cnStyles("buttonCont")}`)) {
-      setCounter(counter + 1);
-      target.classList.add(`${cnStyles("buttonCont")}`);
-    } else {
-      setCounter(counter - 1);
-      target.classList.remove(`${cnStyles("buttonCont")}`);
-    }
-
-  }, [counter])
+    },
+    [counter]
+  );
 
   return (
     <li className={cnStyles()}>
       <button className={`${cnStyles("button")}`} onClick={(e) => onClick(e)}>
         <p className={cnStyles("emoji")}>{emoji}</p>
-        <p className={cnStyles("counter")}>{counter !== 0 ? counter : ''}</p>
+        <p className={cnStyles("counter")}>{counter !== 0 ? counter : ""}</p>
       </button>
     </li>
   );

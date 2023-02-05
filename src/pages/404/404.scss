@@ -1,7 +1,6 @@
 @import "../../assets/styles/vars.scss";
 
 .notFound {
-
   &__container {
     margin: 180px auto 0;
     width: 100%;
@@ -24,7 +23,7 @@
     font-size: $font-size-60;
     line-height: $line-height-60;
     margin: 0 0 24px;
-  };
+  }
 
   &__link {
     background-color: none;
@@ -37,9 +36,8 @@
     padding: 8px 36px;
     text-decoration: none;
   }
-  
+
   &__link:hover {
     background-color: $select-gray;
   }
-
 }

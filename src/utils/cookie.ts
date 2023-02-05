@@ -77,7 +77,7 @@ export function setAuthUser(authUserData: TAuthUserData) {
   });
 }
 
-export function getAuthUser(){
+export function getAuthUser() {
   const authUserCookie = getCookie("authUser");
   return JSON.parse(authUserCookie ? authUserCookie : "");
 }

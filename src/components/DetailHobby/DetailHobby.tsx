@@ -32,7 +32,7 @@ const DetailHobby: FC<DetailHobbyProps> = ({
   function handleClick() {
     setIsOpened(!isOpened);
   }
-console.log(reactions)
+  console.log(reactions);
   return (
     <div
       className={cnStyles() + " " + template && cnStyles({ type: template })}

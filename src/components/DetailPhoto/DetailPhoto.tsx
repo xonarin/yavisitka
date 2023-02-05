@@ -27,12 +27,12 @@ const DetailPhoto: FC<DetailPhoto> = ({ src, alt, reactions, template }) => {
   }
 
   return (
-    <div 
-      className={cnStyles("container")} 
+    <div
+      className={cnStyles("container")}
       ref={cardRef}
       onMouseEnter={() => setIsShown(true)}
       onMouseLeave={() => setIsShown(false)}
-      >
+    >
       <div
         className={cnStyles() + " " + template && cnStyles({ type: template })}
       >

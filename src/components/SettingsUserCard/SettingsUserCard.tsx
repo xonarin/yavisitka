@@ -16,9 +16,9 @@ export function SettingsUserCard({ email, setEmail }: TSettingsUserCard) {
     setCookie("fakeEmail", email, {
       "max-age": 604800000,
     });
-    setTimeout(()=>{
+    setTimeout(() => {
       window.location.reload();
-    },100)
+    }, 100);
   };
   return (
     <div onClick={click} className={cnStyles()}>

@@ -92,31 +92,34 @@ export const updateProfile = async (profile: TProfileId) => {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${getCookie('accessToken')}`
+      Authorization: `Bearer ${getCookie("accessToken")}`,
     },
-    body: JSON.stringify({})
+    body: JSON.stringify({}),
   });
 
   return checkResponse(res);
-}
+};
 
-export const postComment = async(com: {target: string | null, text?: string, emotion?: string}, id: string) => {
+export const postComment = async (
+  com: { target: string | null; text?: string; emotion?: string },
+  id: string
+) => {
   const res = await fetch(`/profiles/${id}/reactions`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      Authorisation: `Bearer ${getCookie('accessToken')}`
+      Authorisation: `Bearer ${getCookie("accessToken")}`,
     },
     body: JSON.stringify({
       emotion: com.emotion,
       target: com.target,
       text: com.text,
-    })
+    }),
   });
   return checkResponse<TCommentsResponseDataSet>(res);
-}
+};
 
 // export const deleteCommentEmotion = (id: string) => {
-//   return fetch(`/comments/${id}`, { 
+//   return fetch(`/comments/${id}`, {
 //     method: 'DELETE',
 //     headers: {
 //       Authorisation: `Bearer ${getCookie('accessToken')}`
@@ -124,31 +127,31 @@ export const postComment = async(com: {target: string | null, text?: string, emo
 //   }).then(res => res.ok ? res : 'Ошибка')
 // }
 
-export const putUser = async (id: string, {cohort, email}: TRawUser) => {
+export const putUser = async (id: string, { cohort, email }: TRawUser) => {
   const res = await fetch(`/users/${id}`, {
-    method: 'PUT',
+    method: "PUT",
     headers: {
-      Authorisation: `${getCookie('token')}`
+      Authorisation: `${getCookie("token")}`,
     },
     body: JSON.stringify({
-      cohort, 
-      email 
-    })
-  })
+      cohort,
+      email,
+    }),
+  });
 
-  return checkResponse<TPutUserResponse>(res)
-}
+  return checkResponse<TPutUserResponse>(res);
+};
 
 export const postUser = async (user: TRawUser) => {
-  const res = await fetch('/users', {
-    method: 'POST',
+  const res = await fetch("/users", {
+    method: "POST",
     headers: {
-      Authorisation: `${getCookie('token')}`
+      Authorisation: `${getCookie("token")}`,
     },
     body: JSON.stringify({
-      user: user
-    })
-  })
+      user: user,
+    }),
+  });
 
-  return checkResponse<TUser>(res)
-}
+  return checkResponse<TUser>(res);
+};

@@ -73,9 +73,9 @@ export const CommentCard = ({ data }: { data: TComment }) => {
         {data.text}{" "}
       </li>
       <li className={cnStyles("content")}>
-        <AdminDeleteBtn 
+        <AdminDeleteBtn
           handleDelete={handleDelete}
-          isDeleted={isDeleted} 
+          isDeleted={isDeleted}
           isLoading={isLoading}
         />
       </li>

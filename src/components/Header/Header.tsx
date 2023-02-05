@@ -15,7 +15,7 @@ const Header = () => {
       <Container>
         <div className={cnStyles("container")}>
           <Logo />
-         
+
           {auth && <MiniProfile />}
         </div>
       </Container>

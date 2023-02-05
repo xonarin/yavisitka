@@ -2,7 +2,7 @@
 
 .CheckAdding {
   &__container {
-    margin-top: 40px; 
+    margin-top: 40px;
   }
   &__par {
     font-size: $font-size-16;
@@ -31,8 +31,8 @@
       color: $error;
     }
     &_color_blue {
-      border: 1px solid #3B23B7;
-      color: #3B23B7;
+      border: 1px solid #3b23b7;
+      color: #3b23b7;
       margin-left: 5px;
     }
   }

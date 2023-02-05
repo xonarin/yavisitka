@@ -36,9 +36,7 @@ export function TestSettings() {
     <Container>
       <p className={cnStyles("title")}>Настройки для тестирования</p>
       <div className={cnStyles()}>
-        
-          <SettingUsersBlock />
-        
+        <SettingUsersBlock />
 
         <div className={cnStyles("status-block")}>
           <p>
@@ -54,12 +52,17 @@ export function TestSettings() {
         </div>
       </div>
 
-      <button  className={cnStyles("clear-button")} type="button" onClick={handleClickExit}>
+      <button
+        className={cnStyles("clear-button")}
+        type="button"
+        onClick={handleClickExit}
+      >
         Выйти из профиля (очистить куки и локал сторадж)
       </button>
 
-      <Link className={cnStyles("link")} to="/">На главную</Link>
-
+      <Link className={cnStyles("link")} to="/">
+        На главную
+      </Link>
     </Container>
   );
 }

@@ -36,7 +36,6 @@ const App = () => {
     setTimeout(() => {
       if (yandexCodeId && getCookie("token") && !getCookie("status")) {
         navigate("/", {});
-        
       }
       if (yandexCodeId && getCookie("token") && getCookie("status")) {
         navigate("/admin", {});

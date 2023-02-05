@@ -11,7 +11,6 @@ import adminAvatar from "../../assets/images/admin-avatar.svg";
 const cnStyles = block("MiniProfile");
 
 const MiniProfile = () => {
-
   const [{ _id, name, cohort, photo, email, role }, setUserData] = useState(
     getAuthUser()
   );
@@ -65,11 +64,7 @@ const MiniProfile = () => {
       ) : (
         <>
           <Link className={cnStyles("link")} to="/profile">
-            <img
-              className={cnStyles("avatar")}
-              src={photo }
-              alt={name}
-            />
+            <img className={cnStyles("avatar")} src={photo} alt={name} />
             <p className={cnStyles("name")}>{name}</p>
           </Link>
           <HeaderMenu

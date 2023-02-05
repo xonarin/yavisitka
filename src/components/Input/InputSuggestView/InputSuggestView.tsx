@@ -11,7 +11,10 @@ interface InputSuggestViewProps {
   initialValue: string;
 }
 
-const InputSuggestView: FC<InputSuggestViewProps> = ({ onClick, initialValue }) => {
+const InputSuggestView: FC<InputSuggestViewProps> = ({
+  onClick,
+  initialValue,
+}) => {
   const ymaps = useYMaps(["Map"]);
   const [view, setView] = useState<string[]>();
   const [viewLength, setviewLength] = useState<number>();

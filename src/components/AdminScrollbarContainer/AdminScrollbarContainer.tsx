@@ -12,9 +12,5 @@ export const ScrollbarContainer = ({
   let calcStyle = {
     maxHeight: `calc(100vh - ${negativHeightAdjustment}px)`,
   };
-  return (
-    <div style={calcStyle}>
-      {children}
-    </div>
-  );
+  return <div style={calcStyle}>{children}</div>;
 };
