@@ -1,0 +1,43 @@
+@import "../../assets/styles/vars.scss";
+
+.notFound {
+  &__container {
+    margin: 180px auto 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__text {
+    color: $text-light;
+    font-size: $font-size-16;
+    line-height: $line-height-20;
+    margin: 0 0 16px;
+  }
+
+  &__number {
+    color: $text-light;
+    font-weight: $font-weight-700;
+    font-size: $font-size-60;
+    line-height: $line-height-60;
+    margin: 0 0 24px;
+  }
+
+  &__link {
+    background-color: none;
+    border-radius: 4px;
+    font-size: $font-size-16;
+    line-height: $line-height-20;
+    color: $text-dark;
+    text-align: start;
+    margin: 0 auto;
+    padding: 8px 36px;
+    text-decoration: none;
+  }
+
+  &__link:hover {
+    background-color: $select-gray;
+  }
+}

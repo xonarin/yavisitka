@@ -7,7 +7,7 @@ const LinkEntry = () => {
   return (
     <a
       href={
-        "https://oauth.yandex.ru/authorize?response_type=code&client_id=5943887238384dbab2c210bf0dddd07d"
+        "https://oauth.yandex.ru/authorize?response_type=code&client_id=eaead7d5cf4b41308d1d50dbc6d2de7c"
       }
       className={cnStyles()}
     >

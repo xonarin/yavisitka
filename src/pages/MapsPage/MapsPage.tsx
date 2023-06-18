@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import CustomMap from "../../components/CustomMap/CustomMap";
 import { YMaps } from "@pbe/react-yandex-maps";
-import { profilesGet } from "../../utils/api-test-data";
 import InputSuggestView from "../../components/Input/InputSuggestView/InputSuggestView";
 import { baseApiUrl, checkResponse, getProfiles } from "../../utils/api";
 import { TCards } from "../../utils/types";

@@ -1,0 +1,12 @@
+.SettingsLink {
+  width: 20px;
+  padding-top: 100%;
+  background-image: url("../../assets/images/settings.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  &:hover {
+    opacity: 0.2;
+  }
+}

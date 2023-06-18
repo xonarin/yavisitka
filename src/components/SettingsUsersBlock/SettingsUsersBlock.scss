@@ -1,0 +1,17 @@
+.SettingUsersBlock {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 15px 0px;
+
+  &__info-block {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+  }
+
+  &__info-span {
+    color: #3b23b7;
+    font-weight: 700;
+  }
+}

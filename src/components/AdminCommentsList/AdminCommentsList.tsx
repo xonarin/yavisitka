@@ -13,16 +13,14 @@ type TAdminCommentsList = {
 export const AdminCommentsList = ({ list }: TAdminCommentsList) => {
   return (
     <div className={cnStyles("mobile-container")}>
-      <div className={cnStyles()}>
-        <ul className={cnStyles("table-header")}>
-          <li className={cnStyles("column-title")}>Когорта</li>
-          <li className={cnStyles("column-title")}>Дата</li>
-          <li className={cnStyles("column-title")}>Отправитель</li>
-          <li className={cnStyles("column-title")}>Получатель</li>
-          <li className={cnStyles("column-title")}>Откуда комментарий</li>
-          <li className={cnStyles("column-title")}>Текст комментария</li>
-        </ul>
-      </div>
+      <ul className={cnStyles("table-header")}>
+        <li className={cnStyles("column-title")}>Когорта</li>
+        <li className={cnStyles("column-title")}>Дата</li>
+        <li className={cnStyles("column-title")}>Отправитель</li>
+        <li className={cnStyles("column-title")}>Получатель</li>
+        <li className={cnStyles("column-title")}>Откуда комментарий</li>
+        <li className={cnStyles("column-title")}>Текст комментария</li>
+      </ul>
       <ScrollbarContainer negativHeightAdjustment={326}>
         {Boolean(list.length) || (
           <p className={cnStyles("error-text")}>

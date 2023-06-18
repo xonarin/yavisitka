@@ -18,10 +18,4 @@
     background-color: $placeholder;
     border-radius: 7px;
   }
-
-  @media (max-width: 1300px) {
-    & {
-      overflow-x: initial;
-    }
-  }
 }
