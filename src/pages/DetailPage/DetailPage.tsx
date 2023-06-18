@@ -38,9 +38,9 @@ const DetailPage = () => {
   const name = profile?.profile.name;
   const photo = profile?.profile.photo;
   const quote = profile?.profile.quote;
-  const template = profile?.profile.template; // Вот сюда попадает значение шаблона template, есть значения 'romantic' и 'crazy'.
-  //const template = 'crazy';
-  //const template = 'romantic';
+  // const template = profile?.profile.template; // Вот сюда попадает значение шаблона template, есть значения 'romantic' и 'crazy'.
+  // const template = 'crazy';
+  const template = 'romantic';
   const city = profile?.profile.city.name;
   const telegram = profile?.profile.telegram;
   const github = profile?.profile.github;
