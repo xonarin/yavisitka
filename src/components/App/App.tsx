@@ -19,6 +19,7 @@ import { Page404 } from "../../pages/404/404";
 import { ProfilePage } from "../../pages/ProfileChangePage/ProfileChangePage";
 import { getCookie } from "../../utils/cookie";
 import "./App.scss";
+import { TestSettings } from "../../pages/TestSettings/TestSettings";
 
 const App = () => {
   const [search, setSearch] = useSearchParams();
@@ -34,13 +35,13 @@ const App = () => {
     yandexCodeId && getToken(yandexCodeId);
     setTimeout(() => {
       if (yandexCodeId && getCookie("token") && !getCookie("status")) {
-        navigate("/", { state: location.pathname });
+        navigate("/", {});
       }
       if (yandexCodeId && getCookie("token") && getCookie("status")) {
-        navigate("/admin", { state: location.pathname });
+        navigate("/admin", {});
       }
     }, 1000);
-  }, [search]);
+  }, []);
 
   return (
     <Routes>
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="cohort/:id" element={<HomePage />} />
           <Route path="profile" element={<ProfilePage />} />
           <Route path="map" element={<MapsPage />} />
+          <Route path="test" element={<TestSettings />} />
           <Route path="admin" element={<AdminPage />}>
             <Route index element={<AdminCommentsBlock />} />
             <Route path="users" element={<AdminUsersBlock />} />

@@ -6,12 +6,13 @@ import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import DropdownMenu from "../../components/DropdownCitiesHomePage/DropdownCitiesHomePage";
 import { getProfiles } from "../../utils/api";
 import { TCards } from "../../utils/types";
-import { getCookie } from "../../utils/cookie";
+import { getAuthUser, getCookie } from "../../utils/cookie";
 import "./HomePage.scss";
 
 const cnStyles = block("HomePage");
 
 const HomePage = () => {
+  const [{ cohort, role }, setUserData] = useState(getAuthUser());
   const { pathname } = useLocation();
   const [cards, setCards] = useState<TCards>({ total: 0, items: [] });
   const [isLoading, setIsLoading] = useState(false);
@@ -34,7 +35,19 @@ const HomePage = () => {
     getProfiles()
       .then((res) => {
         if (res) {
-          setCards({ ...cards, total: res.total, items: res.items });
+          if (role === "student") {
+            setCards({
+              ...cards,
+              total: res.total,
+              items: res.items.filter((val) => val.cohort === cohort),
+            });
+          } else {
+            setCards({
+              ...cards,
+              total: res.total,
+              items: res.items,
+            });
+          }
         }
       })
       .catch((err) => {
@@ -75,7 +88,10 @@ const HomePage = () => {
           optionsList={cities}
           handleCity={handleCity}
         />
-        <Link to={"/map"} className={cnStyles("mapLink")}>
+        <Link
+          to={!filteredCards.length ? "/" : "/map"}
+          className={cnStyles("mapLink")}
+        >
           Посмотреть на карте
         </Link>
       </div>
@@ -84,6 +100,12 @@ const HomePage = () => {
           return <ClassmateCard key={card._id} cardsData={card} />;
         })}
       </div>
+      {!filteredCards.length && !isLoading && (
+        <p className={cnStyles("error-text")}>
+          Вас еще не внесли в список зарегистрированных пользователей.
+          Пожалуйста обратитесь к куратору вашей когорты.
+        </p>
+      )}
       {isLoading && <LoadingSpinner />}
     </main>
   );

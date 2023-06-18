@@ -1,9 +1,13 @@
+import { getCookie } from "./cookie";
 import {
   TProfileId,
   TCards,
   TCommentsResponseDataSet,
   TReactions,
   TUsersResponseDataSet,
+  TRawUser,
+  TUser,
+  TPutUserResponse,
 } from "./types";
 
 export const baseAuthUrl = "https://oauth.yandex.ru";
@@ -80,4 +84,65 @@ export const deleteComment = (_id: string) => {
       "Content-Type": "application/json",
     },
   });
+};
+
+export const updateProfile = async (profile: TProfileId) => {
+  console.log(profile);
+  const res = await fetch(`${baseApiUrl}/profiles/${profile._id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${getCookie("accessToken")}`,
+    },
+    body: JSON.stringify({}),
+  });
+
+  return checkResponse(res);
+};
+
+export const postComment = async (
+  com: { target: string | null; text?: string; emotion?: string },
+  id: string
+) => {
+  const res = await fetch(`/profiles/${id}/reactions`, {
+    method: "POST",
+    headers: {
+      Authorisation: `Bearer ${getCookie("accessToken")}`,
+    },
+    body: JSON.stringify({
+      emotion: com.emotion,
+      target: com.target,
+      text: com.text,
+    }),
+  });
+  return checkResponse<TCommentsResponseDataSet>(res);
+};
+
+export const putUser = async (id: string, { cohort, email }: TRawUser) => {
+  const res = await fetch(`/users/${id}`, {
+    method: "PUT",
+    headers: {
+      Authorisation: `${getCookie("token")}`,
+    },
+    body: JSON.stringify({
+      cohort,
+      email,
+    }),
+  });
+
+  return checkResponse<TPutUserResponse>(res);
+};
+
+export const postUser = async (user: TRawUser) => {
+  const res = await fetch("/users", {
+    method: "POST",
+    headers: {
+      Authorisation: `${getCookie("token")}`,
+    },
+    body: JSON.stringify({
+      user: user,
+    }),
+  });
+
+  return checkResponse<TUser>(res);
 };

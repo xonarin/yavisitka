@@ -6,14 +6,18 @@ import "./InputSuggestView.scss";
 const cnStyles = block("InputSuggest");
 
 interface InputSuggestViewProps {
-  onChange: any;
+  onClick: (value: any) => void;
+  initialValue: string;
 }
 
-const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange }) => {
+const InputSuggestView: FC<InputSuggestViewProps> = ({
+  onClick,
+  initialValue,
+}) => {
   const ymaps = useYMaps(["Map"]);
   const [view, setView] = useState<string[]>();
   const [viewLength, setviewLength] = useState<number>();
-  const [sugval, setSugVal] = useState<string>("");
+  const [sugval, setSugVal] = useState<string>(initialValue);
   const [status, setStatus] = useState<boolean>(false);
 
   const clicks = (e: any) => {
@@ -33,7 +37,6 @@ const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange }) => {
   const geoView = (info: string) => {
     ymaps?.geocode(info, { results: 1 }).then(function (res) {
       const firstGeoObject = res.geoObjects.get(0);
-      // console.log(`Координаты где? Всё на месте: ${firstGeoObject?.geometry?._coordinates}`)
     });
   };
 
@@ -42,6 +45,8 @@ const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange }) => {
     geoView(e.target.innerText);
     setSugVal(e.target.innerText);
     setStatus(false);
+    console.log(e.target.innerText);
+    onClick(e.target.innerText);
   };
 
   return (
@@ -50,15 +55,14 @@ const InputSuggestView: FC<InputSuggestViewProps> = ({ onChange }) => {
         <input
           className={cnStyles("Input")}
           type="text"
-          name="suggest"
-          id="suggest"
+          name="city"
+          id="city"
+          placeholder={initialValue}
           onChange={(e) => {
             clicks(e);
-            onChange(e);
           }}
           onClick={(e) => {
             clicks(e);
-            onChange(e);
           }}
           value={sugval}
           autoComplete="off"
